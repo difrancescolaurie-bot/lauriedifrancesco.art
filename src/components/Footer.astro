@@ -1,5 +1,12 @@
 ---
+import { ui, type Lang } from '../i18n/translations';
+
 const year = new Date().getFullYear();
+const path = Astro.url.pathname;
+const langMatch = path.match(/^\/(fr|it|pt)(\/|$)/);
+const currentLang: Lang = langMatch ? (langMatch[1] as Lang) : 'en';
+const prefix = currentLang === 'en' ? '' : `/${currentLang}`;
+const t = ui[currentLang];
 ---
 
 <footer class="site-footer">
@@ -12,10 +19,10 @@ const year = new Date().getFullYear();
     </div>
 
     <nav class="footer-nav" aria-label="Footer navigation">
-      <a href="/work">Work</a>
-      <a href="/exhibitions">Exhibitions</a>
-      <a href="/about">About</a>
-      <a href="/contact">Contact</a>
+      <a href="/work">{t.nav.work}</a>
+      <a href={`${prefix}/exhibitions`}>{t.nav.exhibitions}</a>
+      <a href={`${prefix}/about`}>{t.nav.about}</a>
+      <a href={`${prefix}/contact`}>{t.nav.contact}</a>
     </nav>
 
     <div class="footer-social">

@@ -7,12 +7,14 @@ interface Props {
   title: string;
   description?: string;
   image?: string;
+  lang?: string;
 }
 
 const {
   title,
   description = "Photography by Laurie Di Francesco",
   image = "/og-default.jpg",
+  lang = "en",
 } = Astro.props;
 
 const siteTitle = title === "Home"
@@ -21,7 +23,7 @@ const siteTitle = title === "Home"
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang={lang}>
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />

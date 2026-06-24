@@ -1,19 +1,43 @@
 ---
+import { ui, type Lang } from '../i18n/translations';
+
+const path = Astro.url.pathname;
+
+// Detect language from URL prefix
+let currentLang: Lang = 'en';
+const langMatch = path.match(/^\/(fr|it|pt)(\/|$)/);
+if (langMatch) currentLang = langMatch[1] as Lang;
+
+// Base path without language prefix (e.g. /fr/about → /about)
+const basePath = path.replace(/^\/(fr|it|pt)(\/|$)/, '/').replace(/\/+$/, '') || '/';
+
+// Build URL for a given language
+function langUrl(lang: Lang): string {
+  const base = basePath === '/' ? '' : basePath;
+  return lang === 'en' ? (base || '/') : `/${lang}${base || ''}`;
+}
+
+// Build nav link for the current language
+function navUrl(page: string): string {
+  return currentLang === 'en' ? `/${page}` : `/${currentLang}/${page}`;
+}
+
+const t = ui[currentLang];
+
 const navLinks = [
-  { label: "Work",        href: "/work" },
-  { label: "Exhibitions", href: "/exhibitions" },
-  { label: "About",       href: "/about" },
-  { label: "Contact",     href: "/contact" },
+  { label: t.nav.work,        href: '/work' },        // Work pages not yet translated
+  { label: t.nav.exhibitions, href: navUrl('exhibitions') },
+  { label: t.nav.about,       href: navUrl('about') },
+  { label: t.nav.contact,     href: navUrl('contact') },
 ];
 
-const langs = ["EN", "FR", "IT", "PT"];
-const currentPath = Astro.url.pathname;
+const langs: Lang[] = ['en', 'fr', 'it', 'pt'];
 ---
 
 <header class="site-header">
   <div class="header-inner container">
 
-    <a href="/" class="logotype" aria-label="Laurie Di Francesco — home">
+    <a href={langUrl('en')} class="logotype" aria-label="Laurie Di Francesco — home">
       Laurie Di&nbsp;Francesco
     </a>
 
@@ -24,7 +48,7 @@ const currentPath = Astro.url.pathname;
           <li>
             <a
               href={link.href}
-              class:list={["nav-link", { active: currentPath.startsWith(link.href) }]}
+              class:list={["nav-link", { active: path.includes(link.href) && link.href !== '/work' }]}
             >
               {link.label}
             </a>
@@ -36,11 +60,11 @@ const currentPath = Astro.url.pathname;
         {langs.map((lang, i) => (
           <>
             <a
-              href="#"
-              class:list={["lang-link", { "lang-active": lang === "EN" }]}
-              aria-current={lang === "EN" ? "true" : undefined}
+              href={langUrl(lang)}
+              class:list={["lang-link", { "lang-active": lang === currentLang }]}
+              aria-current={lang === currentLang ? "true" : undefined}
             >
-              {lang}
+              {lang.toUpperCase()}
             </a>
             {i < langs.length - 1 && <span class="lang-sep" aria-hidden="true">·</span>}
           </>
@@ -66,8 +90,8 @@ const currentPath = Astro.url.pathname;
   <div class="mobile-lang">
     {langs.map((lang, i) => (
       <>
-        <a href="#" class:list={["mobile-lang-link", { "lang-active": lang === "EN" }]}>
-          {lang}
+        <a href={langUrl(lang)} class:list={["mobile-lang-link", { "lang-active": lang === currentLang }]}>
+          {lang.toUpperCase()}
         </a>
         {i < langs.length - 1 && <span class="lang-sep" aria-hidden="true">·</span>}
       </>

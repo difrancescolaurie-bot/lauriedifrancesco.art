@@ -1,0 +1,59 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import '../../styles/pages/about.css';
+import { ui, type Lang } from '../../i18n/translations';
+
+export function getStaticPaths() {
+  return [
+    { params: { lang: 'fr' } },
+    { params: { lang: 'it' } },
+    { params: { lang: 'pt' } },
+  ];
+}
+
+const { lang } = Astro.params;
+const t = ui[lang as Lang].about;
+---
+
+<Layout
+  title={t.pageTitle}
+  description={t.description}
+  lang={lang}
+>
+
+  <!-- ── Titre ────────────────────────────────────────── -->
+  <section class="about-head container">
+    <p class="about-eyebrow">{t.eyebrow}</p>
+    <h1 class="about-h1">Laurie Di Francesco</h1>
+  </section>
+
+  <!-- ── Épigraphe ────────────────────────────────────── -->
+  <div class="about-epi">
+    <blockquote set:html={t.epigraph} />
+    <cite>{t.epigraphCite}</cite>
+  </div>
+
+  <!-- ── Bio ───────────────────────────────────────────── -->
+  <div class="about-bio">
+
+    <div class="bio-portrait">
+      <img
+        src="/images/about-portrait.jpg"
+        alt="Laurie Di Francesco"
+        loading="eager"
+      />
+    </div>
+
+    <p set:html={t.bio.p1} />
+    <p set:html={t.bio.p2} />
+    <p set:html={t.bio.p3} />
+    <p set:html={t.bio.p4} />
+    <p set:html={t.bio.p5} />
+    <p set:html={t.bio.p6} />
+    <p set:html={t.bio.p7} />
+    <p set:html={t.bio.p8} />
+    <p class="bio-inspirations" set:html={t.bio.p9} />
+
+  </div>
+
+</Layout>

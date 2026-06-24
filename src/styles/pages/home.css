@@ -1,0 +1,252 @@
+/* ── Hero ─────────────────────────────────── */
+.hero {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: flex-end;
+  padding-bottom: clamp(3rem, 9vh, 7rem);
+  overflow: hidden;
+}
+
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+}
+
+.hero-bg::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(180deg,
+      rgba(20, 32, 43, .22) 0%,
+      rgba(20, 32, 43, 0)   32%,
+      rgba(20, 32, 43, .62) 100%
+    ),
+    linear-gradient(0deg,
+      rgba(35, 92, 151, .18),
+      rgba(35, 92, 151, 0) 55%
+    );
+  pointer-events: none;
+}
+
+.hero-bg img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  animation: heroFade 8s infinite;
+  will-change: opacity, transform;
+}
+
+@keyframes heroFade {
+  0%   { opacity: 0; transform: scale(1.0) }
+  3%   { opacity: 1 }
+  22%  { opacity: 1 }
+  25%  { opacity: 0; transform: scale(1.04) }
+  100% { opacity: 0; transform: scale(1.04) }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-bg img { animation: none; opacity: 0; }
+  .hero-bg img:first-child { opacity: 1; }
+}
+
+.hero-inner {
+  position: relative;
+  color: #fff;
+  padding-bottom: 0;
+}
+
+.hero h1 {
+  font-family: var(--font-title);
+  font-weight: 300;
+  text-transform: uppercase;
+  font-size: clamp(2.4rem, 9vw, 6.5rem);
+  line-height: 0.97;
+  letter-spacing: clamp(0.05em, 1.2vw, 0.18em);
+}
+
+.hero h1 .l2 { font-weight: 400; }
+
+.hero-horizon {
+  background: #fff;
+  margin: 1.5rem 0 1.1rem;
+}
+
+.hero-tag {
+  font-family: var(--font-body);
+  font-size: clamp(0.9rem, 1.6vw, 1.15rem);
+  font-weight: 300;
+  letter-spacing: 0.01em;
+  opacity: 0.9;
+  max-width: 52ch;
+}
+
+.hero-tag em {
+  font-style: italic;
+  opacity: 0.82;
+}
+
+/* ── Creed / Manifeste ───────────────────── */
+.creed {
+  padding-top: clamp(3rem, 8vh, 7rem);
+  padding-bottom: clamp(2rem, 5vh, 4rem);
+}
+
+.creed-eyebrow {
+  font-family: var(--font-body);
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  color: var(--ardoise);
+  margin-bottom: 2.4rem;
+}
+
+.creed-lines {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2em;
+}
+
+.creed-lines p {
+  font-family: var(--font-title);
+  font-weight: 300;
+  font-size: clamp(1.1rem, 2.4vw, 1.8rem);
+  line-height: 1.25;
+  white-space: nowrap;
+}
+
+.creed-it { color: var(--encre); }
+.creed-fr { color: var(--cerule); }
+.creed-pt { color: var(--ardoise); }
+
+.creed-src {
+  margin-top: 2.5rem;
+  font-family: var(--font-body);
+  font-size: 0.82rem;
+  letter-spacing: 0.04em;
+  color: var(--ardoise);
+  font-style: italic;
+}
+
+/* ── Works ───────────────────────────────── */
+.works {
+  padding-bottom: 0;
+}
+
+.works-horizon {
+  margin-bottom: clamp(2.5rem, 6vh, 4.5rem);
+}
+
+.work-item {
+  display: block;
+  margin-bottom: clamp(4rem, 10vh, 8rem);
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.9s ease, transform 0.9s ease;
+}
+
+.work-item.visible {
+  opacity: 1;
+  transform: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .work-item { opacity: 1; transform: none; transition: none; }
+}
+
+.work-frame {
+  position: relative;
+  overflow: hidden;
+  aspect-ratio: 16 / 10;
+  background: var(--brume);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.work-frame img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 1.2s ease;
+}
+
+.work-item:hover .work-frame img { transform: scale(1.03); }
+
+.work-placeholder-label {
+  font-family: var(--font-body);
+  font-size: 0.75rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--ardoise);
+}
+
+.work-meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.4rem 1.4rem;
+  margin-top: 1.3rem;
+}
+
+.work-category {
+  font-family: var(--font-body);
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  color: var(--cerule);
+  flex: 0 0 auto;
+}
+
+.work-title {
+  font-family: var(--font-title);
+  font-weight: 500;
+  font-size: clamp(1.5rem, 3.8vw, 2.6rem);
+  line-height: 1.08;
+  letter-spacing: 0.005em;
+  flex: 1 1 100%;
+  order: 2;
+  color: var(--encre);
+}
+
+.work-note {
+  order: 3;
+  flex: 1 1 100%;
+  margin-top: 0.6rem;
+  color: var(--ardoise);
+  max-width: 54ch;
+  font-size: 1rem;
+}
+
+.work-enter {
+  order: 4;
+  margin-top: 1rem;
+  font-family: var(--font-body);
+  font-size: 0.74rem;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  color: var(--encre);
+  border-bottom: 1px solid var(--cerule);
+  padding-bottom: 2px;
+  transition: color 0.3s;
+}
+
+.work-item:hover .work-enter { color: var(--cerule); }
+
+/* Mobile */
+@media (max-width: 680px) {
+  .work-frame { aspect-ratio: 3/2; }
+  .creed-lines p { font-size: clamp(1rem, 5.5vw, 1.5rem); white-space: normal; }
+
+  /* Recadrage mobile — ordre héro : hero-2, hero-3, hero-4, hero-1 */
+  .hero-bg img:nth-child(1) { object-position: calc(62% - 15px) center; }
+  .hero-bg img:nth-child(3) { object-position: calc(68% - 45px) center; }
+  .hero-bg img:nth-child(4) { object-position: 25% center; }
+}

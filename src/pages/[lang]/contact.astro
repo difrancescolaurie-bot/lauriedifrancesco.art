@@ -1,0 +1,113 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import '../../styles/pages/contact.css';
+import { ui, type Lang } from '../../i18n/translations';
+
+export function getStaticPaths() {
+  return [
+    { params: { lang: 'fr' } },
+    { params: { lang: 'it' } },
+    { params: { lang: 'pt' } },
+  ];
+}
+
+const { lang } = Astro.params;
+const t = ui[lang as Lang].contact;
+---
+
+<Layout
+  title={t.eyebrow}
+  description={`${t.h1} — Laurie Di Francesco`}
+  lang={lang}
+>
+
+  <!-- ── Titre ────────────────────────────────────────── -->
+  <section class="ct-head container">
+    <p class="ct-eyebrow">{t.eyebrow}</p>
+    <h1 class="ct-h1">{t.h1}</h1>
+    <p class="ct-sub">{t.sub}</p>
+  </section>
+
+  <!-- ── Formulaire ────────────────────────────────────── -->
+  <div class="ct-wrap">
+
+    <form
+      id="contact-form"
+      action="https://api.web3forms.com/submit"
+      method="POST"
+      novalidate
+    >
+      <input type="hidden" name="access_key" value="6f50770e-29b1-49ab-804b-b759c8965999" />
+      <input type="hidden" name="redirect" value="false" />
+      <input type="checkbox" name="botcheck" class="ct-honeypot" aria-hidden="true" tabindex="-1" />
+
+      <div class="ct-field">
+        <label for="name">{t.labels.name}</label>
+        <input type="text" id="name" name="name" required autocomplete="name" />
+      </div>
+
+      <div class="ct-field">
+        <label for="email">{t.labels.email}</label>
+        <input type="email" id="email" name="email" required autocomplete="email" />
+      </div>
+
+      <div class="ct-field">
+        <label for="subject">{t.labels.subject}</label>
+        <select id="subject" name="subject" required>
+          <option value="" disabled selected>{t.placeholder}</option>
+          <option value="Commission">{t.options.commission}</option>
+          <option value="Collaboration">{t.options.collaboration}</option>
+          <option value="Press">{t.options.press}</option>
+          <option value="Other">{t.options.other}</option>
+        </select>
+      </div>
+
+      <div class="ct-field">
+        <label for="message">{t.labels.message}</label>
+        <textarea id="message" name="message" rows="6" required></textarea>
+      </div>
+
+      <button type="submit" class="ct-btn">
+        <span class="ct-btn-text">{t.send}</span>
+        <span class="ct-btn-arrow" aria-hidden="true">↗</span>
+      </button>
+
+      <p class="ct-feedback" id="ct-feedback" aria-live="polite"></p>
+    </form>
+
+    <p class="ct-legal">{t.legal}</p>
+
+  </div>
+
+</Layout>
+
+<script define:vars={{ tSending: t.sending, tSuccess: t.success, tError: t.error, tNetworkError: t.networkError, tSend: t.send }}>
+  const form = document.getElementById('contact-form');
+  const feedback = document.getElementById('ct-feedback');
+  const btnText = form?.querySelector('.ct-btn-text');
+
+  form?.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    btnText.textContent = tSending;
+
+    const data = new FormData(form);
+    try {
+      const res = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        body: data,
+      });
+      const json = await res.json();
+      if (json.success) {
+        feedback.textContent = tSuccess;
+        form.reset();
+        btnText.textContent = tSend;
+      } else {
+        feedback.textContent = tError;
+        btnText.textContent = tSend;
+      }
+    } catch {
+      feedback.textContent = tNetworkError;
+      btnText.textContent = tSend;
+    }
+  });
+</script>

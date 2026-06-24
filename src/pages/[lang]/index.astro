@@ -1,6 +1,18 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import '../styles/pages/home.css';
+import Layout from '../../layouts/Layout.astro';
+import '../../styles/pages/home.css';
+import { ui, type Lang } from '../../i18n/translations';
+
+export function getStaticPaths() {
+  return [
+    { params: { lang: 'fr' } },
+    { params: { lang: 'it' } },
+    { params: { lang: 'pt' } },
+  ];
+}
+
+const { lang } = Astro.params;
+const t = ui[lang as Lang].home;
 
 const heroImages = [
   '/images/hero/hero-2.jpg',
@@ -9,48 +21,35 @@ const heroImages = [
   '/images/hero/hero-1.jpg',
 ];
 
-const projects = [
-  {
-    href: '/work/quando-sono-qui',
-    category: 'Brazil · ongoing',
-    title: 'Quando sono qui, non sono là',
-    note: 'Presence and absence in one gesture: being there means missing here. An intimate geography.',
-    image: '/images/work/quando-cover.jpg',
-  },
-  {
-    href: '/work/spilling-beyond-the-lines',
-    category: '',
-    title: 'Spilling Beyond the Lines',
-    note: 'When an outsider\'s gaze rewrote my own — a body of work born from that rupture.',
-    image: '/images/work/spilling-cover.jpg',
-  },
-  {
-    href: '/work/toward-the-blue',
-    category: 'Water & sky',
-    title: 'Toward the Blue',
-    note: 'The body entering water, and the light dissolving in it — a swim toward colour.',
-    image: '/images/work/toward-the-blue-cover.jpg',
-  },
-  {
-    href: '/work/vedere-venezia',
-    category: 'Venice',
-    title: 'Vedere Venezia e Non Morire',
-    note: 'Seeing Venice without dying from it: a city seen from over the cliché\'s shoulder.',
-    image: '/images/work/vedere-venezia-cover.jpg',
-  },
-  {
-    href: '/work/en-corps-en-la-mer',
-    category: 'Sea & body',
-    title: 'En Corps en la Mer',
-    note: '',
-    image: '/images/work/en-corps-cover.jpg',
-  },
+const projectTitles = [
+  'Quando sono qui, non sono là',
+  'Spilling Beyond the Lines',
+  'Toward the Blue',
+  'Vedere Venezia e Non Morire',
+  'En Corps en la Mer',
+];
+
+const projectHrefs = [
+  '/work/quando-sono-qui',
+  '/work/spilling-beyond-the-lines',
+  '/work/toward-the-blue',
+  '/work/vedere-venezia',
+  '/work/en-corps-en-la-mer',
+];
+
+const projectImages = [
+  '/images/work/quando-cover.jpg',
+  '/images/work/spilling-cover.jpg',
+  '/images/work/toward-the-blue-cover.jpg',
+  '/images/work/vedere-venezia-cover.jpg',
+  '/images/work/en-corps-cover.jpg',
 ];
 ---
 
 <Layout
   title="Home"
-  description="Photography by Laurie Di Francesco — là où le bleu du ciel prend de nouvelles nuances"
+  description={t.heroLine1}
+  lang={lang}
 >
 
   <!-- ─── Hero ─────────────────────────────────────────────── -->
@@ -74,8 +73,8 @@ const projects = [
       </h1>
       <hr class="horizon hero-horizon" />
       <p class="hero-tag">
-        Documentary and poetic photography<br />
-        <em>Where the blue of the sky opens into new shades</em>
+        {t.heroLine1}<br />
+        <em>{t.heroLine2}</em>
       </p>
     </div>
 
@@ -83,7 +82,7 @@ const projects = [
 
   <!-- ─── Manifeste trilingue ───────────────────────────────── -->
   <section class="creed container" aria-label="Manifesto">
-    <p class="creed-eyebrow">Work in progress</p>
+    <p class="creed-eyebrow">{t.creedEyebrow}</p>
     <div class="creed-lines">
       <p class="creed-it">Quando sono qui, non sono là.</p>
       <p class="creed-fr">Quand je suis ici, je ne suis pas là-bas.</p>
@@ -94,19 +93,16 @@ const projects = [
   <!-- ─── Aperçu des œuvres ─────────────────────────────────── -->
   <section class="works container" aria-label="Selected work">
 
-    {projects.map(p => (
-      <a class="work-item" href={p.href}>
+    {t.projects.map((p, i) => (
+      <a class="work-item" href={projectHrefs[i]}>
         <div class="work-frame">
-          {p.image
-            ? <img src={p.image} alt={p.title} loading="lazy" />
-            : <span class="work-placeholder-label">{p.title}</span>
-          }
+          <img src={projectImages[i]} alt={projectTitles[i]} loading="lazy" />
         </div>
         <div class="work-meta">
           <span class="work-category">{p.category}</span>
-          <h2 class="work-title">{p.title}</h2>
+          <h2 class="work-title">{projectTitles[i]}</h2>
           <p class="work-note">{p.note}</p>
-          <span class="work-enter">Enter ↗</span>
+          <span class="work-enter">{t.enter}</span>
         </div>
       </a>
     ))}
@@ -114,7 +110,6 @@ const projects = [
   </section>
 
 </Layout>
-
 
 <script>
   const observer = new IntersectionObserver(

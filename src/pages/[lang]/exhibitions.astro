@@ -1,38 +1,32 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import '../styles/pages/exhibitions.css';
+import Layout from '../../layouts/Layout.astro';
+import '../../styles/pages/exhibitions.css';
+import { ui, type Lang } from '../../i18n/translations';
 
-const installationImages = [
-  { src: '/images/exhibitions/PXL_20240724_155308369.MP.jpg', cropLeft: true },
-  { src: '/images/exhibitions/PXL_20240720_030301485.MP.jpg' },
-  { src: '/images/exhibitions/PXL_20240720_030314191.MP~3.jpg' },
-  { src: '/images/exhibitions/PXL_20240724_183757430.MP~2.jpg' },
-  { src: '/images/exhibitions/PXL_20240720_145949249.MP~2.jpg' },
-  { src: '/images/exhibitions/PXL_20240725_153125868.MP.jpg' },
-  { src: '/images/exhibitions/PXL_20240725_153225295.jpg' },
-  { src: '/images/exhibitions/PXL_20240727_160503711.MP.jpg' },
-  { src: '/images/exhibitions/PXL_20240714_152904533.MP.jpg' },
-  { src: '/images/exhibitions/WhatsApp Image 2026-06-24 at 11.09.25.jpg' },
-];
+export function getStaticPaths() {
+  return [
+    { params: { lang: 'fr' } },
+    { params: { lang: 'it' } },
+    { params: { lang: 'pt' } },
+  ];
+}
 
-const videos = [
-  { src: '/videos/loop-print.mp4',  label: 'Printing' },
-  { src: '/videos/loop-frame.mp4',  label: 'Framing' },
-  { src: '/videos/loop-mount.mp4',  label: 'Mounting' },
-];
+const { lang } = Astro.params;
+const t = ui[lang as Lang].exhibitions;
 ---
 
 <Layout
-  title="Exhibitions"
-  description="Spilling Beyond the Lines — First solo exhibition, Livraria da Rua, Belo Horizonte, Brazil, July 2024."
+  title={t.eyebrow}
+  description={`Spilling Beyond the Lines — ${t.metaFirst}, Livraria da Rua, Belo Horizonte, Brazil, July 2024.`}
+  lang={lang}
 >
 
   <!-- ── Titre ──────────────────────────────────────────────── -->
   <section class="ex-head container">
-    <p class="ex-eyebrow">Exhibitions</p>
+    <p class="ex-eyebrow">{t.eyebrow}</p>
     <h1 class="ex-h1">Spilling Beyond the Lines</h1>
     <p class="ex-meta">
-      <span class="ex-meta-accent">First solo exhibition</span>
+      <span class="ex-meta-accent">{t.metaFirst}</span>
       &nbsp;·&nbsp; Livraria da Rua — Belo Horizonte, Brazil
       &nbsp;·&nbsp; July 2024
       &nbsp;·&nbsp; Twenty-five photographs
@@ -66,9 +60,9 @@ const videos = [
         <span class="ex-artwork-border"></span>
         <div>
           <p class="ex-artwork-title-pt">Crianças no parque brincando nos chafarizes</p>
-          <p class="ex-artwork-title-en">Children playing in the park fountains</p>
+          <p class="ex-artwork-title-en">{t.artworkTitle}</p>
           <p class="ex-artwork-tech">Paris, 2010 · analogue camera</p>
-          <p class="ex-artwork-status">The largest work in the exhibition — acquired into a private collection.</p>
+          <p class="ex-artwork-status">{t.artworkStatus}</p>
         </div>
       </div>
     </div>
@@ -76,17 +70,10 @@ const videos = [
 
   <!-- ── Texte d'intro ─────────────────────────────────────── -->
   <div class="ex-intro rv">
-    <p class="ex-intro-label">The exhibition</p>
-    <p class="ex-intro-text">
-      The work that became <em>Spilling Beyond the Lines</em> was first shown here,
-      in a solo exhibition of twenty-five photographs built around a single question:
-      what a border truly separates. Portraits and landscapes hung in counterpoint —
-      faces and places gathered across continents, each one singular, set side by side
-      until they began to answer one another. The series has since been carried further,
-      and completed, as the project shown on this site.
-    </p>
+    <p class="ex-intro-label">{t.introLabel}</p>
+    <p class="ex-intro-text" set:html={t.introText} />
     <a class="ex-link" href="/work/spilling-beyond-the-lines">
-      View the project — Spilling Beyond the Lines →
+      {t.viewProject}
     </a>
   </div>
 
@@ -139,28 +126,28 @@ const videos = [
 
   <!-- ── Impression / Encadrement / Montage ────────────────── -->
   <div class="ex-craft">
-    <p class="ex-craft-eyebrow">Printing, framing &amp; mounting</p>
-    <p class="ex-craft-sub">The craft behind the show</p>
+    <p class="ex-craft-eyebrow">{t.craftEyebrow}</p>
+    <p class="ex-craft-sub">{t.craftSub}</p>
 
     <div class="ex-videos">
 
       <div class="ex-video-col">
         <video src="/videos/loop-print.mp4" autoplay muted loop playsinline class="ex-video"></video>
-        <p class="ex-video-label">Printing</p>
+        <p class="ex-video-label">{t.videoLabels.print}</p>
         <p class="ex-credit-name">Luiz Rodrigo Cerqueira, Studio Artmosphere, Belo Horizonte.</p>
         <p class="ex-credit-detail">Archival pigment print on Hahnemühle Studio Enhanced 210 gsm · Canon imagePROGRAF PRO-6000 · LUCIA PRO pigment inks · Artmosphere colour profile.</p>
       </div>
 
       <div class="ex-video-col">
         <video src="/videos/loop-frame.mp4" autoplay muted loop playsinline class="ex-video"></video>
-        <p class="ex-video-label">Framing</p>
+        <p class="ex-video-label">{t.videoLabels.frame}</p>
         <p class="ex-credit-name">Hugo Baumecker, Atelier Baumecker, Belo Horizonte.</p>
         <p class="ex-credit-detail">Conservation framing in treated and sealed natural wood; neutral foamboard mount with neutral adhesives and/or neutral passe-partout; protected with corrugated backing, kraft tape and 2 mm clear crystal glass; structured back-box and hangers.</p>
       </div>
 
       <div class="ex-video-col">
         <video src="/videos/loop-mount.mp4" autoplay muted loop playsinline class="ex-video"></video>
-        <p class="ex-video-label">Mounting &amp; hanging</p>
+        <p class="ex-video-label">{t.videoLabels.mount}</p>
         <p class="ex-credit-name">Jackson de Souza Cardoso de Albuquerque, Contemporânea Art Gallery, Belo Horizonte.</p>
       </div>
 
@@ -169,22 +156,13 @@ const videos = [
 
   <!-- ── Remerciements ─────────────────────────────────────── -->
   <div class="ex-thanks rv">
-    <p class="ex-thanks-label">Acknowledgements</p>
-    <p class="ex-thanks-text">
-      Special thanks to Mathilde, Gautier, Zé, Soraia, Rafa, Marie-Françoise, Ulisses,
-      Verônica, Paulo and Cris, for their precious support and encouragement throughout
-      this project. Thank you to Studio Artmosphere, Hugo Baumecker and Jackson for their
-      remarkable work and professionalism. And thank you to every friend who came to the
-      opening — your presence was deeply moving. I owe you all so much. May the adventure
-      continue.
-    </p>
+    <p class="ex-thanks-label">{t.thanksLabel}</p>
+    <p class="ex-thanks-text">{t.thanksText}</p>
   </div>
 
 </Layout>
 
-
 <script>
-  /* ── Justified artwork pair ─────────────────────────── */
   function justifyArtwork() {
     const pair = document.getElementById('artwork-pair');
     if (!pair) return;
@@ -209,7 +187,6 @@ const videos = [
     });
   }
 
-  /* ── Scroll reveal ──────────────────────────────────── */
   const observer = new IntersectionObserver(
     entries => entries.forEach(e => {
       if (e.isIntersecting) { e.target.classList.add('in'); observer.unobserve(e.target); }
