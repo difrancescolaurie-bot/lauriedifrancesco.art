@@ -212,7 +212,7 @@ const projects = [
 
   /* ── Creed / Manifeste ───────────────────── */
   .creed {
-    padding-top: clamp(5rem, 14vh, 11rem);
+    padding-top: clamp(3rem, 8vh, 7rem);
     padding-bottom: clamp(2rem, 5vh, 4rem);
   }
 
@@ -361,13 +361,13 @@ const projects = [
 
   /* Mobile */
   @media (max-width: 680px) {
-    .work-frame { aspect-ratio: 4/5; }
+    .work-frame { aspect-ratio: 3/2; }
     .creed-lines p { font-size: clamp(1rem, 5.5vw, 1.5rem); white-space: normal; }
 
     /* Recadrage mobile — ordre héro : hero-2, hero-3, hero-4, hero-1 */
-    .hero-bg img:nth-child(1) { object-position: calc(25% + 15px) center; } /* hero-2, garçon */
+    .hero-bg img:nth-child(1) { object-position: 25% center; }              /* hero-2, garçon */
     /* hero-3 :nth-child(2) : center par défaut */
-    .hero-bg img:nth-child(3) { object-position: calc(50% - 30px) center; } /* hero-4, jeune fille */
+    .hero-bg img:nth-child(3) { object-position: calc(50% - 60px) center; } /* hero-4, jeune fille */
     .hero-bg img:nth-child(4) { object-position: 25% center; }              /* hero-1 */
   }
 </style>

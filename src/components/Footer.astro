@@ -8,7 +8,7 @@ const year = new Date().getFullYear();
     <div class="footer-top">
       <p class="logotype footer-name">Laurie Di&nbsp;Francesco</p>
       <span class="horizon"></span>
-      <p class="footer-tagline">là où le bleu du ciel prend de nouvelles nuances</p>
+      <p class="footer-tagline">Documentary and poetic photography<br /><em>Where the blue of the sky opens into new shades</em></p>
     </div>
 
     <nav class="footer-nav" aria-label="Footer navigation">
@@ -19,7 +19,12 @@ const year = new Date().getFullYear();
     </nav>
 
     <div class="footer-social">
-      <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+      <a href="https://www.instagram.com/laurie.difrancesco/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+        <svg aria-hidden="true" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+          <circle cx="12" cy="12" r="4"/>
+          <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/>
+        </svg>
         Instagram
       </a>
     </div>
@@ -91,6 +96,9 @@ const year = new Date().getFullYear();
   }
 
   .footer-social a {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
     font-family: var(--font-body);
     font-size: 0.8rem;
     letter-spacing: 0.07em;
