@@ -55,7 +55,7 @@ const projects = [
           src={src}
           alt=""
           loading={i === 0 ? 'eager' : 'lazy'}
-          style={`animation-delay: ${i * 5}s`}
+          style={`animation-delay: ${i * 4}s`}
         />
       ))}
     </div>
@@ -155,7 +155,7 @@ const projects = [
     height: 100%;
     object-fit: cover;
     opacity: 0;
-    animation: heroFade 25s infinite;
+    animation: heroFade 16s infinite;
     will-change: opacity, transform;
   }
 
@@ -364,9 +364,9 @@ const projects = [
 
     /* Recadrage mobile : point de focus de chaque photo */
     .hero-bg img:nth-child(1) { object-position: 25% center; }
-    .hero-bg img:nth-child(2) { object-position: 62% center; }
+    .hero-bg img:nth-child(2) { object-position: calc(62% + 15px) center; }
     /* photo 3 : center par défaut, rien à changer */
-    .hero-bg img:nth-child(4) { object-position: 68% center; }
+    .hero-bg img:nth-child(4) { object-position: calc(68% - 15px) center; }
   }
 </style>
 
