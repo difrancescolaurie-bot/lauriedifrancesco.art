@@ -2,41 +2,47 @@
 import Layout from '../layouts/Layout.astro';
 
 const heroImages = [
-  '/images/hero/hero-1.jpg',
   '/images/hero/hero-2.jpg',
   '/images/hero/hero-3.jpg',
   '/images/hero/hero-4.jpg',
-
+  '/images/hero/hero-1.jpg',
 ];
 
 const projects = [
+  {
+    href: '/work/quando-sono-qui',
+    category: 'Brazil · ongoing',
+    title: 'Quando sono qui, non sono là',
+    note: 'Presence and absence in one gesture: being there means missing here. An intimate geography.',
+    image: '/images/work/quando-cover.jpg',
+  },
   {
     href: '/work/spilling-beyond-the-lines',
     category: 'Belo Horizonte · 2024',
     title: 'Spilling Beyond the Lines',
     note: 'When an outsider\'s gaze rewrote my own — a body of work born from that rupture.',
-    image: null,
+    image: '/images/work/spilling-cover.jpg',
   },
   {
     href: '/work/toward-the-blue',
     category: 'Water & sky',
     title: 'Toward the Blue',
     note: 'The body entering water, and the light dissolving in it — a swim toward colour.',
-    image: null,
+    image: '/images/work/toward-the-blue-cover.jpg',
   },
   {
     href: '/work/vedere-venezia',
     category: 'Venice',
     title: 'Vedere Venezia e Non Morire',
     note: 'Seeing Venice without dying from it: a city seen from over the cliché\'s shoulder.',
-    image: null,
+    image: '/images/work/vedere-venezia-cover.jpg',
   },
   {
-    href: '/work/quando-sono-qui',
-    category: 'Brazil · ongoing',
-    title: 'Quando sono qui, non sono là',
-    note: 'Presence and absence in one gesture: being there means missing here. An intimate geography.',
-    image: null,
+    href: '/work/en-corps-en-la-mer',
+    category: 'Sea & body',
+    title: 'En Corps en la Mer',
+    note: '',
+    image: '/images/work/en-corps-cover.jpg',
   },
 ];
 ---
@@ -55,7 +61,7 @@ const projects = [
           src={src}
           alt=""
           loading={i === 0 ? 'eager' : 'lazy'}
-          style={`animation-delay: ${i * 4}s`}
+          style={`animation-delay: ${i * 2}s`}
         />
       ))}
     </div>
@@ -155,15 +161,15 @@ const projects = [
     height: 100%;
     object-fit: cover;
     opacity: 0;
-    animation: heroFade 16s infinite;
+    animation: heroFade 8s infinite;
     will-change: opacity, transform;
   }
 
   @keyframes heroFade {
     0%   { opacity: 0; transform: scale(1.0) }
-    4%   { opacity: 1 }
-    28%  { opacity: 1 }
-    33%  { opacity: 0; transform: scale(1.04) }
+    3%   { opacity: 1 }
+    22%  { opacity: 1 }
+    25%  { opacity: 0; transform: scale(1.04) }
     100% { opacity: 0; transform: scale(1.04) }
   }
 
