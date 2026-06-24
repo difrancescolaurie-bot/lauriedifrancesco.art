@@ -254,7 +254,7 @@ const projects = [
 
   /* ── Works ───────────────────────────────── */
   .works {
-    padding-bottom: clamp(1.5rem, 4vh, 3rem);
+    padding-bottom: 0;
   }
 
   .works-horizon {
@@ -365,10 +365,9 @@ const projects = [
     .creed-lines p { font-size: clamp(1rem, 5.5vw, 1.5rem); white-space: normal; }
 
     /* Recadrage mobile — ordre héro : hero-2, hero-3, hero-4, hero-1 */
-    /* Note: avec object-fit:cover, +px décale la fenêtre vers la gauche de l'image */
-    .hero-bg img:nth-child(1) { object-position: calc(25% + 30px) center; } /* hero-2, garçon */
+    .hero-bg img:nth-child(1) { object-position: calc(62% - 15px) center; } /* hero-2, garçon  */
     /* hero-3 :nth-child(2) : center par défaut */
-    .hero-bg img:nth-child(3) { object-position: calc(50% + 30px) center; } /* hero-4, jeune fille */
+    .hero-bg img:nth-child(3) { object-position: calc(68% - 45px) center; } /* hero-4, jeune fille */
     .hero-bg img:nth-child(4) { object-position: 25% center; }              /* hero-1 */
   }
 </style>
