@@ -1,0 +1,93 @@
+/* ─── Google Fonts ───────────────────────────────────── */
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600&family=Hanken+Grotesk:wght@300;400;500&display=swap');
+
+/* ─── Palette ────────────────────────────────────────── */
+:root {
+  --encre:         #14202B;
+  --cerule:        #235C97;
+  --brume:         #C6D3DC;
+  --brume-claire:  #F1F4F5;
+  --ardoise:       #5C6B76;
+  --blanc:         #FBFCFC;
+
+  --font-title: 'Manrope', sans-serif;
+  --font-body:  'Hanken Grotesk', sans-serif;
+
+  --horizon-width: 64px;
+  --horizon-height: 1.5px;
+
+  --max-width: 1200px;
+  --gutter: clamp(1.25rem, 4vw, 3rem);
+}
+
+/* ─── Reset ──────────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  font-family: var(--font-body);
+  background: var(--brume-claire);
+  color: var(--encre);
+  line-height: 1.65;
+  min-height: 100dvh;
+}
+
+img, video { display: block; max-width: 100%; }
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* ─── Ligne d'horizon ────────────────────────────────── */
+.horizon {
+  display: block;
+  width: var(--horizon-width);
+  height: var(--horizon-height);
+  background: var(--cerule);
+  border: none;
+  margin: 0;
+  flex-shrink: 0;
+}
+
+.horizon--full {
+  width: 100%;
+}
+
+.horizon--center {
+  margin-inline: auto;
+}
+
+/* ─── Logotype ───────────────────────────────────────── */
+.logotype {
+  font-family: var(--font-title);
+  font-weight: 400;
+  font-size: clamp(0.7rem, 1.4vw, 0.85rem);
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--blanc);
+  white-space: nowrap;
+}
+
+/* ─── Utilities ──────────────────────────────────────── */
+.visually-hidden {
+  position: absolute;
+  width: 1px; height: 1px;
+  padding: 0; margin: -1px;
+  overflow: hidden;
+  clip: rect(0,0,0,0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.container {
+  width: 100%;
+  max-width: var(--max-width);
+  margin-inline: auto;
+  padding-inline: var(--gutter);
+}

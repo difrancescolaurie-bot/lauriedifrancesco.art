@@ -1,0 +1,272 @@
+---
+const navLinks = [
+  { label: "Work",        href: "/work" },
+  { label: "Exhibitions", href: "/exhibitions" },
+  { label: "About",       href: "/about" },
+  { label: "Contact",     href: "/contact" },
+];
+
+const langs = ["EN", "FR", "IT", "PT"];
+const currentPath = Astro.url.pathname;
+---
+
+<header class="site-header">
+  <div class="header-inner container">
+
+    <a href="/" class="logotype" aria-label="Laurie Di Francesco — home">
+      Laurie Di&nbsp;Francesco
+    </a>
+
+    <!-- Desktop nav -->
+    <nav class="header-nav" aria-label="Main navigation">
+      <ul role="list">
+        {navLinks.map(link => (
+          <li>
+            <a
+              href={link.href}
+              class:list={["nav-link", { active: currentPath.startsWith(link.href) }]}
+            >
+              {link.label}
+            </a>
+          </li>
+        ))}
+      </ul>
+
+      <div class="lang-selector" aria-label="Language selector">
+        {langs.map((lang, i) => (
+          <>
+            <a
+              href="#"
+              class:list={["lang-link", { "lang-active": lang === "EN" }]}
+              aria-current={lang === "EN" ? "true" : undefined}
+            >
+              {lang}
+            </a>
+            {i < langs.length - 1 && <span class="lang-sep" aria-hidden="true">·</span>}
+          </>
+        ))}
+      </div>
+    </nav>
+
+    <!-- Mobile burger button -->
+    <button class="burger" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu">
+      <span></span><span></span><span></span>
+    </button>
+
+  </div>
+</header>
+
+<!-- Mobile menu panel -->
+<div class="mobile-menu" id="mobile-menu" aria-hidden="true">
+  <nav aria-label="Mobile navigation">
+    {navLinks.map(link => (
+      <a href={link.href} class="mobile-nav-link">{link.label}</a>
+    ))}
+  </nav>
+  <div class="mobile-lang">
+    {langs.map((lang, i) => (
+      <>
+        <a href="#" class:list={["mobile-lang-link", { "lang-active": lang === "EN" }]}>
+          {lang}
+        </a>
+        {i < langs.length - 1 && <span class="lang-sep" aria-hidden="true">·</span>}
+      </>
+    ))}
+  </div>
+</div>
+
+<style>
+  .site-header {
+    position: fixed;
+    inset: 0 0 auto 0;
+    z-index: 100;
+    background: linear-gradient(
+      to bottom,
+      rgba(20, 32, 43, 0.82) 0%,
+      rgba(20, 32, 43, 0.0) 100%
+    );
+    padding-block: 1.25rem 2rem;
+  }
+
+  .header-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+  }
+
+  /* ── Desktop nav ── */
+  .header-nav {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+  }
+
+  .header-nav ul {
+    list-style: none;
+    display: flex;
+    gap: 1.75rem;
+  }
+
+  .nav-link {
+    font-family: var(--font-body);
+    font-size: 0.8rem;
+    font-weight: 400;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: rgba(251, 252, 252, 0.78);
+    transition: color 0.2s;
+  }
+
+  .nav-link:hover,
+  .nav-link.active { color: var(--blanc); }
+
+  .lang-selector {
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+    border-left: 1px solid rgba(198, 211, 220, 0.3);
+    padding-left: 1.5rem;
+  }
+
+  .lang-link {
+    font-family: var(--font-body);
+    font-size: 0.72rem;
+    font-weight: 400;
+    letter-spacing: 0.06em;
+    color: rgba(251, 252, 252, 0.5);
+    transition: color 0.2s;
+  }
+
+  .lang-link:hover { color: rgba(251, 252, 252, 0.85); }
+
+  .lang-active {
+    color: var(--blanc) !important;
+    font-weight: 500;
+  }
+
+  .lang-sep {
+    color: rgba(198, 211, 220, 0.4);
+    font-size: 0.72rem;
+    user-select: none;
+  }
+
+  /* ── Burger button (mobile only) ── */
+  .burger {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 4px;
+  }
+
+  .burger span {
+    display: block;
+    width: 22px;
+    height: 1.5px;
+    background: rgba(251, 252, 252, 0.85);
+    transition: transform 0.25s, opacity 0.25s;
+  }
+
+  /* open state */
+  .burger[aria-expanded="true"] span:nth-child(1) {
+    transform: translateY(6.5px) rotate(45deg);
+  }
+  .burger[aria-expanded="true"] span:nth-child(2) {
+    opacity: 0;
+  }
+  .burger[aria-expanded="true"] span:nth-child(3) {
+    transform: translateY(-6.5px) rotate(-45deg);
+  }
+
+  /* ── Mobile menu panel ── */
+  .mobile-menu {
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 99;
+    background: rgba(20, 32, 43, 0.97);
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    padding: 3rem var(--gutter);
+    gap: 0;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s;
+  }
+
+  .mobile-menu.open {
+    opacity: 1;
+    pointer-events: all;
+  }
+
+  .mobile-menu nav {
+    display: flex;
+    flex-direction: column;
+    gap: 0.15rem;
+    margin-bottom: 2.5rem;
+  }
+
+  .mobile-nav-link {
+    font-family: var(--font-title);
+    font-weight: 300;
+    font-size: clamp(2.2rem, 10vw, 3rem);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: rgba(251, 252, 252, 0.85);
+    line-height: 1.3;
+    transition: color 0.2s;
+  }
+
+  .mobile-nav-link:hover { color: var(--blanc); }
+
+  .mobile-lang {
+    display: flex;
+    gap: 0.4rem;
+    align-items: center;
+  }
+
+  .mobile-lang-link {
+    font-family: var(--font-body);
+    font-size: 0.8rem;
+    letter-spacing: 0.1em;
+    color: rgba(251, 252, 252, 0.45);
+    transition: color 0.2s;
+  }
+
+  .mobile-lang-link.lang-active { color: var(--blanc); font-weight: 500; }
+  .mobile-lang-link:hover { color: rgba(251, 252, 252, 0.85); }
+
+  /* ── Responsive ── */
+  @media (max-width: 680px) {
+    .header-nav { display: none; }
+    .burger    { display: flex; }
+    .mobile-menu { display: flex; }
+  }
+</style>
+
+<script>
+  const burger = document.querySelector('.burger') as HTMLButtonElement;
+  const menu   = document.querySelector('.mobile-menu') as HTMLElement;
+
+  burger?.addEventListener('click', () => {
+    const open = burger.getAttribute('aria-expanded') === 'true';
+    burger.setAttribute('aria-expanded', String(!open));
+    menu.setAttribute('aria-hidden', String(open));
+    menu.classList.toggle('open', !open);
+    document.body.style.overflow = open ? '' : 'hidden';
+  });
+
+  // Close when a link is clicked
+  menu?.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+      burger.setAttribute('aria-expanded', 'false');
+      menu.setAttribute('aria-hidden', 'true');
+      menu.classList.remove('open');
+      document.body.style.overflow = '';
+    });
+  });
+</script>

@@ -1,0 +1,570 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+const SQ = 'https://images.squarespace-cdn.com/content/v1/5fa6cb9fbca79b7a7020b762';
+const s = (path: string) => `/images/spilling/${path}`;
+
+type Photo = { src: string; full: string; n: number; figClass?: string };
+type Spread = {
+  type: 'row' | 'single' | 'composed';
+  photos: Photo[];
+  caption?: string;
+  captionStyle?: 'prose';
+  noLand?: boolean;
+};
+
+const local = (file: string, n: number, figClass?: string): Photo => ({
+  src: s(file), full: s(file), n, ...(figClass && { figClass })
+});
+
+const spreads: Spread[] = [
+  // Photos 1–2
+  { type: 'row', photos: [local('1.jpg',1), local('2.jpg',2)] },
+  // Photos 3–6
+  { type: 'row', photos: [local('3.jpg',3), local('4.jpg',4), local('5.jpg',5), local('6.jpg',6)] },
+  // Photos 7–10 + caption
+  { type: 'row', photos: [local('7.jpg',7), local('8.jpg',8), local('9.jpg',9), local('10.jpg',10)],
+    caption: 'Neither quite a departure nor truly a return, but a way of inhabiting thresholds, passages, the folds of an inner geography.' },
+  // Photos 11–13 (triptyque composé)
+  { type: 'composed', photos: [local('11.jpg',11), local('12.jpg',12), local('13.jpg',13)] },
+  // Photos 14–17
+  { type: 'row', photos: [local('14.jpg',14), local('15.jpg',15), local('16.jpg',16), local('17.jpg',17)] },
+  // Photos 18–21 (21 = match)
+  { type: 'row', photos: [local('18.jpg',18), local('19.jpg',19), local('20.jpg',20), local('21.jpg',21)] },
+  // Photos 22–23
+  { type: 'row', photos: [local('22.jpg',22), local('23.jpg',23)] },
+  // Photos 24–25
+  { type: 'row', photos: [local('24.jpg',24), local('25.jpg',25)] },
+  // Photos 26–29
+  { type: 'row', photos: [local('26.jpg',26), local('27.jpg',27), local('28.jpg',28), local('29.jpg',29)] },
+  // Photo 30 (single) + caption
+  { type: 'single', photos: [local('30.jpg',30)],
+    caption: 'Spilling beyond the lines lets contours tremble, space open, certainties pause.' },
+  // Photos 31–34
+  { type: 'row', photos: [local('31.jpg',31), local('32.jpg',32), local('33.jpg',33), local('34.jpg',34)] },
+  // Photos 35–38
+  { type: 'row', photos: [local('35.jpg',35), local('36.jpg',36), local('37.jpg',37), local('38.jpg',38)] },
+  // Photo 39 (paysage seule)
+  { type: 'single', photos: [local('39.jpg',39)] },
+  // Photos 40–41 (portraits)
+  { type: 'row', photos: [local('40.jpg',40), local('41.jpg',41)] },
+  // Photos 42–43 (portraits)
+  { type: 'row', photos: [local('42.jpg',42), local('43.jpg',43)] },
+  // Photo 44 (paysage seule)
+  { type: 'single', photos: [local('44.jpg',44)] },
+  // Photos 45–46 + caption prose
+  { type: 'row', photos: [local('45.jpg',45), local('46.jpg',46)],
+    caption: 'For me, photography is a way of remaining in motion without fleeing, of entering into contact without imposing — of capturing that fleeting je-ne-sais-quoi that connects and reveals.',
+    captionStyle: 'prose' },
+  // Photos 47–48 (paysage, cadrées en 3:2 comme photo 22)
+  { type: 'row', photos: [local('47.jpg',47,'land-crop'), local('48.jpg',48)] },
+];
+---
+
+<Layout
+  title="Spilling Beyond the Lines — Laurie Di Francesco"
+  description="A photobook born from displacement and the question of borders — Belo Horizonte, Brazil, 2024."
+>
+
+  <!-- ── Hero ─────────────────────────────────────────────── -->
+  <section class="phero">
+    <div class="phero-bg" aria-hidden="true">
+      <img
+        src={`${SQ}/5990bdbc-6934-4b56-83f4-dbf6b482b858/Tapajos+ok.jpg?format=2000w`}
+        alt=""
+        loading="eager"
+      />
+    </div>
+    <div class="phero-inner container">
+      <h1>Spilling Beyond<br /><strong>the Lines</strong></h1>
+    </div>
+  </section>
+
+  <!-- ── Intro ─────────────────────────────────────────────── -->
+  <section class="intro">
+    <blockquote class="epi">
+      <p class="epi-text">
+        Por algum tempo<br />
+        Que afinal passou depressa, como tudo tem de passar<br />
+        Hoje eu me sinto<br />
+        Como se ter ido fosse necessário para voltar<br />
+        Tanto mais vivo<br />
+        De vida mais vivida, dividida pra lá e pra cá
+      </p>
+      <cite>Gilberto Gil — Back in Bahia</cite>
+    </blockquote>
+
+    <p class="intro-text">This project, first conceived as an exhibition and later as a photobook, emerged at the end of a chapter of life marked by displacement. It was built from personal archives — images gathered over more than fifteen years, across several continents — less the record of a single journey than a slow sedimentation of places, encounters, and light.</p>
+
+    <p class="intro-text">It was within this context that the question of borders asserted itself with force — visible or invisible boundaries drawn between bodies, territories, and narratives. These images, portraits, vegetation, textures, structures, form a sensitive cartography in which each photograph gently attempts to shift perception.</p>
+  </section>
+
+  <!-- ── Série photographique ──────────────────────────────── -->
+  <div class="series">
+    {spreads.map((spread) => (
+      <>
+        <div class={`spread spread--${spread.type} rv`}>
+          {spread.photos.map((photo) => (
+            <figure class={photo.figClass}>
+              <img
+                src={photo.src}
+                data-full={photo.full}
+                alt={`Spilling Beyond the Lines — photo ${photo.n}`}
+                loading="lazy"
+              />
+            </figure>
+          ))}
+        </div>
+        {spread.caption && (
+          <p class={`series-caption${spread.captionStyle === 'prose' ? ' series-caption--prose' : ''} rv`}>
+            {spread.caption}
+          </p>
+        )}
+      </>
+    ))}
+  </div>
+
+  <!-- ── Projet suivant ─────────────────────────────────────── -->
+  <div class="next-project container">
+    <span class="next-label">Next project</span>
+    <a href="/work/toward-the-blue">Toward the Blue →</a>
+  </div>
+
+</Layout>
+
+<style is:global>
+
+  /* ── Hero projet ──────────────────────────────────── */
+  .phero {
+    position: relative;
+    min-height: 90vh;
+    display: flex;
+    align-items: flex-end;
+    padding-bottom: clamp(3rem, 8vh, 6rem);
+    overflow: hidden;
+  }
+
+  .phero-bg {
+    position: absolute;
+    inset: 0;
+    z-index: -2;
+  }
+
+  .phero-bg img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .phero-bg::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      linear-gradient(180deg, rgba(20,32,43,.18) 0%, rgba(20,32,43,0) 38%, rgba(20,32,43,.62) 100%);
+  }
+
+  .phero-inner {
+    position: relative;
+    color: #fff;
+  }
+
+  .phero-eyebrow {
+    font-family: var(--font-body);
+    font-size: .74rem;
+    text-transform: uppercase;
+    letter-spacing: .18em;
+    color: rgba(255,255,255,.86);
+    margin-bottom: 1rem;
+  }
+
+  .phero-inner h1 {
+    font-family: var(--font-title);
+    font-weight: 300;
+    text-transform: uppercase;
+    font-size: clamp(2rem, 7vw, 4.6rem);
+    line-height: 1.02;
+    letter-spacing: clamp(.04em, .8vw, .12em);
+  }
+
+  .phero-inner h1 strong { font-weight: 500; }
+
+  /* ── Intro ────────────────────────────────────────── */
+  .intro {
+    max-width: 1320px;
+    margin-top: clamp(1.5rem, 3vh, 2.5rem);
+    margin-bottom: clamp(1.5rem, 3vh, 2.5rem);
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0 var(--gutter);
+  }
+
+  .intro-text {
+    font-size: clamp(.9rem, 1.3vw, 1.05rem);
+    line-height: 1.75;
+    color: var(--encre);
+    margin-bottom: 1.4rem;
+    text-align: justify;
+  }
+
+  .intro-text em { font-style: italic; }
+
+  .epi {
+    border-left: 2px solid var(--cerule);
+    padding: .2rem 0 .2rem 1.3rem;
+    margin-bottom: 2rem;
+  }
+
+  .epi-text {
+    color: var(--ardoise);
+    font-size: clamp(.88rem, 1.2vw, 1rem);
+    line-height: 1.9;
+    font-style: italic;
+    white-space: pre-line;
+  }
+
+  .epi cite {
+    display: block;
+    margin-top: .9rem;
+    font-style: normal;
+    font-size: .7rem;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+    color: var(--cerule);
+  }
+
+  .pullquote {
+    font-family: var(--font-title);
+    font-weight: 300;
+    color: var(--cerule);
+    font-size: clamp(1.15rem, 2vw, 1.6rem);
+    line-height: 1.3;
+    margin: 1.6rem 0;
+  }
+
+  .series-caption {
+    font-family: var(--font-title);
+    font-weight: 300;
+    color: var(--cerule);
+    font-size: clamp(1rem, 1.8vw, 1.35rem);
+    line-height: 1.4;
+    max-width: 1320px;
+    margin: 1.5rem auto;
+    padding: 0 var(--gutter);
+    text-align: justify;
+  }
+
+  /* Citation "For me..." : même police que les paragraphes intro */
+  .series-caption--prose {
+    font-family: var(--font-body);
+    font-weight: 400;
+    font-size: clamp(.9rem, 1.3vw, 1.05rem);
+    color: var(--encre);
+    line-height: 1.75;
+  }
+
+  /* ── Série ────────────────────────────────────────── */
+  .series {
+    max-width: 1320px;
+    margin: 0 auto;
+    padding: 0 var(--gutter);
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .spread {
+    display: flex;
+    gap: 16px;
+    margin: 0;
+    align-items: flex-start;
+  }
+
+  .spread figure {
+    position: relative;
+    flex-grow: 1;
+    flex-basis: 0;
+    min-width: 0;
+    margin: 0;
+  }
+
+  .spread figure img {
+    display: block;
+    width: 100%;
+    height: auto;
+    cursor: zoom-in;
+  }
+
+  /* Single full-width */
+  .spread--single figure { flex: 1 1 100%; }
+
+  /* Cadrage forcé 3:2 (photo 47 → même format que photo 22) */
+  figure.land-crop {
+    aspect-ratio: 3 / 2;
+    overflow: hidden;
+  }
+  figure.land-crop img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  /* Photo 21 : cadrage match (objet absolu, recadrage gauche) */
+  .spread figure.match {
+    align-self: stretch;
+    overflow: hidden;
+    position: relative;
+  }
+  .spread figure.match img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: left center;
+  }
+
+  /* Composed trio */
+  .spread--composed {
+    align-items: flex-start;
+    justify-content: center;
+    gap: 0;
+    margin-block: clamp(2rem, 5vh, 3.5rem) clamp(6rem, 18vh, 12rem) !important;
+  }
+
+  .spread--composed figure { flex: 0 1 34%; }
+
+  .spread--composed figure:nth-child(1) {
+    transform: translateY(0);
+    z-index: 3;
+    margin-right: -7%;
+  }
+
+  .spread--composed figure:nth-child(2) {
+    transform: translateY(25%);
+    z-index: 2;
+  }
+
+  .spread--composed figure:nth-child(3) {
+    transform: translateY(8%);
+    z-index: 1;
+    margin-left: -5%;
+  }
+
+  .spread--composed img { border-radius: 12px; }
+
+  /* Scroll fade-in */
+  .rv {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity .8s ease, transform .8s ease;
+  }
+
+  .rv.in {
+    opacity: 1;
+    transform: none;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .rv { opacity: 1; transform: none; transition: none; }
+  }
+
+  /* ── Next project ─────────────────────────────────── */
+  .next-project {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 1rem;
+    border-top: 1px solid var(--brume);
+    padding-block: clamp(3rem, 8vh, 6rem);
+    margin-top: clamp(2rem, 5vh, 3rem);
+  }
+
+  .next-label {
+    font-family: var(--font-body);
+    font-size: .72rem;
+    letter-spacing: .16em;
+    text-transform: uppercase;
+    color: var(--ardoise);
+  }
+
+  .next-project a {
+    font-family: var(--font-title);
+    font-weight: 400;
+    font-size: clamp(1.3rem, 3vw, 2rem);
+    text-transform: uppercase;
+    letter-spacing: .06em;
+    color: var(--encre);
+    transition: color .3s;
+  }
+
+  .next-project a:hover { color: var(--cerule); }
+
+  /* ── Mobile ───────────────────────────────────────── */
+  @media (max-width: 700px) {
+    .series { gap: 8px; }
+    .spread { flex-wrap: wrap; gap: 8px; }
+    .spread figure {
+      flex: none !important;
+      width: calc(50% - 4px) !important;
+      transform: none !important;
+      margin: 0 !important;
+    }
+    /* Single et paysage : pleine largeur */
+    .spread--single figure { width: 100% !important; }
+    .spread .land { width: 100% !important; }
+
+    /* Triptyque composé : restaurer l'effet superposé */
+    .spread--composed {
+      flex-wrap: nowrap !important;
+      gap: 0 !important;
+      margin-bottom: 5rem !important;
+    }
+    .spread--composed figure {
+      flex: 0 1 38% !important;
+      width: auto !important;
+    }
+    .spread--composed figure:nth-child(1) {
+      transform: translateY(0) !important;
+      z-index: 3 !important;
+      margin: 0 -7% 0 0 !important;
+    }
+    .spread--composed figure:nth-child(2) {
+      transform: translateY(12%) !important;
+      z-index: 2 !important;
+      margin: 0 !important;
+    }
+    .spread--composed figure:nth-child(3) {
+      transform: translateY(6%) !important;
+      z-index: 1 !important;
+      margin: 0 0 0 -5% !important;
+    }
+  }
+
+  /* ── Lightbox ─────────────────────────────────────── */
+  .lb {
+    position: fixed;
+    inset: 0;
+    background: rgba(20,32,43,.94);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 200;
+    padding: 3vw;
+    cursor: zoom-out;
+  }
+
+  .lb.open { display: flex; }
+
+  .lb img {
+    max-width: 96vw;
+    max-height: 94vh;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    border-radius: 4px;
+    cursor: zoom-out;
+  }
+</style>
+
+<script>
+  // Justified row layout — equal-height rows, proportional widths
+  function justify() {
+    const mob = window.innerWidth <= 700;
+    document.querySelectorAll<HTMLElement>('.spread--row').forEach(row => {
+      const figs = Array.from(row.querySelectorAll<HTMLElement>('figure'));
+      const imgs = figs.map(f => f.querySelector('img') as HTMLImageElement);
+      function apply() {
+        if (mob) { figs.forEach(f => { f.style.flexGrow = ''; }); return; }
+        const asp = imgs.map((im, i) => {
+          if (figs[i].classList.contains('land-crop')) return 3 / 2;
+          return (im.naturalWidth && im.naturalHeight) ? im.naturalWidth / im.naturalHeight : 1;
+        });
+        figs.forEach((f, i) => { f.style.flexGrow = asp[i].toFixed(4); });
+      }
+      if (imgs.every(im => im.complete && im.naturalWidth)) apply();
+      else imgs.forEach(im => im.addEventListener('load', apply));
+    });
+  }
+  justify();
+  window.addEventListener('resize', () => { clearTimeout((window as any)._jt); (window as any)._jt = setTimeout(justify, 150); });
+
+  // Photos paysage : pleine largeur sur mobile, portraits regroupés par 2
+  function tagLandscape() {
+    if (window.innerWidth > 700) return;
+    const imgs = Array.from(document.querySelectorAll<HTMLImageElement>('.spread--row figure img'));
+    let remaining = imgs.filter(img => !img.complete || !img.naturalWidth).length;
+
+    imgs.forEach(img => {
+      function mark() {
+        if (img.naturalWidth && img.naturalHeight && img.naturalWidth / img.naturalHeight > 1.4)
+          img.closest('figure')!.classList.add('land');
+      }
+      if (img.complete && img.naturalWidth) mark();
+      else {
+        img.addEventListener('load', () => { mark(); if (--remaining <= 0) reorgMobile(); }, { once: true });
+        img.addEventListener('error', () => { if (--remaining <= 0) reorgMobile(); }, { once: true });
+      }
+    });
+
+    if (remaining <= 0) reorgMobile();
+  }
+
+  // Regroupe les portraits en paires, isole les paysages sur leur propre ligne
+  function reorgMobile() {
+    if (window.innerWidth > 700) return;
+    document.querySelectorAll<HTMLElement>('.spread--row').forEach(spread => {
+      const figs = Array.from(spread.querySelectorAll<HTMLElement>(':scope > figure'));
+      const lands = figs.filter(f => f.classList.contains('land'));
+      const ports = figs.filter(f => !f.classList.contains('land'));
+      if (!lands.length || !ports.length) return;
+
+      const parent = spread.parentElement!;
+      const anchor = spread.nextSibling;
+      figs.forEach(f => spread.removeChild(f));
+      ports.forEach(f => spread.appendChild(f));
+
+      let ins = anchor;
+      lands.forEach(f => {
+        const row = document.createElement('div');
+        row.className = 'spread spread--row in';
+        row.appendChild(f);
+        parent.insertBefore(row, ins);
+        ins = row.nextSibling;
+      });
+    });
+  }
+
+  tagLandscape();
+  window.addEventListener('resize', () => {
+    clearTimeout((window as any)._lt);
+    (window as any)._lt = setTimeout(() => {
+      document.querySelectorAll('.spread figure').forEach(f => f.classList.remove('land'));
+      tagLandscape();
+    }, 150);
+  });
+
+  // Scroll reveal
+  const obs = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); obs.unobserve(e.target); } });
+  }, { threshold: .06 });
+  document.querySelectorAll('.rv').forEach(el => obs.observe(el));
+
+  // Lightbox
+  const lb = document.createElement('div');
+  lb.className = 'lb';
+  const lbImg = document.createElement('img');
+  lb.appendChild(lbImg);
+  document.body.appendChild(lb);
+
+  document.querySelectorAll<HTMLImageElement>('.series img').forEach(im => {
+    im.addEventListener('click', () => {
+      lbImg.src = im.dataset.full || im.src;
+      lb.classList.add('open');
+    });
+  });
+  lb.addEventListener('click', () => lb.classList.remove('open'));
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') lb.classList.remove('open'); });
+</script>

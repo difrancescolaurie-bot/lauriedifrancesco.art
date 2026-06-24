@@ -1,0 +1,137 @@
+---
+const year = new Date().getFullYear();
+---
+
+<footer class="site-footer">
+  <div class="container footer-inner">
+
+    <div class="footer-top">
+      <p class="logotype footer-name">Laurie Di&nbsp;Francesco</p>
+      <span class="horizon"></span>
+      <p class="footer-tagline">là où le bleu du ciel prend de nouvelles nuances</p>
+    </div>
+
+    <nav class="footer-nav" aria-label="Footer navigation">
+      <a href="/work">Work</a>
+      <a href="/exhibitions">Exhibitions</a>
+      <a href="/about">About</a>
+      <a href="/contact">Contact</a>
+    </nav>
+
+    <div class="footer-social">
+      <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+        Instagram
+      </a>
+    </div>
+
+    <div class="footer-bottom">
+      <p class="footer-copy">&copy; {year} Laurie Di Francesco — All rights reserved</p>
+      <div class="footer-legal-links">
+        <a href="/legal">Legal notice</a>
+        <span aria-hidden="true">·</span>
+        <a href="/legal#privacy">Privacy</a>
+      </div>
+    </div>
+
+  </div>
+</footer>
+
+<style>
+  .site-footer {
+    background: var(--encre);
+    color: var(--brume);
+    padding-block: 3rem 2rem;
+    margin-top: 6rem;
+  }
+
+  .footer-inner {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .footer-top {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .footer-name {
+    font-size: clamp(0.75rem, 1.6vw, 0.9rem);
+    color: var(--blanc);
+  }
+
+  .footer-tagline {
+    font-family: var(--font-body);
+    font-size: 0.82rem;
+    font-weight: 300;
+    font-style: italic;
+    color: var(--ardoise);
+    letter-spacing: 0.03em;
+  }
+
+  .footer-nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem 1.5rem;
+  }
+
+  .footer-nav a {
+    font-family: var(--font-body);
+    font-size: 0.8rem;
+    font-weight: 400;
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+    color: rgba(198, 211, 220, 0.7);
+    transition: color 0.2s;
+  }
+
+  .footer-nav a:hover {
+    color: var(--blanc);
+  }
+
+  .footer-social a {
+    font-family: var(--font-body);
+    font-size: 0.8rem;
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+    color: rgba(198, 211, 220, 0.55);
+    transition: color 0.2s;
+  }
+
+  .footer-social a:hover {
+    color: var(--blanc);
+  }
+
+  .footer-bottom {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.5rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid rgba(198, 211, 220, 0.12);
+  }
+
+  .footer-copy {
+    font-size: 0.72rem;
+    color: var(--ardoise);
+  }
+
+  .footer-legal-links {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+    font-size: 0.72rem;
+    color: var(--ardoise);
+  }
+
+  .footer-legal-links a {
+    color: var(--ardoise);
+    transition: color 0.2s;
+  }
+
+  .footer-legal-links a:hover {
+    color: var(--brume);
+  }
+</style>

@@ -1,0 +1,26 @@
+# Dependencies
+node_modules/
+
+# Build output
+dist/
+.astro/
+
+# Logs
+npm-debug.log*
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Local env
+.env
+.env.local
+
+# Claude Code config
+.claude/
+
+# Prototype / working files (root level)
+*.html
+cahier-de-transmission.md
+guide-demarrage.md
+favicon-horizon.svg

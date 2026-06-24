@@ -1,0 +1,201 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout
+  title="About"
+  description="Laurie Di Francesco — artist-author working through photography and writing."
+>
+
+  <!-- ── Titre ────────────────────────────────────────── -->
+  <section class="about-head container">
+    <p class="about-eyebrow">About</p>
+    <h1 class="about-h1">Laurie Di Francesco</h1>
+  </section>
+
+  <!-- ── Épigraphe Aristote ────────────────────────────── -->
+  <div class="about-epi">
+    <blockquote>
+      All men by nature desire to know. An indication of this is the delight we
+      take in our senses; for even apart from their usefulness they are loved for
+      themselves; and above all others <span class="k">the sense of sight</span>.
+    </blockquote>
+    <cite>Aristotle — Metaphysics, Book A</cite>
+  </div>
+
+  <!-- ── Bio ───────────────────────────────────────────── -->
+  <div class="about-bio">
+
+    <div class="bio-portrait">
+      <img
+        src="/images/about-portrait.jpg"
+        alt="Laurie Di Francesco"
+        loading="eager"
+      />
+    </div>
+
+    <p>Laurie Di Francesco is an artist-author working primarily through photography and writing.</p>
+
+    <p>She grew up between France and Italy. This dual belonging made her grasp, very early,
+    <span class="k">the strength and the fragility of the threshold</span>, and question what
+    it means to be rooted — here or there, elsewhere or nowhere; a displacement that reaches
+    even the language in which she thinks.</p>
+
+    <p><span class="k">The blue of the sky</span>, unchanging on either side of the earth,
+    is a recurring motif in her work — one she questions as a possible anchor to the world.</p>
+
+    <p>The camera — disposables at first, then a point-and-shoot received as a child — became,
+    very early, her way of documenting and linking her two shores. Her work rests on
+    <span class="k">a certain power of gentleness</span>, a counterpoint to the difficulty of
+    inhabiting several places at once and of giving new meaning to the fractures we all carry
+    within. In <em>Toward the Blue</em> or <em>En corps à la mer</em>, this gentleness extends
+    into a dreamlike quality close to <span class="k">magical realism</span>: the real lets
+    itself be crossed by dream without ever quite dissolving into it.</p>
+
+    <p>As a young adult she moved to <span class="k">Brazil</span> — a land of the heart, and
+    of expansion for her practice; she took her first photography classes at twenty, in Rio de
+    Janeiro, at the Ateliê da Imagem. More recently she refined her technique and her art of
+    storytelling at the ENSP in Arles, then alongside professionals such as Fabienne Pavia,
+    Antoine d'Agata and Klavdij Sluban.</p>
+
+    <p>A graduate in philosophy, she approaches art as an <span class="k">existentialist</span>:
+    Nietzsche for perspectivism — not as relativism, but as the demand to multiply points of
+    view; Ricœur for otherness and freedom; Bachelard for the gratuitous beauty of forms. So
+    many ways of thinking what she already practices with a camera: to transfigure the real
+    without idealizing it, in what it holds of light as much as of fragility.</p>
+
+    <p>She exhibited for the first time in Belo Horizonte, Brazil, in 2024 —
+    <em>Déborder les lignes (Spilling Beyond the Lines)</em>, built from archival images.</p>
+
+    <p>Her work continues today across several projects: the threshold, with
+    <em>Quando sono qui, non sono là</em>; the body's relationship to water, in the lineage of
+    <em>En corps à la mer</em>; and, with <em>Is this love that I'm feeling?</em>, love as a
+    possible place to give birth to oneself anew.</p>
+
+    <p class="bio-inspirations">Inspirations: Claudia Andujar, Graciela Iturbide, Luigi Ghirri,
+    Jacques-Henri Lartigue, Manuel Álvarez Bravo, Miguel Rio Branco, José Diniz, Letizia
+    Battaglia, among others.</p>
+
+  </div>
+
+</Layout>
+
+<style is:global>
+
+  /* ── Fond papier chaud (cette page uniquement) ─── */
+  body { background: #ECEAE4; }
+
+  /* ── Titre ───────────────────────────────────────── */
+  .about-head {
+    padding-top: clamp(3rem, 8vh, 5.5rem);
+    padding-bottom: 0;
+  }
+
+  .about-eyebrow {
+    font-family: var(--font-body);
+    font-size: .72rem;
+    text-transform: uppercase;
+    letter-spacing: .2em;
+    color: var(--cerule);
+    margin-bottom: 1rem;
+  }
+
+  .about-h1 {
+    font-family: var(--font-title);
+    font-weight: 300;
+    text-transform: uppercase;
+    letter-spacing: .1em;
+    font-size: clamp(2rem, 5.5vw, 3.4rem);
+    color: var(--encre);
+  }
+
+  /* ── Épigraphe ───────────────────────────────────── */
+  .about-epi {
+    max-width: 74ch;
+    margin: clamp(2rem, 5vh, 3.2rem) auto;
+    padding: 0 var(--gutter);
+  }
+
+  .about-epi blockquote {
+    border-left: 2px solid var(--cerule);
+    padding: .2rem 0 .2rem 1.3rem;
+    font-family: var(--font-title);
+    font-weight: 300;
+    font-style: italic;
+    font-size: clamp(.98rem, 1.4vw, 1.12rem);
+    line-height: 1.5;
+    color: var(--ardoise);
+  }
+
+  .about-epi cite {
+    display: block;
+    margin-top: .8rem;
+    font-style: normal;
+    font-size: .68rem;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+    color: var(--cerule);
+    padding-left: 1.3rem;
+  }
+
+  /* ── Bio ─────────────────────────────────────────── */
+  .about-bio {
+    max-width: 76ch;
+    margin: clamp(2rem, 5vh, 3.2rem) auto clamp(3rem, 8vh, 5rem);
+    padding: 0 var(--gutter);
+    text-align: justify;
+    hyphens: auto;
+    -webkit-hyphens: auto;
+  }
+
+  .about-bio p {
+    font-size: clamp(1.04rem, 1.4vw, 1.18rem);
+    line-height: 1.78;
+    margin-bottom: 1.2rem;
+  }
+
+  .about-bio em { font-style: italic; }
+
+  /* Mots-clés cérulé */
+  .about-bio .k,
+  .about-epi .k {
+    color: var(--cerule);
+    font-weight: 500;
+    font-style: normal;
+  }
+
+  /* Portrait carré flottant */
+  .bio-portrait {
+    float: left;
+    width: clamp(190px, 28vw, 320px);
+    aspect-ratio: 1 / 1;
+    overflow: hidden;
+    margin: .4rem 1.8rem .6rem 0;
+    border-radius: 2px;
+    flex-shrink: 0;
+  }
+
+  .bio-portrait img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: 40% 26%;
+  }
+
+  /* Dernier paragraphe (inspirations) */
+  .bio-inspirations {
+    color: var(--ardoise) !important;
+    font-size: .96rem !important;
+  }
+
+  /* ── Mobile ──────────────────────────────────────── */
+  @media (max-width: 600px) {
+    .about-bio { text-align: left; }
+    /* Portrait reste flottant mais plus petit → texte enroule autour */
+    .bio-portrait {
+      width: clamp(110px, 38vw, 160px);
+      margin: .3rem 1rem .6rem 0;
+    }
+  }
+
+</style>

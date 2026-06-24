@@ -1,0 +1,385 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const heroImages = [
+  '/images/hero/hero-1.jpg',
+  '/images/hero/hero-2.jpg',
+  '/images/hero/hero-3.jpg',
+  '/images/hero/hero-4.jpg',
+
+];
+
+const projects = [
+  {
+    href: '/work/spilling-beyond-the-lines',
+    category: 'Belo Horizonte · 2024',
+    title: 'Spilling Beyond the Lines',
+    note: 'When an outsider\'s gaze rewrote my own — a body of work born from that rupture.',
+    image: null,
+  },
+  {
+    href: '/work/toward-the-blue',
+    category: 'Water & sky',
+    title: 'Toward the Blue',
+    note: 'The body entering water, and the light dissolving in it — a swim toward colour.',
+    image: null,
+  },
+  {
+    href: '/work/vedere-venezia',
+    category: 'Venice',
+    title: 'Vedere Venezia e Non Morire',
+    note: 'Seeing Venice without dying from it: a city seen from over the cliché\'s shoulder.',
+    image: null,
+  },
+  {
+    href: '/work/quando-sono-qui',
+    category: 'Brazil · ongoing',
+    title: 'Quando sono qui, non sono là',
+    note: 'Presence and absence in one gesture: being there means missing here. An intimate geography.',
+    image: null,
+  },
+];
+---
+
+<Layout
+  title="Home"
+  description="Photography by Laurie Di Francesco — là où le bleu du ciel prend de nouvelles nuances"
+>
+
+  <!-- ─── Hero ─────────────────────────────────────────────── -->
+  <section class="hero" aria-label="Hero">
+
+    <div class="hero-bg" aria-hidden="true">
+      {heroImages.map((src, i) => (
+        <img
+          src={src}
+          alt=""
+          loading={i === 0 ? 'eager' : 'lazy'}
+          style={`animation-delay: ${i * 5}s`}
+        />
+      ))}
+    </div>
+
+    <div class="hero-inner container">
+      <h1>
+        Laurie<br />
+        <span class="l2">Di Francesco</span>
+      </h1>
+      <hr class="horizon hero-horizon" />
+      <p class="hero-tag">
+        Photography — <em>là où le bleu du ciel prend de nouvelles nuances</em>
+      </p>
+    </div>
+
+  </section>
+
+  <!-- ─── Manifeste trilingue ───────────────────────────────── -->
+  <section class="creed container" aria-label="Manifesto">
+    <p class="creed-eyebrow">Work in progress</p>
+    <div class="creed-lines">
+      <p class="creed-it">Quando sono qui, non sono là.</p>
+      <p class="creed-fr">Quand je suis ici, je ne suis pas là-bas.</p>
+      <p class="creed-pt">Quando estou aqui, não estou lá.</p>
+    </div>
+    <p class="creed-src">
+      A photographic inquiry — Peruaçu region, Minas Gerais, Xakriabá communities.
+    </p>
+  </section>
+
+  <!-- ─── Aperçu des œuvres ─────────────────────────────────── -->
+  <section class="works container" aria-label="Selected work">
+
+    <hr class="horizon works-horizon" />
+
+    {projects.map(p => (
+      <a class="work-item" href={p.href}>
+        <div class="work-frame">
+          {p.image
+            ? <img src={p.image} alt={p.title} loading="lazy" />
+            : <span class="work-placeholder-label">{p.title}</span>
+          }
+        </div>
+        <div class="work-meta">
+          <span class="work-category">{p.category}</span>
+          <h2 class="work-title">{p.title}</h2>
+          <p class="work-note">{p.note}</p>
+          <span class="work-enter">Enter ↗</span>
+        </div>
+      </a>
+    ))}
+
+  </section>
+
+</Layout>
+
+<style is:global>
+
+  /* ── Hero ─────────────────────────────────── */
+  .hero {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    align-items: flex-end;
+    padding-bottom: clamp(3rem, 9vh, 7rem);
+    overflow: hidden;
+  }
+
+  .hero-bg {
+    position: absolute;
+    inset: 0;
+    z-index: -2;
+  }
+
+  .hero-bg::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      linear-gradient(180deg,
+        rgba(20, 32, 43, .22) 0%,
+        rgba(20, 32, 43, 0)   32%,
+        rgba(20, 32, 43, .62) 100%
+      ),
+      linear-gradient(0deg,
+        rgba(35, 92, 151, .18),
+        rgba(35, 92, 151, 0) 55%
+      );
+    pointer-events: none;
+  }
+
+  .hero-bg img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0;
+    animation: heroFade 25s infinite;
+    will-change: opacity, transform;
+  }
+
+  @keyframes heroFade {
+    0%   { opacity: 0; transform: scale(1.0) }
+    4%   { opacity: 1 }
+    28%  { opacity: 1 }
+    33%  { opacity: 0; transform: scale(1.04) }
+    100% { opacity: 0; transform: scale(1.04) }
+  }
+
+  /* prefers-reduced-motion */
+  @media (prefers-reduced-motion: reduce) {
+    .hero-bg img { animation: none; opacity: 0; }
+    .hero-bg img:first-child { opacity: 1; }
+  }
+
+  .hero-inner {
+    position: relative;
+    color: #fff;
+    padding-bottom: 0;
+  }
+
+  .hero h1 {
+    font-family: var(--font-title);
+    font-weight: 300;
+    text-transform: uppercase;
+    font-size: clamp(2.4rem, 9vw, 6.5rem);
+    line-height: 0.97;
+    letter-spacing: clamp(0.05em, 1.2vw, 0.18em);
+  }
+
+  .hero h1 .l2 { font-weight: 400; }
+
+  .hero-horizon {
+    background: #fff;
+    margin: 1.5rem 0 1.1rem;
+  }
+
+  .hero-tag {
+    font-family: var(--font-body);
+    font-size: clamp(0.9rem, 1.6vw, 1.15rem);
+    font-weight: 300;
+    letter-spacing: 0.01em;
+    opacity: 0.9;
+    max-width: 38ch;
+  }
+
+  .hero-tag em {
+    font-style: italic;
+    opacity: 0.82;
+  }
+
+  /* ── Creed / Manifeste ───────────────────── */
+  .creed {
+    padding-block: clamp(5rem, 14vh, 11rem);
+  }
+
+  .creed-eyebrow {
+    font-family: var(--font-body);
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    color: var(--ardoise);
+    margin-bottom: 2.4rem;
+  }
+
+  .creed-lines {
+    display: flex;
+    flex-direction: column;
+    gap: 0.2em;
+  }
+
+  .creed-lines p {
+    font-family: var(--font-title);
+    font-weight: 300;
+    font-size: clamp(1.5rem, 4.2vw, 3rem);
+    line-height: 1.2;
+    max-width: 22ch;
+  }
+
+  .creed-it { color: var(--encre); }
+  .creed-fr { color: var(--cerule); }
+  .creed-pt { color: var(--ardoise); }
+
+  .creed-src {
+    margin-top: 2.5rem;
+    font-family: var(--font-body);
+    font-size: 0.82rem;
+    letter-spacing: 0.04em;
+    color: var(--ardoise);
+    font-style: italic;
+  }
+
+  /* ── Works ───────────────────────────────── */
+  .works {
+    padding-bottom: clamp(4rem, 10vh, 8rem);
+  }
+
+  .works-horizon {
+    margin-bottom: clamp(2.5rem, 6vh, 4.5rem);
+  }
+
+  .work-item {
+    display: block;
+    margin-bottom: clamp(4rem, 10vh, 8rem);
+    opacity: 0;
+    transform: translateY(28px);
+    transition: opacity 0.9s ease, transform 0.9s ease;
+  }
+
+  .work-item.visible {
+    opacity: 1;
+    transform: none;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .work-item { opacity: 1; transform: none; transition: none; }
+  }
+
+  .work-frame {
+    position: relative;
+    overflow: hidden;
+    aspect-ratio: 16 / 10;
+    background: var(--brume);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .work-frame img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 1.2s ease;
+  }
+
+  .work-item:hover .work-frame img { transform: scale(1.03); }
+
+  .work-placeholder-label {
+    font-family: var(--font-body);
+    font-size: 0.75rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--ardoise);
+  }
+
+  .work-meta {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: 0.4rem 1.4rem;
+    margin-top: 1.3rem;
+  }
+
+  .work-category {
+    font-family: var(--font-body);
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+    color: var(--cerule);
+    flex: 0 0 auto;
+  }
+
+  .work-title {
+    font-family: var(--font-title);
+    font-weight: 500;
+    font-size: clamp(1.5rem, 3.8vw, 2.6rem);
+    line-height: 1.08;
+    letter-spacing: 0.005em;
+    flex: 1 1 100%;
+    order: 2;
+    color: var(--encre);
+  }
+
+  .work-note {
+    order: 3;
+    flex: 1 1 100%;
+    margin-top: 0.6rem;
+    color: var(--ardoise);
+    max-width: 54ch;
+    font-size: 1rem;
+  }
+
+  .work-enter {
+    order: 4;
+    margin-top: 1rem;
+    font-family: var(--font-body);
+    font-size: 0.74rem;
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+    color: var(--encre);
+    border-bottom: 1px solid var(--cerule);
+    padding-bottom: 2px;
+    transition: color 0.3s;
+  }
+
+  .work-item:hover .work-enter { color: var(--cerule); }
+
+  /* Mobile */
+  @media (max-width: 680px) {
+    .work-frame { aspect-ratio: 4/5; }
+    .creed-lines p { font-size: clamp(1.3rem, 7vw, 2rem); }
+
+    /* Recadrage mobile : point de focus de chaque photo */
+    .hero-bg img:nth-child(1) { object-position: 25% center; }
+    .hero-bg img:nth-child(2) { object-position: 62% center; }
+    /* photo 3 : center par défaut, rien à changer */
+    .hero-bg img:nth-child(4) { object-position: 68% center; }
+  }
+</style>
+
+<script>
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.classList.add('visible');
+          observer.unobserve(e.target);
+        }
+      });
+    },
+    { threshold: 0.15 }
+  );
+  document.querySelectorAll('.work-item').forEach(el => observer.observe(el));
+</script>
