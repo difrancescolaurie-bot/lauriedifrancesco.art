@@ -1,0 +1,555 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const installationImages = [
+  { src: '/images/exhibitions/PXL_20240724_155308369.MP.jpg', cropLeft: true },
+  { src: '/images/exhibitions/PXL_20240720_030301485.MP.jpg' },
+  { src: '/images/exhibitions/PXL_20240720_030314191.MP~3.jpg' },
+  { src: '/images/exhibitions/PXL_20240724_183757430.MP~2.jpg' },
+  { src: '/images/exhibitions/PXL_20240720_145949249.MP~2.jpg' },
+  { src: '/images/exhibitions/PXL_20240725_153125868.MP.jpg' },
+  { src: '/images/exhibitions/PXL_20240725_153225295.jpg' },
+  { src: '/images/exhibitions/PXL_20240727_160503711.MP.jpg' },
+  { src: '/images/exhibitions/PXL_20240714_152904533.MP.jpg' },
+  { src: '/images/exhibitions/WhatsApp Image 2026-06-24 at 11.09.25.jpg' },
+];
+
+const videos = [
+  { src: '/videos/loop-print.mp4',  label: 'Printing' },
+  { src: '/videos/loop-frame.mp4',  label: 'Framing' },
+  { src: '/videos/loop-mount.mp4',  label: 'Mounting' },
+];
+---
+
+<Layout
+  title="Exhibitions"
+  description="Spilling Beyond the Lines — First solo exhibition, Livraria da Rua, Belo Horizonte, Brazil, July 2024."
+>
+
+  <!-- ── Titre ──────────────────────────────────────────────── -->
+  <section class="ex-head container">
+    <p class="ex-eyebrow">Exhibitions</p>
+    <h1 class="ex-h1">Spilling Beyond the Lines</h1>
+    <p class="ex-meta">
+      <span class="ex-meta-accent">First solo exhibition</span>
+      &nbsp;·&nbsp; Livraria da Rua — Belo Horizonte, Brazil
+      &nbsp;·&nbsp; July 2024
+      &nbsp;·&nbsp; Twenty-five photographs
+    </p>
+    <hr class="horizon ex-horizon" />
+  </section>
+
+  <!-- ── Bloc œuvre + collectionneurs ──────────────────────── -->
+  <div class="ex-artwork-wrap rv in">
+    <div class="ex-artwork-pair" id="artwork-pair">
+      <figure class="ex-artwork-fig" id="fig-artwork">
+        <img
+          src="/images/exhibitions/artwork.jpg"
+          alt="Crianças no parque brincando nos chafarizes"
+          loading="eager"
+          class="ex-artwork-img"
+        />
+      </figure>
+      <figure class="ex-artwork-fig" id="fig-collectors">
+        <img
+          src="/images/exhibitions/WhatsApp Image 2026-06-24 at 11.26.44.jpg"
+          alt="Collectors with the work"
+          loading="eager"
+          class="ex-artwork-img"
+        />
+      </figure>
+    </div>
+
+    <div class="ex-artwork-caption">
+      <div class="ex-artwork-title-block">
+        <span class="ex-artwork-border"></span>
+        <div>
+          <p class="ex-artwork-title-pt">Crianças no parque brincando nos chafarizes</p>
+          <p class="ex-artwork-title-en">Children playing in the park fountains</p>
+          <p class="ex-artwork-tech">Paris, 2010 · analogue camera</p>
+          <p class="ex-artwork-status">The largest work in the exhibition — acquired into a private collection.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── Texte d'intro ─────────────────────────────────────── -->
+  <div class="ex-intro rv">
+    <p class="ex-intro-label">The exhibition</p>
+    <p class="ex-intro-text">
+      The work that became <em>Spilling Beyond the Lines</em> was first shown here,
+      in a solo exhibition of twenty-five photographs built around a single question:
+      what a border truly separates. Portraits and landscapes hung in counterpoint —
+      faces and places gathered across continents, each one singular, set side by side
+      until they began to answer one another. The series has since been carried further,
+      and completed, as the project shown on this site.
+    </p>
+    <a class="ex-link" href="/work/spilling-beyond-the-lines">
+      View the project — Spilling Beyond the Lines →
+    </a>
+  </div>
+
+  <!-- ── Grille vues d'accrochage ──────────────────────────── -->
+  <div class="ex-grid-wrap">
+
+    <!-- Rangée 1 : 3 photos -->
+    <div class="ex-grid-row">
+      <figure class="ex-grid-fig" style="flex-grow:1.7">
+        <img src="/images/exhibitions/PXL_20240724_155308369.MP.jpg" alt="" loading="lazy" class="ex-grid-img crop-right" />
+      </figure>
+      <figure class="ex-grid-fig" style="flex-grow:1.0">
+        <img src="/images/exhibitions/PXL_20240720_030301485.MP.jpg" alt="" loading="lazy" class="ex-grid-img" />
+      </figure>
+      <figure class="ex-grid-fig" style="flex-grow:1.019">
+        <img src="/images/exhibitions/PXL_20240720_030314191.MP~3.jpg" alt="" loading="lazy" class="ex-grid-img" />
+      </figure>
+    </div>
+
+    <!-- Rangée 2 : 3 photos -->
+    <div class="ex-grid-row">
+      <figure class="ex-grid-fig" style="flex-grow:1.778">
+        <img src="/images/exhibitions/PXL_20240724_183757430.MP~2.jpg" alt="" loading="lazy" class="ex-grid-img" />
+      </figure>
+      <figure class="ex-grid-fig" style="flex-grow:0.667">
+        <img src="/images/exhibitions/PXL_20240720_145949249.MP~2.jpg" alt="" loading="lazy" class="ex-grid-img" />
+      </figure>
+      <figure class="ex-grid-fig" style="flex-grow:1.431">
+        <img src="/images/exhibitions/PXL_20240725_153125868.MP.jpg" alt="" loading="lazy" class="ex-grid-img" />
+      </figure>
+    </div>
+
+    <!-- Rangée 3 : 4 photos -->
+    <div class="ex-grid-row">
+      <figure class="ex-grid-fig" style="flex-grow:0.721">
+        <img src="/images/exhibitions/PXL_20240725_153225295.jpg" alt="" loading="lazy" class="ex-grid-img" />
+      </figure>
+      <figure class="ex-grid-fig" style="flex-grow:0.667">
+        <img src="/images/exhibitions/PXL_20240727_160503711.MP.jpg" alt="" loading="lazy" class="ex-grid-img" />
+      </figure>
+      <figure class="ex-grid-fig" style="flex-grow:0.667">
+        <img src="/images/exhibitions/PXL_20240714_152904533.MP.jpg" alt="" loading="lazy" class="ex-grid-img" />
+      </figure>
+      <figure class="ex-grid-fig" style="flex-grow:0.650">
+        <img src="/images/exhibitions/WhatsApp Image 2026-06-24 at 11.09.25.jpg" alt="" loading="lazy" class="ex-grid-img" />
+      </figure>
+    </div>
+
+  </div>
+
+  <!-- ── Impression / Encadrement / Montage ────────────────── -->
+  <div class="ex-craft">
+    <p class="ex-craft-eyebrow">Printing, framing &amp; mounting</p>
+    <p class="ex-craft-sub">The craft behind the show</p>
+
+    <div class="ex-videos">
+
+      <div class="ex-video-col">
+        <video src="/videos/loop-print.mp4" autoplay muted loop playsinline class="ex-video"></video>
+        <p class="ex-video-label">Printing</p>
+        <p class="ex-credit-name">Luiz Rodrigo Cerqueira, Studio Artmosphere, Belo Horizonte.</p>
+        <p class="ex-credit-detail">Archival pigment print on Hahnemühle Studio Enhanced 210 gsm · Canon imagePROGRAF PRO-6000 · LUCIA PRO pigment inks · Artmosphere colour profile.</p>
+      </div>
+
+      <div class="ex-video-col">
+        <video src="/videos/loop-frame.mp4" autoplay muted loop playsinline class="ex-video"></video>
+        <p class="ex-video-label">Framing</p>
+        <p class="ex-credit-name">Hugo Baumecker, Atelier Baumecker, Belo Horizonte.</p>
+        <p class="ex-credit-detail">Conservation framing in treated and sealed natural wood; neutral foamboard mount with neutral adhesives and/or neutral passe-partout; protected with corrugated backing, kraft tape and 2 mm clear crystal glass; structured back-box and hangers.</p>
+      </div>
+
+      <div class="ex-video-col">
+        <video src="/videos/loop-mount.mp4" autoplay muted loop playsinline class="ex-video"></video>
+        <p class="ex-video-label">Mounting &amp; hanging</p>
+        <p class="ex-credit-name">Jackson de Souza Cardoso de Albuquerque, Contemporânea Art Gallery, Belo Horizonte.</p>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ── Remerciements ─────────────────────────────────────── -->
+  <div class="ex-thanks rv">
+    <p class="ex-thanks-label">Acknowledgements</p>
+    <p class="ex-thanks-text">
+      Special thanks to Mathilde, Gautier, Zé, Soraia, Rafa, Marie-Françoise, Ulisses,
+      Verônica, Paulo and Cris, for their precious support and encouragement throughout
+      this project. Thank you to Studio Artmosphere, Hugo Baumecker and Jackson for their
+      remarkable work and professionalism. And thank you to every friend who came to the
+      opening — your presence was deeply moving. I owe you all so much. May the adventure
+      continue.
+    </p>
+  </div>
+
+</Layout>
+
+<style is:global>
+
+  body { background: #ECEAE4; }
+
+  /* ── Titre ───────────────────────────────────────────── */
+  .ex-head {
+    padding-top: clamp(3rem, 8vh, 5.5rem);
+    padding-bottom: 0;
+  }
+
+  .ex-eyebrow {
+    font-family: var(--font-body);
+    font-size: .72rem;
+    text-transform: uppercase;
+    letter-spacing: .2em;
+    color: var(--cerule);
+    margin-bottom: 1rem;
+  }
+
+  .ex-h1 {
+    font-family: var(--font-title);
+    font-weight: 300;
+    text-transform: uppercase;
+    letter-spacing: .1em;
+    font-size: clamp(1.8rem, 5vw, 3.2rem);
+    color: var(--encre);
+    margin-bottom: 1.2rem;
+  }
+
+  .ex-meta {
+    font-family: var(--font-body);
+    font-size: .78rem;
+    letter-spacing: .06em;
+    color: var(--ardoise);
+    line-height: 1.7;
+  }
+
+  .ex-meta-accent { color: var(--cerule); }
+
+  .ex-horizon {
+    margin-top: 1.6rem;
+    margin-bottom: 0;
+  }
+
+  /* ── Bloc œuvre ──────────────────────────────────────── */
+  .ex-artwork-wrap {
+    max-width: 1320px;
+    margin: clamp(2.5rem, 6vh, 4rem) auto 0;
+    padding: 0 var(--gutter);
+  }
+
+  .ex-artwork-pair {
+    display: flex;
+    gap: 8px;
+    height: clamp(260px, 40vw, 520px);
+  }
+
+  .ex-artwork-fig {
+    flex: 1 1 0;
+    overflow: hidden;
+    margin: 0;
+  }
+
+  .ex-artwork-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+  }
+
+  .ex-artwork-caption {
+    margin-top: 1.2rem;
+  }
+
+  .ex-artwork-title-block {
+    display: flex;
+    gap: 1rem;
+    align-items: flex-start;
+  }
+
+  .ex-artwork-border {
+    display: block;
+    width: 2px;
+    background: var(--cerule);
+    flex-shrink: 0;
+    align-self: stretch;
+    min-height: 1em;
+  }
+
+  .ex-artwork-title-pt {
+    font-family: var(--font-title);
+    font-weight: 300;
+    font-style: italic;
+    font-size: clamp(.95rem, 1.4vw, 1.1rem);
+    color: var(--encre);
+    margin-bottom: .2rem;
+  }
+
+  .ex-artwork-title-en {
+    font-family: var(--font-body);
+    font-size: .78rem;
+    color: var(--ardoise);
+    margin-bottom: .5rem;
+  }
+
+  .ex-artwork-tech {
+    font-family: var(--font-body);
+    font-size: .72rem;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+    color: var(--ardoise);
+    margin-bottom: .4rem;
+  }
+
+  .ex-artwork-status {
+    font-family: var(--font-body);
+    font-size: .82rem;
+    color: var(--cerule);
+    font-style: italic;
+  }
+
+  /* ── Intro ───────────────────────────────────────────── */
+  .ex-intro {
+    max-width: 72ch;
+    margin: clamp(3rem, 7vh, 5rem) auto;
+    padding: 0 var(--gutter);
+  }
+
+  .ex-intro-label {
+    font-family: var(--font-body);
+    font-size: .72rem;
+    text-transform: uppercase;
+    letter-spacing: .18em;
+    color: var(--cerule);
+    margin-bottom: 1.2rem;
+  }
+
+  .ex-intro-text {
+    font-size: clamp(1rem, 1.4vw, 1.12rem);
+    line-height: 1.78;
+    color: var(--encre);
+    text-align: justify;
+    hyphens: auto;
+    -webkit-hyphens: auto;
+    margin-bottom: 1.8rem;
+  }
+
+  .ex-intro em { font-style: italic; }
+
+  .ex-link {
+    font-family: var(--font-body);
+    font-size: .78rem;
+    text-transform: uppercase;
+    letter-spacing: .14em;
+    color: var(--encre);
+    border-bottom: 1px solid var(--cerule);
+    padding-bottom: 2px;
+    transition: color .25s;
+  }
+
+  .ex-link:hover { color: var(--cerule); }
+
+  /* ── Grille installation ─────────────────────────────── */
+  .ex-grid-wrap {
+    max-width: 1320px;
+    margin: 0 auto clamp(3rem, 8vh, 6rem);
+    padding: 0 var(--gutter);
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+  }
+
+  .ex-grid-row {
+    display: flex;
+    gap: 5px;
+    height: clamp(160px, 24vw, 340px);
+  }
+
+  .ex-grid-fig {
+    flex-shrink: 0;
+    overflow: hidden;
+    margin: 0;
+  }
+
+  .ex-grid-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+  }
+
+  .ex-grid-img.crop-right {
+    object-position: right center;
+  }
+
+  /* ── Craft / vidéos ──────────────────────────────────── */
+  .ex-craft {
+    max-width: 1320px;
+    margin: 0 auto;
+    padding: 0 var(--gutter) clamp(3rem, 8vh, 6rem);
+  }
+
+  .ex-craft-eyebrow {
+    font-family: var(--font-body);
+    font-size: .72rem;
+    text-transform: uppercase;
+    letter-spacing: .18em;
+    color: var(--cerule);
+    margin-bottom: .5rem;
+  }
+
+  .ex-craft-sub {
+    font-family: var(--font-title);
+    font-weight: 300;
+    font-size: clamp(1.2rem, 2.5vw, 1.8rem);
+    color: var(--encre);
+    margin-bottom: clamp(1.5rem, 4vh, 3rem);
+  }
+
+  .ex-videos {
+    display: flex;
+    gap: clamp(.8rem, 2vw, 2rem);
+    margin-bottom: clamp(2rem, 5vh, 3.5rem);
+  }
+
+  .ex-video-col {
+    flex: 1 1 0;
+    display: flex;
+    flex-direction: column;
+    gap: .8rem;
+  }
+
+  .ex-video {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    display: block;
+    background: var(--encre);
+  }
+
+  .ex-video-label {
+    font-family: var(--font-body);
+    font-size: .72rem;
+    text-transform: uppercase;
+    letter-spacing: .16em;
+    color: var(--ardoise);
+  }
+
+  /* Crédits */
+  .ex-credits {
+    display: flex;
+    flex-direction: column;
+    gap: 1.4rem;
+    max-width: 72ch;
+  }
+
+  .ex-credit-role {
+    font-family: var(--font-body);
+    font-size: .72rem;
+    text-transform: uppercase;
+    letter-spacing: .14em;
+    color: var(--cerule);
+    margin-bottom: .3rem;
+  }
+
+  .ex-credit-name {
+    font-family: var(--font-body);
+    font-size: .9rem;
+    color: var(--encre);
+    margin-bottom: .2rem;
+  }
+
+  .ex-credit-detail {
+    font-family: var(--font-body);
+    font-size: .78rem;
+    color: var(--ardoise);
+    line-height: 1.65;
+  }
+
+  /* ── Remerciements ───────────────────────────────────── */
+  .ex-thanks {
+    max-width: 72ch;
+    margin: 0 auto clamp(4rem, 10vh, 7rem);
+    padding: 0 var(--gutter);
+    border-top: 1px solid var(--brume);
+    padding-top: 2rem;
+  }
+
+  .ex-thanks-label {
+    font-family: var(--font-body);
+    font-size: .72rem;
+    text-transform: uppercase;
+    letter-spacing: .18em;
+    color: var(--cerule);
+    margin-bottom: 1rem;
+  }
+
+  .ex-thanks-text {
+    font-family: var(--font-body);
+    font-size: .9rem;
+    line-height: 1.78;
+    color: var(--ardoise);
+    text-align: justify;
+    hyphens: auto;
+    -webkit-hyphens: auto;
+  }
+
+  /* ── Scroll reveal ───────────────────────────────────── */
+  .rv {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity .8s ease, transform .8s ease;
+  }
+
+  .rv.in {
+    opacity: 1;
+    transform: none;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .rv { opacity: 1; transform: none; transition: none; }
+  }
+
+  /* ── Mobile ──────────────────────────────────────────── */
+  @media (max-width: 680px) {
+    .ex-artwork-pair { height: clamp(180px, 55vw, 300px); }
+    .ex-grid-fig { height: clamp(130px, 40vw, 220px); }
+    .ex-intro { text-align: left; }
+    .ex-thanks-text { text-align: left; }
+  }
+
+</style>
+
+<script>
+  /* ── Justified artwork pair ─────────────────────────── */
+  function justifyArtwork() {
+    const pair = document.getElementById('artwork-pair');
+    if (!pair) return;
+    const figs = Array.from(pair.querySelectorAll('.ex-artwork-fig'));
+    const imgs = figs.map(f => f.querySelector('img') as HTMLImageElement);
+
+    function apply() {
+      imgs.forEach((img, i) => {
+        if (img.naturalWidth && img.naturalHeight) {
+          figs[i].style.flexGrow = (img.naturalWidth / img.naturalHeight).toFixed(4);
+        }
+      });
+    }
+
+    let pending = imgs.filter(img => !img.complete || !img.naturalWidth).length;
+    if (pending === 0) { apply(); return; }
+    imgs.forEach(img => {
+      if (!img.complete || !img.naturalWidth) {
+        img.addEventListener('load', () => { if (--pending <= 0) apply(); }, { once: true });
+        img.addEventListener('error', () => { if (--pending <= 0) apply(); }, { once: true });
+      }
+    });
+  }
+
+  /* ── Scroll reveal ──────────────────────────────────── */
+  const observer = new IntersectionObserver(
+    entries => entries.forEach(e => {
+      if (e.isIntersecting) { e.target.classList.add('in'); observer.unobserve(e.target); }
+    }),
+    { threshold: 0.08 }
+  );
+  document.querySelectorAll('.rv').forEach(el => observer.observe(el));
+
+  justifyArtwork();
+</script>
