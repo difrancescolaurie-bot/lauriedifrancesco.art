@@ -18,7 +18,7 @@ const projects = [
   },
   {
     href: '/work/spilling-beyond-the-lines',
-    category: 'Belo Horizonte · 2024',
+    category: '',
     title: 'Spilling Beyond the Lines',
     note: 'When an outsider\'s gaze rewrote my own — a body of work born from that rupture.',
     image: '/images/work/spilling-cover.jpg',
@@ -88,15 +88,10 @@ const projects = [
       <p class="creed-fr">Quand je suis ici, je ne suis pas là-bas.</p>
       <p class="creed-pt">Quando estou aqui, não estou lá.</p>
     </div>
-    <p class="creed-src">
-      A photographic inquiry — Peruaçu region, Minas Gerais, Xakriabá communities.
-    </p>
   </section>
 
   <!-- ─── Aperçu des œuvres ─────────────────────────────────── -->
   <section class="works container" aria-label="Selected work">
-
-    <hr class="horizon works-horizon" />
 
     {projects.map(p => (
       <a class="work-item" href={p.href}>
@@ -217,7 +212,8 @@ const projects = [
 
   /* ── Creed / Manifeste ───────────────────── */
   .creed {
-    padding-block: clamp(5rem, 14vh, 11rem);
+    padding-top: clamp(5rem, 14vh, 11rem);
+    padding-bottom: clamp(2rem, 5vh, 4rem);
   }
 
   .creed-eyebrow {
@@ -238,9 +234,9 @@ const projects = [
   .creed-lines p {
     font-family: var(--font-title);
     font-weight: 300;
-    font-size: clamp(1.5rem, 4.2vw, 3rem);
-    line-height: 1.2;
-    max-width: 22ch;
+    font-size: clamp(1.1rem, 2.4vw, 1.8rem);
+    line-height: 1.25;
+    white-space: nowrap;
   }
 
   .creed-it { color: var(--encre); }
@@ -366,13 +362,13 @@ const projects = [
   /* Mobile */
   @media (max-width: 680px) {
     .work-frame { aspect-ratio: 4/5; }
-    .creed-lines p { font-size: clamp(1.3rem, 7vw, 2rem); }
+    .creed-lines p { font-size: clamp(1rem, 5.5vw, 1.5rem); white-space: normal; }
 
-    /* Recadrage mobile : point de focus de chaque photo */
-    .hero-bg img:nth-child(1) { object-position: 25% center; }
-    .hero-bg img:nth-child(2) { object-position: calc(62% + 15px) center; }
-    /* photo 3 : center par défaut, rien à changer */
-    .hero-bg img:nth-child(4) { object-position: calc(68% - 15px) center; }
+    /* Recadrage mobile — ordre héro : hero-2, hero-3, hero-4, hero-1 */
+    .hero-bg img:nth-child(1) { object-position: calc(25% + 15px) center; } /* hero-2, garçon */
+    /* hero-3 :nth-child(2) : center par défaut */
+    .hero-bg img:nth-child(3) { object-position: calc(50% - 30px) center; } /* hero-4, jeune fille */
+    .hero-bg img:nth-child(4) { object-position: 25% center; }              /* hero-1 */
   }
 </style>
 

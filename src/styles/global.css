@@ -65,12 +65,12 @@ a {
 
 /* ─── Logotype ───────────────────────────────────────── */
 .logotype {
-  font-family: var(--font-title);
+  font-family: var(--font-body);
   font-weight: 400;
-  font-size: clamp(0.7rem, 1.4vw, 0.85rem);
-  letter-spacing: 0.22em;
+  font-size: 0.8rem;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: var(--blanc);
+  color: rgba(251, 252, 252, 0.78);
   white-space: nowrap;
 }
 
