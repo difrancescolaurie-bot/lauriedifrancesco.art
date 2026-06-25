@@ -14,6 +14,7 @@ const p = (n: number): Photo => ({ src: s(`${n}.jpg`), n });
 
 const spreads: Spread[] = [
   // La chute — intérieur, maladie
+  { type: 'row',    photos: [p(51), p(52)] },
   { type: 'row',    photos: [p(53), p(56)] },
   // Les seuils — fenêtres, attente
   { type: 'row',    photos: [p(55), p(59)] },
@@ -26,8 +27,7 @@ const spreads: Spread[] = [
   { type: 'row',    photos: [p(66), p(70), p(71), p(72)] },
   { type: 'row',    photos: [p(73), p(74)] },
   // Refaire surface — vers la blancheur
-  { type: 'row',    photos: [p(69), p(75)] },
-  { type: 'single', photos: [p(76)] },
+  { type: 'row',    photos: [p(69), p(76)] },
 ];
 ---
 
@@ -233,7 +233,7 @@ const spreads: Spread[] = [
   }
 
   .epi-horizon {
-    margin-top: .6rem;
+    margin-top: 1.8rem;
   }
 
   .epi-q {

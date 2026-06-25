@@ -13,23 +13,24 @@ const prv = (n: number) => ({ src: `/images/work/ecm-private/${n}.jpg`, n });
 type Photo = { src: string; n: number };
 type Spread = { type: 'row' | 'single'; photos: Photo[] };
 
-// Série complète — insère ici les prv(n) aux endroits voulus
+// Série complète — pub(n) = photo publique · prv(n) = photo privée uniquement
 const spreads: Spread[] = [
   // La chute — intérieur, maladie
-  { type: 'row',    photos: [pub(53), pub(56)] },
+  { type: 'row',    photos: [pub(51), pub(52)] },
+  { type: 'row',    photos: [pub(53), prv(54), pub(56)] },
   // Les seuils — fenêtres, attente
   { type: 'row',    photos: [pub(55), pub(59)] },
   // Vers l'eau — la mer apparaît
   { type: 'row',    photos: [pub(57), pub(58), pub(60), pub(61)] },
   { type: 'single', photos: [pub(62)] },
   // L'immersion — le corps dans l'eau
-  { type: 'row',    photos: [pub(64), pub(65), pub(67)] },
+  { type: 'row',    photos: [prv(63), pub(64), pub(65), pub(67)] },
   // Les signes — flottements, objets, le flamant
   { type: 'row',    photos: [pub(66), pub(70), pub(71), pub(72)] },
   { type: 'row',    photos: [pub(73), pub(74)] },
   // Refaire surface — vers la blancheur
-  { type: 'row',    photos: [pub(69), pub(75)] },
-  { type: 'single', photos: [pub(76)] },
+  { type: 'row',    photos: [prv(68), pub(69)] },
+  { type: 'row',    photos: [prv(75), pub(76)] },
 ];
 ---
 
@@ -341,7 +342,7 @@ const spreads: Spread[] = [
     padding: .3rem 0 .3rem 1.4rem;
   }
 
-  .epi-horizon { margin-top: .6rem; }
+  .epi-horizon { margin-top: 1.8rem; }
 
   .epi-q {
     font-family: var(--font-title);
