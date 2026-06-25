@@ -1,63 +1,150 @@
 ---
 import Layout from '../../../layouts/Layout.astro';
 
-// Numéros des photos privées — ajoute ici les numéros quand tu déposes les photos dans /public/images/work/ecm-private/
-const privatePhotos: number[] = [];
+// ── Mot de passe — change la valeur entre guillemets ──────────
+const PASSWORD = 'surfacing';
+
+// Photos de la série publique
+const pub = (n: number) => ({ src: `/images/work/en-corps-en-la-mer/${n}.jpg`, n });
+// Photos privées — dépose les fichiers dans /public/images/work/ecm-private/
+// puis ajoute prv(n) dans les spreads ci-dessous
+const prv = (n: number) => ({ src: `/images/work/ecm-private/${n}.jpg`, n });
+
+type Photo = { src: string; n: number };
+type Spread = { type: 'row' | 'single'; photos: Photo[] };
+
+// Série complète — insère ici les prv(n) aux endroits voulus
+const spreads: Spread[] = [
+  // La chute — intérieur, maladie
+  { type: 'row',    photos: [pub(53), pub(56)] },
+  // Les seuils — fenêtres, attente
+  { type: 'row',    photos: [pub(55), pub(59)] },
+  // Vers l'eau — la mer apparaît
+  { type: 'row',    photos: [pub(57), pub(58), pub(60), pub(61)] },
+  { type: 'single', photos: [pub(62)] },
+  // L'immersion — le corps dans l'eau
+  { type: 'row',    photos: [pub(64), pub(65), pub(67)] },
+  // Les signes — flottements, objets, le flamant
+  { type: 'row',    photos: [pub(66), pub(70), pub(71), pub(72)] },
+  { type: 'row',    photos: [pub(73), pub(74)] },
+  // Refaire surface — vers la blancheur
+  { type: 'row',    photos: [pub(69), pub(75)] },
+  { type: 'single', photos: [pub(76)] },
+];
 ---
 
 <Layout
-  title="En Corps à la Mer — Série complète"
+  title="En Corps à la Mer — Complete series"
   description=""
 >
 
-  <!-- ── Gate mot de passe ──────────────────────────────── -->
+  <!-- ── Gate mot de passe ──────────────────────────────────── -->
   <div class="gate" id="gate">
     <div class="gate-inner">
       <p class="gate-eyebrow">En Corps à la Mer</p>
-      <p class="gate-title">Série complète</p>
-      <p class="gate-sub">Accès privé</p>
+      <p class="gate-title">Complete series</p>
+      <p class="gate-sub">Private access</p>
       <form class="gate-form" id="gate-form" autocomplete="off">
         <input
           type="password"
           id="pw"
           class="gate-input"
-          placeholder="Mot de passe"
-          aria-label="Mot de passe"
+          placeholder="Password"
+          aria-label="Password"
           autocomplete="current-password"
         />
-        <button type="submit" class="gate-btn">Entrer</button>
+        <button type="submit" class="gate-btn">Enter</button>
       </form>
       <p class="gate-error" id="gate-error" aria-live="polite"></p>
     </div>
   </div>
 
-  <!-- ── Galerie privée (cachée jusqu'au bon mdp) ───────── -->
-  <div class="pgallery" id="pgallery" aria-hidden="true" style="display:none">
+  <!-- ── Page projet (réplique) ─────────────────────────────── -->
+  <div id="pgallery" aria-hidden="true" style="display:none">
 
-    <section class="pg-head container">
-      <a href="/work/en-corps-en-la-mer" class="pg-back">← En Corps à la Mer</a>
-      <p class="pg-eyebrow">Surfacing · 2025</p>
-      <h1>En Corps<br /><strong>à la Mer</strong></h1>
-      <p class="pg-sub">Série complète — accès privé</p>
-      <hr class="horizon pg-horizon" />
+    <!-- ── Hero ──────────────────────────────────────────────── -->
+    <section class="phero">
+      <div class="phero-bg" aria-hidden="true">
+        <img src="/images/work/en-corps-en-la-mer/72.jpg" alt="" loading="eager" />
+      </div>
+      <div class="phero-inner container">
+        <p class="phero-eyebrow">Surfacing · 2025 — Complete series</p>
+        <h1>En Corps<br /><strong>à la Mer</strong></h1>
+      </div>
     </section>
 
-    {privatePhotos.length === 0 ? (
-      <p class="pg-empty container">Photos à venir — dépose les fichiers dans <code>/public/images/work/ecm-private/</code> et ajoute leurs numéros dans le tableau <code>privatePhotos</code> de cette page.</p>
-    ) : (
-      <div class="pg-series">
-        {privatePhotos.map(n => (
-          <figure class="pg-fig">
-            <img
-              src={`/images/work/ecm-private/${n}.jpg`}
-              data-full={`/images/work/ecm-private/${n}.jpg`}
-              alt={`En Corps à la Mer — ${n}`}
-              loading="lazy"
-            />
-          </figure>
-        ))}
+    <!-- ── Ouverture 2 colonnes ──────────────────────────────── -->
+    <section class="opening container">
+
+      <div class="opening-epi">
+
+        <div class="epi-wrap">
+          <blockquote class="epi">
+            <p class="epi-q">That fundamental artistic phenomenon which is called <span class="k">life</span></p>
+            <cite>Friedrich Nietzsche — Posthumous Fragments</cite>
+          </blockquote>
+          <hr class="horizon epi-horizon" />
+        </div>
+
+        <div class="epi-wrap">
+          <blockquote class="epi epi-marin">
+            <p class="epi-q">
+              Dreams and water are two worlds where I recover a little balance, a little lightness,
+              where I live again the pleasure of movement. Held within the water's sheath, my body
+              lets go of its pain. It fades, dissolves, vanishes. My movements turn fluid, easy;
+              my body supple, almost deft. Gone, the tender catching-points: the hips, the elbows —
+              nothing rasps anymore, nothing chafes, nothing tears. I remember dreaming I was a mermaid.
+              My legs were imprisoned in a cocoon formed by the sheets, wound tight from turning and
+              turning on myself in search of a position without pain. In the dream, the mummification
+              had been transfigured into a power of movement.
+            </p>
+            <cite>Claire Marin — Hors de moi <span class="epi-tradfr">freely translated from the French</span></cite>
+          </blockquote>
+          <hr class="horizon epi-horizon" />
+        </div>
+
       </div>
-    )}
+
+      <div class="opening-proj">
+        <p class="opening-eyebrow">The project</p>
+        <p class="opening-text">
+          There was a season when the body gave way — when illness pulled the ground
+          from under everything and strength drained off like a tide going out.
+          <em>En Corps à la Mer</em> follows that long descent and its turning:
+          force returning not through stillness, but through water. To swim was to
+          be carried and to carry oneself at once — to surface, and surface again,
+          until surfacing became a way of living. The series moves from dark
+          interiors toward an open, dazzling white: the sea as the place where a
+          life is handed back.
+        </p>
+        <hr class="horizon opening-horizon" />
+      </div>
+
+    </section>
+
+    <!-- ── Série photographique ──────────────────────────────── -->
+    <div class="series">
+      {spreads.map((spread) => (
+        <div class={`spread spread--${spread.type} rv`}>
+          {spread.photos.map((photo) => (
+            <figure>
+              <img
+                src={photo.src}
+                data-full={photo.src}
+                alt={`En Corps à la Mer — ${photo.n}`}
+                loading="lazy"
+              />
+            </figure>
+          ))}
+        </div>
+      ))}
+    </div>
+
+    <!-- ── Retour ─────────────────────────────────────────────── -->
+    <div class="next-project container">
+      <span class="next-label">Back</span>
+      <a href="/work/en-corps-en-la-mer">En Corps à la Mer →</a>
+    </div>
 
   </div>
 
@@ -65,7 +152,7 @@ const privatePhotos: number[] = [];
 
 <style is:global>
 
-  /* ── Gate ──────────────────────────────────────────── */
+  /* ── Gate ──────────────────────────────────────────────── */
   .gate {
     min-height: 100vh;
     display: flex;
@@ -160,101 +247,242 @@ const privatePhotos: number[] = [];
     text-align: center;
   }
 
-  /* ── Galerie privée ─────────────────────────────────── */
-  .pg-head {
-    padding-top: clamp(5rem, 12vh, 8rem);
-    padding-bottom: clamp(2rem, 5vh, 3.5rem);
+  /* ── Hero projet ────────────────────────────────────── */
+  .phero {
+    position: relative;
+    min-height: 90vh;
+    display: flex;
+    align-items: flex-end;
+    padding-bottom: clamp(3rem, 8vh, 6rem);
+    overflow: hidden;
   }
 
-  .pg-back {
-    display: block;
+  .phero-bg {
+    position: absolute;
+    inset: 0;
+    z-index: -2;
+  }
+
+  .phero-bg img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .phero-bg::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      linear-gradient(180deg,
+        rgba(20,32,43,.45) 0%,
+        rgba(20,32,43,0) 30%,
+        rgba(20,32,43,0) 55%,
+        rgba(20,32,43,.62) 100%
+      );
+  }
+
+  .phero-inner {
+    position: relative;
+    color: #fff;
+  }
+
+  .phero-eyebrow {
     font-family: var(--font-body);
-    font-size: .7rem;
+    font-size: .74rem;
     text-transform: uppercase;
-    letter-spacing: .14em;
-    color: var(--ardoise);
-    margin-bottom: 2rem;
-    transition: color .2s;
+    letter-spacing: .2em;
+    color: rgba(255,255,255,.88);
+    margin-bottom: .7rem;
   }
 
-  .pg-back:hover { color: var(--cerule); }
+  .phero-inner h1 {
+    font-family: var(--font-title);
+    font-weight: 300;
+    text-transform: uppercase;
+    font-size: clamp(2rem, 7vw, 4.6rem);
+    line-height: 1.02;
+    letter-spacing: clamp(.04em, .8vw, .12em);
+  }
 
-  .pg-eyebrow {
+  .phero-inner h1 strong { font-weight: 500; }
+
+  /* ── Ouverture 2 colonnes ───────────────────────────── */
+  .opening {
+    display: flex;
+    gap: clamp(2.5rem, 6vw, 5rem);
+    align-items: stretch;
+    padding-top: clamp(3rem, 8vh, 5.5rem);
+    padding-bottom: clamp(3rem, 7vh, 5rem);
+  }
+
+  .opening-epi {
+    flex: 1 1 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 2.5rem;
+  }
+
+  .opening-proj {
+    flex: 1.05 1 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  /* Citations */
+  .epi-wrap {
+    border-left: 2px solid var(--cerule);
+    padding: .3rem 0 .3rem 1.4rem;
+  }
+
+  .epi-horizon { margin-top: .6rem; }
+
+  .epi-q {
+    font-family: var(--font-title);
+    font-weight: 300;
+    font-style: italic;
+    font-size: clamp(.88rem, 1.2vw, 1rem);
+    line-height: 1.55;
+    color: var(--ardoise);
+    margin-bottom: .5rem;
+  }
+
+  .epi-wrap .k { color: var(--cerule); font-weight: 500; }
+
+  .epi cite {
+    display: block;
+    margin-top: .9rem;
+    font-style: normal;
+    font-size: .7rem;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+    color: var(--cerule);
+  }
+
+  .epi-tradfr {
+    display: block;
+    font-size: .62rem;
+    letter-spacing: .08em;
+    text-transform: none;
+    font-style: italic;
+    color: var(--ardoise);
+    margin-top: .2rem;
+  }
+
+  /* Colonne projet */
+  .opening-eyebrow {
     font-family: var(--font-body);
     font-size: .72rem;
     text-transform: uppercase;
     letter-spacing: .2em;
     color: var(--cerule);
-    margin-bottom: .6rem;
+    margin-bottom: 1rem;
   }
 
-  .pg-head h1 {
-    font-family: var(--font-title);
-    font-weight: 300;
-    text-transform: uppercase;
-    font-size: clamp(2rem, 6vw, 3.8rem);
-    line-height: 1.02;
-    letter-spacing: clamp(.04em, .8vw, .12em);
+  .opening-text {
+    font-size: clamp(.92rem, 1.35vw, 1.06rem);
+    line-height: 1.78;
     color: var(--encre);
-    margin-bottom: .8rem;
+    text-align: justify;
+    hyphens: auto;
+    -webkit-hyphens: auto;
+    flex-grow: 1;
+    margin-bottom: 1.8rem;
   }
 
-  .pg-head h1 strong { font-weight: 500; }
+  .opening-text em { font-style: italic; }
+  .opening-horizon { margin-top: 0; }
 
-  .pg-sub {
-    font-family: var(--font-body);
-    font-size: .72rem;
-    text-transform: uppercase;
-    letter-spacing: .18em;
-    color: var(--ardoise);
-    margin-bottom: 0;
-  }
-
-  .pg-horizon { margin-top: 1.6rem; }
-
-  .pg-series {
+  /* ── Série ──────────────────────────────────────────── */
+  .series {
     max-width: 1320px;
     margin: 0 auto;
-    padding: 0 var(--gutter) clamp(4rem, 10vh, 7rem);
-    columns: 2;
-    column-gap: 12px;
+    padding: 0 var(--gutter);
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
   }
 
-  .pg-fig {
-    break-inside: avoid;
-    margin: 0 0 12px;
+  .spread {
+    display: flex;
+    gap: 16px;
+    align-items: flex-start;
   }
 
-  .pg-fig img {
+  .spread figure {
+    flex-grow: 1;
+    flex-basis: 0;
+    min-width: 0;
+    margin: 0;
+  }
+
+  .spread figure img {
     display: block;
     width: 100%;
     height: auto;
     cursor: zoom-in;
   }
 
-  .pg-empty {
-    padding: 3rem var(--gutter);
+  .spread--single figure { flex: 1 1 100%; }
+
+  /* Scroll fade-in */
+  .rv {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity .8s ease, transform .8s ease;
+  }
+  .rv.in { opacity: 1; transform: none; }
+
+  @media (prefers-reduced-motion: reduce) {
+    .rv { opacity: 1; transform: none; transition: none; }
+  }
+
+  /* ── Next / Back ────────────────────────────────────── */
+  .next-project {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 1rem;
+    border-top: 1px solid var(--brume);
+    padding-block: clamp(3rem, 8vh, 6rem);
+    margin-top: clamp(2rem, 5vh, 3rem);
+  }
+
+  .next-label {
     font-family: var(--font-body);
-    font-size: .85rem;
+    font-size: .72rem;
+    letter-spacing: .16em;
+    text-transform: uppercase;
     color: var(--ardoise);
-    line-height: 1.7;
   }
 
-  .pg-empty code {
-    font-family: monospace;
-    font-size: .8em;
-    background: rgba(0,0,0,.06);
-    padding: .1em .3em;
-    border-radius: 2px;
+  .next-project a {
+    font-family: var(--font-title);
+    font-weight: 400;
+    font-size: clamp(1.3rem, 3vw, 2rem);
+    text-transform: uppercase;
+    letter-spacing: .06em;
+    color: var(--encre);
+    transition: color .3s;
   }
 
-  @media (max-width: 680px) {
-    .pg-series { columns: 1; }
+  .next-project a:hover { color: var(--cerule); }
+
+  /* ── Mobile ─────────────────────────────────────────── */
+  @media (max-width: 700px) {
+    .opening { flex-direction: column; gap: 2.5rem; }
+    .opening-epi { justify-content: flex-start; }
+    .series { gap: 8px; }
+    .spread { flex-wrap: wrap; gap: 8px; }
+    .spread figure { flex: none !important; width: calc(50% - 4px) !important; }
+    .spread--single figure { width: 100% !important; }
     .gate-form { flex-direction: column; }
     .gate-btn { width: 100%; }
   }
 
-  /* ── Lightbox ─────────────────────────────────────── */
+  /* ── Lightbox ───────────────────────────────────────── */
   .lb {
     position: fixed;
     inset: 0;
@@ -278,48 +506,79 @@ const privatePhotos: number[] = [];
 
 </style>
 
-<script>
-  // ── Mot de passe — modifie cette ligne pour changer le code ──
-  const PASSWORD = 'surfacing';
-
-  const form    = document.getElementById('gate-form') as HTMLFormElement;
-  const gate    = document.getElementById('gate') as HTMLElement;
-  const gallery = document.getElementById('pgallery') as HTMLElement;
-  const errEl   = document.getElementById('gate-error') as HTMLElement;
+<script define:vars={{ PASSWORD }}>
+  const form    = document.getElementById('gate-form');
+  const gate    = document.getElementById('gate');
+  const gallery = document.getElementById('pgallery');
+  const errEl   = document.getElementById('gate-error');
 
   function unlock() {
     gate.style.display = 'none';
     gallery.style.display = 'block';
     gallery.removeAttribute('aria-hidden');
+    initPage();
   }
 
   if (sessionStorage.getItem('ecm-private-auth') === '1') unlock();
 
   form.addEventListener('submit', e => {
     e.preventDefault();
-    const pw = (document.getElementById('pw') as HTMLInputElement).value;
+    const pw = document.getElementById('pw').value;
     if (pw === PASSWORD) {
       sessionStorage.setItem('ecm-private-auth', '1');
       unlock();
     } else {
-      errEl.textContent = 'Mot de passe incorrect.';
+      errEl.textContent = 'Incorrect password.';
     }
   });
 
-  // Lightbox
-  const lb = document.createElement('div');
-  lb.className = 'lb';
-  const lbImg = document.createElement('img');
-  lb.appendChild(lbImg);
-  document.body.appendChild(lb);
-  document.querySelectorAll<HTMLImageElement>('.pg-series img').forEach(im => {
-    im.addEventListener('click', () => {
-      lbImg.src = im.dataset.full || im.src;
-      lb.classList.add('open');
+  function initPage() {
+    // Justified row layout
+    function justify() {
+      const mob = window.innerWidth <= 700;
+      document.querySelectorAll('.spread--row').forEach(row => {
+        const figs = Array.from(row.querySelectorAll('figure'));
+        const imgs = figs.map(f => f.querySelector('img'));
+        function apply() {
+          if (mob) { figs.forEach(f => { f.style.flexGrow = ''; }); return; }
+          imgs.forEach((im, i) => {
+            const r = (im.naturalWidth && im.naturalHeight) ? im.naturalWidth / im.naturalHeight : 1;
+            figs[i].style.flexGrow = r.toFixed(4);
+          });
+        }
+        if (imgs.every(im => im.complete && im.naturalWidth)) apply();
+        else imgs.forEach(im => im.addEventListener('load', apply));
+      });
+    }
+    justify();
+    window.addEventListener('resize', () => {
+      clearTimeout(window._jt);
+      window._jt = setTimeout(justify, 150);
     });
-  });
-  lb.addEventListener('click', () => lb.classList.remove('open'));
-  document.addEventListener('keydown', e => {
-    if (e.key === 'Escape') lb.classList.remove('open');
-  });
+
+    // Scroll reveal
+    const obs = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if (e.isIntersecting) { e.target.classList.add('in'); obs.unobserve(e.target); }
+      });
+    }, { threshold: .06 });
+    document.querySelectorAll('.rv').forEach(el => obs.observe(el));
+
+    // Lightbox
+    const lb = document.createElement('div');
+    lb.className = 'lb';
+    const lbImg = document.createElement('img');
+    lb.appendChild(lbImg);
+    document.body.appendChild(lb);
+    document.querySelectorAll('.series img').forEach(im => {
+      im.addEventListener('click', () => {
+        lbImg.src = im.dataset.full || im.src;
+        lb.classList.add('open');
+      });
+    });
+    lb.addEventListener('click', () => lb.classList.remove('open'));
+    document.addEventListener('keydown', e => {
+      if (e.key === 'Escape') lb.classList.remove('open');
+    });
+  }
 </script>
