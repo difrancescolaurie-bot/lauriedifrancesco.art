@@ -1,0 +1,118 @@
+body { background: #ECEAE4; }
+
+/* ── Page head ────────────────────────────── */
+.wi-head {
+  padding-top: clamp(3.5rem, 9vh, 6rem);
+  padding-bottom: 0;
+}
+
+.wi-eyebrow {
+  font-family: var(--font-body);
+  font-size: .72rem;
+  text-transform: uppercase;
+  letter-spacing: .2em;
+  color: var(--cerule);
+  margin-bottom: 1rem;
+}
+
+.wi-h1 {
+  font-family: var(--font-title);
+  font-weight: 300;
+  text-transform: uppercase;
+  letter-spacing: .1em;
+  font-size: clamp(2rem, 5.4vw, 3.4rem);
+  line-height: 1.04;
+}
+
+.wi-epi {
+  margin-top: 1.6rem;
+  border-left: 2px solid var(--cerule);
+  padding: .2rem 0 .2rem 1.3rem;
+  max-width: 60ch;
+}
+
+.wi-epi blockquote {
+  font-family: var(--font-title);
+  font-weight: 300;
+  font-style: italic;
+  font-size: clamp(.98rem, 1.4vw, 1.12rem);
+  line-height: 1.55;
+  color: var(--ardoise);
+}
+
+.wi-epi cite {
+  display: block;
+  margin-top: .9rem;
+  font-style: normal;
+  font-size: .7rem;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--cerule);
+}
+
+.wi-horizon {
+  margin-top: 1.8rem;
+}
+
+/* ── Grid ─────────────────────────────────── */
+.wi-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(1.8rem, 3.6vw, 3.2rem) clamp(1.6rem, 3.2vw, 2.8rem);
+  margin-top: clamp(2.6rem, 6vh, 4rem);
+  padding-bottom: clamp(4rem, 10vh, 7rem);
+}
+
+.wi-work {
+  display: block;
+}
+
+.wi-frame {
+  position: relative;
+  overflow: hidden;
+  aspect-ratio: 3 / 2;
+  background: var(--brume);
+  border-radius: 2px;
+}
+
+.wi-frame img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 1.1s ease;
+}
+
+.wi-work:hover .wi-frame img { transform: scale(1.04); }
+
+.wi-meta {
+  margin-top: 1rem;
+}
+
+.wi-place {
+  display: block;
+  font-family: var(--font-body);
+  font-size: .7rem;
+  text-transform: uppercase;
+  letter-spacing: .16em;
+  color: var(--cerule);
+  margin-bottom: .4rem;
+}
+
+.wi-title {
+  font-family: var(--font-title);
+  font-weight: 500;
+  font-size: clamp(1.3rem, 2.4vw, 1.9rem);
+  line-height: 1.12;
+  color: var(--encre);
+}
+
+.wi-title em {
+  font-style: italic;
+  font-weight: 400;
+}
+
+@media (max-width: 680px) {
+  .wi-grid { grid-template-columns: 1fr; gap: 2.4rem; }
+}

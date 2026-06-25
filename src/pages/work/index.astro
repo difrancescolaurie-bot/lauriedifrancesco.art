@@ -1,0 +1,88 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import '../../styles/pages/work-index.css';
+
+const projects = [
+  {
+    href: '/work/quando-sono-qui',
+    title: 'Quando sono qui, non sono là',
+    place: 'In progress · 2026',
+    image: '/images/work/quando-cover.jpg',
+  },
+  {
+    href: '/work/spilling-beyond-the-lines',
+    title: 'Spilling Beyond the Lines',
+    place: '2019 – 2024',
+    image: '/images/work/spilling-cover.jpg',
+  },
+  {
+    href: '/work/toward-the-blue',
+    title: 'Toward the Blue',
+    place: '2025',
+    image: '/images/work/toward-the-blue-cover.jpg',
+  },
+  {
+    href: '/work/vedere-venezia',
+    title: 'Vedere Venezia e Non Morire',
+    place: '1990 – 2025',
+    image: '/images/work/vedere-venezia-cover.jpg',
+  },
+  {
+    href: '/work/en-corps-en-la-mer',
+    title: 'En Corps en la Mer',
+    place: 'Surfacing · 2025',
+    image: '/images/work/en-corps-cover.jpg',
+  },
+];
+---
+
+<Layout
+  title="Work"
+  description="Projects by Laurie Di Francesco — photography and writing."
+>
+
+  <!-- ── Page head ────────────────────────── -->
+  <section class="wi-head container">
+    <p class="wi-eyebrow">Work</p>
+    <h1 class="wi-h1">Projects</h1>
+
+    <div class="wi-epi">
+      <blockquote>
+        To photograph is the process of discovering the other and, through the other, oneself.
+        Ultimately, that is why the photographer seeks and discovers new worlds, but always ends
+        up revealing what lies within.
+      </blockquote>
+      <cite>Claudia Andujar</cite>
+    </div>
+
+    <hr class="horizon wi-horizon" />
+  </section>
+
+  <!-- ── Grid ───────────────────────────────── -->
+  <section class="wi-grid container" aria-label="Projects">
+
+    {projects.map(p => (
+      <a class="wi-work rv" href={p.href}>
+        <div class="wi-frame">
+          <img src={p.image} alt={p.title} loading="lazy" />
+        </div>
+        <div class="wi-meta">
+          <span class="wi-place">{p.place}</span>
+          <h2 class="wi-title">{p.title}</h2>
+        </div>
+      </a>
+    ))}
+
+  </section>
+
+</Layout>
+
+<script>
+  const observer = new IntersectionObserver(
+    entries => entries.forEach(e => {
+      if (e.isIntersecting) { e.target.classList.add('in'); observer.unobserve(e.target); }
+    }),
+    { threshold: 0.08 }
+  );
+  document.querySelectorAll('.rv').forEach(el => observer.observe(el));
+</script>
