@@ -54,35 +54,29 @@ const spreads: Spread[] = [
     <div class="opening-epi">
 
       <!-- Nietzsche (domaine public) -->
-      <div class="epi-block">
-        <div class="epi-wrap">
-          <blockquote class="epi">
-            <p class="epi-q">That fundamental artistic phenomenon which is called <span class="k">life</span></p>
-            <cite>Friedrich Nietzsche — Posthumous Fragments</cite>
-          </blockquote>
-        </div>
-        <hr class="horizon epi-horizon" />
+      <div class="epi-wrap">
+        <blockquote>
+          That fundamental artistic phenomenon which is called <span class="k">life</span>
+        </blockquote>
+        <cite>Friedrich Nietzsche — Posthumous Fragments</cite>
       </div>
+      <hr class="horizon epi-horizon" />
 
       <!-- Claire Marin -->
-      <div class="epi-block">
-        <div class="epi-wrap">
-          <blockquote class="epi epi-marin">
-            <p class="epi-q">
-              Dreams and water are two worlds where I recover a little balance, a little lightness,
-              where I live again the pleasure of movement. Held within the water's sheath, my body
-              lets go of its pain. It fades, dissolves, vanishes. My movements turn fluid, easy;
-              my body supple, almost deft. Gone, the tender catching-points: the hips, the elbows —
-              nothing rasps anymore, nothing chafes, nothing tears. I remember dreaming I was a mermaid.
-              My legs were imprisoned in a cocoon formed by the sheets, wound tight from turning and
-              turning on myself in search of a position without pain. In the dream, the mummification
-              had been transfigured into a power of movement.
-            </p>
-            <cite>Claire Marin — Hors de moi <span class="epi-tradfr">freely translated from the French</span></cite>
-          </blockquote>
-        </div>
-        <hr class="horizon epi-horizon" />
+      <div class="epi-wrap">
+        <blockquote>
+          Dreams and water are two worlds where I recover a little balance, a little lightness,
+          where I live again the pleasure of movement. Held within the water's sheath, my body
+          lets go of its pain. It fades, dissolves, vanishes. My movements turn fluid, easy;
+          my body supple, almost deft. Gone, the tender catching-points: the hips, the elbows —
+          nothing rasps anymore, nothing chafes, nothing tears. I remember dreaming I was a mermaid.
+          My legs were imprisoned in a cocoon formed by the sheets, wound tight from turning and
+          turning on myself in search of a position without pain. In the dream, the mummification
+          had been transfigured into a power of movement.
+        </blockquote>
+        <cite>Claire Marin — Hors de moi <span class="epi-tradfr">freely translated from the French</span></cite>
       </div>
+      <hr class="horizon epi-horizon" />
 
     </div>
 
@@ -113,7 +107,6 @@ const spreads: Spread[] = [
             <figure>
               <img
                 src={photo.src}
-                data-full={photo.src}
                 alt={`En Corps à la Mer — ${photo.n}`}
                 loading="lazy"
               />
@@ -215,8 +208,6 @@ const spreads: Spread[] = [
     flex: 1 1 0;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
-    gap: 2.5rem;
   }
 
   .opening-proj {
@@ -226,24 +217,24 @@ const spreads: Spread[] = [
     justify-content: space-between;
   }
 
-  /* Citations */
+  /* Citations — structure identique à Work/About */
   .epi-wrap {
     border-left: 2px solid var(--cerule);
-    padding: .3rem 0 .3rem 1.4rem;
+    padding: .2rem 0 .2rem 1.3rem;
+    max-width: 60ch;
   }
 
-  .epi-horizon {
-    margin-top: 1.8rem;
+  .epi-wrap + .epi-horizon + .epi-wrap {
+    margin-top: 3rem;
   }
 
-  .epi-q {
+  .epi-wrap blockquote {
     font-family: var(--font-title);
     font-weight: 300;
     font-style: italic;
     font-size: clamp(.88rem, 1.2vw, 1rem);
     line-height: 1.55;
     color: var(--ardoise);
-    margin-bottom: .5rem;
   }
 
   .epi-wrap .k {
@@ -251,7 +242,7 @@ const spreads: Spread[] = [
     font-weight: 500;
   }
 
-  .epi cite {
+  .epi-wrap cite {
     display: block;
     margin-top: .9rem;
     font-style: normal;
@@ -269,6 +260,10 @@ const spreads: Spread[] = [
     font-style: italic;
     color: var(--ardoise);
     margin-top: .2rem;
+  }
+
+  .epi-horizon {
+    margin-top: 1.8rem;
   }
 
   /* Colonne projet */
@@ -325,7 +320,6 @@ const spreads: Spread[] = [
     display: block;
     width: 100%;
     height: auto;
-    cursor: zoom-in;
   }
 
   .spread--single figure { flex: 1 1 100%; }
@@ -410,8 +404,7 @@ const spreads: Spread[] = [
       flex-direction: column;
       gap: 2.5rem;
     }
-    .opening-epi { justify-content: flex-start; }
-    .series { gap: 8px; }
+.series { gap: 8px; }
     .spread { flex-wrap: wrap; gap: 8px; }
     .spread figure {
       flex: none !important;
@@ -420,27 +413,6 @@ const spreads: Spread[] = [
     .spread--single figure { width: 100% !important; }
   }
 
-  /* ── Lightbox ─────────────────────────────────────── */
-  .lb {
-    position: fixed;
-    inset: 0;
-    background: rgba(20,32,43,.94);
-    display: none;
-    align-items: center;
-    justify-content: center;
-    z-index: 200;
-    padding: 3vw;
-    cursor: zoom-out;
-  }
-  .lb.open { display: flex; }
-  .lb img {
-    max-width: 96vw;
-    max-height: 94vh;
-    width: auto;
-    height: auto;
-    object-fit: contain;
-    border-radius: 4px;
-  }
 </style>
 
 <script>
@@ -476,20 +448,4 @@ const spreads: Spread[] = [
   }, { threshold: .06 });
   document.querySelectorAll('.rv').forEach(el => obs.observe(el));
 
-  // Lightbox
-  const lb = document.createElement('div');
-  lb.className = 'lb';
-  const lbImg = document.createElement('img');
-  lb.appendChild(lbImg);
-  document.body.appendChild(lb);
-  document.querySelectorAll<HTMLImageElement>('.series img').forEach(im => {
-    im.addEventListener('click', () => {
-      lbImg.src = im.dataset.full || im.src;
-      lb.classList.add('open');
-    });
-  });
-  lb.addEventListener('click', () => lb.classList.remove('open'));
-  document.addEventListener('keydown', e => {
-    if (e.key === 'Escape') lb.classList.remove('open');
-  });
 </script>

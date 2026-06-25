@@ -79,34 +79,28 @@ const spreads: Spread[] = [
 
       <div class="opening-epi">
 
-        <div class="epi-block">
-          <div class="epi-wrap">
-            <blockquote class="epi">
-              <p class="epi-q">That fundamental artistic phenomenon which is called <span class="k">life</span></p>
-              <cite>Friedrich Nietzsche — Posthumous Fragments</cite>
-            </blockquote>
-          </div>
-          <hr class="horizon epi-horizon" />
+        <div class="epi-wrap">
+          <blockquote>
+            That fundamental artistic phenomenon which is called <span class="k">life</span>
+          </blockquote>
+          <cite>Friedrich Nietzsche — Posthumous Fragments</cite>
         </div>
+        <hr class="horizon epi-horizon" />
 
-        <div class="epi-block">
-          <div class="epi-wrap">
-            <blockquote class="epi epi-marin">
-              <p class="epi-q">
-                Dreams and water are two worlds where I recover a little balance, a little lightness,
-                where I live again the pleasure of movement. Held within the water's sheath, my body
-                lets go of its pain. It fades, dissolves, vanishes. My movements turn fluid, easy;
-                my body supple, almost deft. Gone, the tender catching-points: the hips, the elbows —
-                nothing rasps anymore, nothing chafes, nothing tears. I remember dreaming I was a mermaid.
-                My legs were imprisoned in a cocoon formed by the sheets, wound tight from turning and
-                turning on myself in search of a position without pain. In the dream, the mummification
-                had been transfigured into a power of movement.
-              </p>
-              <cite>Claire Marin — Hors de moi <span class="epi-tradfr">freely translated from the French</span></cite>
-            </blockquote>
-          </div>
-          <hr class="horizon epi-horizon" />
+        <div class="epi-wrap">
+          <blockquote>
+            Dreams and water are two worlds where I recover a little balance, a little lightness,
+            where I live again the pleasure of movement. Held within the water's sheath, my body
+            lets go of its pain. It fades, dissolves, vanishes. My movements turn fluid, easy;
+            my body supple, almost deft. Gone, the tender catching-points: the hips, the elbows —
+            nothing rasps anymore, nothing chafes, nothing tears. I remember dreaming I was a mermaid.
+            My legs were imprisoned in a cocoon formed by the sheets, wound tight from turning and
+            turning on myself in search of a position without pain. In the dream, the mummification
+            had been transfigured into a power of movement.
+          </blockquote>
+          <cite>Claire Marin — Hors de moi <span class="epi-tradfr">freely translated from the French</span></cite>
         </div>
+        <hr class="horizon epi-horizon" />
 
       </div>
 
@@ -325,8 +319,6 @@ const spreads: Spread[] = [
     flex: 1 1 0;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
-    gap: 2.5rem;
   }
 
   .opening-proj {
@@ -336,27 +328,29 @@ const spreads: Spread[] = [
     justify-content: space-between;
   }
 
-  /* Citations */
+  /* Citations — structure identique à Work/About */
   .epi-wrap {
     border-left: 2px solid var(--cerule);
-    padding: .3rem 0 .3rem 1.4rem;
+    padding: .2rem 0 .2rem 1.3rem;
+    max-width: 60ch;
   }
 
-  .epi-horizon { margin-top: 1.8rem; }
+  .epi-wrap + .epi-horizon + .epi-wrap {
+    margin-top: 3rem;
+  }
 
-  .epi-q {
+  .epi-wrap blockquote {
     font-family: var(--font-title);
     font-weight: 300;
     font-style: italic;
     font-size: clamp(.88rem, 1.2vw, 1rem);
     line-height: 1.55;
     color: var(--ardoise);
-    margin-bottom: .5rem;
   }
 
   .epi-wrap .k { color: var(--cerule); font-weight: 500; }
 
-  .epi cite {
+  .epi-wrap cite {
     display: block;
     margin-top: .9rem;
     font-style: normal;
@@ -375,6 +369,8 @@ const spreads: Spread[] = [
     color: var(--ardoise);
     margin-top: .2rem;
   }
+
+  .epi-horizon { margin-top: 1.8rem; }
 
   /* Colonne projet */
   .opening-eyebrow {
