@@ -247,6 +247,6 @@
 
   /* Recadrage mobile — ordre héro : hero-2, hero-3, hero-4, hero-1 */
   .hero-bg img:nth-child(1) { object-position: calc(62% - 15px) center; }
-  .hero-bg img:nth-child(3) { object-position: calc(68% - 45px) center; }
+  .hero-bg img:nth-child(3) { object-position: calc(68% - 75px) center; }
   .hero-bg img:nth-child(4) { object-position: 25% center; }
 }
