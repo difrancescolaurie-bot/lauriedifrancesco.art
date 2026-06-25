@@ -17,9 +17,14 @@ const {
   lang = "en",
 } = Astro.props;
 
+const SITE_URL = "https://lauriedifrancesco.art";
 const siteTitle = title === "Home"
   ? "Laurie Di Francesco — Photographer"
-  : `${title} — Laurie Di Francesco`;
+  : title.includes("Laurie Di Francesco")
+    ? title
+    : `${title} — Laurie Di Francesco`;
+const canonicalURL = new URL(Astro.url.pathname, SITE_URL).href;
+const ogImage = image.startsWith("http") ? image : `${SITE_URL}${image}`;
 ---
 
 <!doctype html>
@@ -28,11 +33,26 @@ const siteTitle = title === "Home"
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content={description} />
+
+    <!-- Open Graph / social sharing -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Laurie Di Francesco" />
+    <meta property="og:url" content={canonicalURL} />
     <meta property="og:title" content={siteTitle} />
     <meta property="og:description" content={description} />
-    <meta property="og:image" content={image} />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+
+    <!-- Twitter / X -->
     <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={siteTitle} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImage} />
+
+    <link rel="canonical" href={canonicalURL} />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="alternate icon" href="/favicon.ico" />
     <title>{siteTitle}</title>
   </head>
   <body>
