@@ -39,7 +39,7 @@ const spreads: Spread[] = [
   <!-- ── Hero ──────────────────────────────────────────────── -->
   <section class="phero">
     <div class="phero-bg" aria-hidden="true">
-      <img src="/images/work/en-corps-en-la-mer/51.jpg" alt="" loading="eager" />
+      <img src="/images/work/en-corps-en-la-mer/72.jpg" alt="" loading="eager" />
     </div>
     <div class="phero-inner container">
       <p class="phero-eyebrow">Surfacing · 2025</p>
@@ -54,30 +54,36 @@ const spreads: Spread[] = [
     <div class="opening-epi">
 
       <!-- Nietzsche (domaine public) -->
-      <blockquote class="epi">
-        <p class="epi-q">that fundamental artistic phenomenon which is called life</p>
-        <p class="epi-tr">
-          FR : ce phénomène artistique fondamental qui s'appelle la vie ·
-          IT : quel fenomeno artistico fondamentale che si chiama vita ·
-          BR : esse fenômeno artístico fundamental que se chama vida
-        </p>
-        <cite>Friedrich Nietzsche — Posthumous Fragments [1884]</cite>
-      </blockquote>
+      <div class="epi-wrap">
+        <blockquote class="epi">
+          <p class="epi-q">That fundamental artistic phenomenon which is called <span class="k">life</span></p>
+          <p class="epi-tr">
+            FR : ce phénomène artistique fondamental qui s'appelle la vie ·
+            IT : quel fenomeno artistico fondamentale che si chiama vita ·
+            BR : esse fenômeno artístico fundamental que se chama vida
+          </p>
+          <cite>Friedrich Nietzsche — Posthumous Fragments</cite>
+        </blockquote>
+        <hr class="horizon epi-horizon" />
+      </div>
 
       <!-- Claire Marin -->
-      <blockquote class="epi epi-marin">
-        <p class="epi-q">
-          Dreams and water are two worlds where I recover a little balance, a little lightness,
-          where I live again the pleasure of movement. Held within the water's sheath, my body
-          lets go of its pain. It fades, dissolves, vanishes. My movements turn fluid, easy;
-          my body supple, almost deft. Gone, the tender catching-points: the hips, the elbows —
-          nothing rasps anymore, nothing chafes, nothing tears. I remember dreaming I was a mermaid.
-          My legs were imprisoned in a cocoon formed by the sheets, wound tight from turning and
-          turning on myself in search of a position without pain. In the dream, the mummification
-          had been transfigured into a power of movement.
-        </p>
-        <cite>Claire Marin — <em>Hors de moi</em> <span class="epi-tradfr">traduit librement du français</span></cite>
-      </blockquote>
+      <div class="epi-wrap">
+        <blockquote class="epi epi-marin">
+          <p class="epi-q">
+            Dreams and water are two worlds where I recover a little balance, a little lightness,
+            where I live again the pleasure of movement. Held within the water's sheath, my body
+            lets go of its pain. It fades, dissolves, vanishes. My movements turn fluid, easy;
+            my body supple, almost deft. Gone, the tender catching-points: the hips, the elbows —
+            nothing rasps anymore, nothing chafes, nothing tears. I remember dreaming I was a mermaid.
+            My legs were imprisoned in a cocoon formed by the sheets, wound tight from turning and
+            turning on myself in search of a position without pain. In the dream, the mummification
+            had been transfigured into a power of movement.
+          </p>
+          <cite>Claire Marin — Hors de moi <span class="epi-tradfr">traduit librement du français</span></cite>
+        </blockquote>
+        <hr class="horizon epi-horizon" />
+      </div>
 
     </div>
 
@@ -120,6 +126,11 @@ const spreads: Spread[] = [
         )}
       </>
     ))}
+  </div>
+
+  <!-- ── Accès galerie privée ─────────────────────────────── -->
+  <div class="private-link container">
+    <a href="/work/en-corps-en-la-mer/private">Series complète (accès privé) →</a>
   </div>
 
   <!-- ── Projet suivant ─────────────────────────────────────── -->
@@ -217,19 +228,28 @@ const spreads: Spread[] = [
   }
 
   /* Citations */
-  .epi {
+  .epi-wrap {
     border-left: 2px solid var(--cerule);
     padding: .3rem 0 .3rem 1.4rem;
+  }
+
+  .epi-horizon {
+    margin-top: .6rem;
   }
 
   .epi-q {
     font-family: var(--font-title);
     font-weight: 300;
     font-style: italic;
-    font-size: clamp(1rem, 1.5vw, 1.18rem);
+    font-size: clamp(.88rem, 1.2vw, 1rem);
     line-height: 1.6;
     color: var(--encre);
     margin-bottom: .5rem;
+  }
+
+  .epi-wrap .k {
+    color: var(--cerule);
+    font-weight: 500;
   }
 
   .epi-tr {
@@ -339,6 +359,26 @@ const spreads: Spread[] = [
   @media (prefers-reduced-motion: reduce) {
     .rv { opacity: 1; transform: none; transition: none; }
   }
+
+  /* ── Accès privé ─────────────────────────────────── */
+  .private-link {
+    padding-block: 2.5rem;
+    border-top: 1px solid var(--brume);
+    margin-top: clamp(2rem, 5vh, 3rem);
+  }
+
+  .private-link a {
+    font-family: var(--font-body);
+    font-size: .72rem;
+    text-transform: uppercase;
+    letter-spacing: .16em;
+    color: var(--ardoise);
+    border-bottom: 1px solid var(--brume);
+    padding-bottom: 2px;
+    transition: color .25s;
+  }
+
+  .private-link a:hover { color: var(--cerule); }
 
   /* ── Next project ─────────────────────────────────── */
   .next-project {
