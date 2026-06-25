@@ -95,42 +95,42 @@ const videos = [
 
     <!-- Rangée 1 : 3 photos -->
     <div class="ex-grid-row">
-      <figure class="ex-grid-fig" style="flex-grow:1.7">
-        <img src="/images/exhibitions/PXL_20240724_155308369.MP.jpg" alt="" loading="lazy" class="ex-grid-img crop-right" />
+      <figure class="ex-grid-fig">
+        <img src="/images/exhibitions/PXL_20240724_155308369.MP.jpg" alt="" loading="lazy" class="ex-grid-img" />
       </figure>
-      <figure class="ex-grid-fig" style="flex-grow:1.0">
+      <figure class="ex-grid-fig">
         <img src="/images/exhibitions/PXL_20240720_030301485.MP.jpg" alt="" loading="lazy" class="ex-grid-img" />
       </figure>
-      <figure class="ex-grid-fig" style="flex-grow:1.019">
+      <figure class="ex-grid-fig">
         <img src="/images/exhibitions/PXL_20240720_030314191.MP~3.jpg" alt="" loading="lazy" class="ex-grid-img" />
       </figure>
     </div>
 
     <!-- Rangée 2 : 3 photos -->
     <div class="ex-grid-row">
-      <figure class="ex-grid-fig" style="flex-grow:1.778">
+      <figure class="ex-grid-fig">
         <img src="/images/exhibitions/PXL_20240724_183757430.MP~2.jpg" alt="" loading="lazy" class="ex-grid-img" />
       </figure>
-      <figure class="ex-grid-fig" style="flex-grow:0.667">
+      <figure class="ex-grid-fig">
         <img src="/images/exhibitions/PXL_20240720_145949249.MP~2.jpg" alt="" loading="lazy" class="ex-grid-img" />
       </figure>
-      <figure class="ex-grid-fig" style="flex-grow:1.431">
+      <figure class="ex-grid-fig">
         <img src="/images/exhibitions/PXL_20240725_153125868.MP.jpg" alt="" loading="lazy" class="ex-grid-img" />
       </figure>
     </div>
 
     <!-- Rangée 3 : 4 photos -->
     <div class="ex-grid-row">
-      <figure class="ex-grid-fig" style="flex-grow:0.721">
+      <figure class="ex-grid-fig">
         <img src="/images/exhibitions/PXL_20240725_153225295.jpg" alt="" loading="lazy" class="ex-grid-img" />
       </figure>
-      <figure class="ex-grid-fig" style="flex-grow:0.667">
+      <figure class="ex-grid-fig">
         <img src="/images/exhibitions/PXL_20240727_160503711.MP.jpg" alt="" loading="lazy" class="ex-grid-img" />
       </figure>
-      <figure class="ex-grid-fig" style="flex-grow:0.667">
+      <figure class="ex-grid-fig">
         <img src="/images/exhibitions/PXL_20240714_152904533.MP.jpg" alt="" loading="lazy" class="ex-grid-img" />
       </figure>
-      <figure class="ex-grid-fig" style="flex-grow:0.650">
+      <figure class="ex-grid-fig">
         <img src="/images/exhibitions/WhatsApp Image 2026-06-24 at 11.09.25.jpg" alt="" loading="lazy" class="ex-grid-img" />
       </figure>
     </div>
@@ -184,6 +184,30 @@ const videos = [
 
 
 <script>
+  /* ── Justified grid rows (natural aspect ratios) ────── */
+  function justifyGrid() {
+    const mob = window.innerWidth <= 680;
+    document.querySelectorAll<HTMLElement>('.ex-grid-row').forEach(row => {
+      const figs = Array.from(row.querySelectorAll<HTMLElement>('.ex-grid-fig'));
+      const imgs = figs.map(f => f.querySelector('img') as HTMLImageElement);
+      function apply() {
+        if (mob) { figs.forEach(f => { f.style.flexGrow = ''; }); return; }
+        imgs.forEach((im, i) => {
+          const ratio = (im.naturalWidth && im.naturalHeight)
+            ? im.naturalWidth / im.naturalHeight : 1;
+          figs[i].style.flexGrow = ratio.toFixed(4);
+        });
+      }
+      if (imgs.every(im => im.complete && im.naturalWidth)) apply();
+      else imgs.forEach(im => im.addEventListener('load', apply));
+    });
+  }
+  justifyGrid();
+  window.addEventListener('resize', () => {
+    clearTimeout((window as any)._jg);
+    (window as any)._jg = setTimeout(justifyGrid, 150);
+  });
+
   /* ── Justified artwork pair ─────────────────────────── */
   function justifyArtwork() {
     const pair = document.getElementById('artwork-pair');
