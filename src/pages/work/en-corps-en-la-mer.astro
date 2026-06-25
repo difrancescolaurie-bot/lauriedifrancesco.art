@@ -10,9 +10,25 @@ type Spread = {
   caption?: string;
 };
 
-// Planches — à compléter quand les photos arrivent
-// Ordre : 51→76, du sombre vers la blancheur
-const spreads: Spread[] = [];
+const p = (n: number): Photo => ({ src: s(`${n}.jpg`), n });
+
+const spreads: Spread[] = [
+  // La chute — intérieur, maladie
+  { type: 'row',    photos: [p(53), p(56)] },
+  // Les seuils — fenêtres, attente
+  { type: 'row',    photos: [p(55), p(59)] },
+  // Vers l'eau — la mer apparaît
+  { type: 'row',    photos: [p(57), p(58), p(60), p(61)] },
+  { type: 'single', photos: [p(62)] },
+  // L'immersion — le corps dans l'eau
+  { type: 'row',    photos: [p(64), p(65), p(67)] },
+  // Les signes — flottements, objets, le flamant
+  { type: 'row',    photos: [p(66), p(70), p(71), p(72)] },
+  { type: 'row',    photos: [p(73), p(74)] },
+  // Refaire surface — vers la blancheur
+  { type: 'row',    photos: [p(69), p(75)] },
+  { type: 'single', photos: [p(76)] },
+];
 ---
 
 <Layout
@@ -23,8 +39,7 @@ const spreads: Spread[] = [];
   <!-- ── Hero ──────────────────────────────────────────────── -->
   <section class="phero">
     <div class="phero-bg" aria-hidden="true">
-      <!-- Hero : photo 51 (fenêtre/lumière) — à remplacer quand fournie -->
-      <img src="/images/work/en-corps-cover.jpg" alt="" loading="eager" />
+      <img src="/images/work/en-corps-en-la-mer/51.jpg" alt="" loading="eager" />
     </div>
     <div class="phero-inner container">
       <p class="phero-eyebrow">Surfacing · 2025</p>
@@ -49,14 +64,19 @@ const spreads: Spread[] = [];
         <cite>Friedrich Nietzsche — Posthumous Fragments [1884]</cite>
       </blockquote>
 
-      <!-- Claire Marin (sous droits — Laurie colle le passage ici) -->
+      <!-- Claire Marin -->
       <blockquote class="epi epi-marin">
         <p class="epi-q">
-          <!-- COLLER ICI le passage intégral de Claire Marin, Hors de moi -->
-          <!-- De : « Les rêves et l'eau sont deux mondes… » -->
-          <!-- Jusqu'à : « …la momification s'était métamorphosée en puissance de mouvement. » -->
+          Dreams and water are two worlds where I recover a little balance, a little lightness,
+          where I live again the pleasure of movement. Held within the water's sheath, my body
+          lets go of its pain. It fades, dissolves, vanishes. My movements turn fluid, easy;
+          my body supple, almost deft. Gone, the tender catching-points: the hips, the elbows —
+          nothing rasps anymore, nothing chafes, nothing tears. I remember dreaming I was a mermaid.
+          My legs were imprisoned in a cocoon formed by the sheets, wound tight from turning and
+          turning on myself in search of a position without pain. In the dream, the mummification
+          had been transfigured into a power of movement.
         </p>
-        <cite>Claire Marin — <em>Hors de moi</em></cite>
+        <cite>Claire Marin — <em>Hors de moi</em> <span class="epi-tradfr">traduit librement du français</span></cite>
       </blockquote>
 
     </div>
@@ -226,6 +246,16 @@ const spreads: Spread[] = [];
     letter-spacing: .14em;
     text-transform: uppercase;
     color: var(--cerule);
+  }
+
+  .epi-tradfr {
+    display: block;
+    font-size: .62rem;
+    letter-spacing: .08em;
+    text-transform: none;
+    font-style: italic;
+    color: var(--ardoise);
+    margin-top: .2rem;
   }
 
   /* Colonne projet */
