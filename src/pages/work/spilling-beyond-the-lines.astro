@@ -82,17 +82,18 @@ const spreads: Spread[] = [
 
   <!-- ── Intro ─────────────────────────────────────────────── -->
   <section class="intro">
-    <blockquote class="epi">
-      <p class="epi-text">
+    <div class="epi-wrap">
+      <blockquote>
         Por algum tempo<br />
         Que afinal passou depressa, como tudo tem de passar<br />
         Hoje eu me sinto<br />
         Como se ter ido fosse necessário para voltar<br />
         Tanto mais vivo<br />
         De vida mais vivida, dividida pra lá e pra cá
-      </p>
+      </blockquote>
       <cite>Gilberto Gil — Back in Bahia</cite>
-    </blockquote>
+    </div>
+    <hr class="horizon spilling-horizon" />
 
     <p class="intro-text">This project, first conceived as an exhibition and later as a photobook, emerged at the end of a chapter of life marked by displacement. It was built from personal archives — images gathered over more than fifteen years, across several continents — less the record of a single journey than a slow sedimentation of places, encounters, and light.</p>
 
@@ -209,21 +210,22 @@ const spreads: Spread[] = [
 
   .intro-text em { font-style: italic; }
 
-  .epi {
+  .epi-wrap {
     border-left: 2px solid var(--cerule);
     padding: .2rem 0 .2rem 1.3rem;
-    margin-bottom: 2rem;
+    max-width: 60ch;
   }
 
-  .epi-text {
-    color: var(--ardoise);
-    font-size: clamp(.88rem, 1.2vw, 1rem);
-    line-height: 1.9;
+  .epi-wrap blockquote {
+    font-family: var(--font-title);
+    font-weight: 300;
     font-style: italic;
-    white-space: pre-line;
+    font-size: clamp(.88rem, 1.2vw, 1rem);
+    line-height: 1.55;
+    color: var(--ardoise);
   }
 
-  .epi cite {
+  .epi-wrap cite {
     display: block;
     margin-top: .9rem;
     font-style: normal;
@@ -231,6 +233,11 @@ const spreads: Spread[] = [
     letter-spacing: .14em;
     text-transform: uppercase;
     color: var(--cerule);
+  }
+
+  .spilling-horizon {
+    margin-top: 1.8rem;
+    margin-bottom: 2rem;
   }
 
   .pullquote {
