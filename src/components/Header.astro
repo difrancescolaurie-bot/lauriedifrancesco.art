@@ -32,12 +32,13 @@ const navLinks = [
 ];
 
 const langs: Lang[] = ['en', 'fr', 'it', 'pt'];
+const homeUrl = currentLang === 'en' ? '/' : `/${currentLang}`;
 ---
 
 <header class="site-header">
   <div class="header-inner container">
 
-    <a href={langUrl('en')} class="logotype" aria-label="Laurie Di Francesco — home">
+    <a href={homeUrl} class="logotype" aria-label="Laurie Di Francesco — home">
       Laurie Di&nbsp;Francesco
     </a>
 
