@@ -40,6 +40,11 @@ body { background: #ECEAE4; }
   color: var(--ardoise);
 }
 
+.wi-epi .k {
+  color: var(--cerule);
+  font-weight: 500;
+}
+
 .wi-epi cite {
   display: block;
   margin-top: .9rem;

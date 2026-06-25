@@ -36,7 +36,7 @@ body { background: #ECEAE4; }
   font-weight: 300;
   font-style: italic;
   font-size: clamp(.98rem, 1.4vw, 1.12rem);
-  line-height: 1.5;
+  line-height: 1.55;
   color: var(--ardoise);
 }
 
@@ -69,11 +69,15 @@ body { background: #ECEAE4; }
 
 .about-bio em { font-style: italic; }
 
-.about-bio .k,
-.about-epi .k {
+.about-bio .k {
   color: var(--cerule);
   font-weight: 400;
   font-style: normal;
+}
+
+.about-epi .k {
+  color: var(--cerule);
+  font-weight: 500;
 }
 
 .bio-portrait {

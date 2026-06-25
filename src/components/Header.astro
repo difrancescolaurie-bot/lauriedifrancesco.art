@@ -11,9 +11,13 @@ if (langMatch) currentLang = langMatch[1] as Lang;
 // Base path without language prefix (e.g. /fr/about → /about)
 const basePath = path.replace(/^\/(fr|it|pt)(\/|$)/, '/').replace(/\/+$/, '') || '/';
 
+// Pages that exist in translated versions — work pages are English-only for now
+const translatedPages = ['/', '/about', '/exhibitions', '/contact'];
+const targetBase = translatedPages.includes(basePath) ? basePath : '/';
+
 // Build URL for a given language
 function langUrl(lang: Lang): string {
-  const base = basePath === '/' ? '' : basePath;
+  const base = targetBase === '/' ? '' : targetBase;
   return lang === 'en' ? (base || '/') : `/${lang}${base || ''}`;
 }
 
