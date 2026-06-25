@@ -1,0 +1,432 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+const s = (file: string) => `/images/work/en-corps-en-la-mer/${file}`;
+
+type Photo = { src: string; n: number };
+type Spread = {
+  type: 'row' | 'single';
+  photos: Photo[];
+  caption?: string;
+};
+
+// Planches — à compléter quand les photos arrivent
+// Ordre : 51→76, du sombre vers la blancheur
+const spreads: Spread[] = [];
+---
+
+<Layout
+  title="En Corps en la Mer — Laurie Di Francesco"
+  description="En Corps en la Mer — Surfacing · 2025. A photographic series by Laurie Di Francesco."
+>
+
+  <!-- ── Hero ──────────────────────────────────────────────── -->
+  <section class="phero">
+    <div class="phero-bg" aria-hidden="true">
+      <!-- Hero : photo 51 (fenêtre/lumière) — à remplacer quand fournie -->
+      <img src="/images/work/en-corps-cover.jpg" alt="" loading="eager" />
+    </div>
+    <div class="phero-inner container">
+      <p class="phero-eyebrow">Surfacing · 2025</p>
+      <h1>En Corps<br /><strong>en la Mer</strong></h1>
+    </div>
+  </section>
+
+  <!-- ── Ouverture 2 colonnes ──────────────────────────────── -->
+  <section class="opening container">
+
+    <!-- Colonne gauche : citations -->
+    <div class="opening-epi">
+
+      <!-- Nietzsche (domaine public) -->
+      <blockquote class="epi">
+        <p class="epi-q">that fundamental artistic phenomenon which is called life</p>
+        <p class="epi-tr">
+          FR : ce phénomène artistique fondamental qui s'appelle la vie ·
+          IT : quel fenomeno artistico fondamentale che si chiama vita ·
+          BR : esse fenômeno artístico fundamental que se chama vida
+        </p>
+        <cite>Friedrich Nietzsche — Posthumous Fragments [1884]</cite>
+      </blockquote>
+
+      <!-- Claire Marin (sous droits — Laurie colle le passage ici) -->
+      <blockquote class="epi epi-marin">
+        <p class="epi-q">
+          <!-- COLLER ICI le passage intégral de Claire Marin, Hors de moi -->
+          <!-- De : « Les rêves et l'eau sont deux mondes… » -->
+          <!-- Jusqu'à : « …la momification s'était métamorphosée en puissance de mouvement. » -->
+        </p>
+        <cite>Claire Marin — <em>Hors de moi</em></cite>
+      </blockquote>
+
+    </div>
+
+    <!-- Colonne droite : texte du projet -->
+    <div class="opening-proj">
+      <p class="opening-eyebrow">The project</p>
+      <p class="opening-text">
+        There was a season when the body gave way — when illness pulled the ground
+        from under everything and strength drained off like a tide going out.
+        <em>En Corps en la Mer</em> follows that long descent and its turning:
+        force returning not through stillness, but through water. To swim was to
+        be carried and to carry oneself at once — to surface, and surface again,
+        until surfacing became a way of living. The series moves from dark
+        interiors toward an open, dazzling white: the sea as the place where a
+        life is handed back.
+      </p>
+      <hr class="horizon opening-horizon" />
+    </div>
+
+  </section>
+
+  <!-- ── Série photographique ──────────────────────────────── -->
+  <div class="series">
+    {spreads.map((spread) => (
+      <>
+        <div class={`spread spread--${spread.type} rv`}>
+          {spread.photos.map((photo) => (
+            <figure>
+              <img
+                src={photo.src}
+                data-full={photo.src}
+                alt={`En Corps en la Mer — ${photo.n}`}
+                loading="lazy"
+              />
+            </figure>
+          ))}
+        </div>
+        {spread.caption && (
+          <p class="series-caption rv">{spread.caption}</p>
+        )}
+      </>
+    ))}
+  </div>
+
+  <!-- ── Projet suivant ─────────────────────────────────────── -->
+  <div class="next-project container">
+    <span class="next-label">Next project</span>
+    <a href="/work/quando-sono-qui">Quando sono qui, non sono là →</a>
+  </div>
+
+</Layout>
+
+<style is:global>
+
+  /* ── Hero projet ──────────────────────────────────── */
+  .phero {
+    position: relative;
+    min-height: 90vh;
+    display: flex;
+    align-items: flex-end;
+    padding-bottom: clamp(3rem, 8vh, 6rem);
+    overflow: hidden;
+  }
+
+  .phero-bg {
+    position: absolute;
+    inset: 0;
+    z-index: -2;
+  }
+
+  .phero-bg img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .phero-bg::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      linear-gradient(180deg,
+        rgba(20,32,43,.45) 0%,
+        rgba(20,32,43,0) 30%,
+        rgba(20,32,43,0) 55%,
+        rgba(20,32,43,.62) 100%
+      );
+  }
+
+  .phero-inner {
+    position: relative;
+    color: #fff;
+  }
+
+  .phero-eyebrow {
+    font-family: var(--font-body);
+    font-size: .74rem;
+    text-transform: uppercase;
+    letter-spacing: .2em;
+    color: rgba(255,255,255,.88);
+    margin-bottom: .7rem;
+  }
+
+  .phero-inner h1 {
+    font-family: var(--font-title);
+    font-weight: 300;
+    text-transform: uppercase;
+    font-size: clamp(2rem, 7vw, 4.6rem);
+    line-height: 1.02;
+    letter-spacing: clamp(.04em, .8vw, .12em);
+  }
+
+  .phero-inner h1 strong { font-weight: 500; }
+
+  /* ── Ouverture 2 colonnes ─────────────────────────── */
+  .opening {
+    display: flex;
+    gap: clamp(2.5rem, 6vw, 5rem);
+    align-items: stretch;
+    padding-top: clamp(3rem, 8vh, 5.5rem);
+    padding-bottom: clamp(3rem, 7vh, 5rem);
+  }
+
+  .opening-epi {
+    flex: 1 1 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 2.5rem;
+  }
+
+  .opening-proj {
+    flex: 1.05 1 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  /* Citations */
+  .epi {
+    border-left: 2px solid var(--cerule);
+    padding: .3rem 0 .3rem 1.4rem;
+  }
+
+  .epi-q {
+    font-family: var(--font-title);
+    font-weight: 300;
+    font-style: italic;
+    font-size: clamp(1rem, 1.5vw, 1.18rem);
+    line-height: 1.6;
+    color: var(--encre);
+    margin-bottom: .5rem;
+  }
+
+  .epi-tr {
+    font-size: .78rem;
+    color: var(--ardoise);
+    line-height: 1.55;
+    margin-bottom: .5rem;
+  }
+
+  .epi cite {
+    display: block;
+    font-style: normal;
+    font-size: .7rem;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+    color: var(--cerule);
+  }
+
+  /* Colonne projet */
+  .opening-eyebrow {
+    font-family: var(--font-body);
+    font-size: .72rem;
+    text-transform: uppercase;
+    letter-spacing: .2em;
+    color: var(--cerule);
+    margin-bottom: 1rem;
+  }
+
+  .opening-text {
+    font-size: clamp(.92rem, 1.35vw, 1.06rem);
+    line-height: 1.78;
+    color: var(--encre);
+    text-align: justify;
+    hyphens: auto;
+    -webkit-hyphens: auto;
+    flex-grow: 1;
+    margin-bottom: 1.8rem;
+  }
+
+  .opening-text em { font-style: italic; }
+
+  .opening-horizon {
+    margin-top: 0;
+  }
+
+  /* ── Série ────────────────────────────────────────── */
+  .series {
+    max-width: 1320px;
+    margin: 0 auto;
+    padding: 0 var(--gutter);
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .spread {
+    display: flex;
+    gap: 16px;
+    align-items: flex-start;
+  }
+
+  .spread figure {
+    flex-grow: 1;
+    flex-basis: 0;
+    min-width: 0;
+    margin: 0;
+  }
+
+  .spread figure img {
+    display: block;
+    width: 100%;
+    height: auto;
+    cursor: zoom-in;
+  }
+
+  .spread--single figure { flex: 1 1 100%; }
+
+  .series-caption {
+    font-family: var(--font-title);
+    font-weight: 300;
+    color: var(--cerule);
+    font-size: clamp(1rem, 1.8vw, 1.35rem);
+    line-height: 1.4;
+    max-width: 1320px;
+    margin: .5rem auto;
+    padding: 0 var(--gutter);
+  }
+
+  /* Scroll fade-in */
+  .rv {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity .8s ease, transform .8s ease;
+  }
+  .rv.in { opacity: 1; transform: none; }
+
+  @media (prefers-reduced-motion: reduce) {
+    .rv { opacity: 1; transform: none; transition: none; }
+  }
+
+  /* ── Next project ─────────────────────────────────── */
+  .next-project {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 1rem;
+    border-top: 1px solid var(--brume);
+    padding-block: clamp(3rem, 8vh, 6rem);
+    margin-top: clamp(2rem, 5vh, 3rem);
+  }
+
+  .next-label {
+    font-family: var(--font-body);
+    font-size: .72rem;
+    letter-spacing: .16em;
+    text-transform: uppercase;
+    color: var(--ardoise);
+  }
+
+  .next-project a {
+    font-family: var(--font-title);
+    font-weight: 400;
+    font-size: clamp(1.3rem, 3vw, 2rem);
+    text-transform: uppercase;
+    letter-spacing: .06em;
+    color: var(--encre);
+    transition: color .3s;
+  }
+
+  .next-project a:hover { color: var(--cerule); }
+
+  /* ── Mobile ───────────────────────────────────────── */
+  @media (max-width: 700px) {
+    .opening {
+      flex-direction: column;
+      gap: 2.5rem;
+    }
+    .opening-epi { justify-content: flex-start; }
+    .series { gap: 8px; }
+    .spread { flex-wrap: wrap; gap: 8px; }
+    .spread figure {
+      flex: none !important;
+      width: calc(50% - 4px) !important;
+    }
+    .spread--single figure { width: 100% !important; }
+  }
+
+  /* ── Lightbox ─────────────────────────────────────── */
+  .lb {
+    position: fixed;
+    inset: 0;
+    background: rgba(20,32,43,.94);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 200;
+    padding: 3vw;
+    cursor: zoom-out;
+  }
+  .lb.open { display: flex; }
+  .lb img {
+    max-width: 96vw;
+    max-height: 94vh;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    border-radius: 4px;
+  }
+</style>
+
+<script>
+  // Justified row layout
+  function justify() {
+    const mob = window.innerWidth <= 700;
+    document.querySelectorAll<HTMLElement>('.spread--row').forEach(row => {
+      const figs = Array.from(row.querySelectorAll<HTMLElement>('figure'));
+      const imgs = figs.map(f => f.querySelector('img') as HTMLImageElement);
+      function apply() {
+        if (mob) { figs.forEach(f => { f.style.flexGrow = ''; }); return; }
+        imgs.forEach((im, i) => {
+          const r = (im.naturalWidth && im.naturalHeight)
+            ? im.naturalWidth / im.naturalHeight : 1;
+          figs[i].style.flexGrow = r.toFixed(4);
+        });
+      }
+      if (imgs.every(im => im.complete && im.naturalWidth)) apply();
+      else imgs.forEach(im => im.addEventListener('load', apply));
+    });
+  }
+  justify();
+  window.addEventListener('resize', () => {
+    clearTimeout((window as any)._jt);
+    (window as any)._jt = setTimeout(justify, 150);
+  });
+
+  // Scroll reveal
+  const obs = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) { e.target.classList.add('in'); obs.unobserve(e.target); }
+    });
+  }, { threshold: .06 });
+  document.querySelectorAll('.rv').forEach(el => obs.observe(el));
+
+  // Lightbox
+  const lb = document.createElement('div');
+  lb.className = 'lb';
+  const lbImg = document.createElement('img');
+  lb.appendChild(lbImg);
+  document.body.appendChild(lb);
+  document.querySelectorAll<HTMLImageElement>('.series img').forEach(im => {
+    im.addEventListener('click', () => {
+      lbImg.src = im.dataset.full || im.src;
+      lb.classList.add('open');
+    });
+  });
+  lb.addEventListener('click', () => lb.classList.remove('open'));
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape') lb.classList.remove('open');
+  });
+</script>
