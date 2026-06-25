@@ -39,6 +39,10 @@ body { background: #ECEAE4; }
   color: var(--ardoise);
 }
 
+.about-horizon {
+  margin-top: 1.8rem;
+}
+
 .about-epi cite {
   display: block;
   margin-top: .9rem;
