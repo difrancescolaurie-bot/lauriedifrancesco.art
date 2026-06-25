@@ -82,22 +82,28 @@ const spreads: Spread[] = [
 
   <!-- ── Intro ─────────────────────────────────────────────── -->
   <section class="intro">
-    <div class="epi-wrap">
-      <blockquote>
-        Por algum tempo<br />
-        Que afinal passou depressa, como tudo tem de passar<br />
-        Hoje eu me sinto<br />
-        Como se ter ido fosse necessário para voltar<br />
-        Tanto mais vivo<br />
-        De vida mais vivida, dividida pra lá e pra cá
-      </blockquote>
-      <cite>Gilberto Gil — Back in Bahia</cite>
+
+    <div class="intro-epi">
+      <div class="epi-wrap">
+        <blockquote>
+          Por algum tempo<br />
+          Que afinal passou depressa, como tudo tem de passar<br />
+          Hoje eu me sinto<br />
+          Como se ter ido fosse necessário para voltar<br />
+          Tanto mais vivo<br />
+          De vida mais vivida, dividida pra lá e pra cá
+        </blockquote>
+        <cite>Gilberto Gil — Back in Bahia</cite>
+      </div>
+      <hr class="horizon spilling-horizon" />
     </div>
-    <hr class="horizon spilling-horizon" />
 
-    <p class="intro-text">This project, first conceived as an exhibition and later as a photobook, emerged at the end of a chapter of life marked by displacement. It was built from personal archives — images gathered over more than fifteen years, across several continents — less the record of a single journey than a slow sedimentation of places, encounters, and light.</p>
+    <div class="intro-proj">
+      <p class="intro-text">This project, first conceived as an exhibition and later as a photobook, emerged at the end of a chapter of life marked by displacement. It was built from personal archives — images gathered over more than fifteen years, across several continents — less the record of a single journey than a slow sedimentation of places, encounters, and light.</p>
+      <p class="intro-text">It was within this context that the question of borders asserted itself with force — visible or invisible boundaries drawn between bodies, territories, and narratives. These images, portraits, vegetation, textures, structures, form a sensitive cartography in which each photograph gently attempts to shift perception.</p>
+      <hr class="horizon intro-proj-horizon" />
+    </div>
 
-    <p class="intro-text">It was within this context that the question of borders asserted itself with force — visible or invisible boundaries drawn between bodies, territories, and narratives. These images, portraits, vegetation, textures, structures, form a sensitive cartography in which each photograph gently attempts to shift perception.</p>
   </section>
 
   <!-- ── Série photographique ──────────────────────────────── -->
@@ -192,12 +198,31 @@ const spreads: Spread[] = [
 
   /* ── Intro ────────────────────────────────────────── */
   .intro {
+    display: flex;
+    gap: clamp(2.5rem, 6vw, 5rem);
+    align-items: stretch;
     max-width: 1320px;
     margin-top: clamp(1.5rem, 3vh, 2.5rem);
     margin-bottom: clamp(1.5rem, 3vh, 2.5rem);
     margin-left: auto;
     margin-right: auto;
     padding: 0 var(--gutter);
+  }
+
+  .intro-epi {
+    flex: 1 1 0;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .intro-proj {
+    flex: 1.05 1 0;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .intro-proj-horizon {
+    margin-top: auto;
   }
 
   .intro-text {
@@ -237,7 +262,6 @@ const spreads: Spread[] = [
 
   .spilling-horizon {
     margin-top: 1.8rem;
-    margin-bottom: 2rem;
   }
 
   .pullquote {
@@ -411,6 +435,7 @@ const spreads: Spread[] = [
 
   /* ── Mobile ───────────────────────────────────────── */
   @media (max-width: 700px) {
+    .intro { flex-direction: column; }
     .series { gap: 8px; }
     .spread { flex-wrap: wrap; gap: 8px; }
     .spread figure {
