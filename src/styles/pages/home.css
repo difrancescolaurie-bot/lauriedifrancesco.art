@@ -74,6 +74,9 @@
 
 .hero-horizon {
   background: #fff;
+}
+
+.horizon.hero-horizon {
   margin: 2.2rem 0 1.8rem;
 }
 
