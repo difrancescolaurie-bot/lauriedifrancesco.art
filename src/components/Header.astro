@@ -36,6 +36,7 @@ const navLinks = [
 ];
 
 const langs: Lang[] = ['en', 'fr', 'it', 'pt'];
+const langLabel: Record<Lang, string> = { en: 'EN', fr: 'FR', it: 'IT', pt: 'BR' };
 const homeUrl = currentLang === 'en' ? '/' : `/${currentLang}`;
 ---
 
@@ -69,7 +70,7 @@ const homeUrl = currentLang === 'en' ? '/' : `/${currentLang}`;
               class:list={["lang-link", { "lang-active": lang === currentLang }]}
               aria-current={lang === currentLang ? "true" : undefined}
             >
-              {lang.toUpperCase()}
+              {langLabel[lang]}
             </a>
             {i < langs.length - 1 && <span class="lang-sep" aria-hidden="true">·</span>}
           </>
@@ -96,7 +97,7 @@ const homeUrl = currentLang === 'en' ? '/' : `/${currentLang}`;
     {langs.map((lang, i) => (
       <>
         <a href={langUrl(lang)} class:list={["mobile-lang-link", { "lang-active": lang === currentLang }]}>
-          {lang.toUpperCase()}
+          {langLabel[lang]}
         </a>
         {i < langs.length - 1 && <span class="lang-sep" aria-hidden="true">·</span>}
       </>
