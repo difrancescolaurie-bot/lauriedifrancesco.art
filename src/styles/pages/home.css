@@ -142,6 +142,26 @@
   margin-bottom: clamp(2.5rem, 6vh, 4.5rem);
 }
 
+.works-divider {
+  margin: 0 0 clamp(2.5rem, 6vh, 4rem);
+}
+
+.works-divider-line {
+  border: none;
+  height: 1px;
+  background: var(--brume);
+  width: 100%;
+}
+
+.works-divider-label {
+  margin-top: .9rem;
+  font-family: var(--font-body);
+  font-size: .72rem;
+  text-transform: uppercase;
+  letter-spacing: .2em;
+  color: var(--ardoise);
+}
+
 .work-item {
   display: block;
   margin-bottom: clamp(4rem, 10vh, 8rem);
@@ -247,6 +267,6 @@
 
   /* Recadrage mobile — ordre héro : hero-2, hero-3, hero-4, hero-1 */
   .hero-bg img:nth-child(1) { object-position: calc(62% - 15px) center; }
-  .hero-bg img:nth-child(3) { object-position: calc(68% - 75px) center; }
+  .hero-bg img:nth-child(3) { object-position: calc(68% - 105px) center; }
   .hero-bg img:nth-child(4) { object-position: 25% center; }
 }

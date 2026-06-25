@@ -13,6 +13,7 @@ export const ui = {
       heroLine2: "Where the blue of the sky opens into new shades",
       creedEyebrow: "Work in progress",
       enter: "Enter ↗",
+      previousWorks: "Previous works",
       projects: [
         { category: "Brazil · ongoing",  note: "Presence and absence in one gesture: being there means missing here. An intimate geography." },
         { category: "",                  note: "When an outsider's gaze rewrote my own — a body of work born from that rupture." },
@@ -81,6 +82,7 @@ export const ui = {
       heroLine2: "Là où le bleu du ciel prend de nouvelles nuances",
       creedEyebrow: "Work in progress",
       enter: "Entrer ↗",
+      previousWorks: "Œuvres précédentes",
       projects: [
         { category: "Brésil · en cours", note: "Présence et absence dans un seul geste : être ici, c'est manquer là-bas. Une géographie intime." },
         { category: "",                  note: "Quand le regard d'un étranger a réécrit le mien — une œuvre née de cette rupture." },
@@ -149,6 +151,7 @@ export const ui = {
       heroLine2: "Dove il blu del cielo si apre a nuove sfumature",
       creedEyebrow: "Work in progress",
       enter: "Entra ↗",
+      previousWorks: "Opere precedenti",
       projects: [
         { category: "Brasile · in corso", note: "Presenza e assenza in un solo gesto: essere qui significa mancare là. Una geografia intima." },
         { category: "",                   note: "Quando lo sguardo di uno straniero ha riscritto il mio — un'opera nata da quella rottura." },
@@ -217,6 +220,7 @@ export const ui = {
       heroLine2: "Onde o azul do céu se abre em novos tons",
       creedEyebrow: "Work in progress",
       enter: "Entrar ↗",
+      previousWorks: "Obras anteriores",
       projects: [
         { category: "Brasil · em curso", note: "Presença e ausência em um único gesto: estar aqui significa faltar lá. Uma geografia íntima." },
         { category: "",                  note: "Quando o olhar de um estranho reescreveu o meu — uma obra nascida dessa ruptura." },

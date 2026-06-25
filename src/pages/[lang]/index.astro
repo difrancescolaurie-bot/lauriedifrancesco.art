@@ -94,17 +94,25 @@ const projectImages = [
   <section class="works container" aria-label="Selected work">
 
     {t.projects.map((p, i) => (
-      <a class="work-item" href={projectHrefs[i]}>
-        <div class="work-frame">
-          <img src={projectImages[i]} alt={projectTitles[i]} loading="lazy" />
-        </div>
-        <div class="work-meta">
-          <span class="work-category">{p.category}</span>
-          <h2 class="work-title">{projectTitles[i]}</h2>
-          <p class="work-note">{p.note}</p>
-          <span class="work-enter">{t.enter}</span>
-        </div>
-      </a>
+      <>
+        <a class="work-item" href={projectHrefs[i]}>
+          <div class="work-frame">
+            <img src={projectImages[i]} alt={projectTitles[i]} loading="lazy" />
+          </div>
+          <div class="work-meta">
+            <span class="work-category">{p.category}</span>
+            <h2 class="work-title">{projectTitles[i]}</h2>
+            <p class="work-note">{p.note}</p>
+            <span class="work-enter">{t.enter}</span>
+          </div>
+        </a>
+        {i === 0 && (
+          <div class="works-divider">
+            <hr class="works-divider-line" />
+            <p class="works-divider-label">{t.previousWorks}</p>
+          </div>
+        )}
+      </>
     ))}
 
   </section>

@@ -94,21 +94,29 @@ const projects = [
   <!-- ─── Aperçu des œuvres ─────────────────────────────────── -->
   <section class="works container" aria-label="Selected work">
 
-    {projects.map(p => (
-      <a class="work-item" href={p.href}>
-        <div class="work-frame">
-          {p.image
-            ? <img src={p.image} alt={p.title} loading="lazy" />
-            : <span class="work-placeholder-label">{p.title}</span>
-          }
-        </div>
-        <div class="work-meta">
-          <span class="work-category">{p.category}</span>
-          <h2 class="work-title">{p.title}</h2>
-          <p class="work-note">{p.note}</p>
-          <span class="work-enter">Enter ↗</span>
-        </div>
-      </a>
+    {projects.map((p, i) => (
+      <>
+        <a class="work-item" href={p.href}>
+          <div class="work-frame">
+            {p.image
+              ? <img src={p.image} alt={p.title} loading="lazy" />
+              : <span class="work-placeholder-label">{p.title}</span>
+            }
+          </div>
+          <div class="work-meta">
+            <span class="work-category">{p.category}</span>
+            <h2 class="work-title">{p.title}</h2>
+            <p class="work-note">{p.note}</p>
+            <span class="work-enter">Enter ↗</span>
+          </div>
+        </a>
+        {i === 0 && (
+          <div class="works-divider">
+            <hr class="works-divider-line" />
+            <p class="works-divider-label">Previous works</p>
+          </div>
+        )}
+      </>
     ))}
 
   </section>
