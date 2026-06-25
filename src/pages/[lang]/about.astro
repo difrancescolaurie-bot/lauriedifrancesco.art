@@ -21,17 +21,16 @@ const t = ui[lang as Lang].about;
   lang={lang}
 >
 
-  <!-- ── Titre ────────────────────────────────────────── -->
+  <!-- ── Titre + Épigraphe ────────────────────────────── -->
   <section class="about-head container">
     <p class="about-eyebrow">{t.eyebrow}</p>
     <h1 class="about-h1">Laurie Di Francesco</h1>
-  </section>
 
-  <!-- ── Épigraphe ────────────────────────────────────── -->
-  <div class="about-epi">
-    <blockquote set:html={t.epigraph} />
-    <cite>{t.epigraphCite}</cite>
-  </div>
+    <div class="about-epi">
+      <blockquote set:html={t.epigraph} />
+      <cite>{t.epigraphCite}</cite>
+    </div>
+  </section>
 
   <!-- ── Bio ───────────────────────────────────────────── -->
   <div class="about-bio">

@@ -24,14 +24,13 @@ body { background: #ECEAE4; }
 }
 
 .about-epi {
-  max-width: 74ch;
-  margin: clamp(2rem, 5vh, 3.2rem) auto;
-  padding: 0 var(--gutter);
+  margin-top: 1.6rem;
+  border-left: 2px solid var(--cerule);
+  padding: .2rem 0 .2rem 1.3rem;
+  max-width: 60ch;
 }
 
 .about-epi blockquote {
-  border-left: 2px solid var(--cerule);
-  padding: .2rem 0 .2rem 1.3rem;
   font-family: var(--font-title);
   font-weight: 300;
   font-style: italic;
@@ -42,13 +41,12 @@ body { background: #ECEAE4; }
 
 .about-epi cite {
   display: block;
-  margin-top: .8rem;
+  margin-top: .9rem;
   font-style: normal;
-  font-size: .68rem;
+  font-size: .7rem;
   letter-spacing: .14em;
   text-transform: uppercase;
   color: var(--cerule);
-  padding-left: 1.3rem;
 }
 
 .about-bio {
