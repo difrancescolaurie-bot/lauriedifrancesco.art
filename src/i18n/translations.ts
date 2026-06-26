@@ -3,7 +3,7 @@ export type Lang = 'en' | 'fr' | 'it' | 'pt';
 export const ui = {
   en: {
     nav: {
-      work: "Work",
+      work: "Projects",
       exhibitions: "Exhibitions",
       about: "About",
       contact: "Contact",
@@ -76,7 +76,7 @@ export const ui = {
       thanksText: "Special thanks to Mathilde, Gautier, Zé, Soraia, Rafa, Marie-Françoise, Ulisses, Verônica, Paulo and Cris, for their precious support and encouragement throughout this project. Thank you to Studio Artmosphere, Hugo Baumecker and Jackson for their remarkable work and professionalism. And thank you to every friend who came to the opening — your presence was deeply moving. I owe you all so much. May the adventure continue.",
     },
     work: {
-      h1: 'Projects',
+      h1: 'Stories in Images',
       theProject: 'The project',
       nextProject: 'Next project',
       quoteHtml: 'To photograph is the process of discovering the other and, through the other, oneself. Ultimately, that is why the photographer seeks and discovers new worlds, but always ends up <span class="k">revealing what lies within</span>.',
@@ -169,7 +169,7 @@ export const ui = {
 
   it: {
     nav: {
-      work: "Lavoro",
+      work: "Progetti",
       exhibitions: "Mostre",
       about: "Chi sono",
       contact: "Contatto",
@@ -242,7 +242,7 @@ export const ui = {
       thanksText: 'Un ringraziamento speciale a <strong class="ex-thanks-name">Mathilde</strong>, <strong class="ex-thanks-name">Gautier</strong>, <strong class="ex-thanks-name">Zé</strong>, <strong class="ex-thanks-name">Soraia</strong>, <strong class="ex-thanks-name">Rafa</strong>, <strong class="ex-thanks-name">Marie-Françoise</strong>, <strong class="ex-thanks-name">Ulisses</strong>, <strong class="ex-thanks-name">Verônica</strong>, <strong class="ex-thanks-name">Paulo</strong> e <strong class="ex-thanks-name">Cris</strong>, per il loro prezioso sostegno e incoraggiamento durante tutto questo progetto. Grazie a <strong class="ex-thanks-name">Rodrigo</strong> di <strong class="ex-thanks-name">Studio Artmosphere</strong>, <strong class="ex-thanks-name">Hugo</strong> di <strong class="ex-thanks-name">Atelier Baumecker</strong> e <strong class="ex-thanks-name">Jackson Cardoso</strong> per il loro lavoro straordinario e la loro professionalità. E grazie a ogni amico che è venuto all\'inaugurazione — la vostra presenza mi ha commosso profondamente. Vi devo così tanto. Che l\'avventura continui.',
     },
     work: {
-      h1: 'Progetti',
+      h1: 'Racconti per immagini',
       theProject: 'Il progetto',
       nextProject: 'Progetto successivo',
       quoteHtml: 'Fotografare è il processo di scoperta dell\'altro e, attraverso l\'altro, di se stessi. È in fin dei conti per questo che il fotografo cerca e scopre nuovi mondi, ma finisce sempre per <span class="k">rivelare ciò che è dentro di sé</span>.',
@@ -252,7 +252,7 @@ export const ui = {
 
   pt: {
     nav: {
-      work: "Trabalho",
+      work: "Projetos",
       exhibitions: "Exposições",
       about: "Sobre",
       contact: "Contato",
@@ -325,7 +325,7 @@ export const ui = {
       thanksText: 'Um agradecimento especial a <strong class="ex-thanks-name">Mathilde</strong>, <strong class="ex-thanks-name">Gautier</strong>, <strong class="ex-thanks-name">Zé</strong>, <strong class="ex-thanks-name">Soraia</strong>, <strong class="ex-thanks-name">Rafa</strong>, <strong class="ex-thanks-name">Marie-Françoise</strong>, <strong class="ex-thanks-name">Ulisses</strong>, <strong class="ex-thanks-name">Verônica</strong>, <strong class="ex-thanks-name">Paulo</strong> e <strong class="ex-thanks-name">Cris</strong>, pelo precioso apoio e encorajamento ao longo de todo este projeto. Obrigada a <strong class="ex-thanks-name">Rodrigo</strong> do <strong class="ex-thanks-name">Studio Artmosphere</strong>, <strong class="ex-thanks-name">Hugo</strong> do <strong class="ex-thanks-name">Atelier Baumecker</strong> e <strong class="ex-thanks-name">Jackson Cardoso</strong> pelo trabalho notável e profissionalismo. E obrigada a cada amigo que veio à abertura — a presença de vocês me emocionou profundamente. Devo tanto a vocês. Que a aventura continue.',
     },
     work: {
-      h1: 'Projetos',
+      h1: 'Histórias em imagens',
       theProject: 'O projeto',
       nextProject: 'Próximo projeto',
       quoteHtml: 'Fotografar é o processo de descoberta do outro e, através do outro, de si mesmo. É em última análise por isso que o fotógrafo busca e descobre novos mundos, mas sempre acaba por <span class="k">revelar o que está dentro de si</span>.',
