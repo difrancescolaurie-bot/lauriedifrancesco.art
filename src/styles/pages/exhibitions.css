@@ -297,6 +297,9 @@ body { background: #ECEAE4; }
   font-size: .78rem;
   line-height: 1.88;
   color: var(--ardoise);
+  text-align: justify;
+  hyphens: auto;
+  -webkit-hyphens: auto;
 }
 
 .ex-thanks-name {
@@ -324,6 +327,11 @@ body { background: #ECEAE4; }
   .ex-grid-wrap { gap: 8px; }
   .ex-grid-row { flex-wrap: wrap; gap: 8px; }
   .ex-grid-fig { flex: none; width: calc(50% - 4px); }
+
+  /* Trio : 3 colonnes égales pour éviter le blanc */
+  .ex-grid-row:has(.ex-grid-fig:nth-child(3)):not(:has(.ex-grid-fig:nth-child(4))) .ex-grid-fig {
+    width: calc(33.33% - 6px);
+  }
+
   .ex-intro { text-align: left; }
-  .ex-thanks-text { text-align: left; }
 }
