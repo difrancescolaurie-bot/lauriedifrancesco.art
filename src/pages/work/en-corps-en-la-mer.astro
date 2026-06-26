@@ -405,13 +405,28 @@ const spreads: Spread[] = [
       flex-direction: column;
       gap: 2.5rem;
     }
-.series { gap: 8px; }
+    .series { gap: 8px; }
     .spread { flex-wrap: wrap; gap: 8px; }
     .spread figure {
       flex: none !important;
       width: calc(50% - 4px) !important;
     }
     .spread--single figure { width: 100% !important; }
+
+    /* Trio : 3 colonnes égales pour éviter le blanc */
+    .spread--row:has(figure:nth-child(3)):not(:has(figure:nth-child(4))) figure {
+      width: calc(33.33% - 6px) !important;
+    }
+
+    /* Hauteur uniforme dans les rangées de 2 */
+    .spread--row:not(:has(figure:nth-child(3))) figure {
+      aspect-ratio: 3 / 2;
+      overflow: hidden;
+    }
+    .spread--row:not(:has(figure:nth-child(3))) figure img {
+      height: 100%;
+      object-fit: cover;
+    }
   }
 
 </style>
