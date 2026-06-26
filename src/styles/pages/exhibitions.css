@@ -325,22 +325,8 @@ body { background: #ECEAE4; }
 @media (max-width: 680px) {
   .ex-artwork-pair { height: clamp(180px, 55vw, 300px); }
   .ex-grid-wrap { gap: 8px; }
-  .ex-grid-row { flex-wrap: wrap; gap: 8px; }
-  .ex-grid-fig {
-    flex: none;
-    width: calc(50% - 4px);
-    aspect-ratio: 3 / 2;
-    overflow: hidden;
-  }
-  .ex-grid-img {
-    height: 100%;
-    object-fit: cover;
-  }
-
-  /* Trio : 3 colonnes égales */
-  .ex-grid-row:has(.ex-grid-fig:nth-child(3)):not(:has(.ex-grid-fig:nth-child(4))) .ex-grid-fig {
-    width: calc(33.33% - 6px);
-  }
-
+  .ex-grid-row { flex-direction: column; gap: 8px; }
+  .ex-grid-fig { width: 100%; }
+  .ex-grid-img { height: auto; object-fit: fill; }
   .ex-intro { text-align: left; }
 }
