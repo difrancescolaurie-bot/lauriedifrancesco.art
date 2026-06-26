@@ -38,6 +38,9 @@ body { background: #ECEAE4; }
   font-size: clamp(.88rem, 1.2vw, 1rem);
   line-height: 1.55;
   color: var(--ardoise);
+  text-align: justify;
+  hyphens: auto;
+  -webkit-hyphens: auto;
 }
 
 .wi-epi .k {

@@ -86,7 +86,7 @@ export const ui = {
 
   fr: {
     nav: {
-      work: "Travaux",
+      work: "Projets",
       exhibitions: "Expositions",
       about: "À propos",
       contact: "Contact",
@@ -159,7 +159,7 @@ export const ui = {
       thanksText: 'Un grand merci à <strong class="ex-thanks-name">Mathilde</strong>, <strong class="ex-thanks-name">Gautier</strong>, <strong class="ex-thanks-name">Zé</strong>, <strong class="ex-thanks-name">Soraia</strong>, <strong class="ex-thanks-name">Rafa</strong>, <strong class="ex-thanks-name">Marie-Françoise</strong>, <strong class="ex-thanks-name">Ulisses</strong>, <strong class="ex-thanks-name">Verônica</strong>, <strong class="ex-thanks-name">Paulo</strong> et <strong class="ex-thanks-name">Cris</strong>, pour leur précieux soutien et leurs encouragements tout au long de ce projet. Merci à <strong class="ex-thanks-name">Rodrigo</strong> du <strong class="ex-thanks-name">Studio Artmosphere</strong>, <strong class="ex-thanks-name">Hugo</strong> de l\'<strong class="ex-thanks-name">Atelier Baumecker</strong> et <strong class="ex-thanks-name">Jackson Cardoso</strong> pour leur travail remarquable et leur professionnalisme. Et merci à tous les amis venus au vernissage — votre présence m\'a profondément touchée. Je vous dois tant. Que l\'aventure continue.',
     },
     work: {
-      h1: 'Projets',
+      h1: 'Récits en images',
       theProject: 'Le projet',
       nextProject: 'Projet suivant',
       quoteHtml: 'Photographier est le processus de découverte de l\'autre et, à travers l\'autre, de soi-même. C\'est en fin de compte pour cela que le photographe cherche et découvre de nouveaux mondes, mais finit toujours par <span class="k">révéler ce qui est en lui</span>.',
