@@ -61,7 +61,7 @@ const t = ui[lang as Lang].exhibitions;
         <div>
           <p class="ex-artwork-title-pt">Crianças no parque brincando nos chafarizes</p>
           <p class="ex-artwork-title-en">{t.artworkTitle}</p>
-          <p class="ex-artwork-tech">Paris, 2010 · analogue camera</p>
+          <p class="ex-artwork-tech">Paris, 2010 · {t.artworkTech}</p>
           <p class="ex-artwork-status">{t.artworkStatus}</p>
         </div>
       </div>
@@ -134,21 +134,21 @@ const t = ui[lang as Lang].exhibitions;
       <div class="ex-video-col">
         <video src="/videos/loop-print.mp4" autoplay muted loop playsinline class="ex-video"></video>
         <p class="ex-video-label">{t.videoLabels.print}</p>
-        <p class="ex-credit-name">Luiz Rodrigo Cerqueira, Studio Artmosphere, Belo Horizonte.</p>
-        <p class="ex-credit-detail">Archival pigment print on Hahnemühle Studio Enhanced 210 gsm · Canon imagePROGRAF PRO-6000 · LUCIA PRO pigment inks · Artmosphere colour profile.</p>
+        <p class="ex-video-title">Studio Artmosphere</p>
+        <p class="ex-credit-detail" set:html={t.creditPrint} />
       </div>
 
       <div class="ex-video-col">
         <video src="/videos/loop-frame.mp4" autoplay muted loop playsinline class="ex-video"></video>
         <p class="ex-video-label">{t.videoLabels.frame}</p>
-        <p class="ex-credit-name">Hugo Baumecker, Atelier Baumecker, Belo Horizonte.</p>
-        <p class="ex-credit-detail">Conservation framing in treated and sealed natural wood; neutral foamboard mount with neutral adhesives and/or neutral passe-partout; protected with corrugated backing, kraft tape and 2 mm clear crystal glass; structured back-box and hangers.</p>
+        <p class="ex-video-title">Atelier Baumecker</p>
+        <p class="ex-credit-detail" set:html={t.creditFrame} />
       </div>
 
       <div class="ex-video-col">
         <video src="/videos/loop-mount.mp4" autoplay muted loop playsinline class="ex-video"></video>
         <p class="ex-video-label">{t.videoLabels.mount}</p>
-        <p class="ex-credit-name">Jackson de Souza Cardoso de Albuquerque, Contemporânea Art Gallery, Belo Horizonte.</p>
+        <p class="ex-video-title">Jackson Cardoso</p>
       </div>
 
     </div>
