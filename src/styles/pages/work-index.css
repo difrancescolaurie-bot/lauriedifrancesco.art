@@ -124,7 +124,9 @@ body { background: #ECEAE4; }
   font-size: clamp(.82rem, 1.1vw, .92rem);
   line-height: 1.65;
   color: var(--ardoise);
-  max-width: 36ch;
+  text-align: justify;
+  hyphens: auto;
+  -webkit-hyphens: auto;
 }
 
 @media (max-width: 680px) {
