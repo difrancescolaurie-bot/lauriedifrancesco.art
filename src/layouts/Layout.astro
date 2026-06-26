@@ -2,6 +2,7 @@
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import '../styles/global.css';
+import { ui, type Lang } from '../i18n/translations';
 
 interface Props {
   title: string;
@@ -10,16 +11,30 @@ interface Props {
   lang?: string;
 }
 
-const {
-  title,
-  description = "Documentary and poetic photography · Where the blue of the sky opens into new shades",
-  image = "/og-default.jpg",
-  lang = "en",
-} = Astro.props;
+const { title, image = "/og-default.jpg", lang = "en" } = Astro.props;
+
+const validLang: Lang = (lang === 'fr' || lang === 'it' || lang === 'pt') ? lang as Lang : 'en';
+const t = ui[validLang];
+
+const description = Astro.props.description ?? `${t.home.heroLine1} · ${t.home.heroLine2}`;
+
+const photographerLabel: Record<Lang, string> = {
+  en: 'Photographer',
+  fr: 'Photographe',
+  it: 'Fotografa',
+  pt: 'Fotógrafa',
+};
+
+const ogLocale: Record<Lang, string> = {
+  en: 'en_US',
+  fr: 'fr_FR',
+  it: 'it_IT',
+  pt: 'pt_BR',
+};
 
 const SITE_URL = "https://lauriedifrancesco.art";
 const siteTitle = title === "Home"
-  ? "Laurie Di Francesco — Photographer"
+  ? `Laurie Di Francesco — ${photographerLabel[validLang]}`
   : title.includes("Laurie Di Francesco")
     ? title
     : `${title} — Laurie Di Francesco`;
@@ -36,6 +51,7 @@ const ogImage = image.startsWith("http") ? image : `${SITE_URL}${image}`;
 
     <!-- Open Graph / social sharing -->
     <meta property="og:type" content="website" />
+    <meta property="og:locale" content={ogLocale[validLang]} />
     <meta property="og:site_name" content="Laurie Di Francesco" />
     <meta property="og:url" content={canonicalURL} />
     <meta property="og:title" content={siteTitle} />
