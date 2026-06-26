@@ -94,9 +94,9 @@ export const ui = {
     home: {
       heroLine1: "Photographie documentaire et poétique",
       heroLine2: "Là où le bleu du ciel prend de nouvelles nuances",
-      creedEyebrow: "Work in progress",
+      creedEyebrow: "Projet en cours",
       enter: "Entrer ↗",
-      previousWorks: "Œuvres précédentes",
+      previousWorks: "Projets précédents",
       projects: [
         { category: "Brésil · en cours", cerule: "Ressignifier",                        note: "Être ici, c'est manquer là-bas. Ou pas ?" },
         { category: "",                  cerule: "Les lignes séparent-elles vraiment ?", note: "Quand la libre profusion des formes autour de nous, et le regard d'un autre, ont réécrit mon propre regard : une œuvre née d'une rupture qui rapproche." },
