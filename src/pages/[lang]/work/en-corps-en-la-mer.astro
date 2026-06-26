@@ -73,6 +73,8 @@ const spreads: Spread[] = [
     </div>
   </section>
 
+  <p class="phero-wip container">Work in progress</p>
+
   <!-- ── Ouverture 2 colonnes ──────────────────────────────── -->
   <section class="opening container">
 
@@ -86,7 +88,7 @@ const spreads: Spread[] = [
       <hr class="horizon epi-horizon" />
 
       <div class="epi-wrap">
-        <blockquote>{content.marineText}</blockquote>
+        <blockquote class="epi-justify">{content.marineText}</blockquote>
         <cite>
           {content.marineCite}
           {('marineNote' in content) && <span class="epi-tradfr">{(content as any).marineNote}</span>}
@@ -94,13 +96,6 @@ const spreads: Spread[] = [
       </div>
       <hr class="horizon epi-horizon" />
 
-    </div>
-
-    <!-- Colonne droite : texte du projet -->
-    <div class="opening-proj">
-      <p class="opening-eyebrow">{t.work.theProject}</p>
-      <p class="opening-text" set:html={content.projectText} />
-      <hr class="horizon opening-horizon" />
     </div>
 
   </section>

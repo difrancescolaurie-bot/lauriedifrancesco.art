@@ -48,6 +48,8 @@ const spreads: Spread[] = [
     </div>
   </section>
 
+  <p class="phero-wip container">Work in progress</p>
+
   <!-- ── Ouverture 2 colonnes ──────────────────────────────── -->
   <section class="opening container">
 
@@ -65,7 +67,7 @@ const spreads: Spread[] = [
 
       <!-- Claire Marin -->
       <div class="epi-wrap">
-        <blockquote>
+        <blockquote class="epi-justify">
           Dreams and water are two worlds where I recover a little balance, a little lightness,
           where I live again the pleasure of movement. Held within the water's sheath, my body
           lets go of its pain. It fades, dissolves, vanishes. My movements turn fluid, easy;
@@ -79,22 +81,6 @@ const spreads: Spread[] = [
       </div>
       <hr class="horizon epi-horizon" />
 
-    </div>
-
-    <!-- Colonne droite : texte du projet -->
-    <div class="opening-proj">
-      <p class="opening-eyebrow">The project</p>
-      <p class="opening-text">
-        There was a season when the body gave way — when illness pulled the ground
-        from under everything and strength drained off like a tide going out.
-        <em>En Corps à la Mer</em> follows that long descent and its turning:
-        force returning not through stillness, but through water. To swim was to
-        be carried and to carry oneself at once — to surface, and surface again,
-        until surfacing became a way of living. The series moves from dark
-        interiors toward an open, dazzling white: the sea as the place where a
-        life is handed back.
-      </p>
-      <hr class="horizon opening-horizon" />
     </div>
 
   </section>
@@ -236,6 +222,19 @@ const spreads: Spread[] = [
     font-size: clamp(.88rem, 1.2vw, 1rem);
     line-height: 1.55;
     color: var(--ardoise);
+  }
+  .epi-wrap blockquote.epi-justify {
+    text-align: justify;
+    hyphens: auto;
+    -webkit-hyphens: auto;
+  }
+  .phero-wip {
+    font-family: var(--font-body);
+    font-size: .72rem;
+    text-transform: uppercase;
+    letter-spacing: .2em;
+    color: var(--cerule);
+    padding-top: clamp(2.5rem, 6vh, 4rem);
   }
 
   .epi-wrap .k {

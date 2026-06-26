@@ -37,6 +37,8 @@ const spreads: Spread[] = [
     </div>
   </section>
 
+  <p class="phero-wip container">Work in progress</p>
+
   <!-- ── Ouverture 2 colonnes ──────────────────────────────── -->
   <section class="opening container">
 
@@ -44,7 +46,7 @@ const spreads: Spread[] = [
     <div class="opening-epi">
 
       <div class="epi-wrap">
-        <blockquote>
+        <blockquote class="epi-justify">
           But what if someone dragged them along a steep and harsh ascent against their
           will, and did not let go until they were dragged right into the sunlight? Would
           they not feel pain and discomfort? And if they walked towards the sun and their
@@ -85,15 +87,6 @@ const spreads: Spread[] = [
         <cite>José Ramalho Neto — Galope Resante</cite>
       </div>
       <hr class="horizon epi-horizon" />
-
-      <p class="opening-eyebrow">The project</p>
-      <p class="opening-text">
-        Some journeys are not made of distance but of divided presence — the sense of being
-        always partly elsewhere. <em>Quando sono qui, non sono là</em> traces that interior
-        geography: portraits and landscapes gathered across Brazil, where the question of
-        belonging is written into bodies, borders, and light.
-      </p>
-      <hr class="horizon opening-horizon" />
 
     </div>
 
@@ -226,6 +219,19 @@ const spreads: Spread[] = [
     font-size: clamp(.88rem, 1.2vw, 1rem);
     line-height: 1.55;
     color: var(--ardoise);
+  }
+  .epi-wrap blockquote.epi-justify {
+    text-align: justify;
+    hyphens: auto;
+    -webkit-hyphens: auto;
+  }
+  .phero-wip {
+    font-family: var(--font-body);
+    font-size: .72rem;
+    text-transform: uppercase;
+    letter-spacing: .2em;
+    color: var(--cerule);
+    padding-top: clamp(2.5rem, 6vh, 4rem);
   }
 
   .epi-wrap .k {
