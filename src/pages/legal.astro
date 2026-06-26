@@ -8,49 +8,20 @@ import Layout from '../layouts/Layout.astro';
 >
   <div class="legal container">
 
-    <div class="legal-top">
-      <h1 class="legal-title" id="legal-heading-fr">Mentions légales</h1>
-      <h1 class="legal-title" id="legal-heading-en" hidden>Legal notice</h1>
+    <div class="legal-header">
+      <h1 class="legal-title" id="legal-heading-en">Legal notice</h1>
+      <h1 class="legal-title" id="legal-heading-fr" hidden>Mentions légales</h1>
       <div class="legal-lang-switch">
-        <button class="lang-btn active" data-lang="fr">FR</button>
+        <button class="lang-btn active" data-lang="en">EN</button>
         <span class="lang-sep">·</span>
-        <button class="lang-btn" data-lang="en">EN</button>
+        <button class="lang-btn" data-lang="fr">FR</button>
       </div>
     </div>
 
     <hr class="horizon legal-horizon" />
 
-    <!-- ── Version française ──────────────────────── -->
-    <div id="content-fr">
-
-      <section class="legal-section">
-        <h2 class="legal-h2">Éditrice &amp; directrice de publication</h2>
-        <p>
-          Laurie Di Francesco — Photographe<br />
-          SIRET&nbsp;: 91132036 00013<br />
-          <a href="/contact">Formulaire de contact</a>
-        </p>
-      </section>
-
-      <section class="legal-section">
-        <h2 class="legal-h2">Hébergement</h2>
-        <p>Cloudflare, Inc. — 101 Townsend St, San Francisco, CA 94107, États-Unis.</p>
-      </section>
-
-      <section class="legal-section">
-        <h2 class="legal-h2">Données &amp; confidentialité</h2>
-        <p>Ce site dispose d'un formulaire de contact. Les informations saisies (nom, adresse e-mail, message) sont transmises directement à l'éditrice via Web3Forms et ne sont pas conservées sur un serveur au-delà du temps nécessaire à la transmission. Aucun cookie n'est déposé. La mesure d'audience repose sur Cloudflare Web Analytics (sans cookie ni identification des visiteurs) et sur Google Search Console (statistiques agrégées de présence dans les résultats de recherche).</p>
-      </section>
-
-      <section class="legal-section">
-        <h2 class="legal-h2">Propriété intellectuelle</h2>
-        <p>L'ensemble des photographies et textes publiés sur ce site sont la propriété exclusive de Laurie Di Francesco. Toute reproduction, même partielle, est interdite sans autorisation préalable.</p>
-      </section>
-
-    </div>
-
-    <!-- ── English version ───────────────────────── -->
-    <div id="content-en" hidden>
+    <!-- ── English version (default) ────────────── -->
+    <div id="content-en">
 
       <section class="legal-section">
         <h2 class="legal-h2">Publisher &amp; editorial director</h2>
@@ -74,6 +45,35 @@ import Layout from '../layouts/Layout.astro';
       <section class="legal-section">
         <h2 class="legal-h2">Intellectual property</h2>
         <p>All photographs and texts published on this site are the exclusive property of Laurie Di Francesco. Any reproduction, even partial, is prohibited without prior authorisation.</p>
+      </section>
+
+    </div>
+
+    <!-- ── Version française ──────────────────────── -->
+    <div id="content-fr" hidden>
+
+      <section class="legal-section">
+        <h2 class="legal-h2">Éditrice &amp; directrice de publication</h2>
+        <p>
+          Laurie Di Francesco — Artiste-auteure photographe<br />
+          SIRET&nbsp;: 91132036 00013<br />
+          <a href="/contact">Formulaire de contact</a>
+        </p>
+      </section>
+
+      <section class="legal-section">
+        <h2 class="legal-h2">Hébergement</h2>
+        <p>Cloudflare, Inc. — 101 Townsend St, San Francisco, CA 94107, États-Unis.</p>
+      </section>
+
+      <section class="legal-section">
+        <h2 class="legal-h2">Données &amp; confidentialité</h2>
+        <p>Ce site dispose d'un formulaire de contact. Les informations saisies (nom, adresse e-mail, message) sont transmises directement à l'éditrice via Web3Forms et ne sont pas conservées sur un serveur au-delà du temps nécessaire à la transmission. Aucun cookie n'est déposé. La mesure d'audience repose sur Cloudflare Web Analytics (sans cookie ni identification des visiteurs) et sur Google Search Console (statistiques agrégées de présence dans les résultats de recherche).</p>
+      </section>
+
+      <section class="legal-section">
+        <h2 class="legal-h2">Propriété intellectuelle</h2>
+        <p>L'ensemble des photographies et textes publiés sur ce site sont la propriété exclusive de Laurie Di Francesco. Toute reproduction, même partielle, est interdite sans autorisation préalable.</p>
       </section>
 
     </div>
@@ -108,11 +108,7 @@ import Layout from '../layouts/Layout.astro';
     max-width: 680px;
   }
 
-  .legal-top {
-    display: flex;
-    align-items: baseline;
-    justify-content: space-between;
-    gap: 1.5rem;
+  .legal-header {
     margin-bottom: 1.8rem;
   }
 
@@ -123,13 +119,13 @@ import Layout from '../layouts/Layout.astro';
     text-transform: uppercase;
     letter-spacing: .08em;
     color: var(--encre);
+    margin-bottom: .9rem;
   }
 
   .legal-lang-switch {
     display: flex;
     align-items: center;
     gap: .5rem;
-    flex-shrink: 0;
   }
 
   .lang-sep {
@@ -160,7 +156,7 @@ import Layout from '../layouts/Layout.astro';
   }
 
   .legal-horizon {
-    margin-bottom: 3rem;
+    margin-bottom: 4.5rem;
   }
 
   .legal-section {
