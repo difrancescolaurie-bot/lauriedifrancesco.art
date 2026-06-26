@@ -324,18 +324,7 @@ body { background: #ECEAE4; }
 
 @media (max-width: 680px) {
   .ex-artwork-pair { height: clamp(180px, 55vw, 300px); }
-  .ex-grid-wrap {
-    display: block;
-    columns: 2;
-    column-gap: 8px;
-  }
-  .ex-grid-row { display: contents; }
-  .ex-grid-fig {
-    display: block;
-    width: 100%;
-    margin-bottom: 8px;
-    break-inside: avoid;
-  }
-  .ex-grid-img { display: block; width: 100%; height: auto; }
+  .ex-grid-wrap { gap: 8px; }
+  .ex-grid-row { gap: 8px; }
   .ex-intro { text-align: left; }
 }

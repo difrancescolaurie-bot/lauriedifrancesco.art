@@ -182,12 +182,10 @@ const videos = [
 <script>
   /* ── Justified grid rows (natural aspect ratios) ────── */
   function justifyGrid() {
-    const mob = window.innerWidth <= 680;
     document.querySelectorAll<HTMLElement>('.ex-grid-row').forEach(row => {
       const figs = Array.from(row.querySelectorAll<HTMLElement>('.ex-grid-fig'));
       const imgs = figs.map(f => f.querySelector('img') as HTMLImageElement);
       function apply() {
-        if (mob) { figs.forEach(f => { f.style.flexGrow = ''; }); return; }
         imgs.forEach((im, i) => {
           const ratio = (im.naturalWidth && im.naturalHeight)
             ? im.naturalWidth / im.naturalHeight : 1;
