@@ -6,31 +6,36 @@ const projects = [
   {
     href: '/work/quando-sono-qui',
     title: 'Quando sono qui, non sono là',
-    place: 'In progress · 2026',
+    cerule: 'Resignifying',
+    note: 'Being there means missing here. Or does it?',
     image: '/images/work/quando-cover.jpg',
   },
   {
     href: '/work/spilling-beyond-the-lines',
     title: 'Spilling Beyond the Lines',
-    place: '2019 – 2024',
+    cerule: 'Do lines truly divide?',
+    note: 'When the free profusion of forms around us, and another\'s gaze, rewrote my own: a work born of a rupture that draws us closer.',
     image: '/images/work/spilling-cover.jpg',
   },
   {
     href: '/work/toward-the-blue',
     title: 'Toward the Blue',
-    place: '2025',
+    cerule: 'Sky-blue in her eyes',
+    note: 'Look up into the blue of the sky. Dream of a lightness lost, or never known.',
     image: '/images/work/toward-the-blue-cover.jpg',
   },
   {
     href: '/work/vedere-venezia',
     title: 'Vedere Venezia e Non Morire',
-    place: '1990 – 2025',
+    cerule: 'Rebirth. An attempt.',
+    note: 'To hold on. To let go. To exist in one\'s own gaze.',
     image: '/images/work/vedere-venezia-cover.jpg',
   },
   {
     href: '/work/en-corps-en-la-mer',
     title: 'En Corps à la Mer',
-    place: 'Surfacing · 2025',
+    cerule: 'Surfacing',
+    note: 'Learning to walk again, through water and through dreams',
     image: '/images/work/en-corps-cover.jpg',
   },
 ];
@@ -67,8 +72,9 @@ const projects = [
           <img src={p.image} alt={p.title} loading="lazy" />
         </div>
         <div class="wi-meta">
-          <span class="wi-place">{p.place}</span>
+          <span class="wi-cerule">{p.cerule}</span>
           <h2 class="wi-title">{p.title}</h2>
+          <p class="wi-note">{p.note}</p>
         </div>
       </a>
     ))}

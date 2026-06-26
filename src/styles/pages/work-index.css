@@ -95,7 +95,7 @@ body { background: #ECEAE4; }
   margin-top: 1rem;
 }
 
-.wi-place {
+.wi-cerule {
   display: block;
   font-family: var(--font-body);
   font-size: .7rem;
@@ -116,6 +116,15 @@ body { background: #ECEAE4; }
 .wi-title em {
   font-style: italic;
   font-weight: 400;
+}
+
+.wi-note {
+  margin-top: .6rem;
+  font-family: var(--font-body);
+  font-size: clamp(.82rem, 1.1vw, .92rem);
+  line-height: 1.65;
+  color: var(--ardoise);
+  max-width: 36ch;
 }
 
 @media (max-width: 680px) {
