@@ -1,0 +1,96 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import '../../../styles/pages/work-index.css';
+import { ui, type Lang } from '../../../i18n/translations';
+
+export function getStaticPaths() {
+  return [
+    { params: { lang: 'fr' } },
+    { params: { lang: 'it' } },
+    { params: { lang: 'pt' } },
+  ];
+}
+
+const { lang } = Astro.params;
+const t = ui[lang as Lang];
+
+const projects = t.home.projects.map((p, i) => {
+  const slugs = [
+    'quando-sono-qui',
+    'spilling-beyond-the-lines',
+    'toward-the-blue',
+    'vedere-venezia',
+    'en-corps-en-la-mer',
+  ];
+  const titles = [
+    'Quando sono qui, non sono là',
+    'Spilling Beyond the Lines',
+    'Toward the Blue',
+    'Vedere Venezia e Non Morire',
+    'En Corps à la Mer',
+  ];
+  const images = [
+    '/images/work/quando-cover.jpg',
+    '/images/work/spilling-cover.jpg',
+    '/images/work/toward-the-blue-cover.jpg',
+    '/images/work/vedere-venezia-cover.jpg',
+    '/images/work/en-corps-cover.jpg',
+  ];
+  return {
+    href: `/${lang}/work/${slugs[i]}`,
+    title: titles[i],
+    cerule: p.cerule,
+    note: p.note,
+    image: images[i],
+  };
+});
+---
+
+<Layout
+  title={t.work.h1}
+  description={`${t.work.h1} — Laurie Di Francesco`}
+  lang={lang}
+>
+
+  <!-- ── Page head ────────────────────────── -->
+  <section class="wi-head container">
+    <p class="wi-eyebrow">{t.nav.work}</p>
+    <h1 class="wi-h1">{t.work.h1}</h1>
+
+    <div class="wi-epi">
+      <blockquote set:html={t.work.quoteHtml} />
+      <cite>{t.work.quoteCite}</cite>
+    </div>
+
+    <hr class="horizon wi-horizon" />
+  </section>
+
+  <!-- ── Grid ───────────────────────────────── -->
+  <section class="wi-grid container" aria-label={t.work.h1}>
+
+    {projects.map(p => (
+      <a class="wi-work rv" href={p.href}>
+        <div class="wi-frame">
+          <img src={p.image} alt={p.title} loading="lazy" />
+        </div>
+        <div class="wi-meta">
+          <span class="wi-cerule">{p.cerule}</span>
+          <h2 class="wi-title">{p.title}</h2>
+          <p class="wi-note">{p.note}</p>
+        </div>
+      </a>
+    ))}
+
+  </section>
+
+</Layout>
+
+<script>
+  const observer = new IntersectionObserver(
+    entries => entries.forEach(e => {
+      if (e.isIntersecting) { e.target.classList.add('in'); observer.unobserve(e.target); }
+    }),
+    { threshold: 0.08 }
+  );
+  document.querySelectorAll('.rv').forEach(el => observer.observe(el));
+</script>

@@ -11,8 +11,12 @@ if (langMatch) currentLang = langMatch[1] as Lang;
 // Base path without language prefix (e.g. /fr/about → /about)
 const basePath = path.replace(/^\/(fr|it|pt)(\/|$)/, '/').replace(/\/+$/, '') || '/';
 
-// Pages that exist in translated versions — work pages are English-only for now
-const translatedPages = ['/', '/about', '/exhibitions', '/contact'];
+// Pages that exist in translated versions
+const translatedPages = [
+  '/', '/about', '/exhibitions', '/contact',
+  '/work', '/work/quando-sono-qui', '/work/spilling-beyond-the-lines',
+  '/work/toward-the-blue', '/work/vedere-venezia', '/work/en-corps-en-la-mer',
+];
 const targetBase = translatedPages.includes(basePath) ? basePath : '/';
 
 // Build URL for a given language
@@ -29,7 +33,7 @@ function navUrl(page: string): string {
 const t = ui[currentLang];
 
 const navLinks = [
-  { label: t.nav.work,        href: '/work' },        // Work pages not yet translated
+  { label: t.nav.work,        href: navUrl('work') },
   { label: t.nav.exhibitions, href: navUrl('exhibitions') },
   { label: t.nav.about,       href: navUrl('about') },
   { label: t.nav.contact,     href: navUrl('contact') },
@@ -54,7 +58,7 @@ const homeUrl = currentLang === 'en' ? '/' : `/${currentLang}`;
           <li>
             <a
               href={link.href}
-              class:list={["nav-link", { active: path.includes(link.href) && link.href !== '/work' }]}
+              class:list={["nav-link", { active: path === link.href || path.startsWith(link.href + '/') }]}
             >
               {link.label}
             </a>

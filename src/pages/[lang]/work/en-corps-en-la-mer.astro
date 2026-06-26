@@ -1,0 +1,156 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import '../../../styles/pages/work-project.css';
+import { ui, type Lang } from '../../../i18n/translations';
+
+export function getStaticPaths() {
+  return [
+    { params: { lang: 'fr' } },
+    { params: { lang: 'it' } },
+    { params: { lang: 'pt' } },
+  ];
+}
+
+const { lang } = Astro.params;
+const t = ui[lang as Lang];
+
+const content = {
+  fr: {
+    nietzsche: 'Ce phénomène artistique fondamental qu\'on appelle la <span class="k">vie</span>',
+    marineText: 'Les rêves et l\'eau sont deux mondes où je retrouve un peu d\'équilibre, un peu de légèreté, où je vis à nouveau le plaisir du mouvement. Tenu dans la gaine de l\'eau, mon corps lâche sa douleur. Elle s\'estompe, se dissout, disparaît. Mes mouvements deviennent fluides, faciles ; mon corps souple, presque agile. Partis, les points d\'accroche tendres : les hanches, les coudes — plus rien ne racle, plus rien ne frotte, plus rien ne déchire. Je me souviens d\'avoir rêvé que j\'étais une sirène. Mes jambes étaient emprisonnées dans un cocon formé par les draps, enroulés serrés à force de me retourner en tous sens à la recherche d\'une position sans douleur. Dans le rêve, la momification avait été transfigurée en puissance de mouvement.',
+    marineCite: 'Claire Marin — Hors de moi',
+    projectText: 'Il y eut une saison où le corps a cédé — quand la maladie a arraché le sol sous les pieds de tout et que la force s\'est retirée comme une marée qui se retire. <em>En Corps à la Mer</em> suit cette longue descente et son retournement : la force qui revient non par l\'immobilité, mais par l\'eau. Nager, c\'était être portée et se porter soi-même à la fois — refaire surface, et refaire surface encore, jusqu\'à ce que refaire surface devienne une façon de vivre. La série va des intérieurs sombres vers un blanc ouvert et éblouissant : la mer comme lieu où une vie est rendue.',
+  },
+  it: {
+    nietzsche: 'Quel fenomeno artistico fondamentale che si chiama <span class="k">vita</span>',
+    marineText: 'I sogni e l\'acqua sono due mondi in cui recupero un po\' di equilibrio, un po\' di leggerezza, in cui vivo di nuovo il piacere del movimento. Tenuto nella guaina dell\'acqua, il mio corpo lascia andare il suo dolore. Sfuma, si dissolve, scompare. I miei movimenti diventano fluidi, facili; il mio corpo duttile, quasi agile. Spariti i punti di aggancio teneri: i fianchi, i gomiti — niente più raschia, niente più graffia, niente più lacera. Ricordo di aver sognato di essere una sirena. Le mie gambe erano imprigionate in un bozzolo formato dalle lenzuola, avvolte strette a forza di girarmi e rigirarmi alla ricerca di una posizione senza dolore. Nel sogno, la mummificazione si era trasfigurata in una potenza di movimento.',
+    marineCite: 'Claire Marin — Hors de moi',
+    marineNote: 'tradotto dal francese',
+    projectText: 'C\'era una stagione in cui il corpo cedette — quando la malattia strappò il suolo sotto tutto e la forza defluì come una marea calante. <em>En Corps à la Mer</em> segue quella lunga discesa e il suo rovesciamento: la forza che ritorna non attraverso l\'immobilità, ma attraverso l\'acqua. Nuotare era essere portata e portarsi allo stesso tempo — riemergere, e riemergere ancora, finché riemergere divenne un modo di vivere. La serie si muove dagli interni bui verso un bianco aperto e abbagliante: il mare come il luogo dove una vita viene restituita.',
+  },
+  pt: {
+    nietzsche: 'Esse fenômeno artístico fundamental que se chama <span class="k">vida</span>',
+    marineText: 'Os sonhos e a água são dois mundos em que recupero um pouco de equilíbrio, um pouco de leveza, em que vivo de novo o prazer do movimento. Contido na bainha da água, meu corpo larga a sua dor. Ela se apaga, se dissolve, desaparece. Meus movimentos tornam-se fluidos, fáceis; meu corpo flexível, quase ágil. Foram-se os pontos de apoio sensíveis: os quadris, os cotovelos — nada mais raspa, nada mais esfrega, nada mais rasga. Lembro-me de ter sonhado que era uma sereia. Minhas pernas estavam aprisionadas num casulo formado pelos lençóis, enrolados com força de tanto me revirar em busca de uma posição sem dor. No sonho, a mumificação havia sido transfigurada numa potência de movimento.',
+    marineCite: 'Claire Marin — Hors de moi',
+    marineNote: 'traduzido do francês',
+    projectText: 'Houve uma estação em que o corpo cedeu — quando a doença arrancou o chão de tudo e a força escoou como uma maré vazante. <em>En Corps à la Mer</em> acompanha essa longa descida e sua virada: a força que retorna não pela imobilidade, mas pela água. Nadar era ser carregada e carregar a si mesma ao mesmo tempo — emergir, e emergir de novo, até que emergir se tornasse uma forma de viver. A série vai dos interiores escuros em direção a um branco aberto e ofuscante: o mar como o lugar onde uma vida é devolvida.',
+  },
+}[lang as 'fr' | 'it' | 'pt'];
+
+const s = (file: string) => `/images/work/en-corps-en-la-mer/${file}`;
+type Photo = { src: string; n: number };
+type Spread = { type: 'row' | 'single'; photos: Photo[]; caption?: string };
+const p = (n: number): Photo => ({ src: s(`${n}.jpg`), n });
+
+const spreads: Spread[] = [
+  { type: 'row',    photos: [p(51), p(52)] },
+  { type: 'row',    photos: [p(53), p(56)] },
+  { type: 'row',    photos: [p(55), p(59)] },
+  { type: 'row',    photos: [p(57), p(58), p(60), p(61)] },
+  { type: 'single', photos: [p(62)] },
+  { type: 'row',    photos: [p(64), p(65), p(67)] },
+  { type: 'row',    photos: [p(66), p(70), p(71), p(72)] },
+  { type: 'row',    photos: [p(73), p(74)] },
+  { type: 'row',    photos: [p(69), p(76)] },
+];
+---
+
+<Layout
+  title="En Corps à la Mer — Laurie Di Francesco"
+  description="En Corps à la Mer — Surfacing · 2025. A photographic series by Laurie Di Francesco."
+  image="/images/work/en-corps-cover.jpg"
+  lang={lang}
+>
+
+  <!-- ── Hero ──────────────────────────────────────────────── -->
+  <section class="phero">
+    <div class="phero-bg" aria-hidden="true">
+      <img src="/images/work/en-corps-en-la-mer/72.jpg" alt="" loading="eager" />
+    </div>
+    <div class="phero-inner container">
+      <p class="phero-eyebrow">{t.home.projects[4].cerule}</p>
+      <h1>En Corps<br /><strong>à la Mer</strong></h1>
+    </div>
+  </section>
+
+  <!-- ── Ouverture 2 colonnes ──────────────────────────────── -->
+  <section class="opening container">
+
+    <!-- Colonne gauche : citations -->
+    <div class="opening-epi">
+
+      <div class="epi-wrap">
+        <blockquote set:html={content.nietzsche} />
+        <cite>Friedrich Nietzsche — Posthumous Fragments</cite>
+      </div>
+      <hr class="horizon epi-horizon" />
+
+      <div class="epi-wrap">
+        <blockquote>{content.marineText}</blockquote>
+        <cite>
+          {content.marineCite}
+          {('marineNote' in content) && <span class="epi-tradfr">{(content as any).marineNote}</span>}
+        </cite>
+      </div>
+      <hr class="horizon epi-horizon" />
+
+    </div>
+
+    <!-- Colonne droite : texte du projet -->
+    <div class="opening-proj">
+      <p class="opening-eyebrow">{t.work.theProject}</p>
+      <p class="opening-text" set:html={content.projectText} />
+      <hr class="horizon opening-horizon" />
+    </div>
+
+  </section>
+
+  <!-- ── Série photographique ──────────────────────────────── -->
+  <div class="series">
+    {spreads.map((spread) => (
+      <>
+        <div class={`spread spread--${spread.type} rv`}>
+          {spread.photos.map((photo) => (
+            <figure>
+              <img src={photo.src} alt={`En Corps à la Mer — ${photo.n}`} loading="lazy" />
+            </figure>
+          ))}
+        </div>
+        {spread.caption && <p class="series-caption rv">{spread.caption}</p>}
+      </>
+    ))}
+  </div>
+
+  <!-- ── Projet suivant ─────────────────────────────────────── -->
+  <div class="next-project container">
+    <span class="next-label">{t.work.nextProject}</span>
+    <a href={`/${lang}/work/quando-sono-qui`}>Quando sono qui, non sono là →</a>
+  </div>
+
+</Layout>
+
+<script>
+  function justify() {
+    const mob = window.innerWidth <= 700;
+    document.querySelectorAll<HTMLElement>('.spread--row').forEach(row => {
+      const figs = Array.from(row.querySelectorAll<HTMLElement>('figure'));
+      const imgs = figs.map(f => f.querySelector('img') as HTMLImageElement);
+      function apply() {
+        if (mob) { figs.forEach(f => { f.style.flexGrow = ''; }); return; }
+        imgs.forEach((im, i) => {
+          const r = (im.naturalWidth && im.naturalHeight) ? im.naturalWidth / im.naturalHeight : 1;
+          figs[i].style.flexGrow = r.toFixed(4);
+        });
+      }
+      if (imgs.every(im => im.complete && im.naturalWidth)) apply();
+      else imgs.forEach(im => im.addEventListener('load', apply));
+    });
+  }
+  justify();
+  window.addEventListener('resize', () => { clearTimeout((window as any)._jt); (window as any)._jt = setTimeout(justify, 150); });
+
+  const obs = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); obs.unobserve(e.target); } });
+  }, { threshold: .06 });
+  document.querySelectorAll('.rv').forEach(el => obs.observe(el));
+</script>

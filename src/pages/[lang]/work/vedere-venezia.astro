@@ -1,0 +1,117 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import '../../../styles/pages/work-project.css';
+import { ui, type Lang } from '../../../i18n/translations';
+
+export function getStaticPaths() {
+  return [
+    { params: { lang: 'fr' } },
+    { params: { lang: 'it' } },
+    { params: { lang: 'pt' } },
+  ];
+}
+
+const { lang } = Astro.params;
+const t = ui[lang as Lang];
+
+const s = (file: string) => `/images/work/vedere-venezia/${file}`;
+type Photo = { src: string; n: number };
+type Spread = { type: 'row' | 'single'; photos: Photo[] };
+const p = (n: number): Photo => ({ src: s(`${n}.jpg`), n });
+
+const spreads: Spread[] = [
+  { type: 'row',    photos: [p(1), p(2)] },
+  { type: 'single', photos: [p(3)] },
+  { type: 'row',    photos: [p(4), p(5)] },
+  { type: 'row',    photos: [p(6), p(7), p(8)] },
+  { type: 'single', photos: [p(9)] },
+  { type: 'row',    photos: [p(10), p(11)] },
+  { type: 'single', photos: [p(12)] },
+];
+---
+
+<Layout
+  title="Vedere Venezia e Non Morire — Laurie Di Francesco"
+  description="Vedere Venezia e Non Morire — Seeing Venice without dying from it."
+  image="/images/work/vedere-venezia-cover.jpg"
+  lang={lang}
+>
+
+  <!-- ── Hero ──────────────────────────────────────────────── -->
+  <section class="phero">
+    <div class="phero-bg" aria-hidden="true">
+      <img src="/images/work/vedere-venezia/7.jpg" alt="" loading="eager" />
+    </div>
+    <div class="phero-inner container">
+      <p class="phero-eyebrow">{t.home.projects[3].cerule}</p>
+      <h1>Vedere Venezia<br /><strong>e Non Morire</strong></h1>
+    </div>
+  </section>
+
+  <!-- ── Ouverture 2 colonnes ──────────────────────────────── -->
+  <section class="opening container">
+
+    <div class="opening-epi">
+      <div class="epi-wrap">
+        <blockquote>[Citation à choisir]</blockquote>
+        <cite>[Auteur — Source]</cite>
+      </div>
+      <hr class="horizon epi-horizon" />
+    </div>
+
+    <div class="opening-proj">
+      <p class="opening-eyebrow">{t.work.theProject}</p>
+      <p class="opening-text">[Texte du projet à définir]</p>
+      <hr class="horizon opening-horizon" />
+    </div>
+
+  </section>
+
+  <!-- ── Série photographique ──────────────────────────────── -->
+  {spreads.length > 0 && (
+    <div class="series">
+      {spreads.map((spread) => (
+        <div class={`spread spread--${spread.type} rv`}>
+          {spread.photos.map((photo) => (
+            <figure>
+              <img src={photo.src} alt={`Vedere Venezia e Non Morire — ${photo.n}`} loading="lazy" />
+            </figure>
+          ))}
+        </div>
+      ))}
+    </div>
+  )}
+
+  <!-- ── Projet suivant ─────────────────────────────────────── -->
+  <div class="next-project container">
+    <span class="next-label">{t.work.nextProject}</span>
+    <a href={`/${lang}/work/en-corps-en-la-mer`}>En Corps à la Mer →</a>
+  </div>
+
+</Layout>
+
+<script>
+  function justify() {
+    const mob = window.innerWidth <= 700;
+    document.querySelectorAll<HTMLElement>('.spread--row').forEach(row => {
+      const figs = Array.from(row.querySelectorAll<HTMLElement>('figure'));
+      const imgs = figs.map(f => f.querySelector('img') as HTMLImageElement);
+      function apply() {
+        if (mob) { figs.forEach(f => { f.style.flexGrow = ''; }); return; }
+        imgs.forEach((im, i) => {
+          const r = (im.naturalWidth && im.naturalHeight) ? im.naturalWidth / im.naturalHeight : 1;
+          figs[i].style.flexGrow = r.toFixed(4);
+        });
+      }
+      if (imgs.every(im => im.complete && im.naturalWidth)) apply();
+      else imgs.forEach(im => im.addEventListener('load', apply));
+    });
+  }
+  justify();
+  window.addEventListener('resize', () => { clearTimeout((window as any)._jt); (window as any)._jt = setTimeout(justify, 150); });
+
+  const obs = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); obs.unobserve(e.target); } });
+  }, { threshold: .06 });
+  document.querySelectorAll('.rv').forEach(el => obs.observe(el));
+</script>

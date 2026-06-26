@@ -1,0 +1,120 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import '../../../styles/pages/work-project.css';
+import { ui, type Lang } from '../../../i18n/translations';
+
+export function getStaticPaths() {
+  return [
+    { params: { lang: 'fr' } },
+    { params: { lang: 'it' } },
+    { params: { lang: 'pt' } },
+  ];
+}
+
+const { lang } = Astro.params;
+const t = ui[lang as Lang];
+
+const files: Record<number, string> = {
+  1:  'Slovenia_1.JPG',
+  2:  'Slovenia_2.JPG',
+  3:  'Slovenia_3.JPG',
+  4:  'Slovenia_4.JPG',
+  5:  'Slovenia_5.JPG',
+  6:  'Slovenia_6.jpg',
+  7:  'Slovenia_7.JPG',
+  8:  'Slovenia_8.jpg',
+  9:  'Slovenia_9.JPG',
+  10: 'Slovenia_10.jpg',
+  11: 'Slovenia_11.JPG',
+};
+const s = (n: number) => `/images/work/toward-the-blue/${files[n]}`;
+
+type Photo = { src: string; n: number };
+type Spread = { type: 'row' | 'single'; photos: Photo[]; caption?: string; captionStyle?: 'prose' };
+
+const spreads: Spread[] = [
+  { type: 'row',    photos: [{ src: s(1), n: 1 }, { src: s(2), n: 2 }] },
+  { type: 'single', photos: [{ src: s(3), n: 3 }] },
+  { type: 'row',    photos: [{ src: s(4), n: 4 }, { src: s(5), n: 5 }, { src: s(6), n: 6 }] },
+  { type: 'row',    photos: [{ src: s(7), n: 7 }, { src: s(8), n: 8 }] },
+  { type: 'single', photos: [{ src: s(9), n: 9 }] },
+  { type: 'row',    photos: [{ src: s(10), n: 10 }, { src: s(11), n: 11 }] },
+];
+---
+
+<Layout
+  title="Toward the Blue — Laurie Di Francesco"
+  description="Toward the Blue — a photographic series by Laurie Di Francesco."
+  image="/images/work/toward-the-blue-cover.jpg"
+  lang={lang}
+>
+
+  <!-- ── Hero ─────────────────────────────────────────────── -->
+  <section class="phero">
+    <div class="phero-bg" aria-hidden="true">
+      <img src="/images/work/toward-the-blue/Slovenia_5.JPG" alt="" loading="eager" />
+    </div>
+    <div class="phero-inner container">
+      <p class="phero-eyebrow">{t.home.projects[2].cerule}</p>
+      <h1>Toward<br /><strong>the Blue</strong></h1>
+    </div>
+  </section>
+
+  <!-- ── Intro ─────────────────────────────────────────────── -->
+  <section class="intro">
+    <!-- Texte de présentation — à ajouter -->
+  </section>
+
+  <!-- ── Série photographique ──────────────────────────────── -->
+  <div class="series">
+    {spreads.map((spread) => (
+      <>
+        <div class={`spread spread--${spread.type} rv`}>
+          {spread.photos.map((photo) => (
+            <figure>
+              <img src={photo.src} data-full={photo.src} alt={`Toward the Blue — photo ${photo.n}`} loading="lazy" />
+            </figure>
+          ))}
+        </div>
+        {spread.caption && (
+          <p class={`series-caption${spread.captionStyle === 'prose' ? ' series-caption--prose' : ''} rv`}>
+            {spread.caption}
+          </p>
+        )}
+      </>
+    ))}
+  </div>
+
+  <!-- ── Projet suivant ─────────────────────────────────────── -->
+  <div class="next-project container">
+    <span class="next-label">{t.work.nextProject}</span>
+    <a href={`/${lang}/work/vedere-venezia`}>Vedere Venezia e Non Morire →</a>
+  </div>
+
+</Layout>
+
+<script>
+  function justify() {
+    const mob = window.innerWidth <= 700;
+    document.querySelectorAll<HTMLElement>('.spread--row').forEach(row => {
+      const figs = Array.from(row.querySelectorAll<HTMLElement>('figure'));
+      const imgs = figs.map(f => f.querySelector('img') as HTMLImageElement);
+      function apply() {
+        if (mob) { figs.forEach(f => { f.style.flexGrow = ''; }); return; }
+        imgs.forEach((im, i) => {
+          const r = (im.naturalWidth && im.naturalHeight) ? im.naturalWidth / im.naturalHeight : 1;
+          figs[i].style.flexGrow = r.toFixed(4);
+        });
+      }
+      if (imgs.every(im => im.complete && im.naturalWidth)) apply();
+      else imgs.forEach(im => im.addEventListener('load', apply));
+    });
+  }
+  justify();
+  window.addEventListener('resize', () => { clearTimeout((window as any)._jt); (window as any)._jt = setTimeout(justify, 150); });
+
+  const obs = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); obs.unobserve(e.target); } });
+  }, { threshold: .06 });
+  document.querySelectorAll('.rv').forEach(el => obs.observe(el));
+</script>

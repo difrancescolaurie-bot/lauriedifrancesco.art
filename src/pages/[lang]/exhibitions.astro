@@ -157,7 +157,7 @@ const t = ui[lang as Lang].exhibitions;
   <!-- ── Remerciements ─────────────────────────────────────── -->
   <div class="ex-thanks rv">
     <p class="ex-thanks-label">{t.thanksLabel}</p>
-    <p class="ex-thanks-text">{t.thanksText}</p>
+    <p class="ex-thanks-text" set:html={t.thanksText} />
   </div>
 
 </Layout>

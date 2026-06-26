@@ -1,0 +1,176 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import '../../../styles/pages/work-project.css';
+import { ui, type Lang } from '../../../i18n/translations';
+
+export function getStaticPaths() {
+  return [
+    { params: { lang: 'fr' } },
+    { params: { lang: 'it' } },
+    { params: { lang: 'pt' } },
+  ];
+}
+
+const { lang } = Astro.params;
+const t = ui[lang as Lang];
+
+const content = {
+  fr: {
+    plato: 'Et si on les forçait à monter une pente rude et escarpée, sans les lâcher avant de les avoir amenés à la pleine lumière du soleil, n\'en éprouveraient-ils pas douleur et gêne ? Et si, marchant vers le soleil, les yeux soudainement inondés de lumière éblouissante, pourraient-ils distinguer une seule des choses que nous appelons maintenant vraies réalités ?',
+    platoSrc: 'Platon — République, Livre VII',
+    char: 'La lucidité est la blessure la plus rapprochée du soleil.',
+    charSrc: 'René Char — Feuillets d\'Hypnos (169)',
+    projectText: 'Certains voyages ne se font pas de distance mais de présence divisée — cette impression d\'être toujours en partie ailleurs. <em>Quando sono qui, non sono là</em> trace cette géographie intérieure : portraits et paysages rassemblés à travers le Brésil, où la question de l\'appartenance s\'écrit dans les corps, les frontières et la lumière.',
+  },
+  it: {
+    plato: 'E se qualcuno li costringesse a risalire un\'erta ripida e scabra senza lasciarli andare finché non li avesse portati alla piena luce del sole? Non proverrebbero dolore e disagio? E se camminassero verso il sole con gli occhi improvvisamente inondati di luce abbagliante, riuscirebbero a vedere anche una sola delle cose che ora chiamiamo vere realtà?',
+    platoSrc: 'Platone — Repubblica, Libro VII',
+    char: 'La lucidità è la ferita più vicina al sole.',
+    charSrc: 'René Char — Feuillets d\'Hypnos (169)',
+    projectText: 'Certi viaggi non si misurano di distanza, ma di presenza divisa — la sensazione di essere sempre in parte altrove. <em>Quando sono qui, non sono là</em> traccia quella geografia interiore: ritratti e paesaggi raccolti attraverso il Brasile, dove la questione dell\'appartenenza si scrive nei corpi, nelle frontiere e nella luce.',
+  },
+  pt: {
+    plato: 'E se alguém os forçasse a subir uma encosta íngreme e áspera sem os soltar até tê-los levado à plena luz do sol? Não sentiriam dor e desconforto? E se caminhassem em direção ao sol com os olhos de repente inundados de luz brilhante, conseguiriam ver mesmo uma das coisas que agora chamamos de realidades verdadeiras?',
+    platoSrc: 'Platão — República, Livro VII',
+    char: 'A lucidez é a ferida mais próxima do sol.',
+    charSrc: 'René Char — Feuillets d\'Hypnos (169)',
+    projectText: 'Certas viagens não são feitas de distância, mas de presença dividida — a sensação de estar sempre em parte em outro lugar. <em>Quando sono qui, non sono là</em> traça essa geografia interior: retratos e paisagens reunidos pelo Brasil, onde a questão do pertencimento se escreve nos corpos, nas fronteiras e na luz.',
+  },
+}[lang as 'fr' | 'it' | 'pt'];
+
+const s = (file: string) => `/images/work/quando-sono-qui/${file}`;
+type Photo = { src: string; n: number };
+type Spread = { type: 'row' | 'single'; photos: Photo[] };
+const p = (n: number): Photo => ({ src: s(`${n}.jpg`), n });
+
+const spreads: Spread[] = [
+  { type: 'row',    photos: [p(1), p(2)] },
+  { type: 'row',    photos: [p(3), p(4), p(5)] },
+  { type: 'single', photos: [p(6)] },
+  { type: 'row',    photos: [p(7), p(8)] },
+  { type: 'row',    photos: [p(9), p(10), p(11)] },
+];
+---
+
+<Layout
+  title="Quando sono qui, non sono là — Laurie Di Francesco"
+  description="Quando sono qui, non sono là — An intimate geography of presence and absence. Brazil · ongoing."
+  image="/images/work/quando-cover.jpg"
+  lang={lang}
+>
+
+  <!-- ── Hero ──────────────────────────────────────────────── -->
+  <section class="phero">
+    <div class="phero-bg" aria-hidden="true">
+      <img src="/images/work/quando-sono-qui/1.jpg" alt="" loading="eager" />
+    </div>
+    <div class="phero-inner container">
+      <p class="phero-eyebrow">{t.home.projects[0].cerule}</p>
+      <h1>Quando sono qui,<br /><strong>non sono là</strong></h1>
+    </div>
+  </section>
+
+  <!-- ── Ouverture 2 colonnes ──────────────────────────────── -->
+  <section class="opening container">
+
+    <!-- Colonne gauche : Platon + René Char -->
+    <div class="opening-epi">
+
+      <div class="epi-wrap">
+        <blockquote>{content.plato}</blockquote>
+        <cite>{content.platoSrc}</cite>
+      </div>
+      <hr class="horizon epi-horizon" />
+
+      <div class="epi-wrap">
+        <blockquote>{content.char}</blockquote>
+        <cite>{content.charSrc}</cite>
+      </div>
+      <hr class="horizon epi-horizon" />
+
+    </div>
+
+    <!-- Colonne droite : José Ramalho (toujours en PT) + texte du projet -->
+    <div class="opening-proj">
+
+      <div class="epi-wrap">
+        <blockquote>
+          A sombra que me move<br />
+          Também me ilumina<br />
+          Me leve nos cabelos<br />
+          Me lave na piscina<br />
+          Em cada ponto claro<br />
+          Cometa que cai no mar<br />
+          Em cada cor diferente<br />
+          Que tente me clarear<br />
+          É noite que vai chegar<br />
+          É claro que é de manhã<br />
+          É moça e anciã
+        </blockquote>
+        <cite>José Ramalho Neto — Galope Resante</cite>
+      </div>
+      <hr class="horizon epi-horizon" />
+
+      <p class="opening-eyebrow">{t.work.theProject}</p>
+      <p class="opening-text" set:html={content.projectText} />
+      <hr class="horizon opening-horizon" />
+
+    </div>
+
+  </section>
+
+  <!-- ── Série photographique ──────────────────────────────── -->
+  <div class="series">
+    {spreads.map((spread) => (
+      <div class={`spread spread--${spread.type} rv`}>
+        {spread.photos.map((photo) => (
+          <figure>
+            <img
+              src={photo.src}
+              alt={`Quando sono qui, non sono là — ${photo.n}`}
+              loading="lazy"
+            />
+          </figure>
+        ))}
+      </div>
+    ))}
+  </div>
+
+  <!-- ── Projet suivant ─────────────────────────────────────── -->
+  <div class="next-project container">
+    <span class="next-label">{t.work.nextProject}</span>
+    <a href={`/${lang}/work/spilling-beyond-the-lines`}>Spilling Beyond the Lines →</a>
+  </div>
+
+</Layout>
+
+<script>
+  function justify() {
+    const mob = window.innerWidth <= 700;
+    document.querySelectorAll<HTMLElement>('.spread--row').forEach(row => {
+      const figs = Array.from(row.querySelectorAll<HTMLElement>('figure'));
+      const imgs = figs.map(f => f.querySelector('img') as HTMLImageElement);
+      function apply() {
+        if (mob) { figs.forEach(f => { f.style.flexGrow = ''; }); return; }
+        imgs.forEach((im, i) => {
+          const r = (im.naturalWidth && im.naturalHeight) ? im.naturalWidth / im.naturalHeight : 1;
+          figs[i].style.flexGrow = r.toFixed(4);
+        });
+      }
+      if (imgs.every(im => im.complete && im.naturalWidth)) apply();
+      else imgs.forEach(im => im.addEventListener('load', apply));
+    });
+  }
+  justify();
+  window.addEventListener('resize', () => {
+    clearTimeout((window as any)._jt);
+    (window as any)._jt = setTimeout(justify, 150);
+  });
+
+  const obs = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) { e.target.classList.add('in'); obs.unobserve(e.target); }
+    });
+  }, { threshold: .06 });
+  document.querySelectorAll('.rv').forEach(el => obs.observe(el));
+</script>

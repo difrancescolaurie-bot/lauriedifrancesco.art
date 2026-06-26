@@ -68,6 +68,13 @@ export const ui = {
       thanksLabel: "Acknowledgements",
       thanksText: "Special thanks to Mathilde, Gautier, Zé, Soraia, Rafa, Marie-Françoise, Ulisses, Verônica, Paulo and Cris, for their precious support and encouragement throughout this project. Thank you to Studio Artmosphere, Hugo Baumecker and Jackson for their remarkable work and professionalism. And thank you to every friend who came to the opening — your presence was deeply moving. I owe you all so much. May the adventure continue.",
     },
+    work: {
+      h1: 'Projects',
+      theProject: 'The project',
+      nextProject: 'Next project',
+      quoteHtml: 'To photograph is the process of discovering the other and, through the other, oneself. Ultimately, that is why the photographer seeks and discovers new worlds, but always ends up <span class="k">revealing what lies within</span>.',
+      quoteCite: 'Claudia Andujar',
+    },
   },
 
   fr: {
@@ -135,7 +142,14 @@ export const ui = {
       craftSub: "L'artisanat derrière l'exposition",
       videoLabels: { print: "Impression", frame: "Encadrement", mount: "Accrochage" },
       thanksLabel: "Remerciements",
-      thanksText: "Un grand merci à Mathilde, Gautier, Zé, Soraia, Rafa, Marie-Françoise, Ulisses, Verônica, Paulo et Cris, pour leur précieux soutien et leurs encouragements tout au long de ce projet. Merci au Studio Artmosphere, à Hugo Baumecker et à Jackson pour leur travail remarquable et leur professionnalisme. Et merci à tous les amis venus au vernissage — votre présence m'a profondément touchée. Je vous dois tant. Que l'aventure continue.",
+      thanksText: 'Un grand merci à <strong class="ex-thanks-name">Mathilde</strong>, <strong class="ex-thanks-name">Gautier</strong>, <strong class="ex-thanks-name">Zé</strong>, <strong class="ex-thanks-name">Soraia</strong>, <strong class="ex-thanks-name">Rafa</strong>, <strong class="ex-thanks-name">Marie-Françoise</strong>, <strong class="ex-thanks-name">Ulisses</strong>, <strong class="ex-thanks-name">Verônica</strong>, <strong class="ex-thanks-name">Paulo</strong> et <strong class="ex-thanks-name">Cris</strong>, pour leur précieux soutien et leurs encouragements tout au long de ce projet. Merci à <strong class="ex-thanks-name">Rodrigo</strong> du <strong class="ex-thanks-name">Studio Artmosphere</strong>, <strong class="ex-thanks-name">Hugo</strong> de l\'<strong class="ex-thanks-name">Atelier Baumecker</strong> et <strong class="ex-thanks-name">Jackson Cardoso</strong> pour leur travail remarquable et leur professionnalisme. Et merci à tous les amis venus au vernissage — votre présence m\'a profondément touchée. Je vous dois tant. Que l\'aventure continue.',
+    },
+    work: {
+      h1: 'Projets',
+      theProject: 'Le projet',
+      nextProject: 'Projet suivant',
+      quoteHtml: 'Photographier est le processus de découverte de l\'autre et, à travers l\'autre, de soi-même. C\'est en fin de compte pour cela que le photographe cherche et découvre de nouveaux mondes, mais finit toujours par <span class="k">révéler ce qui est en lui</span>.',
+      quoteCite: 'Claudia Andujar',
     },
   },
 
@@ -204,7 +218,14 @@ export const ui = {
       craftSub: "Il lavoro artigianale dietro la mostra",
       videoLabels: { print: "Stampa", frame: "Incorniciatura", mount: "Montaggio" },
       thanksLabel: "Ringraziamenti",
-      thanksText: "Un ringraziamento speciale a Mathilde, Gautier, Zé, Soraia, Rafa, Marie-Françoise, Ulisses, Verônica, Paulo e Cris, per il loro prezioso sostegno e incoraggiamento durante tutto questo progetto. Grazie a Studio Artmosphere, Hugo Baumecker e Jackson per il loro lavoro straordinario e la loro professionalità. E grazie a ogni amico che è venuto all'inaugurazione — la vostra presenza mi ha commosso profondamente. Vi devo così tanto. Che l'avventura continui.",
+      thanksText: 'Un ringraziamento speciale a <strong class="ex-thanks-name">Mathilde</strong>, <strong class="ex-thanks-name">Gautier</strong>, <strong class="ex-thanks-name">Zé</strong>, <strong class="ex-thanks-name">Soraia</strong>, <strong class="ex-thanks-name">Rafa</strong>, <strong class="ex-thanks-name">Marie-Françoise</strong>, <strong class="ex-thanks-name">Ulisses</strong>, <strong class="ex-thanks-name">Verônica</strong>, <strong class="ex-thanks-name">Paulo</strong> e <strong class="ex-thanks-name">Cris</strong>, per il loro prezioso sostegno e incoraggiamento durante tutto questo progetto. Grazie a <strong class="ex-thanks-name">Rodrigo</strong> di <strong class="ex-thanks-name">Studio Artmosphere</strong>, <strong class="ex-thanks-name">Hugo</strong> di <strong class="ex-thanks-name">Atelier Baumecker</strong> e <strong class="ex-thanks-name">Jackson Cardoso</strong> per il loro lavoro straordinario e la loro professionalità. E grazie a ogni amico che è venuto all\'inaugurazione — la vostra presenza mi ha commosso profondamente. Vi devo così tanto. Che l\'avventura continui.',
+    },
+    work: {
+      h1: 'Progetti',
+      theProject: 'Il progetto',
+      nextProject: 'Progetto successivo',
+      quoteHtml: 'Fotografare è il processo di scoperta dell\'altro e, attraverso l\'altro, di se stessi. È in fin dei conti per questo che il fotografo cerca e scopre nuovi mondi, ma finisce sempre per <span class="k">rivelare ciò che è dentro di sé</span>.',
+      quoteCite: 'Claudia Andujar',
     },
   },
 
@@ -273,7 +294,14 @@ export const ui = {
       craftSub: "O artesanato por trás da exposição",
       videoLabels: { print: "Impressão", frame: "Emolduração", mount: "Montagem" },
       thanksLabel: "Agradecimentos",
-      thanksText: "Um agradecimento especial a Mathilde, Gautier, Zé, Soraia, Rafa, Marie-Françoise, Ulisses, Verônica, Paulo e Cris, pelo precioso apoio e encorajamento ao longo de todo este projeto. Obrigada ao Studio Artmosphere, Hugo Baumecker e Jackson pelo trabalho notável e profissionalismo. E obrigada a cada amigo que veio à abertura — a presença de vocês me emocionou profundamente. Devo tanto a vocês. Que a aventura continue.",
+      thanksText: 'Um agradecimento especial a <strong class="ex-thanks-name">Mathilde</strong>, <strong class="ex-thanks-name">Gautier</strong>, <strong class="ex-thanks-name">Zé</strong>, <strong class="ex-thanks-name">Soraia</strong>, <strong class="ex-thanks-name">Rafa</strong>, <strong class="ex-thanks-name">Marie-Françoise</strong>, <strong class="ex-thanks-name">Ulisses</strong>, <strong class="ex-thanks-name">Verônica</strong>, <strong class="ex-thanks-name">Paulo</strong> e <strong class="ex-thanks-name">Cris</strong>, pelo precioso apoio e encorajamento ao longo de todo este projeto. Obrigada a <strong class="ex-thanks-name">Rodrigo</strong> do <strong class="ex-thanks-name">Studio Artmosphere</strong>, <strong class="ex-thanks-name">Hugo</strong> do <strong class="ex-thanks-name">Atelier Baumecker</strong> e <strong class="ex-thanks-name">Jackson Cardoso</strong> pelo trabalho notável e profissionalismo. E obrigada a cada amigo que veio à abertura — a presença de vocês me emocionou profundamente. Devo tanto a vocês. Que a aventura continue.',
+    },
+    work: {
+      h1: 'Projetos',
+      theProject: 'O projeto',
+      nextProject: 'Próximo projeto',
+      quoteHtml: 'Fotografar é o processo de descoberta do outro e, através do outro, de si mesmo. É em última análise por isso que o fotógrafo busca e descobre novos mundos, mas sempre acaba por <span class="k">revelar o que está dentro de si</span>.',
+      quoteCite: 'Claudia Andujar',
     },
   },
 } as const;
