@@ -12,7 +12,13 @@ type Spread = {
 const p = (n: number): Photo => ({ src: s(`${n}.jpg`), n });
 
 const spreads: Spread[] = [
-  // À compléter une fois les photos ajoutées dans /images/work/vedere-venezia/
+  { type: 'row',    photos: [p(1), p(2)] },
+  { type: 'single', photos: [p(3)] },
+  { type: 'row',    photos: [p(4), p(5)] },
+  { type: 'row',    photos: [p(6), p(7), p(8)] },
+  { type: 'single', photos: [p(9)] },
+  { type: 'row',    photos: [p(10), p(11)] },
+  { type: 'single', photos: [p(12)] },
 ];
 ---
 
