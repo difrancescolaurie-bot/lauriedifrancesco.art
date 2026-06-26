@@ -367,6 +367,9 @@ const spreads: Spread[] = [
       width: calc(50% - 4px) !important;
     }
     .spread--single figure { width: 100% !important; }
+    .spread--row:has(figure:nth-child(3)):not(:has(figure:nth-child(4))) figure {
+      width: calc(33.33% - 6px) !important;
+    }
   }
 
 </style>
