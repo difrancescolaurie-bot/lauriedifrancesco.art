@@ -17,7 +17,7 @@ const t = ui[lang as Lang].exhibitions;
 
 <Layout
   title={t.eyebrow}
-  description={`Spilling Beyond the Lines — ${t.metaFirst}, Livraria da Rua, Belo Horizonte, Brazil, July 2024.`}
+  description={`Spilling Beyond the Lines — ${t.metaFirst}, Livraria da Rua, ${t.metaLocation}, ${t.metaDate}.`}
   lang={lang}
 >
 
@@ -27,9 +27,9 @@ const t = ui[lang as Lang].exhibitions;
     <h1 class="ex-h1">Spilling Beyond the Lines</h1>
     <p class="ex-meta">
       <span class="ex-meta-accent">{t.metaFirst}</span>
-      &nbsp;·&nbsp; Livraria da Rua — Belo Horizonte, Brazil
-      &nbsp;·&nbsp; July 2024
-      &nbsp;·&nbsp; Twenty-five photographs
+      &nbsp;·&nbsp; Livraria da Rua — {t.metaLocation}
+      &nbsp;·&nbsp; {t.metaDate}
+      &nbsp;·&nbsp; {t.metaCount}
     </p>
     <hr class="horizon ex-horizon" />
   </section>
@@ -149,6 +149,7 @@ const t = ui[lang as Lang].exhibitions;
         <video src="/videos/loop-mount.mp4" autoplay muted loop playsinline class="ex-video"></video>
         <p class="ex-video-label">{t.videoLabels.mount}</p>
         <p class="ex-video-title">Jackson Cardoso</p>
+        <p class="ex-credit-detail" set:html={t.creditMount} />
       </div>
 
     </div>
