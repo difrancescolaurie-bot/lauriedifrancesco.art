@@ -17,14 +17,14 @@ const t = ui[lang as Lang].exhibitions;
 
 <Layout
   title={t.eyebrow}
-  description={`Spilling Beyond the Lines — ${t.metaFirst}, Livraria da Rua, ${t.metaLocation}, ${t.metaDate}.`}
+  description={`${t.exhibitionTitle} — ${t.metaFirst}, Livraria da Rua, ${t.metaLocation}, ${t.metaDate}.`}
   lang={lang}
 >
 
   <!-- ── Titre ──────────────────────────────────────────────── -->
   <section class="ex-head container">
     <p class="ex-eyebrow">{t.eyebrow}</p>
-    <h1 class="ex-h1">Spilling Beyond the Lines</h1>
+    <h1 class="ex-h1">{t.exhibitionTitle}</h1>
     <p class="ex-meta">
       <span class="ex-meta-accent">{t.metaFirst}</span>
       &nbsp;·&nbsp; Livraria da Rua — {t.metaLocation}
