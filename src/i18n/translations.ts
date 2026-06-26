@@ -19,7 +19,7 @@ export const ui = {
         { category: "",                  cerule: "Do lines truly divide?", note: "When the free profusion of forms around us, and another's gaze, rewrote my own: a work born of a rupture that draws us closer." },
         { category: "Water & sky",       cerule: "Sky-blue in her eyes",   note: "Look up into the blue of the sky. Dream of a lightness lost, or never known." },
         { category: "Venice",            cerule: "Rebirth. An attempt.",   note: "To hold on. To let go. To exist in one's own gaze." },
-        { category: "Sea & body",        cerule: "Surfacing",              note: "Learning to walk again, through water and through dreams" },
+        { category: "Sea & body",        cerule: "Surfacing",              note: "Learning to walk again, through water and through dreams." },
       ],
     },
     about: {
@@ -88,7 +88,7 @@ export const ui = {
         { category: "",                  cerule: "Les lignes séparent-elles vraiment ?", note: "Quand la libre profusion des formes autour de nous, et le regard d'un autre, ont réécrit mon propre regard : une œuvre née d'une rupture qui rapproche." },
         { category: "Eau & ciel",        cerule: "Le bleu du ciel dans ses yeux",        note: "Lever les yeux vers le bleu du ciel. Rêver à une insouciance perdue, ou jamais connue." },
         { category: "Venise",            cerule: "Renaître. Un essai.",                  note: "Se tenir. Se lâcher. Exister dans son propre regard." },
-        { category: "Mer & corps",       cerule: "Refaire surface",                      note: "Réapprendre à marcher, par l'eau et par les rêves" },
+        { category: "Mer & corps",       cerule: "Refaire surface",                      note: "Réapprendre à marcher, par l'eau et par les rêves." },
       ],
     },
     about: {
@@ -157,7 +157,7 @@ export const ui = {
         { category: "",                   cerule: "Le linee dividono davvero?",    note: "Quando la libera profusione delle forme intorno a noi, e lo sguardo di un altro, hanno riscritto il mio: un'opera nata da una rottura che avvicina." },
         { category: "Acqua & cielo",      cerule: "Il blu del cielo nei suoi occhi", note: "Alzare gli occhi verso il blu del cielo. Sognare una leggerezza perduta, o mai conosciuta." },
         { category: "Venezia",            cerule: "Rinascita. Un tentativo.",      note: "Tenersi. Lasciarsi andare. Esistere nel proprio sguardo." },
-        { category: "Mare & corpo",       cerule: "Riemergere",                    note: "Reimparare a camminare, attraverso l'acqua e attraverso i sogni" },
+        { category: "Mare & corpo",       cerule: "Riemergere",                    note: "Reimparare a camminare, attraverso l'acqua e attraverso i sogni." },
       ],
     },
     about: {
@@ -226,7 +226,7 @@ export const ui = {
         { category: "",                  cerule: "As linhas realmente dividem?",      note: "Quando a livre profusão das formas ao nosso redor, e o olhar do outro, reescreveram o meu: uma obra nascida de uma ruptura que aproxima." },
         { category: "Água & céu",        cerule: "O azul do céu em seus olhos",       note: "Levantar os olhos para o azul do céu. Sonhar com uma leveza perdida, ou jamais conhecida." },
         { category: "Veneza",            cerule: "Renascer. Uma tentativa.",           note: "Segurar-se. Soltar-se. Existir no próprio olhar." },
-        { category: "Mar & corpo",       cerule: "Emergir",                            note: "Reaprender a andar, pela água e pelos sonhos" },
+        { category: "Mar & corpo",       cerule: "Emergir",                            note: "Reaprender a andar, pela água e pelos sonhos." },
       ],
     },
     about: {
