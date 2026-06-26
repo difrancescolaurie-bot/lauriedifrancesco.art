@@ -3,45 +3,117 @@ import Layout from '../layouts/Layout.astro';
 ---
 
 <Layout
-  title="Mentions légales — Laurie Di Francesco"
-  description="Mentions légales du site lauriedifrancesco.art"
+  title="Legal notice — Laurie Di Francesco"
+  description="Legal notice for lauriedifrancesco.art"
 >
   <div class="legal container">
-    <h1 class="legal-title">Mentions légales</h1>
+
+    <div class="legal-top">
+      <h1 class="legal-title" id="legal-heading-fr">Mentions légales</h1>
+      <h1 class="legal-title" id="legal-heading-en" hidden>Legal notice</h1>
+      <div class="legal-lang-switch">
+        <button class="lang-btn active" data-lang="fr">FR</button>
+        <span class="lang-sep">·</span>
+        <button class="lang-btn" data-lang="en">EN</button>
+      </div>
+    </div>
+
     <hr class="horizon legal-horizon" />
 
-    <section class="legal-section">
-      <h2 class="legal-h2">Éditrice &amp; directrice de publication</h2>
-      <p>
-        Laurie Di Francesco — Photographe<br />
-        SIRET&nbsp;: 91132036 00013<br />
-        Marseille, France<br />
-        <a href="/contact">Formulaire de contact</a>
-      </p>
-    </section>
+    <!-- ── Version française ──────────────────────── -->
+    <div id="content-fr">
 
-    <section class="legal-section">
-      <h2 class="legal-h2">Hébergement</h2>
-      <p>Cloudflare, Inc. — 101 Townsend St, San Francisco, CA 94107, États-Unis.</p>
-    </section>
+      <section class="legal-section">
+        <h2 class="legal-h2">Éditrice &amp; directrice de publication</h2>
+        <p>
+          Laurie Di Francesco — Photographe<br />
+          SIRET&nbsp;: 91132036 00013<br />
+          <a href="/contact">Formulaire de contact</a>
+        </p>
+      </section>
 
-    <section class="legal-section">
-      <h2 class="legal-h2">Données & confidentialité</h2>
-      <p>Ce site n'a pas de formulaire et ne dépose pas de cookie. La mesure d'audience repose sur Cloudflare Web Analytics (sans cookie ni identification des visiteurs) et sur Google Search Console (statistiques agrégées de présence dans les résultats de recherche). Cloudflare, en tant qu'hébergeur, traite également des données techniques nécessaires à la fourniture et à la sécurité du service.</p>
-    </section>
+      <section class="legal-section">
+        <h2 class="legal-h2">Hébergement</h2>
+        <p>Cloudflare, Inc. — 101 Townsend St, San Francisco, CA 94107, États-Unis.</p>
+      </section>
 
-    <section class="legal-section">
-      <h2 class="legal-h2">Propriété intellectuelle</h2>
-      <p>L'ensemble des photographies et textes publiés sur ce site sont la propriété exclusive de Laurie Di Francesco. Toute reproduction, même partielle, est interdite sans autorisation préalable.</p>
-    </section>
+      <section class="legal-section">
+        <h2 class="legal-h2">Données &amp; confidentialité</h2>
+        <p>Ce site dispose d'un formulaire de contact. Les informations saisies (nom, adresse e-mail, message) sont transmises directement à l'éditrice via Web3Forms et ne sont pas conservées sur un serveur au-delà du temps nécessaire à la transmission. Aucun cookie n'est déposé. La mesure d'audience repose sur Cloudflare Web Analytics (sans cookie ni identification des visiteurs) et sur Google Search Console (statistiques agrégées de présence dans les résultats de recherche).</p>
+      </section>
+
+      <section class="legal-section">
+        <h2 class="legal-h2">Propriété intellectuelle</h2>
+        <p>L'ensemble des photographies et textes publiés sur ce site sont la propriété exclusive de Laurie Di Francesco. Toute reproduction, même partielle, est interdite sans autorisation préalable.</p>
+      </section>
+
+    </div>
+
+    <!-- ── English version ───────────────────────── -->
+    <div id="content-en" hidden>
+
+      <section class="legal-section">
+        <h2 class="legal-h2">Publisher &amp; editorial director</h2>
+        <p>
+          Laurie Di Francesco — Photographer<br />
+          SIRET: 91132036 00013<br />
+          <a href="/contact">Contact form</a>
+        </p>
+      </section>
+
+      <section class="legal-section">
+        <h2 class="legal-h2">Hosting</h2>
+        <p>Cloudflare, Inc. — 101 Townsend St, San Francisco, CA 94107, United States.</p>
+      </section>
+
+      <section class="legal-section">
+        <h2 class="legal-h2">Data &amp; privacy</h2>
+        <p>This site has a contact form. The information submitted (name, email address, message) is forwarded directly to the publisher via Web3Forms and is not stored on a server beyond the time required for transmission. No cookies are used. Audience measurement relies on Cloudflare Web Analytics (no cookies, no visitor identification) and Google Search Console (aggregated search presence statistics).</p>
+      </section>
+
+      <section class="legal-section">
+        <h2 class="legal-h2">Intellectual property</h2>
+        <p>All photographs and texts published on this site are the exclusive property of Laurie Di Francesco. Any reproduction, even partial, is prohibited without prior authorisation.</p>
+      </section>
+
+    </div>
+
   </div>
 </Layout>
+
+<script>
+  const buttons = document.querySelectorAll<HTMLButtonElement>('.lang-btn');
+  const contentFr = document.getElementById('content-fr')!;
+  const contentEn = document.getElementById('content-en')!;
+  const headingFr = document.getElementById('legal-heading-fr')!;
+  const headingEn = document.getElementById('legal-heading-en')!;
+
+  buttons.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const lang = btn.dataset.lang;
+      buttons.forEach(b => b.classList.toggle('active', b === btn));
+      const isFr = lang === 'fr';
+      contentFr.hidden = !isFr;
+      contentEn.hidden = isFr;
+      headingFr.hidden = !isFr;
+      headingEn.hidden = isFr;
+    });
+  });
+</script>
 
 <style is:global>
   .legal {
     padding-top: clamp(6rem, 16vh, 10rem);
     padding-bottom: clamp(6rem, 14vh, 10rem);
     max-width: 680px;
+  }
+
+  .legal-top {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 1.5rem;
+    margin-bottom: 1.8rem;
   }
 
   .legal-title {
@@ -51,7 +123,40 @@ import Layout from '../layouts/Layout.astro';
     text-transform: uppercase;
     letter-spacing: .08em;
     color: var(--encre);
-    margin-bottom: 1.8rem;
+  }
+
+  .legal-lang-switch {
+    display: flex;
+    align-items: center;
+    gap: .5rem;
+    flex-shrink: 0;
+  }
+
+  .lang-sep {
+    font-family: var(--font-body);
+    font-size: .72rem;
+    color: var(--ardoise);
+  }
+
+  .lang-btn {
+    font-family: var(--font-body);
+    font-size: .72rem;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+    color: var(--ardoise);
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    transition: color .2s;
+  }
+
+  .lang-btn.active {
+    color: var(--cerule);
+  }
+
+  .lang-btn:hover {
+    color: var(--encre);
   }
 
   .legal-horizon {
