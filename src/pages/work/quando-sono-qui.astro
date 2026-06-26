@@ -40,19 +40,52 @@ const spreads: Spread[] = [
   <!-- ── Ouverture 2 colonnes ──────────────────────────────── -->
   <section class="opening container">
 
-    <!-- Colonne gauche : citation -->
+    <!-- Colonne gauche : Platon + René Char -->
     <div class="opening-epi">
+
       <div class="epi-wrap">
         <blockquote>
-          [Citation à choisir]
+          But what if someone dragged them along a steep and harsh ascent against their
+          will, and did not let go until they were dragged right into the sunlight? Would
+          they not feel pain and discomfort? And if they walked towards the sun and their
+          eyes suddenly filled with brilliant light, would they be able to see even one of
+          those things that are now called true realities?
         </blockquote>
-        <cite>[Auteur — Source]</cite>
+        <cite>Plato — Republic, Book VII</cite>
       </div>
       <hr class="horizon epi-horizon" />
+
+      <div class="epi-wrap">
+        <blockquote>
+          Lucidity is the wound closest to the sun.
+        </blockquote>
+        <cite>René Char — Feuillets d'Hypnos (169)</cite>
+      </div>
+      <hr class="horizon epi-horizon" />
+
     </div>
 
-    <!-- Colonne droite : texte du projet -->
+    <!-- Colonne droite : José Ramalho (toujours en PT) + texte du projet -->
     <div class="opening-proj">
+
+      <div class="epi-wrap">
+        <blockquote>
+          A sombra que me move<br />
+          Também me ilumina<br />
+          Me leve nos cabelos<br />
+          Me lave na piscina<br />
+          Em cada ponto claro<br />
+          Cometa que cai no mar<br />
+          Em cada cor diferente<br />
+          Que tente me clarear<br />
+          É noite que vai chegar<br />
+          É claro que é de manhã<br />
+          É moça e anciã
+        </blockquote>
+        <cite>José Ramalho Neto — Galope Resante</cite>
+      </div>
+      <hr class="horizon epi-horizon" />
+
       <p class="opening-eyebrow">The project</p>
       <p class="opening-text">
         Some journeys are not made of distance but of divided presence — the sense of being
@@ -61,6 +94,7 @@ const spreads: Spread[] = [
         belonging is written into bodies, borders, and light.
       </p>
       <hr class="horizon opening-horizon" />
+
     </div>
 
   </section>
@@ -179,6 +213,10 @@ const spreads: Spread[] = [
     border-left: 2px solid var(--cerule);
     padding: .2rem 0 .2rem 1.3rem;
     max-width: 60ch;
+  }
+
+  .epi-wrap + .epi-horizon + .epi-wrap {
+    margin-top: 3rem;
   }
 
   .epi-wrap blockquote {
