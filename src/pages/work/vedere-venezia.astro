@@ -264,6 +264,7 @@ const spreads: Spread[] = [
     display: block;
     width: 100%;
     height: auto;
+    cursor: zoom-in;
   }
 
   .spread--single figure { flex: 1 1 100%; }
@@ -342,6 +343,11 @@ const spreads: Spread[] = [
     }
   }
 
+  /* ── Lightbox ─────────────────────────────────────── */
+  .lb { position: fixed; inset: 0; background: rgba(20,32,43,.94); display: none; align-items: center; justify-content: center; z-index: 200; padding: 3vw; cursor: zoom-out; }
+  .lb.open { display: flex; }
+  .lb img { max-width: 96vw; max-height: 94vh; width: auto; height: auto; object-fit: contain; border-radius: 4px; cursor: zoom-out; }
+
 </style>
 
 <script>
@@ -376,4 +382,16 @@ const spreads: Spread[] = [
     });
   }, { threshold: .06 });
   document.querySelectorAll('.rv').forEach(el => obs.observe(el));
+
+  // Lightbox
+  const lb = document.createElement('div');
+  lb.className = 'lb';
+  const lbImg = document.createElement('img');
+  lb.appendChild(lbImg);
+  document.body.appendChild(lb);
+  document.querySelectorAll<HTMLImageElement>('.series img').forEach(im => {
+    im.addEventListener('click', () => { lbImg.src = im.dataset.full || im.src; lb.classList.add('open'); document.body.style.overflow = 'hidden'; });
+  });
+  lb.addEventListener('click', () => { lb.classList.remove('open'); document.body.style.overflow = ''; });
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') { lb.classList.remove('open'); document.body.style.overflow = ''; } });
 </script>
