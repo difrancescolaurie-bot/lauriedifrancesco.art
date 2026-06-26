@@ -132,7 +132,9 @@ body { background: #ECEAE4; }
 }
 
 .ex-intro-text {
-  font-size: clamp(1rem, 1.4vw, 1.12rem);
+  font-family: var(--font-body);
+  font-weight: 300;
+  font-size: clamp(.92rem, 1.35vw, 1.06rem);
   line-height: 1.78;
   color: var(--encre);
   text-align: justify;
@@ -236,6 +238,14 @@ body { background: #ECEAE4; }
   color: var(--ardoise);
 }
 
+.ex-video-title {
+  font-family: var(--font-body);
+  font-size: .88rem;
+  font-weight: 500;
+  color: var(--encre);
+  line-height: 1.4;
+}
+
 .ex-credits {
   display: flex;
   flex-direction: column;
@@ -267,11 +277,10 @@ body { background: #ECEAE4; }
 }
 
 .ex-thanks {
-  max-width: 72ch;
+  max-width: 1320px;
   margin: 0 auto clamp(4rem, 10vh, 7rem);
-  padding: 0 var(--gutter);
+  padding: 2rem var(--gutter) 0;
   border-top: 1px solid var(--brume);
-  padding-top: 2rem;
 }
 
 .ex-thanks-label {
@@ -285,12 +294,14 @@ body { background: #ECEAE4; }
 
 .ex-thanks-text {
   font-family: var(--font-body);
-  font-size: .9rem;
-  line-height: 1.78;
+  font-size: .78rem;
+  line-height: 1.88;
   color: var(--ardoise);
-  text-align: justify;
-  hyphens: auto;
-  -webkit-hyphens: auto;
+}
+
+.ex-thanks-name {
+  color: var(--cerule);
+  font-weight: 700;
 }
 
 .rv {
