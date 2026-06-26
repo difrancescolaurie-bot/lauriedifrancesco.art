@@ -1,0 +1,81 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout
+  title="Mentions légales — Laurie Di Francesco"
+  description="Mentions légales du site lauriedifrancesco.art"
+>
+  <div class="legal container">
+    <h1 class="legal-title">Mentions légales</h1>
+    <hr class="horizon legal-horizon" />
+
+    <section class="legal-section">
+      <h2 class="legal-h2">Éditrice</h2>
+      <p>Laurie Di Francesco<br />
+      Site personnel — <a href="https://lauriedifrancesco.art">lauriedifrancesco.art</a></p>
+    </section>
+
+    <section class="legal-section">
+      <h2 class="legal-h2">Hébergement</h2>
+      <p>Cloudflare, Inc. — 101 Townsend St, San Francisco, CA 94107, États-Unis.</p>
+    </section>
+
+    <section class="legal-section">
+      <h2 class="legal-h2">Données & confidentialité</h2>
+      <p>Ce site n'a pas de formulaire et ne dépose pas de cookie. La mesure d'audience repose sur Cloudflare Web Analytics (sans cookie ni identification des visiteurs) et sur Google Search Console (statistiques agrégées de présence dans les résultats de recherche). Cloudflare, en tant qu'hébergeur, traite également des données techniques nécessaires à la fourniture et à la sécurité du service.</p>
+    </section>
+
+    <section class="legal-section">
+      <h2 class="legal-h2">Propriété intellectuelle</h2>
+      <p>L'ensemble des photographies et textes publiés sur ce site sont la propriété exclusive de Laurie Di Francesco. Toute reproduction, même partielle, est interdite sans autorisation préalable.</p>
+    </section>
+  </div>
+</Layout>
+
+<style is:global>
+  .legal {
+    padding-top: clamp(6rem, 16vh, 10rem);
+    padding-bottom: clamp(6rem, 14vh, 10rem);
+    max-width: 680px;
+  }
+
+  .legal-title {
+    font-family: var(--font-title);
+    font-weight: 300;
+    font-size: clamp(1.6rem, 3.5vw, 2.4rem);
+    text-transform: uppercase;
+    letter-spacing: .08em;
+    color: var(--encre);
+    margin-bottom: 1.8rem;
+  }
+
+  .legal-horizon {
+    margin-bottom: 3rem;
+  }
+
+  .legal-section {
+    margin-bottom: 2.5rem;
+  }
+
+  .legal-h2 {
+    font-family: var(--font-body);
+    font-size: .72rem;
+    text-transform: uppercase;
+    letter-spacing: .18em;
+    color: var(--cerule);
+    margin-bottom: .9rem;
+  }
+
+  .legal-section p {
+    font-size: clamp(.9rem, 1.3vw, 1rem);
+    line-height: 1.78;
+    color: var(--ardoise);
+  }
+
+  .legal-section a {
+    color: var(--cerule);
+    border-bottom: 1px solid currentColor;
+    padding-bottom: 1px;
+  }
+</style>
