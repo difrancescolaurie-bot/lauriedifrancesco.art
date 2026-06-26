@@ -246,6 +246,24 @@
   .rv { opacity: 1; transform: none; transition: none; }
 }
 
+/* ── Accès privé ────────────────────────────────────── */
+.private-link {
+  padding-block: 2.5rem;
+  border-top: 1px solid var(--brume);
+  margin-top: clamp(2rem, 5vh, 3rem);
+}
+.private-link a {
+  font-family: var(--font-body);
+  font-size: .72rem;
+  text-transform: uppercase;
+  letter-spacing: .16em;
+  color: var(--ardoise);
+  border-bottom: 1px solid var(--brume);
+  padding-bottom: 2px;
+  transition: color .25s;
+}
+.private-link a:hover { color: var(--cerule); }
+
 /* ── Next project ───────────────────────────────────── */
 .next-project {
   display: flex;
