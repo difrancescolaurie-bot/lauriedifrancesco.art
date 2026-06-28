@@ -21,12 +21,16 @@ const content = {
     char: 'La lucidité est la blessure la plus rapprochée du soleil.',
     charSrc: 'René Char — Feuillets d\'Hypnos (169)',
     projectText: 'Certains voyages ne se font pas de distance mais de présence divisée — cette impression d\'être toujours en partie ailleurs. <em>Quando sono qui, non sono là</em> trace cette géographie intérieure : portraits et paysages rassemblés à travers le Brésil, où la question de l\'appartenance s\'écrit dans les corps, les frontières et la lumière.',
+    creditsLabel: 'Crédits',
+    creditsText: "Image reproduite avec l'aimable autorisation de Tatila Lyma.",
   },
   it: {
     plato: 'E se qualcuno li costringesse a risalire un\'erta ripida e scabra senza lasciarli andare finché non li avesse portati alla piena luce del sole? Non proverrebbero dolore e disagio? E se camminassero verso il sole con gli occhi improvvisamente inondati di luce abbagliante, riuscirebbero a vedere anche una sola delle cose che ora chiamiamo vere realtà?',
     platoSrc: 'Platone — Repubblica, Libro VII',
     char: 'La lucidità è la ferita più vicina al sole.',
     charSrc: 'René Char — Feuillets d\'Hypnos (169)',
+    creditsLabel: 'Crediti',
+    creditsText: 'Immagine riprodotta per gentile concessione di Tatila Lyma.',
     projectText: 'Certi viaggi non si misurano di distanza, ma di presenza divisa — la sensazione di essere sempre in parte altrove. <em>Quando sono qui, non sono là</em> traccia quella geografia interiore: ritratti e paesaggi raccolti attraverso il Brasile, dove la questione dell\'appartenenza si scrive nei corpi, nelle frontiere e nella luce.',
   },
   pt: {
@@ -35,6 +39,8 @@ const content = {
     char: 'A lucidez é a ferida mais próxima do sol.',
     charSrc: 'René Char — Feuillets d\'Hypnos (169)',
     projectText: 'Certas viagens não são feitas de distância, mas de presença dividida — a sensação de estar sempre em parte em outro lugar. <em>Quando sono qui, non sono là</em> traça essa geografia interior: retratos e paisagens reunidos pelo Brasil, onde a questão do pertencimento se escreve nos corpos, nas fronteiras e na luz.',
+    creditsLabel: 'Créditos',
+    creditsText: 'Imagem reproduzida com a gentil autorização de Tatila Lyma.',
   },
 }[lang as 'fr' | 'it' | 'pt'];
 
@@ -132,6 +138,14 @@ const spreads: Spread[] = [
         ))}
       </div>
     ))}
+  </div>
+
+  <!-- ── Crédits ─────────────────────────────────────────── -->
+  <div class="project-credits">
+    <div class="group">
+      <div class="label">{content.creditsLabel}</div>
+      <p>{content.creditsText}</p>
+    </div>
   </div>
 
   <!-- ── Projet suivant ─────────────────────────────────────── -->

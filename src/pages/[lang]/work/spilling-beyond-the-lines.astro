@@ -21,6 +21,8 @@ const content = {
     cap1: "Ni tout à fait un départ ni vraiment un retour, mais une façon d'habiter les seuils, les passages, les plis d'une géographie intérieure.",
     cap2: "Déborder les lignes laisse trembler les contours, ouvrir l'espace, suspendre les certitudes.",
     cap3: "Pour moi, la photographie est une façon de rester en mouvement sans fuir, d'entrer en contact sans imposer — de capter ce je-ne-sais-quoi fugitif qui relie et révèle.",
+    creditsLabel: 'Crédits',
+    creditsText: "Images reproduites avec l'aimable autorisation de Diana Ferreira et Giovane Marquez.",
   },
   it: {
     p1: "Questo progetto, concepito dapprima come una mostra e poi come un libro fotografico, è emerso alla fine di un capitolo di vita segnato dallo spostamento. È stato costruito a partire da archivi personali — immagini raccolte nel corso di più di quindici anni, attraverso diversi continenti — meno il resoconto di un singolo viaggio che una lenta sedimentazione di luoghi, incontri e luce.",
@@ -28,6 +30,8 @@ const content = {
     cap1: "Non proprio una partenza né davvero un ritorno, ma un modo di abitare le soglie, i passaggi, le pieghe di una geografia interiore.",
     cap2: "Traboccare dalle linee lascia tremare i contorni, aprire lo spazio, sospendere le certezze.",
     cap3: "Per me, la fotografia è un modo di rimanere in movimento senza fuggire, di entrare in contatto senza imporre — di cogliere quel fuggitivo je-ne-sais-quoi che connette e rivela.",
+    creditsLabel: 'Crediti',
+    creditsText: "Immagini riprodotte per gentile concessione di Diana Ferreira e Giovane Marquez.",
   },
   pt: {
     p1: "Este projeto, inicialmente concebido como uma exposição e depois como um livro fotográfico, emergiu ao fim de um capítulo de vida marcado pelo deslocamento. Foi construído a partir de arquivos pessoais — imagens reunidas ao longo de mais de quinze anos, em vários continentes — menos o registro de uma única jornada do que uma lenta sedimentação de lugares, encontros e luz.",
@@ -35,6 +39,8 @@ const content = {
     cap1: "Nem bem uma partida nem realmente um retorno, mas uma forma de habitar os limiares, as passagens, as dobras de uma geografia interior.",
     cap2: "Transbordar das linhas deixa os contornos tremer, o espaço abrir-se, as certezas suspenderem-se.",
     cap3: "Para mim, a fotografia é uma forma de permanecer em movimento sem fugir, de entrar em contato sem impor — de capturar aquele fugidio je-ne-sais-quoi que conecta e revela.",
+    creditsLabel: 'Créditos',
+    creditsText: 'Imagens reproduzidas com a gentil autorização de Diana Ferreira e Giovane Marquez.',
   },
 }[lang as 'fr' | 'it' | 'pt'];
 
@@ -59,7 +65,7 @@ const spreads: Spread[] = [
   { type: 'row', photos: [local('7.jpg',7), local('8.jpg',8), local('9.jpg',9), local('10.jpg',10)], caption: content.cap1 },
   { type: 'composed', photos: [local('11.jpg',11), local('12.jpg',12), local('13.jpg',13)] },
   { type: 'row', photos: [local('14.jpg',14), local('15.jpg',15), local('16.jpg',16), local('17.jpg',17)] },
-  { type: 'row', photos: [local('18.jpg',18), local('19.jpg',19), local('20.jpg',20), local('21.jpg',21,'match')] },
+  { type: 'row', photos: [local('18.jpg',18), local('19.jpg',19), local('20.jpg',20), local('21.jpg',21,'port-crop')] },
   { type: 'row', photos: [local('22.jpg',22), local('23.jpg',23)] },
   { type: 'row', photos: [local('24.jpg',24), local('25.jpg',25)] },
   { type: 'row', photos: [local('26.jpg',26), local('27.jpg',27), local('28.jpg',28), local('29.jpg',29)] },
@@ -146,6 +152,14 @@ const spreads: Spread[] = [
     ))}
   </div>
 
+  <!-- ── Crédits ─────────────────────────────────────────── -->
+  <div class="project-credits">
+    <div class="group">
+      <div class="label">{content.creditsLabel}</div>
+      <p>{content.creditsText}</p>
+    </div>
+  </div>
+
   <!-- ── Projet suivant ─────────────────────────────────────── -->
   <div class="next-project container">
     <span class="next-label">{t.work.nextProject}</span>
@@ -170,15 +184,29 @@ const spreads: Spread[] = [
     object-fit: cover;
   }
 
+  figure.port-crop {
+    aspect-ratio: 2 / 3;
+    overflow: hidden;
+    position: relative;
+  }
+  figure.port-crop img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: 90% center;
+  }
+
   .spread--composed {
     align-items: flex-start;
     justify-content: center;
     gap: 0;
-    margin-block: clamp(4rem, 8vh, 6rem) !important;
+    margin-block: clamp(4rem, 8vh, 6rem) clamp(12rem, 20vh, 15rem) !important;
   }
   .spread--composed figure { flex: 0 1 34%; }
-  .spread--composed figure:nth-child(1) { transform: translateY(0); z-index: 2; margin-right: -7%; }
-  .spread--composed figure:nth-child(2) { transform: translateY(25%); z-index: 3; }
+  .spread--composed figure:nth-child(1) { transform: translateY(25%); z-index: 2; margin-right: -7%; }
+  .spread--composed figure:nth-child(2) { transform: translateY(0); z-index: 3; }
   .spread--composed figure:nth-child(3) { transform: translateY(8%); z-index: 1; margin-left: -5%; }
   .spread--composed img { border-radius: 12px; }
 
@@ -196,8 +224,8 @@ const spreads: Spread[] = [
       flex-wrap: nowrap !important; gap: 0 !important; margin-bottom: 5rem !important;
     }
     .spread--composed figure { flex: 0 1 38% !important; width: auto !important; transform: none !important; }
-    .spread--composed figure:nth-child(1) { transform: translateY(0) !important; z-index: 2 !important; margin: 0 -7% 0 0 !important; }
-    .spread--composed figure:nth-child(2) { transform: translateY(12%) !important; z-index: 3 !important; margin: 0 !important; }
+    .spread--composed figure:nth-child(1) { transform: translateY(12%) !important; z-index: 2 !important; margin: 0 -7% 0 0 !important; }
+    .spread--composed figure:nth-child(2) { transform: translateY(0) !important; z-index: 3 !important; margin: 0 !important; }
     .spread--composed figure:nth-child(3) { transform: translateY(6%) !important; z-index: 1 !important; margin: 0 0 0 -5% !important; }
     .spread .land { width: 100% !important; }
   }
@@ -213,6 +241,7 @@ const spreads: Spread[] = [
         if (mob) { figs.forEach(f => { f.style.flexGrow = ''; }); return; }
         const asp = imgs.map((im, i) => {
           if (figs[i].classList.contains('land-crop')) return 3 / 2;
+          if (figs[i].classList.contains('port-crop')) return 2 / 3;
           return (im.naturalWidth && im.naturalHeight) ? im.naturalWidth / im.naturalHeight : 1;
         });
         figs.forEach((f, i) => { f.style.flexGrow = asp[i].toFixed(4); });
