@@ -66,7 +66,7 @@
 /* ── Opening 2 colonnes ───────────────────────────── */
 .opening {
   display: flex;
-  gap: clamp(2.5rem, 6vw, 5rem);
+  gap: 16px;
   align-items: stretch;
   padding-top: clamp(3rem, 8vh, 5.5rem);
   padding-bottom: clamp(3rem, 7vh, 5rem);
@@ -78,7 +78,7 @@
   flex-direction: column;
 }
 .opening-proj {
-  flex: 1.05 1 0;
+  flex: 1 1 0;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -141,10 +141,10 @@
 /* ── Citations ─────────────────────────────────────── */
 .epi-wrap {
   border-left: 2px solid var(--cerule);
-  padding: .2rem 0 .2rem 1.3rem;
+  padding: .2rem 0 1.8rem 1.3rem;
   max-width: 60ch;
 }
-.epi-wrap + .epi-horizon + .epi-wrap { margin-top: 3rem; }
+.epi-wrap + .epi-horizon + .epi-wrap { margin-top: 4.8rem; }
 .epi-wrap blockquote {
   font-family: var(--font-title);
   font-weight: 300;
@@ -177,7 +177,7 @@
   color: var(--ardoise);
   margin-top: .2rem;
 }
-.epi-horizon,
+.epi-horizon { margin-top: 0; }
 .spilling-horizon { margin-top: 1.8rem; }
 
 /* ── Série photographique ──────────────────────────── */
@@ -309,7 +309,7 @@ figure.match img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: left center;
+  object-position: right center;
 }
 
 /* ── Mobile ─────────────────────────────────────────── */

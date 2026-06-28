@@ -66,8 +66,8 @@ const spreads: Spread[] = [
       <!-- Claire Marin -->
       <div class="epi-wrap">
         <blockquote class="epi-justify">
-          Dreams and water are two worlds where I recover a little balance, a little lightness,
-          where I live again the pleasure of movement. Held within the water's sheath, my body
+          <span class="k">Dreams and water are two worlds where I recover a little balance, a little lightness,
+          where I live again the pleasure of movement.</span> Held within the water's sheath, my body
           lets go of its pain. It fades, dissolves, vanishes. My movements turn fluid, easy;
           my body supple, almost deft. Gone, the tender catching-points: the hips, the elbows —
           nothing rasps anymore, nothing chafes, nothing tears. I remember dreaming I was a mermaid.
@@ -198,7 +198,7 @@ const spreads: Spread[] = [
   /* ── Ouverture 2 colonnes ─────────────────────────── */
   .opening {
     display: flex;
-    gap: clamp(2.5rem, 6vw, 5rem);
+    gap: 16px;
     align-items: stretch;
     padding-top: clamp(3rem, 8vh, 5.5rem);
     padding-bottom: clamp(3rem, 7vh, 5rem);
@@ -212,7 +212,7 @@ const spreads: Spread[] = [
   }
 
   .opening-proj {
-    flex: 1.05 1 0;
+    flex: 1 1 0;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -221,12 +221,12 @@ const spreads: Spread[] = [
   /* Citations — structure identique à Work/About */
   .epi-wrap {
     border-left: 2px solid var(--cerule);
-    padding: .2rem 0 .2rem 1.3rem;
+    padding: .2rem 0 1.8rem 1.3rem;
     max-width: 60ch;
   }
 
   .epi-wrap + .epi-horizon + .epi-wrap {
-    margin-top: 3rem;
+    margin-top: 4.8rem;
   }
 
   .epi-wrap blockquote {
@@ -277,7 +277,7 @@ const spreads: Spread[] = [
   }
 
   .epi-horizon {
-    margin-top: 1.8rem;
+    margin-top: 0;
   }
 
   /* Colonne projet */

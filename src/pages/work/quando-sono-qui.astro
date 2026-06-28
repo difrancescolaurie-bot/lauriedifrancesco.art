@@ -182,7 +182,7 @@ const spreads: Spread[] = [
   /* ── Ouverture 2 colonnes ─────────────────────────── */
   .opening {
     display: flex;
-    gap: clamp(2.5rem, 6vw, 5rem);
+    gap: 16px;
     align-items: stretch;
     padding-top: clamp(3rem, 8vh, 5.5rem);
     padding-bottom: clamp(3rem, 7vh, 5rem);
@@ -196,21 +196,21 @@ const spreads: Spread[] = [
   }
 
   .opening-proj {
-    flex: 1.05 1 0;
+    flex: 1 1 0;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: flex-start;
   }
 
   /* Citations — structure identique à Work/About/En Corps */
   .epi-wrap {
     border-left: 2px solid var(--cerule);
-    padding: .2rem 0 .2rem 1.3rem;
+    padding: .2rem 0 1.8rem 1.3rem;
     max-width: 60ch;
   }
 
   .epi-wrap + .epi-horizon + .epi-wrap {
-    margin-top: 3rem;
+    margin-top: 4.8rem;
   }
 
   .epi-wrap blockquote {
@@ -251,7 +251,7 @@ const spreads: Spread[] = [
   }
 
   .epi-horizon {
-    margin-top: 1.8rem;
+    margin-top: 0;
   }
 
   /* Colonne projet */

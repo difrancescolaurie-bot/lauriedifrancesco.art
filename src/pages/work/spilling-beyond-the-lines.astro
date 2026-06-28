@@ -26,7 +26,7 @@ const spreads: Spread[] = [
   { type: 'row', photos: [local('7.jpg',7), local('8.jpg',8), local('9.jpg',9), local('10.jpg',10)],
     caption: 'Neither quite a departure nor truly a return, but a way of inhabiting thresholds, passages, the folds of an inner geography.' },
   // Photos 11–13 (triptyque composé)
-  { type: 'composed', photos: [local('12.jpg',12), local('11.jpg',11), local('13.jpg',13)] },
+  { type: 'composed', photos: [local('11.jpg',11), local('12.jpg',12), local('13.jpg',13)] },
   // Photos 14–17
   { type: 'row', photos: [local('14.jpg',14), local('15.jpg',15), local('16.jpg',16), local('17.jpg',17)] },
   // Photos 18–21 (21 = match)
@@ -56,9 +56,9 @@ const spreads: Spread[] = [
   { type: 'row', photos: [local('45.jpg',45), local('46.jpg',46)],
     caption: 'For me, photography is a way of remaining in motion without fleeing, of entering into contact without imposing — of capturing that fleeting je-ne-sais-quoi that connects and reveals.',
     captionStyle: 'prose' },
-  // Photos 47–48 : chacune sur sa propre ligne
-  { type: 'single', photos: [local('47.jpg',47)] },
-  { type: 'single', photos: [local('48.jpg',48)] },
+  // Photos 47–48 : chacune sur sa propre ligne, cadrage 3:2
+  { type: 'single', photos: [local('47.jpg',47,'land-crop')] },
+  { type: 'single', photos: [local('48.jpg',48,'land-crop')] },
 ];
 ---
 
@@ -367,7 +367,7 @@ const spreads: Spread[] = [
     width: 100%;
     height: 100%;
     object-fit: cover;
-    object-position: left center;
+    object-position: right center;
   }
 
   /* Composed trio */
@@ -375,20 +375,20 @@ const spreads: Spread[] = [
     align-items: flex-start;
     justify-content: center;
     gap: 0;
-    margin-block: clamp(4rem, 8vh, 6rem) clamp(8rem, 16vh, 11rem) !important;
+    margin-block: clamp(4rem, 8vh, 6rem) !important;
   }
 
   .spread--composed figure { flex: 0 1 34%; }
 
   .spread--composed figure:nth-child(1) {
     transform: translateY(0);
-    z-index: 3;
+    z-index: 2;
     margin-right: -7%;
   }
 
   .spread--composed figure:nth-child(2) {
     transform: translateY(25%);
-    z-index: 2;
+    z-index: 3;
   }
 
   .spread--composed figure:nth-child(3) {
@@ -473,12 +473,12 @@ const spreads: Spread[] = [
     }
     .spread--composed figure:nth-child(1) {
       transform: translateY(0) !important;
-      z-index: 3 !important;
+      z-index: 2 !important;
       margin: 0 -7% 0 0 !important;
     }
     .spread--composed figure:nth-child(2) {
       transform: translateY(12%) !important;
-      z-index: 2 !important;
+      z-index: 3 !important;
       margin: 0 !important;
     }
     .spread--composed figure:nth-child(3) {
