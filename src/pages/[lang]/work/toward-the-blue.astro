@@ -29,6 +29,21 @@ const files: Record<number, string> = {
 };
 const s = (n: number) => `/images/work/toward-the-blue/${files[n]}`;
 
+const content = {
+  fr: {
+    creditsLabel: 'Crédits & remerciements',
+    creditsText: "Images reproduites avec l'aimable autorisation d'Ana Valant et Tereza Kozinc — avec mes remerciements à Tereza et à Klavdij Sluban, qui ont su mettre des mots justes sur ma façon de voir.",
+  },
+  it: {
+    creditsLabel: 'Crediti e ringraziamenti',
+    creditsText: "Immagini riprodotte per gentile concessione di Ana Valant e Tereza Kozinc — con un ringraziamento a Tereza e a Klavdij Sluban, che hanno saputo dare le parole giuste al mio modo di vedere.",
+  },
+  pt: {
+    creditsLabel: 'Créditos e agradecimentos',
+    creditsText: "Imagens reproduzidas com a gentil autorização de Ana Valant e Tereza Kozinc — com um agradecimento a Tereza e a Klavdij Sluban, que souberam encontrar as palavras certas para o meu modo de ver.",
+  },
+}[lang as 'fr' | 'it' | 'pt'];
+
 type Photo = { src: string; n: number };
 type Spread = { type: 'row' | 'single'; photos: Photo[]; caption?: string; captionStyle?: 'prose' };
 
@@ -83,6 +98,14 @@ const spreads: Spread[] = [
         )}
       </>
     ))}
+  </div>
+
+  <!-- ── Crédits ─────────────────────────────────────────── -->
+  <div class="project-credits">
+    <div class="group">
+      <div class="label">{content.creditsLabel}</div>
+      <p>{content.creditsText}</p>
+    </div>
   </div>
 
   <!-- ── Projet suivant ─────────────────────────────────────── -->

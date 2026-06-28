@@ -109,6 +109,14 @@ const spreads: Spread[] = [
     ))}
   </div>
 
+  <!-- ── Crédits ─────────────────────────────────────────── -->
+  <div class="project-credits">
+    <div class="group">
+      <div class="label">Credits</div>
+      <p>Image reproduced with the kind permission of Tatila Lyma.</p>
+    </div>
+  </div>
+
   <!-- ── Projet suivant ─────────────────────────────────────── -->
   <div class="next-project container">
     <span class="next-label">Next project</span>
@@ -371,6 +379,29 @@ const spreads: Spread[] = [
     .spread--row:has(figure:nth-child(3)):not(:has(figure:nth-child(4))) figure {
       width: calc(33.33% - 6px) !important;
     }
+  }
+
+  /* ── Project credits ─────────────────────────────── */
+  .project-credits {
+    max-width: 62ch;
+    margin: clamp(2.5rem, 6vh, 4rem) auto 0;
+    padding: 0 var(--gutter);
+  }
+  .project-credits .group + .group { margin-top: 1rem; }
+  .project-credits .label {
+    font-family: var(--font-title);
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: .2em;
+    font-size: .62rem;
+    color: var(--cerule);
+    margin-bottom: .4rem;
+  }
+  .project-credits p {
+    font-size: .8rem;
+    line-height: 1.55;
+    color: var(--ardoise);
+    margin: 0;
   }
 
   /* ── Lightbox ─────────────────────────────────────── */

@@ -125,6 +125,14 @@ const spreads: Spread[] = [
     <a href="/work/en-corps-en-la-mer/private">Complete series (private access) →</a>
   </div>
 
+  <!-- ── Crédits ─────────────────────────────────────────── -->
+  <div class="project-credits">
+    <div class="group">
+      <div class="label">With thanks</div>
+      <p>With thanks to Jérôme Gaudin and Boriana Goranova for their friendship, to Lucie Lejeune for her support, and to Antoine d'Agata for his eye and his kindness.</p>
+    </div>
+  </div>
+
   <!-- ── Projet suivant ─────────────────────────────────────── -->
   <div class="next-project container">
     <span class="next-label">Next project</span>
@@ -411,6 +419,29 @@ const spreads: Spread[] = [
   }
 
   .next-project a:hover { color: var(--cerule); }
+
+  /* ── Project credits ─────────────────────────────── */
+  .project-credits {
+    max-width: 62ch;
+    margin: clamp(2.5rem, 6vh, 4rem) auto 0;
+    padding: 0 var(--gutter);
+  }
+  .project-credits .group + .group { margin-top: 1rem; }
+  .project-credits .label {
+    font-family: var(--font-title);
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: .2em;
+    font-size: .62rem;
+    color: var(--cerule);
+    margin-bottom: .4rem;
+  }
+  .project-credits p {
+    font-size: .8rem;
+    line-height: 1.55;
+    color: var(--ardoise);
+    margin: 0;
+  }
 
   /* ── Mobile ───────────────────────────────────────── */
   @media (max-width: 700px) {
