@@ -24,3 +24,9 @@ Thumbs.db
 cahier-de-transmission.md
 guide-demarrage.md
 favicon-horizon.svg
+
+# wrangler files
+.wrangler
+.dev.vars*
+!.dev.vars.example
+!.env.example
