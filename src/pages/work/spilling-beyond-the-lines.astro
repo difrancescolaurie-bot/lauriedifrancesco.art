@@ -26,11 +26,11 @@ const spreads: Spread[] = [
   { type: 'row', photos: [local('7.jpg',7), local('8.jpg',8), local('9.jpg',9), local('10.jpg',10)],
     caption: 'Neither quite a departure nor truly a return, but a way of inhabiting thresholds, passages, the folds of an inner geography.' },
   // Photos 11–13 (triptyque composé)
-  { type: 'composed', photos: [local('11.jpg',11), local('12.jpg',12), local('13.jpg',13)] },
+  { type: 'composed', photos: [local('12.jpg',12), local('11.jpg',11), local('13.jpg',13)] },
   // Photos 14–17
   { type: 'row', photos: [local('14.jpg',14), local('15.jpg',15), local('16.jpg',16), local('17.jpg',17)] },
   // Photos 18–21 (21 = match)
-  { type: 'row', photos: [local('18.jpg',18), local('19.jpg',19), local('20.jpg',20), local('21.jpg',21)] },
+  { type: 'row', photos: [local('18.jpg',18), local('19.jpg',19), local('20.jpg',20), local('21.jpg',21,'match')] },
   // Photos 22–23
   { type: 'row', photos: [local('22.jpg',22), local('23.jpg',23)] },
   // Photos 24–25
@@ -56,8 +56,9 @@ const spreads: Spread[] = [
   { type: 'row', photos: [local('45.jpg',45), local('46.jpg',46)],
     caption: 'For me, photography is a way of remaining in motion without fleeing, of entering into contact without imposing — of capturing that fleeting je-ne-sais-quoi that connects and reveals.',
     captionStyle: 'prose' },
-  // Photos 47–48 (paysage, cadrées en 3:2 comme photo 22)
-  { type: 'row', photos: [local('47.jpg',47,'land-crop'), local('48.jpg',48)] },
+  // Photos 47–48 : chacune sur sa propre ligne
+  { type: 'single', photos: [local('47.jpg',47)] },
+  { type: 'single', photos: [local('48.jpg',48)] },
 ];
 ---
 
@@ -374,7 +375,7 @@ const spreads: Spread[] = [
     align-items: flex-start;
     justify-content: center;
     gap: 0;
-    margin-block: clamp(2rem, 5vh, 3.5rem) clamp(6rem, 18vh, 12rem) !important;
+    margin-block: clamp(4rem, 8vh, 6rem) clamp(8rem, 16vh, 11rem) !important;
   }
 
   .spread--composed figure { flex: 0 1 34%; }
