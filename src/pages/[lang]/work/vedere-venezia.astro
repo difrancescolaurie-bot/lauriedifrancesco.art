@@ -73,9 +73,14 @@ const spreads: Spread[] = [
 
 <style is:global>
   .spread figure img { cursor: zoom-in; }
-  .lb { position: fixed; inset: 0; background: rgba(20,32,43,.94); display: none; align-items: center; justify-content: center; z-index: 200; padding: 3vw; cursor: zoom-out; }
+  .lb { position: fixed; inset: 0; background: rgba(20,32,43,.94); display: none; align-items: center; justify-content: center; z-index: 200; }
   .lb.open { display: flex; }
-  .lb img { max-width: 96vw; max-height: 94vh; width: auto; height: auto; object-fit: contain; border-radius: 4px; cursor: zoom-out; }
+  .lb-photo { max-width: min(86vw, calc(100vw - 5.5rem)); max-height: 92vh; width: auto; height: auto; object-fit: contain; border-radius: 4px; display: block; }
+  .lb-nav { position: absolute; top: 50%; transform: translateY(-50%); background: none; border: none; padding: 1rem .7rem; cursor: pointer; color: rgba(255,255,255,.45); transition: color .25s; line-height: 0; -webkit-tap-highlight-color: transparent; }
+  .lb-nav:hover { color: rgba(255,255,255,.9); }
+  .lb-nav svg { width: clamp(1.5rem, 3vw, 2.2rem); height: clamp(1.5rem, 3vw, 2.2rem); display: block; }
+  .lb-prev { left: .5rem; }
+  .lb-next { right: .5rem; }
 </style>
 
 <script>
@@ -103,14 +108,35 @@ const spreads: Spread[] = [
   }, { threshold: .06 });
   document.querySelectorAll('.rv').forEach(el => obs.observe(el));
 
+  const lbAll = Array.from(document.querySelectorAll<HTMLImageElement>('.series img'));
+  let lbIdx = 0;
   const lb = document.createElement('div');
   lb.className = 'lb';
-  const lbImg = document.createElement('img');
-  lb.appendChild(lbImg);
+  lb.innerHTML = `<button class="lb-nav lb-prev" aria-label="Previous"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg></button><img class="lb-photo" /><button class="lb-nav lb-next" aria-label="Next"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 6 15 12 9 18"/></svg></button>`;
   document.body.appendChild(lb);
-  document.querySelectorAll<HTMLImageElement>('.series img').forEach(im => {
-    im.addEventListener('click', () => { lbImg.src = im.dataset.full || im.src; lb.classList.add('open'); document.body.style.overflow = 'hidden'; });
+  const lbPhoto = lb.querySelector<HTMLImageElement>('.lb-photo')!;
+  const lbPrev = lb.querySelector<HTMLButtonElement>('.lb-prev')!;
+  const lbNext = lb.querySelector<HTMLButtonElement>('.lb-next')!;
+  function lbShow(i: number) {
+    lbIdx = Math.max(0, Math.min(i, lbAll.length - 1));
+    lbPhoto.src = lbAll[lbIdx].dataset.full || lbAll[lbIdx].src;
+    lbPrev.style.opacity = lbIdx > 0 ? '1' : '0';
+    lbPrev.style.pointerEvents = lbIdx > 0 ? 'auto' : 'none';
+    lbNext.style.opacity = lbIdx < lbAll.length - 1 ? '1' : '0';
+    lbNext.style.pointerEvents = lbIdx < lbAll.length - 1 ? 'auto' : 'none';
+  }
+  function lbClose() { lb.classList.remove('open'); document.body.style.overflow = ''; }
+  lbAll.forEach((im, i) => im.addEventListener('click', () => { lbShow(i); lb.classList.add('open'); document.body.style.overflow = 'hidden'; }));
+  lbPrev.addEventListener('click', e => { e.stopPropagation(); lbShow(lbIdx - 1); });
+  lbNext.addEventListener('click', e => { e.stopPropagation(); lbShow(lbIdx + 1); });
+  lb.addEventListener('click', e => { if (e.target === lb || e.target === lbPhoto) lbClose(); });
+  document.addEventListener('keydown', e => {
+    if (!lb.classList.contains('open')) return;
+    if (e.key === 'Escape') lbClose();
+    if (e.key === 'ArrowLeft') lbShow(lbIdx - 1);
+    if (e.key === 'ArrowRight') lbShow(lbIdx + 1);
   });
-  lb.addEventListener('click', () => { lb.classList.remove('open'); document.body.style.overflow = ''; });
-  document.addEventListener('keydown', e => { if (e.key === 'Escape') { lb.classList.remove('open'); document.body.style.overflow = ''; } });
+  let lbTX = 0;
+  lb.addEventListener('touchstart', e => { lbTX = (e as any).touches[0].clientX; }, { passive: true });
+  lb.addEventListener('touchend', e => { const dx = lbTX - (e as any).changedTouches[0].clientX; if (Math.abs(dx) > 50) { dx > 0 ? lbShow(lbIdx + 1) : lbShow(lbIdx - 1); } });
 </script>
