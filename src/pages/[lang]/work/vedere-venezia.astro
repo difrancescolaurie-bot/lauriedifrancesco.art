@@ -19,6 +19,23 @@ type Photo = { src: string; n: number };
 type Spread = { type: 'row' | 'single'; photos: Photo[] };
 const p = (n: number): Photo => ({ src: s(`${n}.jpg`), n });
 
+const content = {
+  fr: {
+    aznavourPoem: `Que c'est triste Venise<br />Le soir sur la lagune<br /><span class="k">Quand on cherche une main<br />Que l'on ne vous tend pas</span><br />Et que l'on ironise<br />Devant le clair de lune<br />Pour tenter d'oublier<br />Ce que l'on ne se dit pas`,
+    dufourmantelle: `Se séparer, ainsi, c'est commencer à traduire. C'est trouver ne serait-ce qu'un mot pour traduire ce qui en soi fait signe et sens dans une langue nouvelle afin qu'elle soit audible pour un autre. C'est quitter la langue maternelle pour <span class="k">risquer sa propre langue, la langue poétique par excellence</span>.`,
+  },
+  it: {
+    aznavourPoem: `Com'è triste Venezia<br />La sera sulla laguna<br /><span class="k">Quando si cerca una mano<br />Che non ci viene tesa</span><br />E si ironizza<br />Davanti al chiaro di luna<br />Per tentare di dimenticare<br />Ciò che non ci si dice`,
+    dufourmantelle: `Separarsi, così, è cominciare a tradurre. È trovare almeno una parola per tradurre ciò che in sé fa segno e senso in una lingua nuova affinché sia audibile per un altro. È lasciare la lingua materna per <span class="k">rischiare la propria lingua, la lingua poetica per eccellenza</span>.`,
+    tradfr: 'traduzione libera dal francese',
+  },
+  pt: {
+    aznavourPoem: `Como é triste Veneza<br />À tarde na laguna<br /><span class="k">Quando se procura uma mão<br />Que não nos é estendida</span><br />E faz-se ironia<br />Perante o luar<br />Para tentar esquecer<br />O que não nos dizemos`,
+    dufourmantelle: `Separar-se, assim, é começar a traduzir. É encontrar ao menos uma palavra para traduzir o que em si faz signo e sentido numa língua nova para que seja audível para o outro. É abandonar a língua materna para <span class="k">arriscar a sua própria língua, a língua poética por excelência</span>.`,
+    tradfr: 'tradução livre do francês',
+  },
+}[lang as 'fr' | 'it' | 'pt'];
+
 const spreads: Spread[] = [
   { type: 'row',    photos: [p(1), p(2)] },
   { type: 'single', photos: [p(3)] },
@@ -45,6 +62,31 @@ const spreads: Spread[] = [
     <div class="phero-inner container">
       <p class="phero-eyebrow">{t.home.projects[3].cerule}</p>
       <h1>Vedere Venezia<br /><strong>e Non Morire</strong></h1>
+    </div>
+  </section>
+
+  <!-- ── Épigraphes ──────────────────────────────────────────── -->
+  <section class="opening container">
+    <div class="opening-epi">
+
+      <div class="epi-wrap">
+        <blockquote set:html={content.aznavourPoem} />
+        <cite>
+          Charles Aznavour — Que c'est triste Venise
+          {('tradfr' in content) && <span class="epi-tradfr">{(content as any).tradfr}</span>}
+        </cite>
+      </div>
+      <hr class="horizon epi-horizon" />
+
+      <div class="epi-wrap">
+        <blockquote class="epi-justify" set:html={content.dufourmantelle} />
+        <cite>
+          Anne Dufourmantelle
+          {('tradfr' in content) && <span class="epi-tradfr">{(content as any).tradfr}</span>}
+        </cite>
+      </div>
+      <hr class="horizon epi-horizon" />
+
     </div>
   </section>
 

@@ -11,6 +11,9 @@ type Spread = {
 
 const p = (n: number): Photo => ({ src: s(`${n}.jpg`), n });
 
+const aznavourEN = `How sad Venice is<br />On the evenings on the lagoon<br /><span class="k">When you reach for a hand<br />That no one holds out to you</span><br />And you make light of it all<br />Under the moonlight<br />To try to forget<br />What you never say to each other`;
+const dufourmantellEN = `To part, in this way, is to begin translating. It is to find at least one word to translate what in oneself signifies and makes sense, in a new language, so that it may be heard by another. It is to leave the mother tongue to <span class="k">risk one's own language — the poetic language par excellence</span>.`;
+
 const spreads: Spread[] = [
   { type: 'row',    photos: [p(1), p(2)] },
   { type: 'single', photos: [p(3)] },
@@ -36,6 +39,31 @@ const spreads: Spread[] = [
     <div class="phero-inner container">
       <p class="phero-eyebrow">Rebirth. An attempt.</p>
       <h1>Vedere Venezia<br /><strong>e Non Morire</strong></h1>
+    </div>
+  </section>
+
+  <!-- ── Épigraphes ──────────────────────────────────────────── -->
+  <section class="opening container">
+    <div class="opening-epi">
+
+      <div class="epi-wrap">
+        <blockquote set:html={aznavourEN} />
+        <cite>
+          Charles Aznavour — Que c'est triste Venise
+          <span class="epi-tradfr">free translation from the French</span>
+        </cite>
+      </div>
+      <hr class="horizon epi-horizon" />
+
+      <div class="epi-wrap">
+        <blockquote class="epi-justify" set:html={dufourmantellEN} />
+        <cite>
+          Anne Dufourmantelle
+          <span class="epi-tradfr">free translation from the French</span>
+        </cite>
+      </div>
+      <hr class="horizon epi-horizon" />
+
     </div>
   </section>
 
@@ -166,6 +194,12 @@ const spreads: Spread[] = [
     color: var(--ardoise);
   }
 
+  .epi-wrap blockquote.epi-justify {
+    text-align: justify;
+    hyphens: auto;
+    -webkit-hyphens: auto;
+  }
+
   .epi-wrap .k {
     color: var(--cerule);
     font-weight: 500;
@@ -179,6 +213,16 @@ const spreads: Spread[] = [
     letter-spacing: .14em;
     text-transform: uppercase;
     color: var(--cerule);
+  }
+
+  .epi-tradfr {
+    display: block;
+    font-size: .62rem;
+    letter-spacing: .08em;
+    text-transform: none;
+    font-style: italic;
+    color: var(--ardoise);
+    margin-top: .2rem;
   }
 
   .epi-horizon {
