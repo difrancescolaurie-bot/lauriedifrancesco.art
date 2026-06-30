@@ -92,7 +92,7 @@ const spreads: Spread[] = [
 
   <!-- ── Série photographique ──────────────────────────────── -->
   {spreads.length > 0 && (
-    <div class="series">
+    <div class="series vv-series">
       {spreads.map((spread) => (
         <div class={`spread spread--${spread.type} rv`}>
           {spread.photos.map((photo) => (
@@ -115,6 +115,12 @@ const spreads: Spread[] = [
 
 <style is:global>
   .spread figure img { cursor: zoom-in; }
+
+  /* Photos 10+11 : hauteurs égales sur mobile */
+  @media (max-width: 700px) {
+    .vv-series > div:nth-child(6) { align-items: stretch; }
+    .vv-series > div:nth-child(6) figure img { object-fit: cover; height: 100%; }
+  }
   .lb { position: fixed; inset: 0; background: rgba(20,32,43,.94); display: none; align-items: center; justify-content: center; z-index: 200; }
   .lb.open { display: flex; }
   .lb-photo { max-width: min(86vw, calc(100vw - 5.5rem)); max-height: 92vh; width: auto; height: auto; object-fit: contain; border-radius: 4px; display: block; }

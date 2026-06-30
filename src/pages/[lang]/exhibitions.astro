@@ -27,7 +27,7 @@ const t = ui[lang as Lang].exhibitions;
     <h1 class="ex-h1">{t.exhibitionTitle}</h1>
     <p class="ex-meta">
       <span class="ex-meta-accent">{t.metaFirst}</span>
-      &nbsp;·&nbsp; Livraria da Rua — {t.metaLocation}
+      &nbsp;·&nbsp; Livraria da Rua · {t.metaLocation}
       &nbsp;·&nbsp; {t.metaDate}
       &nbsp;·&nbsp; {t.metaCount}
     </p>
@@ -72,7 +72,7 @@ const t = ui[lang as Lang].exhibitions;
   <div class="ex-intro rv">
     <p class="ex-intro-label">{t.introLabel}</p>
     <p class="ex-intro-text" set:html={t.introText} />
-    <a class="ex-link" href="/work/spilling-beyond-the-lines">
+    <a class="ex-link" href={`/${lang}/work/spilling-beyond-the-lines`}>
       {t.viewProject}
     </a>
   </div>

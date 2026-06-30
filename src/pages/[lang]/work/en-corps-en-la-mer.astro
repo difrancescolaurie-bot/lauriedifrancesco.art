@@ -17,6 +17,7 @@ const t = ui[lang as Lang];
 const content = {
   fr: {
     nietzsche: 'Ce phénomène artistique fondamental qu\'on appelle la <span class="k">vie</span>',
+    nietzscheCite: 'Friedrich Nietzsche — Fragments posthumes',
     marineText: '<span class="k">Les rêves et l\'eau sont deux mondes où je retrouve un peu d\'équilibre, un peu de légèreté, où je vis à nouveau le plaisir du mouvement.</span> Tenu dans la gaine de l\'eau, mon corps lâche sa douleur. Elle s\'estompe, se dissout, disparaît. Mes mouvements deviennent fluides, faciles ; mon corps souple, presque agile. Partis, les points d\'accroche tendres : les hanches, les coudes — plus rien ne racle, plus rien ne frotte, plus rien ne déchire. Je me souviens d\'avoir rêvé que j\'étais une sirène. Mes jambes étaient emprisonnées dans un cocon formé par les draps, enroulés serrés à force de me retourner en tous sens à la recherche d\'une position sans douleur. Dans le rêve, la momification avait été transfigurée en puissance de mouvement.',
     marineCite: 'Claire Marin — Hors de moi',
     creditsLabel: 'Remerciements',
@@ -25,6 +26,7 @@ const content = {
   },
   it: {
     nietzsche: 'Quel fenomeno artistico fondamentale che si chiama <span class="k">vita</span>',
+    nietzscheCite: 'Friedrich Nietzsche — Frammenti postumi',
     marineText: '<span class="k">I sogni e l\'acqua sono due mondi in cui recupero un po\' di equilibrio, un po\' di leggerezza, in cui vivo di nuovo il piacere del movimento.</span> Tenuto nella guaina dell\'acqua, il mio corpo lascia andare il suo dolore. Sfuma, si dissolve, scompare. I miei movimenti diventano fluidi, facili; il mio corpo duttile, quasi agile. Spariti i punti di aggancio teneri: i fianchi, i gomiti — niente più raschia, niente più graffia, niente più lacera. Ricordo di aver sognato di essere una sirena. Le mie gambe erano imprigionate in un bozzolo formato dalle lenzuola, avvolte strette a forza di girarmi e rigirarmi alla ricerca di una posizione senza dolore. Nel sogno, la mummificazione si era trasfigurata in una potenza di movimento.',
     marineCite: 'Claire Marin — Hors de moi',
     marineNote: 'tradotto dal francese',
@@ -34,6 +36,7 @@ const content = {
   },
   pt: {
     nietzsche: 'Esse fenômeno artístico fundamental que se chama <span class="k">vida</span>',
+    nietzscheCite: 'Friedrich Nietzsche — Fragmentos póstumos',
     marineText: '<span class="k">Os sonhos e a água são dois mundos em que recupero um pouco de equilíbrio, um pouco de leveza, em que vivo de novo o prazer do movimento.</span> Contido na bainha da água, meu corpo larga a sua dor. Ela se apaga, se dissolve, desaparece. Meus movimentos tornam-se fluidos, fáceis; meu corpo flexível, quase ágil. Foram-se os pontos de apoio sensíveis: os quadris, os cotovelos — nada mais raspa, nada mais esfrega, nada mais rasga. Lembro-me de ter sonhado que era uma sereia. Minhas pernas estavam aprisionadas num casulo formado pelos lençóis, enrolados com força de tanto me revirar em busca de uma posição sem dor. No sonho, a mumificação havia sido transfigurada numa potência de movimento.',
     marineCite: 'Claire Marin — Hors de moi',
     marineNote: 'traduzido do francês',
@@ -87,7 +90,7 @@ const spreads: Spread[] = [
 
       <div class="epi-wrap">
         <blockquote set:html={content.nietzsche} />
-        <cite>Friedrich Nietzsche — Posthumous Fragments</cite>
+        <cite>{content.nietzscheCite}</cite>
       </div>
       <hr class="horizon epi-horizon" />
 

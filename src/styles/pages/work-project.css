@@ -221,7 +221,7 @@
   font-size: clamp(1rem, 1.8vw, 1.35rem);
   line-height: 1.4;
   max-width: 1320px;
-  margin: .5rem auto;
+  margin: 1.5rem auto 0.5rem;
   padding: 0 var(--gutter);
 }
 .series-caption--prose {
@@ -315,7 +315,7 @@ figure.match img {
 /* ── Project credits ────────────────────────────────── */
 .project-credits {
   max-width: 62ch;
-  margin: clamp(2.5rem, 6vh, 4rem) auto 0;
+  margin: clamp(2.5rem, 6vh, 4rem) 0 0;
   padding: 0 var(--gutter);
 }
 .project-credits .group + .group { margin-top: 1rem; }
@@ -333,6 +333,9 @@ figure.match img {
   line-height: 1.55;
   color: var(--ardoise);
   margin: 0;
+  text-align: justify;
+  hyphens: auto;
+  -webkit-hyphens: auto;
 }
 
 /* ── Mobile ─────────────────────────────────────────── */
