@@ -105,7 +105,7 @@ body { background: #ECEAE4; }
 }
 
 @media (max-width: 600px) {
-  .about-bio { text-align: left; }
+  .about-bio { text-align: justify; hyphens: auto; -webkit-hyphens: auto; }
   .bio-portrait {
     float: none;
     width: 100%;
