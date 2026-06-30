@@ -20,7 +20,7 @@ const content = {
     p2: "C'est dans ce contexte que la question des frontières s'est imposée avec force — limites visibles ou invisibles tracées entre les corps, les territoires et les récits. Ces images, portraits, végétaux, textures, structures, forment une cartographie sensible dans laquelle chaque photographie tente doucement de déplacer la perception.",
     cap1: "Ni tout à fait un départ ni vraiment un retour, mais une façon d'habiter les seuils, les passages, les plis d'une géographie intérieure.",
     cap2: "Déborder les lignes laisse trembler les contours, ouvrir l'espace, suspendre les certitudes.",
-    cap3: "Pour moi, la photographie est une façon de rester en mouvement sans fuir, d'entrer en contact sans imposer — de capter ce je-ne-sais-quoi fugitif qui relie et révèle.",
+    cap3: "Pour moi, la photographie est une façon de rester en mouvement sans fuir, d'entrer en contact sans imposer — de capter ce <em>je-ne-sais-quoi</em> fugitif qui relie et révèle.",
     creditsLabel: 'Crédits',
     creditsText: "Images reproduites avec l'aimable autorisation de Diana Ferreira et Giovane Marquez.",
   },
@@ -29,7 +29,7 @@ const content = {
     p2: "È in questo contesto che la questione dei confini si è imposta con forza: limiti visibili o invisibili tracciati tra i corpi, i territori e le narrazioni. Queste immagini, ritratti, vegetazione, texture, strutture, formano una cartografia sensibile in cui ogni fotografia tenta dolcemente di spostare la percezione.",
     cap1: "Non proprio una partenza né davvero un ritorno, ma un modo di abitare le soglie, i passaggi, le pieghe di una geografia interiore",
     cap2: "Attraversare lascia tremare i contorni",
-    cap3: "Per me, la fotografia è un modo di rimanere in movimento senza fuggire, di entrare in contatto senza imporre: di cogliere quel fuggitivo je-ne-sais-quoi che connette e rivela.",
+    cap3: "Per me, la fotografia è un modo di rimanere in movimento senza fuggire, di entrare in contatto senza imporre: di cogliere quel fuggitivo <em>je-ne-sais-quoi</em> che connette e rivela.",
     creditsLabel: 'Crediti',
     creditsText: "Immagini riprodotte per gentile concessione di Diana Ferreira e Giovane Marquez.",
   },
@@ -38,7 +38,7 @@ const content = {
     p2: "Foi nesse contexto que a questão das fronteiras se impôs com força — fronteiras visíveis ou invisíveis traçadas entre corpos, territórios e narrativas. Essas imagens, retratos, vegetação, texturas, estruturas, formam uma cartografia sensível em que cada fotografia tenta suavemente deslocar a percepção.",
     cap1: "Nem bem uma partida nem realmente um retorno, mas uma forma de habitar os limiares, as passagens, as dobras de uma geografia interior.",
     cap2: "Transbordar das linhas deixa os contornos tremer, o espaço abrir-se, as certezas suspenderem-se.",
-    cap3: "Para mim, a fotografia é uma forma de permanecer em movimento sem fugir, de entrar em contato sem impor — de capturar aquele fugidio je-ne-sais-quoi que conecta e revela.",
+    cap3: "Para mim, a fotografia é uma forma de permanecer em movimento sem fugir, de entrar em contato sem impor — de capturar aquele fugidio <em>je-ne-sais-quoi</em> que conecta e revela.",
     creditsLabel: 'Créditos',
     creditsText: 'Imagens reproduzidas com a gentil autorização de Diana Ferreira e Giovane Marquez.',
   },
@@ -143,9 +143,7 @@ const spreads: Spread[] = [
           ))}
         </div>
         {spread.caption && (
-          <p class={`series-caption${spread.captionStyle === 'prose' ? ' series-caption--prose' : ''} rv`}>
-            {spread.caption}
-          </p>
+          <p class={`series-caption${spread.captionStyle === 'prose' ? ' series-caption--prose' : ''} rv`} set:html={spread.caption} />
         )}
       </>
     ))}

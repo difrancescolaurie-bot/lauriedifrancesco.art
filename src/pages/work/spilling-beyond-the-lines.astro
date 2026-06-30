@@ -52,7 +52,7 @@ const spreads: Spread[] = [
   { type: 'row', photos: [local('42.jpg',42), local('43.jpg',43)] },
   // Photos 45–46 + caption prose
   { type: 'row', photos: [local('45.jpg',45), local('46.jpg',46)],
-    caption: 'For me, photography is a way of remaining in motion without fleeing, of entering into contact without imposing — of capturing that fleeting je-ne-sais-quoi that connects and reveals.',
+    caption: 'For me, photography is a way of remaining in motion without fleeing, of entering into contact without imposing — of capturing that fleeting <em>je-ne-sais-quoi</em> that connects and reveals.',
     captionStyle: 'title' },
   // Photos 47–48 : chacune sur sa propre ligne, cadrage 3:2
   { type: 'single', photos: [local('47.jpg',47,'land-crop')] },
@@ -125,9 +125,7 @@ const spreads: Spread[] = [
           ))}
         </div>
         {spread.caption && (
-          <p class={`series-caption${spread.captionStyle === 'prose' ? ' series-caption--prose' : ''} rv`}>
-            {spread.caption}
-          </p>
+          <p class={`series-caption${spread.captionStyle === 'prose' ? ' series-caption--prose' : ''} rv`} set:html={spread.caption} />
         )}
       </>
     ))}
