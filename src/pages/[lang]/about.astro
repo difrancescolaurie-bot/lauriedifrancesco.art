@@ -50,8 +50,8 @@ const t = ui[lang as Lang].about;
     <p set:html={t.bio.p4} />
     <p set:html={t.bio.p5} />
     <p set:html={t.bio.p6} />
-    <p set:html={t.bio.p7} />
-    <p set:html={t.bio.p8} />
+    {t.bio.p7 && <p set:html={t.bio.p7} />}
+    {t.bio.p8 && <p set:html={t.bio.p8} />}
     <p class="bio-inspirations" set:html={t.bio.p9} />
 
   </div>
