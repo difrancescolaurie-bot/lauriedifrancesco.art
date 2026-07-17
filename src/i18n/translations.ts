@@ -102,8 +102,8 @@ export const ui = {
       previousWorks: "Projets précédents",
       projects: [
         { category: "Brésil · en cours", cerule: "Ressignifier",                        note: "Être ici, c'est manquer là-bas. Ou pas ?" },
-        { category: "Mer & corps",       cerule: "Refaire surface",                      note: "Réapprendre à marcher, par l'eau et par les rêves." },
         { category: "Eau & ciel",        cerule: "Le bleu du ciel dans ses yeux",        note: "Lever les yeux vers le bleu du ciel. Rêver à une insouciance perdue, ou jamais connue." },
+        { category: "Mer & corps",       cerule: "Refaire surface",                      note: "Réapprendre à marcher, par l'eau et par les rêves." },
         { category: "Venise",            cerule: "Renaître. Un essai.",                  note: "Se tenir. Se lâcher. Exister dans son propre regard." },
         { category: "",                  cerule: "Les lignes séparent-elles vraiment ?", note: "Quand la libre profusion des formes autour de nous, et le regard d'un autre, ont réécrit mon propre regard : une œuvre née d'une rupture qui rapproche." },
       ],
@@ -188,8 +188,8 @@ export const ui = {
       previousWorks: "Progetti precedenti",
       projects: [
         { category: "Brasile · in corso", cerule: "Risignificare",                  note: "Essere lì significa mancare qui. O no?" },
-        { category: "Mare & corpo",       cerule: "Riemergere",                    note: "Reimparare a camminare, attraverso l'acqua e attraverso i sogni." },
         { category: "Acqua & cielo",      cerule: "Il blu del cielo nei suoi occhi", note: "Alzare gli occhi verso il blu del cielo. Sognare una leggerezza perduta, o mai conosciuta." },
+        { category: "Mare & corpo",       cerule: "Riemergere",                    note: "Reimparare a camminare, attraverso l'acqua e attraverso i sogni." },
         { category: "Venezia",            cerule: "Rinascita. Un tentativo.",      note: "Tenersi. Lasciarsi andare. Esistere nel proprio sguardo." },
         { category: "",                   cerule: "Le linee dividono davvero?",    note: "Quando la libera profusione delle forme intorno a noi, e lo sguardo di un altro, hanno riscritto il mio sguardo: un progetto nato da una rottura che avvicina." },
       ],
@@ -274,8 +274,8 @@ export const ui = {
       previousWorks: "Obras anteriores",
       projects: [
         { category: "Brasil · em curso", cerule: "Ressignificar",                    note: "Estar lá significa faltar aqui. Ou não?" },
-        { category: "Mar & corpo",       cerule: "Emergir",                            note: "Reaprender a andar, pela água e pelos sonhos." },
         { category: "Água & céu",        cerule: "O azul do céu em seus olhos",       note: "Levantar os olhos para o azul do céu. Sonhar com uma leveza perdida, ou jamais conhecida." },
+        { category: "Mar & corpo",       cerule: "Emergir",                            note: "Reaprender a andar, pela água e pelos sonhos." },
         { category: "Veneza",            cerule: "Renascer. Uma tentativa.",           note: "Segurar-se. Soltar-se. Existir no próprio olhar." },
         { category: "",                  cerule: "As linhas realmente dividem?",      note: "Quando a livre profusão das formas ao nosso redor, e o olhar do outro, reescreveram o meu: uma obra nascida de uma ruptura que aproxima." },
       ],
