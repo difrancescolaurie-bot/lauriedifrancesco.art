@@ -14,6 +14,14 @@ export function getStaticPaths() {
 const { lang } = Astro.params;
 const t = ui[lang as Lang];
 
+const overlayColors = [
+  'rgba(138,72,42,.92)',
+  'rgba(36,44,72,.92)',
+  'rgba(26,20,32,.92)',
+  'rgba(54,52,48,.92)',
+  'rgba(38,66,42,.92)',
+];
+
 const projects = t.home.projects.map((p, i) => {
   const slugs = [
     'quando-sono-qui',
@@ -42,6 +50,7 @@ const projects = t.home.projects.map((p, i) => {
     cerule: p.cerule,
     note: p.note,
     image: images[i],
+    overlayColor: overlayColors[i],
   };
 });
 ---
@@ -52,7 +61,7 @@ const projects = t.home.projects.map((p, i) => {
   lang={lang}
 >
 
-  <!-- ── Page head ────────────────────────── -->
+  <!-- ── Page head (inchangé) ────────────────── -->
   <section class="wi-head container">
     <p class="wi-eyebrow">{t.nav.work}</p>
     <h1 class="wi-h1">{t.work.h1}</h1>
@@ -65,32 +74,170 @@ const projects = t.home.projects.map((p, i) => {
     <hr class="horizon wi-horizon" />
   </section>
 
-  <!-- ── Grid ───────────────────────────────── -->
-  <section class="wi-grid container" aria-label={t.work.h1}>
-
-    {projects.map(p => (
-      <a class="wi-work rv" href={p.href}>
-        <div class="wi-frame">
-          <img src={p.image} alt={p.title} loading="lazy" />
-        </div>
-        <div class="wi-meta">
-          <span class="wi-cerule">{p.cerule}</span>
-          <h2 class="wi-title">{p.title}</h2>
-          <p class="wi-note">{p.note}</p>
-        </div>
+  <!-- ════════════════════════════════════════════
+    01 · QUANDO SONO QUI
+  ═════════════════════════════════════════════ -->
+  <section class="p1">
+    <div class="proj-head">
+      <span class="wi-cerule">{projects[0].cerule}</span>
+      <h2 class="wi-title">{projects[0].title}</h2>
+    </div>
+    <div class="p1-img-wrap">
+      <a class="proj-img" href={projects[0].href}
+         data-overlay-color={projects[0].overlayColor}
+         data-overlay-cerule={projects[0].cerule}
+         data-overlay-title={projects[0].title}>
+        <img src={projects[0].image} alt={projects[0].title} loading="lazy" />
       </a>
-    ))}
+    </div>
+    <div class="p1-note">
+      <p class="wi-note">{projects[0].note}</p>
+    </div>
+  </section>
 
+  <hr class="proj-sep" />
+
+  <!-- ════════════════════════════════════════════
+    02 · TOWARD THE BLUE
+  ═════════════════════════════════════════════ -->
+  <section class="p2">
+    <div class="p2-img-side">
+      <a class="proj-img" href={projects[1].href}
+         data-overlay-color={projects[1].overlayColor}
+         data-overlay-cerule={projects[1].cerule}
+         data-overlay-title={projects[1].title}>
+        <img src={projects[1].image} alt={projects[1].title} loading="lazy" />
+      </a>
+    </div>
+    <div class="p2-text-side">
+      <span class="wi-cerule">{projects[1].cerule}</span>
+      <h2 class="wi-title">{projects[1].title}</h2>
+      <p class="wi-note">{projects[1].note}</p>
+    </div>
+  </section>
+
+  <hr class="proj-sep" />
+
+  <!-- ════════════════════════════════════════════
+    03 · EN CORPS À LA MER
+  ═════════════════════════════════════════════ -->
+  <section class="p3">
+    <a class="proj-img" href={projects[2].href}
+       data-overlay-color={projects[2].overlayColor}
+       data-overlay-cerule={projects[2].cerule}
+       data-overlay-title={projects[2].title}>
+      <img src={projects[2].image} alt={projects[2].title} loading="lazy" />
+    </a>
+    <div class="p3-meta">
+      <span class="wi-cerule">{projects[2].cerule}</span>
+      <h2 class="wi-title">{projects[2].title}</h2>
+      <p class="wi-note">{projects[2].note}</p>
+    </div>
+  </section>
+
+  <hr class="proj-sep" />
+
+  <!-- ════════════════════════════════════════════
+    04 · VEDERE VENEZIA
+  ═════════════════════════════════════════════ -->
+  <section class="p4">
+    <div class="p4-img-row">
+      <a class="proj-img" href={projects[3].href}
+         data-overlay-color={projects[3].overlayColor}
+         data-overlay-cerule={projects[3].cerule}
+         data-overlay-title={projects[3].title}>
+        <img src={projects[3].image} alt={projects[3].title} loading="lazy" />
+      </a>
+    </div>
+    <div class="p4-below">
+      <h2 class="p4-title-big">{projects[3].title}</h2>
+      <div class="p4-right">
+        <span class="wi-cerule">{projects[3].cerule}</span>
+        <p class="wi-note">{projects[3].note}</p>
+      </div>
+    </div>
+  </section>
+
+  <hr class="proj-sep" />
+
+  <!-- ════════════════════════════════════════════
+    05 · SPILLING BEYOND THE LINES
+  ═════════════════════════════════════════════ -->
+  <section class="p5">
+    <div class="p5-title-row">
+      <h2 class="p5-t-xl">{projects[4].title}</h2>
+      <div class="p5-title-right">
+        <span class="wi-cerule">{projects[4].cerule}</span>
+      </div>
+    </div>
+    <a class="proj-img" href={projects[4].href}
+       data-overlay-color={projects[4].overlayColor}
+       data-overlay-cerule={projects[4].cerule}
+       data-overlay-title={projects[4].title}>
+      <img src={projects[4].image} alt={projects[4].title} loading="lazy" />
+    </a>
+    <div class="p5-note-row">
+      <p class="wi-note">{projects[4].note}</p>
+    </div>
   </section>
 
 </Layout>
 
+<!-- ── Overlay pleine page ────────────────────── -->
+<div id="fso" aria-hidden="true">
+  <div id="fso-bg"></div>
+  <div id="fso-content">
+    <span id="fso-cerule"></span>
+    <p id="fso-title"></p>
+    <a id="fso-cta" href="#">{t.home.enter}</a>
+  </div>
+  <button id="fso-close" aria-label="Close">×</button>
+</div>
+
 <script>
-  const observer = new IntersectionObserver(
-    entries => entries.forEach(e => {
-      if (e.isIntersecting) { e.target.classList.add('in'); observer.unobserve(e.target); }
-    }),
-    { threshold: 0.08 }
-  );
-  document.querySelectorAll('.rv').forEach(el => observer.observe(el));
+  const fso       = document.getElementById('fso')!;
+  const fsoBg     = document.getElementById('fso-bg')!;
+  const fsoCerule = document.getElementById('fso-cerule')!;
+  const fsoTitle  = document.getElementById('fso-title')!;
+  const fsoCta    = document.getElementById('fso-cta') as HTMLAnchorElement;
+  const fsoClose  = document.getElementById('fso-close')!;
+  let hideTimer: ReturnType<typeof setTimeout>;
+
+  function showFso(el: HTMLAnchorElement) {
+    clearTimeout(hideTimer);
+    fsoBg.style.background = el.dataset.overlayColor ?? 'rgba(20,32,43,.92)';
+    fsoCerule.textContent  = el.dataset.overlayCerule ?? '';
+    fsoTitle.textContent   = el.dataset.overlayTitle ?? '';
+    fsoCta.href            = el.href;
+    fso.setAttribute('aria-hidden', 'false');
+    fso.classList.add('on');
+  }
+
+  function hideFso(delay = 120) {
+    hideTimer = setTimeout(() => {
+      fso.classList.remove('on');
+      fso.setAttribute('aria-hidden', 'true');
+    }, delay);
+  }
+
+  const isHover = () => matchMedia('(hover: hover)').matches;
+
+  document.querySelectorAll<HTMLAnchorElement>('.proj-img').forEach(el => {
+    el.addEventListener('mouseenter', () => { if (isHover()) showFso(el); });
+    el.addEventListener('mouseleave', () => { if (isHover()) hideFso(); });
+    el.addEventListener('click', e => {
+      if (!isHover()) {
+        e.preventDefault();
+        fso.classList.contains('on') ? hideFso(0) : showFso(el);
+      }
+    });
+  });
+
+  fso.addEventListener('mouseenter', () => clearTimeout(hideTimer));
+  fso.addEventListener('mouseleave', () => hideFso());
+  fsoClose.addEventListener('click', () => hideFso(0));
+  fso.addEventListener('click', e => {
+    if (e.target === fso || e.target === fsoBg) hideFso(0);
+  });
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') hideFso(0); });
 </script>
