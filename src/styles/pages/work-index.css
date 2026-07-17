@@ -89,6 +89,13 @@ body { background: #ECEAE4; }
   color: var(--ardoise);
 }
 
+/* ── Wrapper global projets (max-width aligné sur .container) ── */
+.wi-projects {
+  max-width: var(--max-width);
+  margin-inline: auto;
+  overflow: hidden;
+}
+
 /* ── Séparateur entre projets ─────────────── */
 .proj-sep {
   border: none;
