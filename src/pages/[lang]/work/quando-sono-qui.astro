@@ -50,11 +50,18 @@ type Spread = { type: 'row' | 'single'; photos: Photo[] };
 const p = (n: number): Photo => ({ src: s(`${n}.jpg`), n });
 
 const spreads: Spread[] = [
-  { type: 'row',    photos: [p(1), p(2)] },
-  { type: 'row',    photos: [p(3), p(4), p(5)] },
-  { type: 'single', photos: [p(6)] },
-  { type: 'row',    photos: [p(7), p(8)] },
-  { type: 'row',    photos: [p(9), p(10), p(11)] },
+  { type: 'row',    photos: [p(0), p(1)] },
+  { type: 'row',    photos: [p(2), p(3), p(4)] },
+  { type: 'single', photos: [p(5)] },
+  { type: 'row',    photos: [p(6), p(7)] },
+  { type: 'row',    photos: [p(8), p(9), p(10)] },
+  { type: 'single', photos: [p(11)] },
+  { type: 'row',    photos: [p(12), p(13)] },
+  { type: 'row',    photos: [p(14), p(15), p(16)] },
+  { type: 'single', photos: [p(17)] },
+  { type: 'row',    photos: [p(18), p(19)] },
+  { type: 'row',    photos: [p(20), p(21), p(22)] },
+  { type: 'single', photos: [p(23)] },
 ];
 ---
 
