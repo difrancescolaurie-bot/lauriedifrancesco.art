@@ -224,48 +224,26 @@ body { background: #ECEAE4; }
 }
 
 /* ── P5 · SPILLING ───────────────────────────
-   Titre géant — image saigne à gauche — note droite
+   Image gauche (bleed gauche) + texte droite, comme P2
    ─────────────────────────────────────────── */
-.p5 { padding: 4.5rem var(--gutter) 5rem; }
-
-.p5 .p5-title-row {
+.p5 {
   display: flex;
-  justify-content: space-between;
   align-items: flex-end;
-  gap: 2rem;
-  margin-bottom: 3.5rem;
+  gap: 3rem;
+  padding: 4.5rem 0 4.5rem;
 }
 
-.p5-t-xl {
-  font-family: var(--font-title);
-  font-weight: 300;
-  font-size: clamp(2rem, 4vw, 3.5rem);
-  letter-spacing: .1em;
-  text-transform: uppercase;
-  line-height: 1;
-  color: var(--encre);
-}
-
-.p5 .p5-title-right {
-  text-align: right;
-  flex-shrink: 0;
-}
+.p5 .p5-img-side { flex: 0 0 54%; }
 
 .p5 .proj-img {
-  width: calc(88% + var(--gutter));
-  aspect-ratio: 16 / 7;
-  margin-left: calc(-1 * var(--gutter));
+  width: 100%;
+  aspect-ratio: 3 / 2;
 }
 
-.p5 .p5-note-row {
-  display: flex;
-  justify-content: flex-end;
-  padding-top: 1.8rem;
-}
-
-.p5 .p5-note-row .wi-note {
-  max-width: 36ch;
-  text-align: right;
+.p5 .p5-text-side {
+  flex: 1;
+  padding-right: var(--gutter);
+  padding-bottom: 2rem;
 }
 
 /* ══════════════════════════════════════════════
@@ -393,16 +371,19 @@ body { background: #ECEAE4; }
   .p4-title-big { max-width: none; font-size: clamp(1.4rem, 5.5vw, 2rem); }
   .p4 .p4-right { text-align: left; max-width: none; }
 
-  .p5 .p5-title-row { flex-direction: column; align-items: flex-start; gap: 1rem; margin-bottom: 2.5rem; }
-  .p5 .p5-title-right { text-align: left; }
-  .p5-t-xl { font-size: clamp(1.5rem, 6vw, 2.2rem); }
-  .p5 .proj-img {
-    width: calc(100% + var(--gutter) * 2);
-    margin-left: calc(-1 * var(--gutter));
-    aspect-ratio: 3 / 2;
+  /* P5 mobile : même comportement que P2 */
+  .p5 {
+    flex-direction: column;
+    padding: 3.5rem var(--gutter);
+    gap: 2rem;
+    align-items: flex-start;
   }
-  .p5 .p5-note-row { justify-content: flex-start; }
-  .p5 .p5-note-row .wi-note { text-align: left; max-width: none; }
+  .p5 .p5-img-side {
+    flex-basis: auto;
+    width: calc(88% + var(--gutter));
+    margin-left: calc(-1 * var(--gutter));
+  }
+  .p5 .p5-text-side { padding-right: 0; padding-bottom: 0; }
 }
 
 @media (prefers-reduced-motion: reduce) {

@@ -166,19 +166,17 @@ const projects = t.home.projects.map((p, i) => {
     05 · SPILLING BEYOND THE LINES
   ═════════════════════════════════════════════ -->
   <section class="p5">
-    <div class="p5-title-row">
-      <h2 class="p5-t-xl">{projects[4].title}</h2>
-      <div class="p5-title-right">
-        <span class="wi-cerule">{projects[4].cerule}</span>
-      </div>
+    <div class="p5-img-side">
+      <a class="proj-img" href={projects[4].href}
+         data-overlay-color={projects[4].overlayColor}
+         data-overlay-cerule={projects[4].cerule}
+         data-overlay-title={projects[4].title}>
+        <img src={projects[4].image} alt={projects[4].title} loading="lazy" />
+      </a>
     </div>
-    <a class="proj-img" href={projects[4].href}
-       data-overlay-color={projects[4].overlayColor}
-       data-overlay-cerule={projects[4].cerule}
-       data-overlay-title={projects[4].title}>
-      <img src={projects[4].image} alt={projects[4].title} loading="lazy" />
-    </a>
-    <div class="p5-note-row">
+    <div class="p5-text-side">
+      <span class="wi-cerule">{projects[4].cerule}</span>
+      <h2 class="wi-title">{projects[4].title}</h2>
       <p class="wi-note">{projects[4].note}</p>
     </div>
   </section>
