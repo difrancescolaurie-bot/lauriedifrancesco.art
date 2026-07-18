@@ -67,6 +67,7 @@ const projects = [
           src={src}
           alt=""
           loading={i === 0 ? 'eager' : 'lazy'}
+          fetchpriority={i === 0 ? 'high' : 'auto'}
           style={`animation-delay: ${i * 2}s`}
         />
       ))}
