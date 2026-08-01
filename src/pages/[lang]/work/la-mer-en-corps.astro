@@ -1,0 +1,85 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import '../../../styles/pages/work-project.css';
+import { ui, type Lang } from '../../../i18n/translations';
+
+export function getStaticPaths() {
+  return [
+    { params: { lang: 'fr' } },
+    { params: { lang: 'it' } },
+    { params: { lang: 'pt' } },
+  ];
+}
+
+const { lang } = Astro.params;
+const t = ui[lang as Lang];
+
+const content = {
+  fr: {
+    eyebrow: 'Tracer',
+    caption: "L'eau et les rêves pour donner corps au mouvement. Un an de traversées.",
+  },
+  it: {
+    eyebrow: 'Tracciare',
+    caption: "L'acqua e i sogni per dare corpo al movimento. Un anno di traversate.",
+  },
+  pt: {
+    eyebrow: 'Traçando',
+    caption: 'A água e os sonhos para dar corpo ao movimento. Um ano de travessias.',
+  },
+}[lang as 'fr' | 'it' | 'pt'];
+---
+
+<Layout
+  title="La Mer en Corps — Laurie Di Francesco"
+  description={`La Mer en Corps — ${content.caption}`}
+  image="/images/work/la-mer-en-corps-cover.jpg"
+  lang={lang}
+>
+
+  <!-- ── Hero ─────────────────────────────────────────────── -->
+  <section class="phero">
+    <div class="phero-bg" aria-hidden="true">
+      <img
+        src="/images/work/la-mer-en-corps-cover.jpg"
+        alt=""
+        loading="eager"
+        fetchpriority="high"
+      />
+    </div>
+    <div class="phero-inner container">
+      <p class="phero-eyebrow">{content.eyebrow}</p>
+      <h1>La Mer<br /><strong>en Corps</strong></h1>
+    </div>
+  </section>
+
+  <!-- ── Vidéo ────────────────────────────────────────────── -->
+  <div class="pvideo rv">
+    <video
+      controls
+      playsinline
+      preload="none"
+      poster="/images/work/la-mer-en-corps-cover.jpg"
+    >
+      <source src="/images/work/la-mer-en-corps/la-mer-en-corps.mp4" type="video/mp4" />
+    </video>
+  </div>
+
+  <p class="series-caption rv">{content.caption}</p>
+
+  <!-- ── Projet suivant ───────────────────────────────────── -->
+  <div class="next-project container">
+    <span class="next-label">{t.work.nextProject}</span>
+    <a href={`/${lang}/work/quando-sono-qui`}>Quando sono qui, non sono là →</a>
+  </div>
+
+</Layout>
+
+<script>
+  const obs = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) { e.target.classList.add('in'); obs.unobserve(e.target); }
+    });
+  }, { threshold: .06 });
+  document.querySelectorAll('.rv').forEach(el => obs.observe(el));
+</script>

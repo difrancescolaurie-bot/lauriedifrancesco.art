@@ -1,0 +1,57 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import '../../styles/pages/work-project.css';
+---
+
+<Layout
+  title="La Mer en Corps — Laurie Di Francesco"
+  description="La Mer en Corps — water and dreams, giving body to movement. A year of passages."
+  image="/images/work/la-mer-en-corps-cover.jpg"
+>
+
+  <!-- ── Hero ─────────────────────────────────────────────── -->
+  <section class="phero">
+    <div class="phero-bg" aria-hidden="true">
+      <img
+        src="/images/work/la-mer-en-corps-cover.jpg"
+        alt=""
+        loading="eager"
+        fetchpriority="high"
+      />
+    </div>
+    <div class="phero-inner container">
+      <p class="phero-eyebrow">Tracing</p>
+      <h1>La Mer<br /><strong>en Corps</strong></h1>
+    </div>
+  </section>
+
+  <!-- ── Vidéo ────────────────────────────────────────────── -->
+  <div class="pvideo rv">
+    <video
+      controls
+      playsinline
+      preload="none"
+      poster="/images/work/la-mer-en-corps-cover.jpg"
+    >
+      <source src="/images/work/la-mer-en-corps/la-mer-en-corps.mp4" type="video/mp4" />
+    </video>
+  </div>
+
+  <p class="series-caption rv">Water and dreams, giving body to movement. A year of passages.</p>
+
+  <!-- ── Projet suivant ───────────────────────────────────── -->
+  <div class="next-project container">
+    <span class="next-label">Next project</span>
+    <a href="/work/quando-sono-qui">Quando sono qui, non sono là →</a>
+  </div>
+
+</Layout>
+
+<script>
+  const obs = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) { e.target.classList.add('in'); obs.unobserve(e.target); }
+    });
+  }, { threshold: .06 });
+  document.querySelectorAll('.rv').forEach(el => obs.observe(el));
+</script>

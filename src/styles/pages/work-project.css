@@ -241,6 +241,19 @@
   margin: 1.6rem 0;
 }
 
+/* ── Vidéo projet ───────────────────────────────────── */
+.pvideo {
+  max-width: 1320px;
+  margin: 0 auto;
+  padding: clamp(3rem, 8vh, 5.5rem) var(--gutter) 0;
+}
+.pvideo video {
+  display: block;
+  width: 100%;
+  height: auto;
+  background: var(--encre);
+}
+
 /* ── Scroll reveal ──────────────────────────────────── */
 .rv {
   opacity: 0;

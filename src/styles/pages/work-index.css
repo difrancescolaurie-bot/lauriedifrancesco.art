@@ -246,6 +246,36 @@ body { background: #ECEAE4; }
   padding-bottom: 2rem;
 }
 
+/* ── P6 · LA MER EN CORPS ────────────────────
+   Miroir de P1 : meta haut-droite — image saigne à gauche — note bas
+   ─────────────────────────────────────────── */
+.p6 { padding: 4.5rem var(--gutter) 4rem; }
+
+.p6 .proj-head {
+  max-width: 44%;
+  margin-left: auto;
+  margin-bottom: 3rem;
+  text-align: right;
+}
+
+.p6 .p6-img-wrap {
+  display: flex;
+  margin-left: calc(-1 * var(--gutter));
+}
+
+.p6 .proj-img {
+  width: calc(66% + var(--gutter));
+  aspect-ratio: 3 / 2;
+}
+
+.p6 .p6-note {
+  display: flex;
+  justify-content: flex-end;
+  padding-top: 2.2rem;
+}
+
+.p6 .p6-note .wi-note { max-width: 28ch; text-align: right; }
+
 /* ══════════════════════════════════════════════
    OVERLAY PLEINE PAGE (survol/tap)
 ══════════════════════════════════════════════ */
@@ -384,6 +414,16 @@ body { background: #ECEAE4; }
     margin-left: calc(-1 * var(--gutter));
   }
   .p5 .p5-text-side { padding-right: 0; padding-bottom: 0; }
+
+  /* P6 mobile : plein bord, comme P1 */
+  .p6 .proj-head { max-width: 100%; margin-bottom: 2rem; text-align: left; }
+  .p6 .p6-img-wrap {
+    margin-left: calc(-1 * var(--gutter));
+    margin-right: calc(-1 * var(--gutter));
+  }
+  .p6 .proj-img { width: 100%; }
+  .p6 .p6-note { justify-content: flex-start; }
+  .p6 .p6-note .wi-note { text-align: left; }
 }
 
 @media (prefers-reduced-motion: reduce) {

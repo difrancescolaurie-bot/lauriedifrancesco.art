@@ -43,6 +43,14 @@ const projects = [
     image: '/images/work/spilling-cover.jpg',
     overlayColor: 'rgba(38,66,42,.92)',
   },
+  {
+    href: '/work/la-mer-en-corps',
+    title: 'La Mer en Corps',
+    cerule: 'Tracing',
+    note: 'Water and dreams, giving body to movement. A year of passages.',
+    image: '/images/work/la-mer-en-corps-cover.jpg',
+    overlayColor: 'rgba(28,58,74,.92)',
+  },
 ];
 ---
 
@@ -177,6 +185,30 @@ const projects = [
       <span class="wi-cerule">{projects[4].cerule}</span>
       <h2 class="wi-title">{projects[4].title}</h2>
       <p class="wi-note">{projects[4].note}</p>
+    </div>
+  </section>
+
+  <hr class="proj-sep" />
+
+  <!-- ════════════════════════════════════════════
+    06 · LA MER EN CORPS
+    Miroir de P1 — meta haut-droite, image saigne gauche
+  ═════════════════════════════════════════════ -->
+  <section class="p6">
+    <div class="proj-head">
+      <span class="wi-cerule">{projects[5].cerule}</span>
+      <h2 class="wi-title">{projects[5].title}</h2>
+    </div>
+    <div class="p6-img-wrap">
+      <a class="proj-img" href={projects[5].href}
+         data-overlay-color={projects[5].overlayColor}
+         data-overlay-cerule={projects[5].cerule}
+         data-overlay-title={projects[5].title}>
+        <img src={projects[5].image} alt={projects[5].title} loading="lazy" />
+      </a>
+    </div>
+    <div class="p6-note">
+      <p class="wi-note">{projects[5].note}</p>
     </div>
   </section>
 
