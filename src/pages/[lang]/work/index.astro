@@ -109,6 +109,32 @@ const projects = t.home.projects.map((p, i) => {
   <hr class="proj-sep" />
 
   <!-- ════════════════════════════════════════════
+    06 · LA MER EN CORPS
+  ═════════════════════════════════════════════ -->
+  <section class="p6">
+    <div class="proj-head">
+      <span class="wi-cerule">{laMerEnCorps.cerule}</span>
+      <h2 class="wi-title">{laMerEnCorps.title}</h2>
+    </div>
+    <div class="p6-img-wrap">
+      <a class="proj-img" href={laMerEnCorps.href}
+         data-overlay-color={laMerEnCorps.overlayColor}
+         data-overlay-cerule={laMerEnCorps.cerule}
+         data-overlay-title={laMerEnCorps.title}>
+        <img src={laMerEnCorps.image} alt={laMerEnCorps.title} loading="lazy" />
+      </a>
+    </div>
+    <div class="p6-note">
+      <p class="wi-note">{laMerEnCorps.note}</p>
+    </div>
+  </section>
+
+  <div class="proj-section-divider">
+    <hr />
+    <p class="proj-section-divider-label">{t.home.previousWorks}</p>
+  </div>
+
+  <!-- ════════════════════════════════════════════
     02 · TOWARD THE BLUE
   ═════════════════════════════════════════════ -->
   <section class="p2">
@@ -190,28 +216,6 @@ const projects = t.home.projects.map((p, i) => {
     </div>
   </section>
 
-  <hr class="proj-sep" />
-
-  <!-- ════════════════════════════════════════════
-    06 · LA MER EN CORPS
-  ═════════════════════════════════════════════ -->
-  <section class="p6">
-    <div class="proj-head">
-      <span class="wi-cerule">{laMerEnCorps.cerule}</span>
-      <h2 class="wi-title">{laMerEnCorps.title}</h2>
-    </div>
-    <div class="p6-img-wrap">
-      <a class="proj-img" href={laMerEnCorps.href}
-         data-overlay-color={laMerEnCorps.overlayColor}
-         data-overlay-cerule={laMerEnCorps.cerule}
-         data-overlay-title={laMerEnCorps.title}>
-        <img src={laMerEnCorps.image} alt={laMerEnCorps.title} loading="lazy" />
-      </a>
-    </div>
-    <div class="p6-note">
-      <p class="wi-note">{laMerEnCorps.note}</p>
-    </div>
-  </section>
 
   </div><!-- /wi-projects -->
 

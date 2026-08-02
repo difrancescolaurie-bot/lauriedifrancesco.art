@@ -98,6 +98,26 @@ body { background: #ECEAE4; }
   overflow: hidden;
 }
 
+/* ── Séparateur de section (Work in progress / Previous works) ── */
+.proj-section-divider {
+  margin: 0 var(--gutter);
+  padding: 2.8rem 0 .4rem;
+}
+
+.proj-section-divider hr {
+  border: none;
+  border-top: 1px solid var(--brume);
+}
+
+.proj-section-divider-label {
+  margin-top: 1rem;
+  font-family: var(--font-body);
+  font-size: .72rem;
+  text-transform: uppercase;
+  letter-spacing: .2em;
+  color: var(--ardoise);
+}
+
 /* ── Séparateur entre projets ─────────────── */
 .proj-sep {
   border: none;

@@ -12,7 +12,8 @@ export function getStaticPaths() {
 }
 
 const { lang } = Astro.params;
-const t = ui[lang as Lang].home;
+const t = ui[lang as Lang];
+const th = t.home;
 
 const heroImages = [
   '/images/hero/hero-2.jpg',
@@ -21,34 +22,55 @@ const heroImages = [
   '/images/hero/hero-1.jpg',
 ];
 
-const projectTitles = [
-  'Quando sono qui, non sono là',
-  'Toward the Blue',
-  'En Corps à la Mer',
-  'Vedere Venezia e Non Morire',
-  ui[lang as Lang].work.spillingTitle,
-];
-
-const projectHrefs = [
-  `/${lang}/work/quando-sono-qui`,
-  `/${lang}/work/toward-the-blue`,
-  `/${lang}/work/en-corps-en-la-mer`,
-  `/${lang}/work/vedere-venezia`,
-  `/${lang}/work/spilling-beyond-the-lines`,
-];
-
-const projectImages = [
-  '/images/work/quando-cover.jpg',
-  '/images/work/toward-the-blue-cover.jpg',
-  '/images/work/en-corps-cover.jpg',
-  '/images/work/vedere-venezia-cover.jpg',
-  '/images/work/spilling-cover.jpg',
+const projects = [
+  {
+    href: `/${lang}/work/quando-sono-qui`,
+    title: 'Quando sono qui, non sono là',
+    cerule: th.projects[0].cerule,
+    note: th.projects[0].note,
+    image: '/images/work/quando-cover.jpg',
+  },
+  {
+    href: `/${lang}/work/la-mer-en-corps`,
+    title: 'La Mer en Corps',
+    cerule: t.work.laMerCerule,
+    note: t.work.laMerNote,
+    image: '/images/work/la-mer-en-corps-cover.jpg',
+  },
+  {
+    href: `/${lang}/work/toward-the-blue`,
+    title: 'Toward the Blue',
+    cerule: th.projects[1].cerule,
+    note: th.projects[1].note,
+    image: '/images/work/toward-the-blue-cover.jpg',
+  },
+  {
+    href: `/${lang}/work/en-corps-en-la-mer`,
+    title: 'En Corps à la Mer',
+    cerule: th.projects[2].cerule,
+    note: th.projects[2].note,
+    image: '/images/work/en-corps-cover.jpg',
+  },
+  {
+    href: `/${lang}/work/vedere-venezia`,
+    title: 'Vedere Venezia e Non Morire',
+    cerule: th.projects[3].cerule,
+    note: th.projects[3].note,
+    image: '/images/work/vedere-venezia-cover.jpg',
+  },
+  {
+    href: `/${lang}/work/spilling-beyond-the-lines`,
+    title: t.work.spillingTitle,
+    cerule: th.projects[4].cerule,
+    note: th.projects[4].note,
+    image: '/images/work/spilling-cover.jpg',
+  },
 ];
 ---
 
 <Layout
   title="Home"
-  description={`${t.heroLine1} · ${t.heroLine2}`}
+  description={`${th.heroLine1} · ${th.heroLine2}`}
   lang={lang}
 >
 
@@ -73,8 +95,8 @@ const projectImages = [
       </h1>
       <hr class="horizon hero-horizon" />
       <p class="hero-tag">
-        {t.heroLine1}<br />
-        <em>{t.heroLine2}</em>
+        {th.heroLine1}<br />
+        <em>{th.heroLine2}</em>
       </p>
     </div>
 
@@ -82,7 +104,7 @@ const projectImages = [
 
   <!-- ─── Manifeste trilingue ───────────────────────────────── -->
   <section class="creed container" aria-label="Manifesto">
-    <p class="creed-eyebrow">{t.creedEyebrow}</p>
+    <p class="creed-eyebrow">{th.creedEyebrow}</p>
     <div class="creed-lines">
       <p class="creed-it">Quando sono qui, non sono là.</p>
       <p class="creed-fr">Quand je suis ici, je ne suis pas là-bas.</p>
@@ -93,23 +115,23 @@ const projectImages = [
   <!-- ─── Aperçu des œuvres ─────────────────────────────────── -->
   <section class="works container" aria-label="Selected work">
 
-    {t.projects.map((p, i) => (
+    {projects.map((p, i) => (
       <>
-        <a class="work-item" href={projectHrefs[i]}>
+        <a class="work-item" href={p.href}>
           <div class="work-frame">
-            <img src={projectImages[i]} alt={projectTitles[i]} loading="lazy" />
+            <img src={p.image} alt={p.title} loading="lazy" />
           </div>
           <div class="work-meta">
             <span class="work-category">{p.cerule}</span>
-            <h2 class="work-title">{projectTitles[i]}</h2>
+            <h2 class="work-title">{p.title}</h2>
             <p class="work-note">{p.note}</p>
-            <span class="work-enter">{t.enter}</span>
+            <span class="work-enter">{th.enter}</span>
           </div>
         </a>
-        {i === 0 && (
+        {i === 1 && (
           <div class="works-divider">
             <hr class="works-divider-line" />
-            <p class="works-divider-label">{t.previousWorks}</p>
+            <p class="works-divider-label">{th.previousWorks}</p>
           </div>
         )}
       </>
