@@ -247,11 +247,13 @@
   margin: 0 auto;
   padding: clamp(3rem, 8vh, 5.5rem) var(--gutter) 0;
 }
-.pvideo video {
+.pvideo video,
+.pvideo iframe {
   display: block;
   width: 100%;
-  height: auto;
+  aspect-ratio: 16 / 9;
   background: var(--encre);
+  border: 0;
 }
 
 /* ── Scroll reveal ──────────────────────────────────── */
