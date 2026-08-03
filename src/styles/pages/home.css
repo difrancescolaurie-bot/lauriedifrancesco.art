@@ -264,6 +264,45 @@
 
 .work-item:hover .work-enter { color: var(--cerule); }
 
+/* ── Previous works : grille 2 colonnes ───── */
+.works-prev-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--gutter);
+  margin-bottom: clamp(2.5rem, 6vh, 4rem);
+}
+
+.work-item--prev {
+  margin-bottom: 0;
+}
+
+.work-item--prev .work-frame {
+  aspect-ratio: 3 / 2;
+}
+
+.work-item--prev .work-title {
+  font-size: clamp(1rem, 2.2vw, 1.4rem);
+}
+
+/* ── View more ───────────────────────────── */
+.works-more {
+  text-align: center;
+  padding-bottom: clamp(3rem, 8vh, 5rem);
+}
+
+.works-more-link {
+  font-family: var(--font-body);
+  font-size: .72rem;
+  text-transform: uppercase;
+  letter-spacing: .2em;
+  color: var(--encre);
+  border-bottom: 1px solid var(--cerule);
+  padding-bottom: 2px;
+  transition: color .3s;
+}
+
+.works-more-link:hover { color: var(--cerule); }
+
 /* Mobile */
 @media (max-width: 680px) {
   .work-frame { aspect-ratio: 3/2; }

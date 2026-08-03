@@ -11,9 +11,10 @@ export const ui = {
     home: {
       heroLine1: "Documentary and poetic photography",
       heroLine2: "Where the blue of the sky opens into new shades",
-      creedEyebrow: "Works in progress",
+      creedEyebrow: "Currently",
       enter: "Enter ↗",
       previousWorks: "Previous works",
+      viewMore: "View more →",
       projects: [
         { category: "Brazil · ongoing",  cerule: "Resignifying",          note: "Being there means missing here. Or does it?" },
         { category: "",                  cerule: "Do lines truly divide?", note: "When the free profusion of forms around us, and another's gaze, rewrote my own: a work born of a rupture that draws us closer." },
@@ -99,9 +100,10 @@ export const ui = {
     home: {
       heroLine1: "Photographie documentaire et poétique",
       heroLine2: "Là où le bleu du ciel prend de nouvelles nuances",
-      creedEyebrow: "Projets en cours",
+      creedEyebrow: "Actuellement",
       enter: "Entrer ↗",
       previousWorks: "Projets précédents",
+      viewMore: "Voir plus →",
       projects: [
         { category: "Brésil · en cours", cerule: "Ressignifier",                        note: "Être ici, c'est manquer là-bas. Ou pas ?" },
         { category: "Eau & ciel",        cerule: "Le bleu du ciel dans ses yeux",        note: "Lever les yeux vers le bleu du ciel.<br />Rêver à une insouciance perdue, ou jamais connue." },
@@ -187,9 +189,10 @@ export const ui = {
     home: {
       heroLine1: "Fotografia documentaria e poetica",
       heroLine2: "Dove il blu del cielo si apre a nuove sfumature",
-      creedEyebrow: "Lavori in corso",
+      creedEyebrow: "Attualmente",
       enter: "Entra ↗",
       previousWorks: "Progetti precedenti",
+      viewMore: "Vedi di più →",
       projects: [
         { category: "Brasile · in corso", cerule: "Risignificare",                  note: "Essere lì significa mancare qui. O no?" },
         { category: "Acqua & cielo",      cerule: "Il blu del cielo nei suoi occhi", note: "Alzare gli occhi verso il blu del cielo.<br />Sognare una leggerezza perduta, o mai conosciuta." },
@@ -275,9 +278,10 @@ export const ui = {
     home: {
       heroLine1: "Fotografia documental e poética",
       heroLine2: "Onde o azul do céu se abre em novos tons",
-      creedEyebrow: "Works in progress",
+      creedEyebrow: "Atualmente",
       enter: "Entrar ↗",
       previousWorks: "Obras anteriores",
+      viewMore: "Ver mais →",
       projects: [
         { category: "Brasil · em curso", cerule: "Ressignificar",                    note: "Estar lá significa faltar aqui. Ou não?" },
         { category: "Água & céu",        cerule: "O azul do céu em seus olhos",       note: "Levantar os olhos para o azul do céu.<br />Sonhar com uma leveza perdida, ou jamais conhecida." },

@@ -22,7 +22,7 @@ const heroImages = [
   '/images/hero/hero-1.jpg',
 ];
 
-const projects = [
+const wipProjects = [
   {
     href: `/${lang}/work/quando-sono-qui`,
     title: 'Quando sono qui, non sono là',
@@ -37,33 +37,20 @@ const projects = [
     note: t.work.laMerNote,
     image: '/images/work/la-mer-en-corps-cover.jpg',
   },
+];
+
+const prevProjects = [
   {
     href: `/${lang}/work/toward-the-blue`,
     title: 'Toward the Blue',
     cerule: th.projects[1].cerule,
-    note: th.projects[1].note,
     image: '/images/work/toward-the-blue-cover.jpg',
   },
   {
     href: `/${lang}/work/en-corps-en-la-mer`,
     title: 'En Corps à la Mer',
     cerule: th.projects[2].cerule,
-    note: th.projects[2].note,
     image: '/images/work/en-corps-cover.jpg',
-  },
-  {
-    href: `/${lang}/work/vedere-venezia`,
-    title: 'Vedere Venezia e Non Morire',
-    cerule: th.projects[3].cerule,
-    note: th.projects[3].note,
-    image: '/images/work/vedere-venezia-cover.jpg',
-  },
-  {
-    href: `/${lang}/work/spilling-beyond-the-lines`,
-    title: t.work.spillingTitle,
-    cerule: th.projects[4].cerule,
-    note: th.projects[4].note,
-    image: '/images/work/spilling-cover.jpg',
   },
 ];
 ---
@@ -115,27 +102,42 @@ const projects = [
   <!-- ─── Aperçu des œuvres ─────────────────────────────────── -->
   <section class="works container" aria-label="Selected work">
 
-    {projects.map((p, i) => (
-      <>
-        <a class="work-item" href={p.href}>
+    {wipProjects.map(p => (
+      <a class="work-item" href={p.href}>
+        <div class="work-frame">
+          <img src={p.image} alt={p.title} loading="lazy" />
+        </div>
+        <div class="work-meta">
+          <span class="work-category">{p.cerule}</span>
+          <h2 class="work-title">{p.title}</h2>
+          <p class="work-note" set:html={p.note}></p>
+          <span class="work-enter">{th.enter}</span>
+        </div>
+      </a>
+    ))}
+
+    <div class="works-divider">
+      <hr class="works-divider-line" />
+      <p class="works-divider-label">{th.previousWorks}</p>
+    </div>
+
+    <div class="works-prev-grid">
+      {prevProjects.map(p => (
+        <a class="work-item work-item--prev" href={p.href}>
           <div class="work-frame">
             <img src={p.image} alt={p.title} loading="lazy" />
           </div>
           <div class="work-meta">
             <span class="work-category">{p.cerule}</span>
             <h2 class="work-title">{p.title}</h2>
-            <p class="work-note" set:html={p.note}></p>
-            <span class="work-enter">{th.enter}</span>
           </div>
         </a>
-        {i === 1 && (
-          <div class="works-divider">
-            <hr class="works-divider-line" />
-            <p class="works-divider-label">{th.previousWorks}</p>
-          </div>
-        )}
-      </>
-    ))}
+      ))}
+    </div>
+
+    <div class="works-more">
+      <a href={`/${lang}/work`} class="works-more-link">{th.viewMore}</a>
+    </div>
 
   </section>
 
