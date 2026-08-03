@@ -251,7 +251,7 @@
 .pvideo iframe {
   display: block;
   width: 100%;
-  aspect-ratio: 16 / 9;
+  aspect-ratio: 3 / 2;
   background: var(--encre);
   border: 0;
 }

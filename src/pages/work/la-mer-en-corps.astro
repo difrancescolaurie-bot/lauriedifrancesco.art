@@ -25,15 +25,18 @@ import '../../styles/pages/work-project.css';
     </div>
   </section>
 
-  <!-- ── Vidéo (embed Vimeo) ──────────────────────────────── -->
+  <!-- ── Vidéo ────────────────────────────────────────────── -->
   <div class="pvideo rv">
-    <iframe
-      src="https://player.vimeo.com/video/1215012910"
-      allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media"
-      allowfullscreen
-      title="La Mer en Corps"
-      loading="lazy"
-    ></iframe>
+    <video
+      autoplay
+      muted
+      loop
+      playsinline
+      preload="auto"
+      poster="/images/work/la-mer-en-corps-cover.jpg"
+    >
+      <source src="/images/work/la-mer-en-corps/lamerenCorps.mp4" type="video/mp4" />
+    </video>
   </div>
 
   <p class="series-caption rv">Water and dreams, giving body to movement. A year of passages.</p>
