@@ -23,7 +23,7 @@ const projects = [
     category: 'Sea · ongoing',
     title: 'La Mer en Corps',
     cerule: 'Tracing',
-    note: 'Water and dreams, giving body to movement. A year of passages.',
+    note: 'Water and dreams, giving body to movement.<br />A year of passages.',
     image: '/images/work/la-mer-en-corps-cover.jpg',
   },
   {
@@ -31,7 +31,7 @@ const projects = [
     category: 'Water & sky',
     title: 'Toward the Blue',
     cerule: 'Sky-blue in her eyes',
-    note: 'Look up into the blue of the sky. Dream of a lightness lost, or never known.',
+    note: 'Look up into the blue of the sky.<br />Dream of a lightness lost, or never known.',
     image: '/images/work/toward-the-blue-cover.jpg',
   },
   {
@@ -55,7 +55,7 @@ const projects = [
     category: '',
     title: 'Spilling Beyond the Lines',
     cerule: 'Do lines truly divide?',
-    note: 'When the free profusion of forms around us, and another\'s gaze, rewrote my own: a work born of a rupture that draws us closer.',
+    note: 'When the free profusion of forms around us, and another\'s gaze, rewrote my own:<br />a work born of a rupture that draws us closer.',
     image: '/images/work/spilling-cover.jpg',
   },
 ];
@@ -97,7 +97,7 @@ const projects = [
 
   <!-- ─── Manifeste trilingue ───────────────────────────────── -->
   <section class="creed container" aria-label="Manifesto">
-    <p class="creed-eyebrow">Work in progress</p>
+    <p class="creed-eyebrow">Works in progress</p>
     <div class="creed-lines">
       <p class="creed-it">Quando sono qui, non sono là.</p>
       <p class="creed-fr">Quand je suis ici, je ne suis pas là-bas.</p>
@@ -120,7 +120,7 @@ const projects = [
           <div class="work-meta">
             <span class="work-category">{p.cerule}</span>
             <h2 class="work-title">{p.title}</h2>
-            <p class="work-note">{p.note}</p>
+            <p class="work-note" set:html={p.note}></p>
             <span class="work-enter">Enter ↗</span>
           </div>
         </a>

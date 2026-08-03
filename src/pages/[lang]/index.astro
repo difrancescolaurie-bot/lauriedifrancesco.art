@@ -124,7 +124,7 @@ const projects = [
           <div class="work-meta">
             <span class="work-category">{p.cerule}</span>
             <h2 class="work-title">{p.title}</h2>
-            <p class="work-note">{p.note}</p>
+            <p class="work-note" set:html={p.note}></p>
             <span class="work-enter">{th.enter}</span>
           </div>
         </a>
