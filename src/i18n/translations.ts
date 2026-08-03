@@ -280,7 +280,7 @@ export const ui = {
       heroLine2: "Onde o azul do céu se abre em novos tons",
       creedEyebrow: "Atualmente",
       enter: "Entrar ↗",
-      previousWorks: "Obras anteriores",
+      previousWorks: "Projetos anteriores",
       viewMore: "Ver mais →",
       projects: [
         { category: "Brasil · em curso", cerule: "Ressignificar",                    note: "Estar lá significa faltar aqui. Ou não?" },
