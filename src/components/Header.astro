@@ -120,6 +120,10 @@ const homeUrl = currentLang === 'en' ? '/' : `/${currentLang}`;
       rgba(20, 32, 43, 0.0) 100%
     );
     padding-block: 1.25rem 2rem;
+    transition: transform .35s ease;
+  }
+  .site-header.is-hidden {
+    transform: translateY(-100%);
   }
 
   .header-inner {
@@ -293,6 +297,19 @@ const homeUrl = currentLang === 'en' ? '/' : `/${currentLang}`;
 </style>
 
 <script>
+  // Hide nav on scroll down, reveal on scroll up
+  const header = document.querySelector('.site-header') as HTMLElement;
+  let lastY = window.scrollY;
+  window.addEventListener('scroll', () => {
+    const y = window.scrollY;
+    if (y > lastY && y > 80) {
+      header.classList.add('is-hidden');
+    } else {
+      header.classList.remove('is-hidden');
+    }
+    lastY = y;
+  }, { passive: true });
+
   const burger = document.querySelector('.burger') as HTMLButtonElement;
   const menu   = document.querySelector('.mobile-menu') as HTMLElement;
 
