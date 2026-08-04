@@ -19,7 +19,8 @@ const content = {
     eyebrow: 'Tracer',
     caption: "L'eau et les rêves pour donner corps au mouvement.<br />Un an de traversées.",
     bq1: "La mer n'est pas un corps qu'on voit, pas même un corps qu'on étreint. C'est un milieu dynamique qui répond à la dynamique de nos offenses.",
-    bq2: "L'œil véritable de la terre, c'est l'eau. Dans nos yeux, c'est l'eau qui rêve.",
+    bq2Long: "Si le regard des choses est un peu doux, un peu grave, un peu pensif, c'est un regard de l'eau. L'examen de l'imagination nous conduit à ce paradoxe : dans l'imagination de la vision généralisée, l'eau joue un rôle inattendu. L'œil véritable de la terre, c'est l'eau. Dans nos yeux, c'est l'eau qui rêve. Nos yeux ne sont-ils pas « cette flaque inexplorée de lumière liquide que Dieu a mise au fond de nous-mêmes » ? Dans la nature, c'est encore l'eau qui voit, c'est encore l'eau qui rêve.",
+    bq2Short: "L'œil véritable de la terre, c'est l'eau. Dans nos yeux, c'est l'eau qui rêve.",
     bachelardCite: "Gaston Bachelard — L'Eau et les Rêves",
     bachelardTransl: null,
     sectionTitle: 'Le Projet',
@@ -37,7 +38,8 @@ const content = {
     eyebrow: 'Tracciare',
     caption: "L'acqua e i sogni per dare corpo al movimento.<br />Un anno di traversate.",
     bq1: "Il mare non è un corpo che si vede, e nemmeno un corpo che si abbraccia. È un mezzo dinamico che risponde alla dinamica delle nostre offese.",
-    bq2: "Il vero occhio della terra è l'acqua. Nei nostri occhi, è l'acqua che sogna.",
+    bq2Long: "Se lo sguardo delle cose è un poco dolce, un poco grave, un poco pensoso, è uno sguardo d'acqua. L'esame dell'immaginazione ci conduce a questo paradosso: nell'immaginazione della visione generalizzata, l'acqua ha un ruolo inatteso. Il vero occhio della terra è l'acqua. Nei nostri occhi, è l'acqua che sogna. I nostri occhi non sono forse «quella pozza inesplorata di luce liquida che Dio ha posto in fondo a noi stessi»? In natura, è ancora l'acqua che vede, è ancora l'acqua che sogna.",
+    bq2Short: "Il vero occhio della terra è l'acqua. Nei nostri occhi, è l'acqua che sogna.",
     bachelardCite: "Gaston Bachelard — L'Eau et les Rêves",
     bachelardTransl: "traduzione libera dal francese",
     sectionTitle: 'Il Progetto',
@@ -55,7 +57,8 @@ const content = {
     eyebrow: 'Traçando',
     caption: "A água e os sonhos para dar corpo ao movimento.<br />Um ano de travessias.",
     bq1: "O mar não é um corpo que se vê, nem sequer um corpo que se abraça. É um meio dinâmico que responde à dinâmica das nossas ofensas.",
-    bq2: "O verdadeiro olho da terra é a água. Em nossos olhos, é a água que sonha.",
+    bq2Long: "Se o olhar das coisas é um pouco doce, um pouco grave, um pouco pensativo, é um olhar de água. O exame da imaginação nos conduz a este paradoxo: na imaginação da visão generalizada, a água tem um papel inesperado. O verdadeiro olho da terra é a água. Em nossos olhos, é a água que sonha. Não serão nossos olhos «aquela poça inexplorada de luz líquida que Deus pôs no fundo de nós mesmos»? Na natureza, é ainda a água que vê, é ainda a água que sonha.",
+    bq2Short: "O verdadeiro olho da terra é a água. Em nossos olhos, é a água que sonha.",
     bachelardCite: "Gaston Bachelard — L'Eau et les Rêves",
     bachelardTransl: "tradução livre do francês",
     sectionTitle: 'O Projeto',
@@ -115,7 +118,8 @@ const content = {
         <blockquote class="epi-justify">{content.bq1}</blockquote>
       </div>
       <div class="epi-wrap">
-        <blockquote class="epi-justify">{content.bq2}</blockquote>
+        <blockquote class="epi-justify lmec-bq-long">{content.bq2Long}</blockquote>
+        <blockquote class="epi-justify lmec-bq-short">{content.bq2Short}</blockquote>
         <cite>
           {content.bachelardCite}
           {content.bachelardTransl && <span class="epi-tradfr">{content.bachelardTransl}</span>}
@@ -131,19 +135,23 @@ const content = {
     <p class="opening-text" set:html={content.p2}></p>
     <div class="epi-wrap">
       <blockquote class="epi-justify">Repetition is not always about saying the same thing twice. Sometimes it is about returning to a wound until it changes shape.</blockquote>
-      <cite>Benjamin Clementine, Instagram, {content.clementineDate}</cite>
+      <cite>Benjamin Clementine</cite>
     </div>
     <p class="opening-text">{content.p3}</p>
   </div>
 
-  <!-- ── Photo inline ──────────────────────────────────────── -->
-  <div class="lmec-inline-photo rv">
-    <img src="/images/work/la-mer-en-corps/GP010207.jpg" alt="" loading="lazy" />
+  <!-- ── Photo (2/3) + texte (1/3) ───────────────────────────── -->
+  <div class="lmec-photo-row rv">
+    <div class="lmec-photo-row-img">
+      <img src="/images/work/la-mer-en-corps/GP010207.jpg" alt="" loading="lazy" />
+    </div>
+    <div class="lmec-photo-row-text">
+      <p class="opening-text">{content.p4}</p>
+    </div>
   </div>
 
   <!-- ── Suite du texte ────────────────────────────────────── -->
   <div class="lmec-prose rv">
-    <p class="opening-text">{content.p4}</p>
     <p class="opening-text">{content.p5}</p>
     <p class="opening-text">{content.p6}</p>
     <p class="opening-text">{content.p7}</p>

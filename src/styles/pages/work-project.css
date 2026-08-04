@@ -140,9 +140,20 @@
 
 /* ── Citations ─────────────────────────────────────── */
 .epi-wrap {
+  position: relative;
   border-left: 2px solid var(--cerule);
   padding: .2rem 0 1.8rem 1.3rem;
   max-width: 60ch;
+}
+/* Coin bas-gauche en L */
+.epi-wrap:has(cite)::after {
+  content: '';
+  position: absolute;
+  bottom: .8rem;
+  left: -2px;
+  width: 1.5rem;
+  height: 2px;
+  background: var(--cerule);
 }
 .epi-wrap + .epi-horizon + .epi-wrap { margin-top: 4.8rem; }
 .epi-wrap blockquote {
@@ -396,6 +407,38 @@ figure.match img {
   max-width: none;
 }
 
+/* Variante longue/courte de la 2e citation Bachelard */
+.lmec-bq-short { display: none; }
+
+/* Photo inline + texte à droite (même ratio que vidéo) */
+.lmec-photo-row {
+  display: flex;
+  gap: clamp(1.5rem, 3vw, 3rem);
+  align-items: flex-start;
+  max-width: 1320px;
+  margin: clamp(2rem, 5vh, 3.5rem) auto 0;
+  padding: 0 var(--gutter);
+}
+.lmec-photo-row-img {
+  flex: 2;
+  min-width: 0;
+}
+.lmec-photo-row-img img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+.lmec-photo-row-text {
+  flex: 1;
+  min-width: 0;
+}
+.lmec-photo-row-text .opening-text {
+  text-align: left;
+  font-weight: 300;
+  font-size: clamp(.82rem, 1vw, .92rem);
+  line-height: 1.85;
+}
+
 /* Prose texte projet — pleine largeur, police fine */
 .lmec-prose {
   max-width: 1320px;
@@ -404,6 +447,7 @@ figure.match img {
 }
 .lmec-prose .opening-eyebrow {
   margin-bottom: 1.6rem;
+  font-size: .85rem;
 }
 .lmec-prose .opening-text {
   text-align: left;
@@ -432,7 +476,9 @@ figure.match img {
 /* ── Mobile ─────────────────────────────────────────── */
 @media (max-width: 700px) {
   .opening, .intro { flex-direction: column; gap: 2.5rem; }
-  .lmec-vid-intro { flex-direction: column; }
+  .lmec-vid-intro, .lmec-photo-row { flex-direction: column; }
+  .lmec-bq-long { display: none; }
+  .lmec-bq-short { display: block; }
   .series { gap: 8px; }
   .spread { flex-wrap: wrap; gap: 8px; }
   .spread figure {
