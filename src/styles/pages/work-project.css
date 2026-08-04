@@ -355,11 +355,18 @@ figure.match img {
 }
 
 /* ── La Mer en Corps ────────────────────────────────── */
-.series-caption--intro {
-  color: var(--encre);
+
+/* Caption dans le hero */
+.phero-caption {
+  font-family: var(--font-body);
   font-style: italic;
+  font-size: clamp(.88rem, 1.2vw, 1rem);
+  line-height: 1.65;
+  color: rgba(255,255,255,.78);
+  margin-top: 1.4rem;
 }
 
+/* Bachelard — citations centrées */
 .lmec-bachelard {
   max-width: 640px;
   margin: clamp(3.5rem, 8vh, 6rem) auto;
@@ -393,26 +400,41 @@ figure.match img {
   margin-top: .25rem;
 }
 
-.lmec-fullimg {
-  width: 100%;
-  overflow: hidden;
-  margin-top: clamp(3rem, 7vh, 5rem);
+/* Vidéo (2/3) + texte intro (1/3) */
+.lmec-vid-intro {
+  display: flex;
+  gap: clamp(1.5rem, 3vw, 3rem);
+  align-items: flex-start;
+  padding: clamp(3rem, 8vh, 5.5rem) var(--gutter) 0;
+  max-width: 1320px;
+  margin: 0 auto;
 }
-.lmec-fullimg img {
+.lmec-vid-col {
+  flex: 2;
+  min-width: 0;
+}
+.lmec-vid-col video {
   display: block;
   width: 100%;
-  height: 70vh;
-  min-height: 380px;
-  object-fit: cover;
+  aspect-ratio: 3 / 2;
+  background: var(--encre);
+}
+.lmec-text-col {
+  flex: 1;
+  min-width: 0;
+}
+.lmec-text-col .opening-eyebrow {
+  margin-bottom: 1.2rem;
+}
+.lmec-text-col .opening-text {
+  text-align: left;
 }
 
+/* Prose (texte continu) */
 .lmec-prose {
   max-width: 860px;
   margin: clamp(3.5rem, 8vh, 6rem) auto;
   padding: 0 var(--gutter);
-}
-.lmec-prose .opening-eyebrow {
-  margin-bottom: 2rem;
 }
 .lmec-prose .opening-text {
   text-align: left;
@@ -422,20 +444,36 @@ figure.match img {
   max-width: none;
 }
 
-.lmec-video {
-  width: 100%;
-  padding-top: clamp(3rem, 8vh, 5.5rem);
+/* Photo (gauche) + texte (droite) */
+.lmec-photo-intro {
+  display: flex;
+  gap: clamp(1.5rem, 3vw, 3rem);
+  align-items: flex-start;
+  padding: clamp(2.5rem, 6vh, 4rem) var(--gutter) 0;
+  max-width: 1320px;
+  margin: 0 auto;
 }
-.lmec-video video {
+.lmec-photo-col {
+  flex: 1;
+  min-width: 0;
+}
+.lmec-photo-col img {
   display: block;
   width: 100%;
-  aspect-ratio: 3 / 2;
-  background: var(--encre);
+  height: auto;
+}
+.lmec-photo-text {
+  flex: 1;
+  min-width: 0;
+}
+.lmec-photo-text .opening-text {
+  text-align: left;
 }
 
 /* ── Mobile ─────────────────────────────────────────── */
 @media (max-width: 700px) {
   .opening, .intro { flex-direction: column; gap: 2.5rem; }
+  .lmec-vid-intro, .lmec-photo-intro { flex-direction: column; }
   .series { gap: 8px; }
   .spread { flex-wrap: wrap; gap: 8px; }
   .spread figure {
