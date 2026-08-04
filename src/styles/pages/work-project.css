@@ -530,10 +530,11 @@ figure.match img {
 /* ── Mobile ─────────────────────────────────────────── */
 @media (max-width: 700px) {
   .opening, .intro { flex-direction: column; gap: 2.5rem; }
-  .lmec-vid-intro { flex-direction: column; }
-  /* Citations Bachelard : reset du padding latéral, pas de débordement */
-  .lmec-text-col { padding-left: 0; overflow-x: hidden; }
-  .lmec-text-col .epi-wrap { max-width: 100%; overflow-wrap: break-word; }
+  /* Gap vertical vidéo↔citation = espace citation↔"The Project" */
+  .lmec-vid-intro { flex-direction: column; gap: clamp(3rem, 7vh, 5rem); overflow: hidden; }
+  /* Citations Bachelard : reset du padding latéral, contraindre dans le container */
+  .lmec-text-col { padding-left: 0; }
+  .lmec-text-col .epi-wrap { max-width: 100%; overflow-wrap: break-word; word-break: break-word; }
   .lmec-bq-long { display: none; }
   .lmec-bq-short { display: block; }
   /* Texte projet : justifié sur mobile */
