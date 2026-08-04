@@ -12,7 +12,6 @@ type Spread = {
 const p = (n: number): Photo => ({ src: s(`${n}.jpg`), n });
 
 const spreads: Spread[] = [
-  { type: 'row',    photos: [p(0), p(1)] },
   { type: 'row',    photos: [p(2), p(3), p(4)] },
   { type: 'single', photos: [p(5)] },
   { type: 'row',    photos: [p(6), p(7)] },
@@ -46,37 +45,45 @@ const spreads: Spread[] = [
 
   <p class="phero-wip container">Work in progress</p>
 
-  <!-- ── Ouverture 2 colonnes ──────────────────────────────── -->
-  <section class="opening container">
+  <!-- ── Ouverture : photo + citations + photo ─────────────────── -->
+  <section class="opening-qsq container">
 
-    <!-- Colonne gauche : Platon + René Char -->
-    <div class="opening-epi">
+    <!-- Colonne gauche : Photo 0 -->
+    <figure class="qsq-photo0">
+      <img src={s('0.jpg')} alt="" loading="lazy" />
+    </figure>
 
-      <div class="epi-wrap">
-        <blockquote class="epi-justify">
-          But what if someone dragged them along a steep and harsh ascent against their
-          will, and did not let go until they were dragged right into the sunlight? Would
-          they not feel pain and discomfort? And if they walked towards the sun and their
-          eyes suddenly filled with brilliant light, would they be able to see even one of
-          those things that are now called true realities?
-        </blockquote>
-        <cite>Plato — Republic, Book VII</cite>
+    <!-- Colonne droite : citations + photo 1, puis José Ramalho -->
+    <div class="qsq-right">
+
+      <!-- Rangée : Platon + Char (gauche) | Photo 1 (droite) -->
+      <div class="qsq-row1">
+        <div class="qsq-cites">
+          <div class="epi-wrap">
+            <blockquote class="epi-justify">
+              But what if someone dragged them along a steep and harsh ascent against their
+              will, and did not let go until they were dragged right into the sunlight? Would
+              they not feel pain and discomfort? And if they walked towards the sun and their
+              eyes suddenly filled with brilliant light, would they be able to see even one of
+              those things that are now called true realities?
+            </blockquote>
+            <cite>Plato — Republic, Book VII</cite>
+          </div>
+          <hr class="horizon epi-horizon" />
+          <div class="epi-wrap">
+            <blockquote>
+              Lucidity is the wound closest to the sun.
+            </blockquote>
+            <cite>René Char — Feuillets d'Hypnos (169)</cite>
+          </div>
+          <hr class="horizon epi-horizon" />
+        </div>
+        <figure class="qsq-photo1">
+          <img src={s('1.jpg')} alt="" loading="lazy" />
+        </figure>
       </div>
-      <hr class="horizon epi-horizon" />
 
-      <div class="epi-wrap">
-        <blockquote>
-          Lucidity is the wound closest to the sun.
-        </blockquote>
-        <cite>René Char — Feuillets d'Hypnos (169)</cite>
-      </div>
-      <hr class="horizon epi-horizon" />
-
-    </div>
-
-    <!-- Colonne droite : José Ramalho (toujours en PT) + texte du projet -->
-    <div class="opening-proj">
-
+      <!-- José Ramalho -->
       <div class="epi-wrap">
         <blockquote>
           A sombra que me move<br />
@@ -127,7 +134,7 @@ const spreads: Spread[] = [
   <!-- ── Projet suivant ─────────────────────────────────────── -->
   <div class="next-project container">
     <span class="next-label">Next project</span>
-    <a href="/work/spilling-beyond-the-lines">Spilling Beyond the Lines →</a>
+    <a href="/work/la-mer-en-corps">La Mer en Corps →</a>
   </div>
 
 </Layout>
@@ -194,27 +201,62 @@ const spreads: Spread[] = [
 
   .phero-inner h1 strong { font-weight: 500; }
 
-  /* ── Ouverture 2 colonnes ─────────────────────────── */
-  .opening {
+  /* ── Ouverture : photo + citations + photo ──────────────── */
+  .opening-qsq {
     display: flex;
     gap: 16px;
     align-items: stretch;
     padding-top: clamp(3rem, 8vh, 5.5rem);
     padding-bottom: clamp(3rem, 7vh, 5rem);
+    max-width: 1320px;
   }
-  .opening.container { max-width: 1320px; }
 
-  .opening-epi {
+  .qsq-photo0 {
     flex: 1 1 0;
+    min-width: 0;
+    margin: 0;
+    overflow: hidden;
+  }
+
+  .qsq-photo0 img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .qsq-right {
+    flex: 1 1 0;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    gap: clamp(2rem, 4vh, 3rem);
+  }
+
+  .qsq-row1 {
+    display: flex;
+    gap: 16px;
+    align-items: stretch;
+  }
+
+  .qsq-cites {
+    flex: 1 1 0;
+    min-width: 0;
     display: flex;
     flex-direction: column;
   }
 
-  .opening-proj {
-    flex: 1 1 0;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
+  .qsq-photo1 {
+    flex: 0 0 40%;
+    margin: 0;
+    overflow: hidden;
+  }
+
+  .qsq-photo1 img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
   }
 
   /* Citations — structure identique à Work/About/En Corps */
@@ -372,10 +414,14 @@ const spreads: Spread[] = [
 
   /* ── Mobile ───────────────────────────────────────── */
   @media (max-width: 700px) {
-    .opening {
+    .opening-qsq {
       flex-direction: column;
-      gap: 2.5rem;
+      gap: 2rem;
     }
+    .qsq-photo0 img { height: 60vw; }
+    .qsq-row1 { flex-direction: column; }
+    .qsq-photo1 { flex: 0 0 auto; }
+    .qsq-photo1 img { height: auto; }
     .series { gap: 8px; }
     .spread { flex-wrap: wrap; gap: 8px; }
     .spread figure {

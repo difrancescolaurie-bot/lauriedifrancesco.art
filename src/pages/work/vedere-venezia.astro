@@ -15,7 +15,6 @@ const aznavourEN = `How sad Venice is<br />On the evenings on the lagoon<br /><s
 const dufourmantellEN = `To part, in this way, is to begin translating. It is to find at least one word to translate what in oneself signifies and makes sense, in a new language, so that it may be heard by another. It is to leave the mother tongue to <span class="k">risk one's own language — the poetic language par excellence</span>.`;
 
 const spreads: Spread[] = [
-  { type: 'row',    photos: [p(1), p(2)] },
   { type: 'single', photos: [p(3)] },
   { type: 'row',    photos: [p(4), p(5)] },
   { type: 'row',    photos: [p(6), p(7), p(8)] },
@@ -43,28 +42,36 @@ const spreads: Spread[] = [
   </section>
 
   <!-- ── Épigraphes ──────────────────────────────────────────── -->
-  <section class="opening container">
-    <div class="opening-epi">
+  <section class="opening-vv container">
 
-      <div class="epi-wrap">
+    <!-- Rangée 1 : Photo 1 (gauche) + Aznavour (droite, centré) -->
+    <div class="vv-row1">
+      <figure class="vv-photo">
+        <img src={s('1.jpg')} alt="" loading="lazy" />
+      </figure>
+      <div class="vv-cite epi-wrap">
         <blockquote set:html={aznavourEN} />
         <cite>
           Charles Aznavour — Que c'est triste Venise
           <span class="epi-tradfr">free translation from the French</span>
         </cite>
       </div>
-      <hr class="horizon epi-horizon" />
+    </div>
 
-      <div class="epi-wrap">
+    <!-- Rangée 2 : Dufourmantelle (gauche) + Photo 2 (droite, même hauteur) -->
+    <div class="vv-row2">
+      <div class="vv-cite epi-wrap">
         <blockquote class="epi-justify" set:html={dufourmantellEN} />
         <cite>
           Anne Dufourmantelle
           <span class="epi-tradfr">free translation from the French</span>
         </cite>
       </div>
-      <hr class="horizon epi-horizon" />
-
+      <figure class="vv-photo vv-photo--stretch">
+        <img src={s('2.jpg')} alt="" loading="lazy" />
+      </figure>
     </div>
+
   </section>
 
   <!-- ── Série photographique ──────────────────────────────── -->
@@ -89,7 +96,7 @@ const spreads: Spread[] = [
   <!-- ── Projet suivant ─────────────────────────────────────── -->
   <div class="next-project container">
     <span class="next-label">Next project</span>
-    <a href="/work/en-corps-en-la-mer">En Corps à la Mer →</a>
+    <a href="/work/spilling-beyond-the-lines">Spilling Beyond the Lines →</a>
   </div>
 
 </Layout>
@@ -156,28 +163,44 @@ const spreads: Spread[] = [
 
   .phero-inner h1 strong { font-weight: 500; }
 
-  /* ── Ouverture 2 colonnes ─────────────────────────── */
-  .opening {
+  /* ── Épigraphes : 2 rangées photo + citation ─────── */
+  .opening-vv {
     display: flex;
-    gap: clamp(2.5rem, 6vw, 5rem);
-    align-items: stretch;
+    flex-direction: column;
+    gap: clamp(2.5rem, 5vh, 4rem);
     padding-top: clamp(3rem, 8vh, 5.5rem);
     padding-bottom: clamp(3rem, 7vh, 5rem);
+    max-width: 1320px;
   }
 
-  .opening.container { max-width: 1320px; }
-
-  .opening-epi {
-    flex: 1 1 0;
+  .vv-row1, .vv-row2 {
     display: flex;
-    flex-direction: column;
+    gap: clamp(1.5rem, 3vw, 3rem);
   }
 
-  .opening-proj {
-    flex: 1.05 1 0;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+  .vv-row1 { align-items: center; }
+  .vv-row2 { align-items: stretch; }
+
+  .vv-photo {
+    flex: 0 0 50%;
+    margin: 0;
+    overflow: hidden;
+  }
+
+  .vv-photo img {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+
+  .vv-photo--stretch img {
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .vv-cite {
+    flex: 1;
+    max-width: none;
   }
 
   /* Citations — structure identique à Work/About/En Corps */
@@ -342,10 +365,9 @@ const spreads: Spread[] = [
   /* ── Mobile ───────────────────────────────────────── */
   @media (max-width: 700px) {
     .phero-bg img { object-position: 65% center; }
-    .opening {
-      flex-direction: column;
-      gap: 2.5rem;
-    }
+    .vv-row1, .vv-row2 { flex-direction: column; }
+    .vv-photo { flex: 0 0 auto; }
+    .vv-photo img, .vv-photo--stretch img { height: auto; object-fit: unset; }
     .series { gap: 8px; }
     .spread { flex-wrap: wrap; gap: 8px; }
     .spread figure {

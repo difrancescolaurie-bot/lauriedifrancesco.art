@@ -75,14 +75,27 @@ body { background: #ECEAE4; }
 
 .wi-title {
   font-family: var(--font-title);
-  font-weight: 300;
-  font-size: clamp(1.7rem, 3.5vw, 3rem);
-  letter-spacing: .08em;
-  text-transform: uppercase;
-  line-height: 1.06;
+  font-weight: 500;
+  font-size: clamp(1.5rem, 3.8vw, 2.6rem);
+  letter-spacing: 0.005em;
+  line-height: 1.08;
   color: var(--encre);
   margin-bottom: .6rem;
 }
+
+.wi-title--quando {
+  display: flex;
+  flex-direction: column;
+  font-weight: 300;
+  font-size: clamp(1rem, 2.2vw, 1.65rem);
+  line-height: 1.35;
+}
+.qt-it { color: var(--encre); }
+.qt-fr { color: var(--cerule); }
+.qt-pt { color: var(--ardoise); }
+
+.p2 .wi-title,
+.p5 .wi-title { white-space: nowrap; }
 
 .wi-note {
   font-family: var(--font-body);
@@ -228,13 +241,12 @@ body { background: #ECEAE4; }
 
 .p4-title-big {
   font-family: var(--font-title);
-  font-weight: 300;
+  font-weight: 500;
   font-size: clamp(1.7rem, 3.5vw, 3rem);
-  letter-spacing: .08em;
-  text-transform: uppercase;
-  line-height: 1.06;
+  letter-spacing: 0.005em;
+  line-height: 1.08;
   color: var(--encre);
-  max-width: 55%;
+  white-space: nowrap;
 }
 
 .p4 .p4-right {
@@ -351,7 +363,17 @@ body { background: #ECEAE4; }
   color: #fff;
   line-height: 1.1;
   text-wrap: balance;
-  margin-bottom: 3rem;
+  margin-bottom: 1.4rem;
+}
+
+#fso-note {
+  font-family: var(--font-body);
+  font-size: .85rem;
+  color: rgba(255,255,255,.6);
+  max-width: 42ch;
+  line-height: 1.65;
+  margin-bottom: 2rem;
+  text-align: center;
 }
 
 #fso-cta {

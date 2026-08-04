@@ -284,6 +284,10 @@
   font-size: clamp(1rem, 2.2vw, 1.4rem);
 }
 
+.work-item--prev .work-note {
+  font-size: clamp(.72rem, 1vw, .82rem);
+}
+
 /* ── View more ───────────────────────────── */
 .works-more {
   text-align: center;
