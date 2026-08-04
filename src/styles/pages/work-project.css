@@ -172,7 +172,7 @@
   font-family: var(--font-title);
   font-weight: 300;
   font-style: italic;
-  font-size: clamp(.88rem, 1.2vw, 1rem);
+  font-size: clamp(.83rem, 1.05vw, .93rem);
   line-height: 1.55;
   color: var(--ardoise);
 }
@@ -181,7 +181,8 @@
   hyphens: auto;
   -webkit-hyphens: auto;
 }
-.epi-wrap .k { color: var(--cerule); font-weight: 500; }
+/* Mot-clé en bleu-gras, partout */
+.k { color: var(--cerule); font-weight: 500; }
 .epi-wrap cite {
   display: block;
   margin-top: .9rem;
@@ -419,9 +420,9 @@ figure.match img {
 .lmec-text-col .epi-wrap {
   max-width: none;
 }
-/* Supprimer le padding-bas entre les deux citations pour que les traits se touchent */
+/* Deux lignes de blanc entre les traits (les bordures se touchent toujours) */
 .lmec-text-col .epi-wrap:first-child {
-  padding-bottom: 0;
+  padding-bottom: 2.8rem;
 }
 
 /* Variante longue/courte de la 2e citation Bachelard */
@@ -458,8 +459,21 @@ figure.match img {
   margin-bottom: 1.4rem;
 }
 .lmec-prose .epi-wrap {
-  margin: .5rem 0 1.8rem;
+  margin: .5rem 0 .5rem;
   max-width: 60ch;
+}
+/* Supprimer la marge basse du dernier enfant pour égaliser l'espace avant la photo */
+.lmec-prose > *:last-child {
+  margin-bottom: 0;
+}
+/* Légende photo */
+.lmec-photo-float figcaption {
+  font-family: var(--font-body);
+  font-style: italic;
+  font-size: .62rem;
+  color: var(--brume);
+  letter-spacing: .03em;
+  margin-top: .4rem;
 }
 
 /* ── Mobile ─────────────────────────────────────────── */
