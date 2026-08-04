@@ -140,18 +140,12 @@ const content = {
     <p class="opening-text">{content.p3}</p>
   </div>
 
-  <!-- ── Photo (2/3) + texte (1/3) ───────────────────────────── -->
-  <div class="lmec-photo-row rv">
-    <div class="lmec-photo-row-img">
-      <img src="/images/work/la-mer-en-corps/GP010207.jpg" alt="" loading="lazy" />
-    </div>
-    <div class="lmec-photo-row-text">
-      <p class="opening-text">{content.p4}</p>
-    </div>
-  </div>
-
-  <!-- ── Suite du texte ────────────────────────────────────── -->
+  <!-- ── Texte avec photo flottante ──────────────────────────── -->
   <div class="lmec-prose rv">
+    <figure class="lmec-photo-float">
+      <img src="/images/work/la-mer-en-corps/GP010207.jpg" alt="" loading="lazy" />
+    </figure>
+    <p class="opening-text">{content.p4}</p>
     <p class="opening-text">{content.p5}</p>
     <p class="opening-text">{content.p6}</p>
     <p class="opening-text">{content.p7}</p>
