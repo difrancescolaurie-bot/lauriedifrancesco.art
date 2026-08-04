@@ -366,45 +366,11 @@ figure.match img {
   margin-top: 1.4rem;
 }
 
-/* Bachelard — citations centrées */
-.lmec-bachelard {
-  max-width: 640px;
-  margin: clamp(3.5rem, 8vh, 6rem) auto;
-  padding: 0 var(--gutter);
-  text-align: center;
-}
-.lmec-bq {
-  font-family: var(--font-title);
-  font-weight: 300;
-  font-style: italic;
-  font-size: clamp(.9rem, 1.25vw, 1.05rem);
-  line-height: 1.7;
-  color: var(--ardoise);
-  margin: 0 0 1.4rem;
-}
-.lmec-cite {
-  display: block;
-  margin-top: .6rem;
-  font-size: .7rem;
-  letter-spacing: .14em;
-  text-transform: uppercase;
-  color: var(--cerule);
-}
-.lmec-cite-work {
-  display: block;
-  font-size: .62rem;
-  letter-spacing: .08em;
-  text-transform: none;
-  font-style: italic;
-  color: var(--ardoise);
-  margin-top: .25rem;
-}
-
-/* Vidéo (2/3) + texte intro (1/3) */
+/* Vidéo (2/3) + citations Bachelard (1/3) */
 .lmec-vid-intro {
   display: flex;
   gap: clamp(1.5rem, 3vw, 3rem);
-  align-items: flex-start;
+  align-items: stretch;
   padding: clamp(3rem, 8vh, 5.5rem) var(--gutter) 0;
   max-width: 1320px;
   margin: 0 auto;
@@ -422,58 +388,51 @@ figure.match img {
 .lmec-text-col {
   flex: 1;
   min-width: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
-.lmec-text-col .opening-eyebrow {
-  margin-bottom: 1.2rem;
-}
-.lmec-text-col .opening-text {
-  text-align: left;
-}
-
-/* Prose (texte continu) */
-.lmec-prose {
-  max-width: 860px;
-  margin: clamp(3.5rem, 8vh, 6rem) auto;
-  padding: 0 var(--gutter);
-}
-.lmec-prose .opening-text {
-  text-align: left;
-}
-.lmec-prose .epi-wrap {
-  margin: .5rem 0 2rem;
+.lmec-text-col .epi-wrap {
   max-width: none;
 }
 
-/* Photo (gauche) + texte (droite) */
-.lmec-photo-intro {
-  display: flex;
-  gap: clamp(1.5rem, 3vw, 3rem);
-  align-items: flex-start;
-  padding: clamp(2.5rem, 6vh, 4rem) var(--gutter) 0;
+/* Prose texte projet — pleine largeur, police fine */
+.lmec-prose {
   max-width: 1320px;
-  margin: 0 auto;
+  margin: clamp(3rem, 7vh, 5rem) auto 0;
+  padding: 0 var(--gutter);
 }
-.lmec-photo-col {
-  flex: 1;
-  min-width: 0;
+.lmec-prose .opening-eyebrow {
+  margin-bottom: 1.6rem;
 }
-.lmec-photo-col img {
+.lmec-prose .opening-text {
+  text-align: left;
+  font-weight: 300;
+  font-size: clamp(.82rem, 1vw, .92rem);
+  line-height: 1.85;
+  margin-bottom: 1.4rem;
+}
+.lmec-prose .epi-wrap {
+  margin: .5rem 0 1.8rem;
+  max-width: 60ch;
+}
+
+/* Photo inline dans le texte */
+.lmec-inline-photo {
+  max-width: 1320px;
+  margin: clamp(2rem, 5vh, 3.5rem) auto;
+  padding: 0 var(--gutter);
+}
+.lmec-inline-photo img {
   display: block;
   width: 100%;
   height: auto;
-}
-.lmec-photo-text {
-  flex: 1;
-  min-width: 0;
-}
-.lmec-photo-text .opening-text {
-  text-align: left;
 }
 
 /* ── Mobile ─────────────────────────────────────────── */
 @media (max-width: 700px) {
   .opening, .intro { flex-direction: column; gap: 2.5rem; }
-  .lmec-vid-intro, .lmec-photo-intro { flex-direction: column; }
+  .lmec-vid-intro { flex-direction: column; }
   .series { gap: 8px; }
   .spread { flex-wrap: wrap; gap: 8px; }
   .spread figure {
