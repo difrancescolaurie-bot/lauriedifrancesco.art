@@ -114,9 +114,13 @@ import '../../styles/pages/work-project.css';
   const fsBtn   = document.querySelector('.lmec-fullscreen-btn') as HTMLElement | null;
 
   if (vid && overlay) {
-    const hide = () => overlay.classList.add('hidden');
+    const showStart = Date.now();
+    const hide = () => {
+      const delay = Math.max(0, 2500 - (Date.now() - showStart));
+      setTimeout(() => overlay.classList.add('hidden'), delay);
+    };
     vid.addEventListener('playing', hide, { once: true });
-    overlay.addEventListener('click', () => { vid.play(); hide(); });
+    overlay.addEventListener('click', () => overlay.classList.add('hidden'));
   }
   if (fsBtn && vid) {
     fsBtn.addEventListener('click', () => {
