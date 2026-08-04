@@ -354,6 +354,27 @@ figure.match img {
   -webkit-hyphens: auto;
 }
 
+/* ── La Mer en Corps — prose sections ──────────────── */
+.opening-proj--stack {
+  justify-content: flex-start;
+  gap: 2.5rem;
+}
+.opening-proj--stack .epi-wrap {
+  max-width: none;
+}
+.lmec-prose {
+  max-width: 720px;
+  margin: clamp(3.5rem, 8vh, 6rem) auto;
+  padding: 0 var(--gutter);
+}
+.lmec-prose .opening-eyebrow {
+  margin-bottom: 2rem;
+}
+.lmec-prose .epi-wrap {
+  margin: .5rem 0 2rem;
+  max-width: none;
+}
+
 /* ── Mobile ─────────────────────────────────────────── */
 @media (max-width: 700px) {
   .opening, .intro { flex-direction: column; gap: 2.5rem; }
