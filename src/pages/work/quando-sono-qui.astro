@@ -45,45 +45,39 @@ const spreads: Spread[] = [
 
   <p class="phero-wip container">Work in progress</p>
 
-  <!-- ── Ouverture : photo + citations + photo ─────────────────── -->
+  <!-- ── Ouverture : grille photo / citations / photo ─────────────── -->
   <section class="opening-qsq container">
 
-    <!-- Colonne gauche : Photo 0 -->
-    <figure class="qsq-photo0">
+    <figure class="qsq-p0">
       <img src={s('0.jpg')} alt="" loading="lazy" />
     </figure>
 
-    <!-- Colonne droite : citations + photo 1, puis José Ramalho -->
-    <div class="qsq-right">
-
-      <!-- Rangée : Platon + Char (gauche) | Photo 1 (droite) -->
-      <div class="qsq-row1">
-        <div class="qsq-cites">
-          <div class="epi-wrap">
-            <blockquote class="epi-justify">
-              But what if someone dragged them along a steep and harsh ascent against their
-              will, and did not let go until they were dragged right into the sunlight? Would
-              they not feel pain and discomfort? And if they walked towards the sun and their
-              eyes suddenly filled with brilliant light, would they be able to see even one of
-              those things that are now called true realities?
-            </blockquote>
-            <cite>Plato — Republic, Book VII</cite>
-          </div>
-          <hr class="horizon epi-horizon" />
-          <div class="epi-wrap">
-            <blockquote>
-              Lucidity is the wound closest to the sun.
-            </blockquote>
-            <cite>René Char — Feuillets d'Hypnos (169)</cite>
-          </div>
-          <hr class="horizon epi-horizon" />
-        </div>
-        <figure class="qsq-photo1">
-          <img src={s('1.jpg')} alt="" loading="lazy" />
-        </figure>
+    <div class="qsq-cites">
+      <div class="epi-wrap">
+        <blockquote class="epi-justify">
+          But what if someone dragged them along a steep and harsh ascent against their
+          will, and did not let go until they were dragged right into the sunlight? Would
+          they not feel pain and discomfort? And if they walked towards the sun and their
+          eyes suddenly filled with brilliant light, would they be able to see even one of
+          those things that are now called true realities?
+        </blockquote>
+        <cite>Plato — Republic, Book VII</cite>
       </div>
+      <hr class="horizon epi-horizon" />
+      <div class="epi-wrap">
+        <blockquote>
+          Lucidity is the wound closest to the sun.
+        </blockquote>
+        <cite>René Char — Feuillets d'Hypnos (169)</cite>
+      </div>
+      <hr class="horizon epi-horizon" />
+    </div>
 
-      <!-- José Ramalho -->
+    <figure class="qsq-p1">
+      <img src={s('1.jpg')} alt="" loading="lazy" />
+    </figure>
+
+    <div class="qsq-ramalho">
       <div class="epi-wrap">
         <blockquote>
           A sombra que me move<br />
@@ -101,7 +95,6 @@ const spreads: Spread[] = [
         <cite>José Ramalho Neto — Galope Resante</cite>
       </div>
       <hr class="horizon epi-horizon" />
-
     </div>
 
   </section>
@@ -201,62 +194,51 @@ const spreads: Spread[] = [
 
   .phero-inner h1 strong { font-weight: 500; }
 
-  /* ── Ouverture : photo + citations + photo ──────────────── */
+  /* ── Ouverture : grille photo / citations / photo ──────────────── */
   .opening-qsq {
-    display: flex;
-    gap: 16px;
-    align-items: stretch;
+    display: grid;
+    grid-template-columns: 5fr 3fr 2fr;
+    grid-template-areas:
+      "p0 cites p1"
+      "p0 ramalho ramalho";
+    gap: clamp(2rem, 4vh, 3rem) 16px;
     padding-top: clamp(3rem, 8vh, 5.5rem);
     padding-bottom: clamp(3rem, 7vh, 5rem);
     max-width: 1320px;
   }
 
-  .qsq-photo0 {
-    flex: 1 1 0;
-    min-width: 0;
+  .qsq-p0 {
+    grid-area: p0;
     margin: 0;
     overflow: hidden;
   }
-
-  .qsq-photo0 img {
+  .qsq-p0 img {
     display: block;
     width: 100%;
     height: 100%;
     object-fit: cover;
-  }
-
-  .qsq-right {
-    flex: 1 1 0;
-    min-width: 0;
-    display: flex;
-    flex-direction: column;
-    gap: clamp(2rem, 4vh, 3rem);
-  }
-
-  .qsq-row1 {
-    display: flex;
-    gap: 16px;
-    align-items: stretch;
   }
 
   .qsq-cites {
-    flex: 1 1 0;
-    min-width: 0;
+    grid-area: cites;
     display: flex;
     flex-direction: column;
   }
 
-  .qsq-photo1 {
-    flex: 0 0 40%;
+  .qsq-p1 {
+    grid-area: p1;
     margin: 0;
     overflow: hidden;
   }
-
-  .qsq-photo1 img {
+  .qsq-p1 img {
     display: block;
     width: 100%;
     height: 100%;
     object-fit: cover;
+  }
+
+  .qsq-ramalho {
+    grid-area: ramalho;
   }
 
   /* Citations — structure identique à Work/About/En Corps */
@@ -415,13 +397,13 @@ const spreads: Spread[] = [
   /* ── Mobile ───────────────────────────────────────── */
   @media (max-width: 700px) {
     .opening-qsq {
-      flex-direction: column;
-      gap: 2rem;
+      grid-template-columns: 1fr 1fr;
+      grid-template-areas:
+        "p0 cites"
+        "ramalho p1";
+      gap: 1rem;
     }
-    .qsq-photo0 img { height: 60vw; }
-    .qsq-row1 { flex-direction: column; }
-    .qsq-photo1 { flex: 0 0 auto; }
-    .qsq-photo1 img { height: auto; }
+    .opening-qsq .epi-wrap { max-width: none; }
     .series { gap: 8px; }
     .spread { flex-wrap: wrap; gap: 8px; }
     .spread figure {
