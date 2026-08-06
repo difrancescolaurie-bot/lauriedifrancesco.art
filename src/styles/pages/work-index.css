@@ -206,7 +206,7 @@ body { background: #ECEAE4; }
 .p4-title-big {
   font-family: var(--font-title);
   font-weight: 500;
-  font-size: clamp(1.7rem, 3.5vw, 3rem);
+  font-size: clamp(1rem, 2vw, 1.6rem);
   letter-spacing: 0.005em;
   line-height: 1.08;
   color: var(--encre);
@@ -396,7 +396,7 @@ body { background: #ECEAE4; }
   .p4 .p4-img-row { margin-right: calc(-1 * var(--gutter)); }
   .p4 .proj-img { width: 88%; aspect-ratio: 3 / 2; }
   .p4 .p4-below { gap: 1.5rem; }
-  .p4-title-big { max-width: none; font-size: clamp(1.4rem, 5.5vw, 2rem); }
+  .p4-title-big { max-width: none; }
 
   /* P5 mobile : même comportement que P2 */
   .p5 {
