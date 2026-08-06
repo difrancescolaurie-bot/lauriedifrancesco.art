@@ -89,18 +89,20 @@ const projects = t.home.projects.map((p, i) => {
   <section class="p1">
     <div class="proj-head">
       <span class="wi-cerule">{projects[0].cerule}</span>
-      <h2 class="wi-title">{projects[0].title}</h2>
+      <h2 class="wi-title wi-title--quando">
+        <span class="qt-it">Quando sono qui, non sono là</span>
+        <span class="qt-fr">Quand je suis ici, je ne suis pas là-bas</span>
+        <span class="qt-pt">Quando estou aqui, não estou lá</span>
+      </h2>
     </div>
     <div class="p1-img-wrap">
       <a class="proj-img" href={projects[0].href}
          data-overlay-color={projects[0].overlayColor}
          data-overlay-cerule={projects[0].cerule}
-         data-overlay-title={projects[0].title}>
+         data-overlay-title={projects[0].title}
+         data-overlay-note={projects[0].note}>
         <img src={projects[0].image} alt={projects[0].title} loading="lazy" />
       </a>
-    </div>
-    <div class="p1-note">
-      <p class="wi-note">{projects[0].note}</p>
     </div>
   </section>
 
@@ -118,12 +120,10 @@ const projects = t.home.projects.map((p, i) => {
       <a class="proj-img" href={laMerEnCorps.href}
          data-overlay-color={laMerEnCorps.overlayColor}
          data-overlay-cerule={laMerEnCorps.cerule}
-         data-overlay-title={laMerEnCorps.title}>
+         data-overlay-title={laMerEnCorps.title}
+         data-overlay-note={laMerEnCorps.note}>
         <img src={laMerEnCorps.image} alt={laMerEnCorps.title} loading="lazy" />
       </a>
-    </div>
-    <div class="p6-note">
-      <p class="wi-note">{laMerEnCorps.note}</p>
     </div>
   </section>
 
@@ -140,14 +140,14 @@ const projects = t.home.projects.map((p, i) => {
       <a class="proj-img" href={projects[1].href}
          data-overlay-color={projects[1].overlayColor}
          data-overlay-cerule={projects[1].cerule}
-         data-overlay-title={projects[1].title}>
+         data-overlay-title={projects[1].title}
+         data-overlay-note={projects[1].note}>
         <img src={projects[1].image} alt={projects[1].title} loading="lazy" />
       </a>
     </div>
     <div class="p2-text-side">
       <span class="wi-cerule">{projects[1].cerule}</span>
       <h2 class="wi-title">{projects[1].title}</h2>
-      <p class="wi-note">{projects[1].note}</p>
     </div>
   </section>
 
@@ -160,13 +160,13 @@ const projects = t.home.projects.map((p, i) => {
     <a class="proj-img" href={projects[2].href}
        data-overlay-color={projects[2].overlayColor}
        data-overlay-cerule={projects[2].cerule}
-       data-overlay-title={projects[2].title}>
+       data-overlay-title={projects[2].title}
+       data-overlay-note={projects[2].note}>
       <img src={projects[2].image} alt={projects[2].title} loading="lazy" />
     </a>
     <div class="p3-meta">
       <span class="wi-cerule">{projects[2].cerule}</span>
       <h2 class="wi-title">{projects[2].title}</h2>
-      <p class="wi-note">{projects[2].note}</p>
     </div>
   </section>
 
@@ -180,7 +180,8 @@ const projects = t.home.projects.map((p, i) => {
       <a class="proj-img" href={projects[3].href}
          data-overlay-color={projects[3].overlayColor}
          data-overlay-cerule={projects[3].cerule}
-         data-overlay-title={projects[3].title}>
+         data-overlay-title={projects[3].title}
+         data-overlay-note={projects[3].note}>
         <img src={projects[3].image} alt={projects[3].title} loading="lazy" />
       </a>
     </div>
@@ -188,7 +189,6 @@ const projects = t.home.projects.map((p, i) => {
       <h2 class="p4-title-big">{projects[3].title}</h2>
       <div class="p4-right">
         <span class="wi-cerule">{projects[3].cerule}</span>
-        <p class="wi-note">{projects[3].note}</p>
       </div>
     </div>
   </section>
@@ -203,14 +203,14 @@ const projects = t.home.projects.map((p, i) => {
       <a class="proj-img" href={projects[4].href}
          data-overlay-color={projects[4].overlayColor}
          data-overlay-cerule={projects[4].cerule}
-         data-overlay-title={projects[4].title}>
+         data-overlay-title={projects[4].title}
+         data-overlay-note={projects[4].note}>
         <img src={projects[4].image} alt={projects[4].title} loading="lazy" />
       </a>
     </div>
     <div class="p5-text-side">
       <span class="wi-cerule">{projects[4].cerule}</span>
       <h2 class="wi-title">{projects[4].title}</h2>
-      <p class="wi-note">{projects[4].note}</p>
     </div>
   </section>
 
@@ -225,6 +225,7 @@ const projects = t.home.projects.map((p, i) => {
   <div id="fso-content">
     <span id="fso-cerule"></span>
     <p id="fso-title"></p>
+    <p id="fso-note"></p>
     <a id="fso-cta" href="#">{t.home.enter}</a>
   </div>
   <button id="fso-close" aria-label="Close">×</button>
@@ -235,6 +236,7 @@ const projects = t.home.projects.map((p, i) => {
   const fsoBg     = document.getElementById('fso-bg')!;
   const fsoCerule = document.getElementById('fso-cerule')!;
   const fsoTitle  = document.getElementById('fso-title')!;
+  const fsoNote   = document.getElementById('fso-note')!;
   const fsoCta    = document.getElementById('fso-cta') as HTMLAnchorElement;
   const fsoClose  = document.getElementById('fso-close')!;
   let hideTimer: ReturnType<typeof setTimeout>;
@@ -244,6 +246,7 @@ const projects = t.home.projects.map((p, i) => {
     fsoBg.style.background = el.dataset.overlayColor ?? 'rgba(20,32,43,.92)';
     fsoCerule.textContent  = el.dataset.overlayCerule ?? '';
     fsoTitle.textContent   = el.dataset.overlayTitle ?? '';
+    fsoNote.textContent    = el.dataset.overlayNote ?? '';
     fsoCta.href            = el.href;
     fso.setAttribute('aria-hidden', 'false');
     fso.classList.add('on');

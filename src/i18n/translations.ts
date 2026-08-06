@@ -109,7 +109,7 @@ export const ui = {
         { category: "Eau & ciel",        cerule: "Le bleu du ciel dans ses yeux",        note: "Lever les yeux vers le bleu du ciel.<br />Rêver à une insouciance perdue, ou jamais connue." },
         { category: "Mer & corps",       cerule: "Refaire surface",                      note: "Réapprendre à marcher, par l'eau et par les rêves." },
         { category: "Venise",            cerule: "Renaître. Un essai.",                  note: "Se tenir. Se lâcher. Exister dans son propre regard." },
-        { category: "",                  cerule: "Les lignes séparent-elles vraiment ?", note: "Quand la libre profusion des formes autour de nous, et le regard d'un autre, ont réécrit mon propre regard :<br />une œuvre née d'une rupture qui rapproche." },
+        { category: "",                  cerule: "Les lignes divisent-elles ?",           note: "Quand la libre profusion des formes autour de nous, et le regard d'un autre, ont réécrit mon propre regard :<br />une œuvre née d'une rupture qui rapproche." },
       ],
     },
     about: {
