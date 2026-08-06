@@ -29,6 +29,19 @@ export const ui = {
       description: "Laurie Di Francesco — artist-author working through photography and writing.",
       epigraph: 'All men by nature desire to know. An indication of this is the delight we take in our senses; for even apart from their usefulness they are loved for themselves; and above all others <span class="k">the sense of sight</span>.',
       epigraphCite: "Aristotle — Metaphysics, Book A",
+      bioLabels: {
+        origins: "Origins",
+        learning: "Learning",
+        approach: "Approach",
+        work: "Work",
+      },
+      refsLabels: {
+        collective: "Collective",
+        training: "Training",
+        workshops: "Workshops",
+        inspirations: "Inspirations",
+        collectiveFoundedBy: "founded by Oriane Ciantar Olive",
+      },
       bio: {
         p1: "Laurie Di Francesco is an artist-author working primarily through photography and writing.",
         p2: 'She grew up between France and Italy. This dual belonging made her grasp, very early, <span class="k">the strength and the fragility of the threshold</span>, and question what it means to be rooted — here or there, elsewhere or nowhere; a displacement that reaches even the language in which she thinks.',
@@ -118,6 +131,19 @@ export const ui = {
       description: "Laurie Di Francesco — artiste-auteure, photographie et écriture.",
       epigraph: 'Tous les hommes désirent naturellement savoir. Témoin, le plaisir que nous causent nos sensations ; car, même en dehors de leur utilité, elles nous plaisent par elles-mêmes ; et, plus que toutes les autres, <span class="k">la vue</span>.',
       epigraphCite: "Aristote — Métaphysique, Livre A",
+      bioLabels: {
+        origins: "Origines",
+        learning: "Formation",
+        approach: "Démarche",
+        work: "Travaux",
+      },
+      refsLabels: {
+        collective: "Collectif",
+        training: "Formation",
+        workshops: "Workshops",
+        inspirations: "Inspirations",
+        collectiveFoundedBy: "fondé par Oriane Ciantar Olive",
+      },
       bio: {
         p1: "Laurie Di Francesco est photographe et autrice. Son travail se tient entre le documentaire et le poétique, et revient toujours à la même question : qu'est-ce qui tient, quand le sol se dérobe. Les seuils, les déplacements, les corps obligés de réinventer leurs appuis.",
         p2: "Élevée entre la France et l'Italie, elle a appris tôt la force et la fragilité des seuils, et en est venue à interroger ce que veut dire être enracinée, un déplacement qui atteint jusqu'à la langue dans laquelle elle pense. Le bleu du ciel, identique d'un bout à l'autre de la terre, traverse son travail comme un point d'ancrage possible.",
@@ -207,6 +233,19 @@ export const ui = {
       description: "Laurie Di Francesco — artista-autrice, fotografia e scrittura.",
       epigraph: "Tutti gli uomini per natura tendono al sapere. Segno ne è l'amore per le sensazioni: infatti, essi amano le sensazioni per se stesse, anche indipendentemente dalla loro utilità, e, piú di tutte, amano <span class=\"k\">la sensazione della vista</span>.",
       epigraphCite: "Aristotele — Metafisica, Libro A",
+      bioLabels: {
+        origins: "Origini",
+        learning: "Formazione",
+        approach: "Approccio",
+        work: "Lavori",
+      },
+      refsLabels: {
+        collective: "Collettivo",
+        training: "Formazione",
+        workshops: "Workshop",
+        inspirations: "Ispirazioni",
+        collectiveFoundedBy: "fondato da Oriane Ciantar Olive",
+      },
       bio: {
         p1: "Laurie Di Francesco è fotografa e autrice. Il suo lavoro si muove tra il documentario e il poetico, e torna sempre alla stessa domanda: cosa regge, quando il terreno cede. Le soglie, gli spostamenti, i corpi costretti a reinventare i propri appoggi.",
         p2: "Cresciuta tra Francia e Italia, ha imparato presto la forza e la fragilità delle soglie, e ha finito per interrogare cosa significhi avere radici, uno spostamento che arriva fino alla lingua in cui pensa. L'azzurro del cielo, identico da un capo all'altro della terra, attraversa il suo lavoro come un possibile punto di ancoraggio.",
@@ -296,6 +335,19 @@ export const ui = {
       description: "Laurie Di Francesco — artista-autora, fotografia e escrita.",
       epigraph: 'Todos os homens desejam por natureza saber. Um indício disso é o prazer que sentimos pelas percepções sensíveis; pois, mesmo à parte de sua utilidade, elas são amadas por si mesmas; e, mais do que todas as outras, <span class="k">a visão</span>.',
       epigraphCite: "Aristóteles — Metafísica, Livro A",
+      bioLabels: {
+        origins: "Origens",
+        learning: "Formação",
+        approach: "Abordagem",
+        work: "Trabalhos",
+      },
+      refsLabels: {
+        collective: "Coletivo",
+        training: "Formação",
+        workshops: "Workshops",
+        inspirations: "Inspirações",
+        collectiveFoundedBy: "fundado por Oriane Ciantar Olive",
+      },
       bio: {
         p1: "Laurie Di Francesco é fotógrafa e autora. Seu trabalho se move entre o documental e o poético, e volta sempre à mesma pergunta: o que sustenta, quando o chão cede. Os limiares, os deslocamentos, os corpos obrigados a reinventar seus apoios.",
         p2: "Criada entre a França e a Itália, aprendeu cedo a força e a fragilidade dos limiares, e passou a questionar o que significa ter raízes, um deslocamento que alcança até a língua em que pensa. O azul do céu, igual de um extremo a outro da terra, atravessa seu trabalho como um possível ponto de ancoragem.",
