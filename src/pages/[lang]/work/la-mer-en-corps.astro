@@ -107,11 +107,10 @@ const content = {
     <div class="lmec-vid-col">
       <div class="lmec-video-wrap">
         <video
-          autoplay
           muted
           loop
           playsinline
-          preload="auto"
+          preload="none"
           poster="/images/work/la-mer-en-corps-cover.jpg"
         >
           <source src="/images/work/la-mer-en-corps/lamerenCorps.mp4" type="video/mp4" />
@@ -191,21 +190,25 @@ const content = {
   const overlay = document.querySelector('.lmec-video-overlay') as HTMLElement | null;
   const fsBtn   = document.querySelector('.lmec-fullscreen-btn') as HTMLElement | null;
 
-  // Vidéo verticale (reel Instagram) sur mobile
-  const vidSrc = vid?.querySelector('source') as HTMLSourceElement | null;
-  if (vidSrc && window.matchMedia('(max-width: 700px)').matches) {
-    vidSrc.src = '/images/work/la-mer-en-corps/lamerenCorps-mobile.mp4';
-    vid?.load();
+  // Source verticale (reel 9:16) sur mobile, avant tout chargement
+  if (vid && window.matchMedia('(max-width: 700px)').matches) {
+    const src = vid.querySelector('source') as HTMLSourceElement | null;
+    if (src) src.src = '/images/work/la-mer-en-corps/lamerenCorps-mobile.mp4';
   }
 
   if (vid && overlay) {
     const showStart = Date.now();
-    const hide = () => {
+    vid.addEventListener('playing', () => {
       const delay = Math.max(0, 2500 - (Date.now() - showStart));
       setTimeout(() => overlay.classList.add('hidden'), delay);
-    };
-    vid.addEventListener('playing', hide, { once: true });
-    overlay.addEventListener('click', () => overlay.classList.add('hidden'));
+    }, { once: true });
+
+    vid.load();
+    vid.play().catch(() => {});
+    overlay.addEventListener('click', () => {
+      overlay.classList.add('hidden');
+      vid.play().catch(() => {});
+    });
   }
   if (fsBtn && vid) {
     fsBtn.addEventListener('click', () => {
