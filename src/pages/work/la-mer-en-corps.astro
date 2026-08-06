@@ -113,6 +113,13 @@ import '../../styles/pages/work-project.css';
   const overlay = document.querySelector('.lmec-video-overlay') as HTMLElement | null;
   const fsBtn   = document.querySelector('.lmec-fullscreen-btn') as HTMLElement | null;
 
+  // Vidéo verticale (reel Instagram) sur mobile
+  const vidSrc = vid?.querySelector('source') as HTMLSourceElement | null;
+  if (vidSrc && window.matchMedia('(max-width: 700px)').matches) {
+    vidSrc.src = '/images/work/la-mer-en-corps/lamerenCorps-mobile.mp4';
+    vid?.load();
+  }
+
   if (vid && overlay) {
     const showStart = Date.now();
     const hide = () => {
