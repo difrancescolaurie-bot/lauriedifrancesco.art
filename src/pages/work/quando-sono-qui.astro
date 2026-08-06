@@ -1,5 +1,6 @@
 ---
 import Layout from '../../layouts/Layout.astro';
+import Citation from '../../components/Citation.astro';
 
 const s = (file: string) => `/images/work/quando-sono-qui/${file}`;
 
@@ -52,49 +53,37 @@ const spreads: Spread[] = [
       </figure>
       <div class="qsq-cites">
         <div class="qsq-cit">
-          <div class="epi-wrap">
-            <blockquote class="epi-justify">
-              But what if someone dragged them along a steep and harsh ascent against their
-              will, and did not let go until they were dragged right into the sunlight? Would
-              they not feel pain and discomfort? And if they walked towards the sun and their
-              eyes suddenly filled with brilliant light, would they be able to see even one of
-              those things that are now called true realities?
-            </blockquote>
-            <cite>Plato — Republic, Book VII</cite>
-          </div>
-          <hr class="horizon epi-horizon" />
+          <Citation author="Plato — Republic, Book VII" justify>
+            But what if someone dragged them along a steep and harsh ascent against their
+            will, and did not let go until they were dragged right into the sunlight? Would
+            they not feel pain and discomfort? And if they walked towards the sun and their
+            eyes suddenly filled with brilliant light, would they be able to see even one of
+            those things that are now called true realities?
+          </Citation>
         </div>
         <div class="qsq-cit">
-          <div class="epi-wrap">
-            <blockquote>
-              Lucidity is the wound closest to the sun.
-            </blockquote>
-            <cite>René Char — Feuillets d'Hypnos (169)</cite>
-          </div>
-          <hr class="horizon epi-horizon" />
+          <Citation author="René Char — Feuillets d'Hypnos (169)">
+            Lucidity is the wound closest to the sun.
+          </Citation>
         </div>
       </div>
     </div>
 
     <div class="qsq-row2">
       <div class="qsq-ramalho">
-        <div class="epi-wrap">
-          <blockquote>
-            A sombra que me move<br />
-            Também me ilumina<br />
-            Me leve nos cabelos<br />
-            Me lave na piscina<br />
-            Em cada ponto claro<br />
-            Cometa que cai no mar<br />
-            Em cada cor diferente<br />
-            Que tente me clarear<br />
-            É noite que vai chegar<br />
-            É claro que é de manhã<br />
-            É moça e anciã
-          </blockquote>
-          <cite>José Ramalho Neto — Galope Resante</cite>
-        </div>
-        <hr class="horizon epi-horizon" />
+        <Citation author="José Ramalho Neto — Galope Resante">
+          A sombra que me move<br />
+          Também me ilumina<br />
+          Me leve nos cabelos<br />
+          Me lave na piscina<br />
+          Em cada ponto claro<br />
+          Cometa que cai no mar<br />
+          Em cada cor diferente<br />
+          Que tente me clarear<br />
+          É noite que vai chegar<br />
+          É claro que é de manhã<br />
+          É moça e anciã
+        </Citation>
       </div>
       <figure class="qsq-p1">
         <img src={s('1.jpg')} alt="" loading="lazy" />
@@ -258,49 +247,6 @@ const spreads: Spread[] = [
     display: block;
     width: 100%;
     height: auto;
-  }
-
-  /* Citations — structure identique à Work/About/En Corps */
-  .epi-wrap {
-    border-left: 2px solid var(--cerule);
-    padding: .2rem 0 1.8rem 1.3rem;
-    max-width: 60ch;
-  }
-
-  .epi-wrap + .epi-horizon + .epi-wrap {
-    margin-top: 4.8rem;
-  }
-
-  .epi-wrap blockquote {
-    font-family: var(--font-title);
-    font-weight: 300;
-    font-style: italic;
-    font-size: clamp(.88rem, 1.2vw, 1rem);
-    line-height: 1.55;
-    color: var(--ardoise);
-  }
-  .epi-wrap blockquote.epi-justify {
-    text-align: justify;
-    hyphens: auto;
-    -webkit-hyphens: auto;
-  }
-  .epi-wrap .k {
-    color: var(--cerule);
-    font-weight: 500;
-  }
-
-  .epi-wrap cite {
-    display: block;
-    margin-top: .9rem;
-    font-style: normal;
-    font-size: .7rem;
-    letter-spacing: .14em;
-    text-transform: uppercase;
-    color: var(--cerule);
-  }
-
-  .epi-horizon {
-    margin-top: 0;
   }
 
   /* Colonne projet */

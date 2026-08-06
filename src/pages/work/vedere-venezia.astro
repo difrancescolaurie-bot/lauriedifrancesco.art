@@ -1,5 +1,6 @@
 ---
 import Layout from '../../layouts/Layout.astro';
+import Citation from '../../components/Citation.astro';
 
 const s = (file: string) => `/images/work/vedere-venezia/${file}`;
 
@@ -49,23 +50,19 @@ const spreads: Spread[] = [
       <figure class="vv-photo">
         <img src={s('1.jpg')} alt="" loading="lazy" />
       </figure>
-      <div class="vv-cite epi-wrap">
-        <blockquote set:html={aznavourEN} />
-        <cite>
-          Charles Aznavour — Que c'est triste Venise
-          <span class="epi-tradfr">free translation from the French</span>
-        </cite>
+      <div class="vv-cite">
+        <Citation author="Charles Aznavour — Que c'est triste Venise" note="free translation from the French">
+          <Fragment set:html={aznavourEN} />
+        </Citation>
       </div>
     </div>
 
     <!-- Rangée 2 : Dufourmantelle (gauche) + Photo 2 (droite, même hauteur) -->
     <div class="vv-row2">
-      <div class="vv-cite epi-wrap">
-        <blockquote class="epi-justify" set:html={dufourmantellEN} />
-        <cite>
-          Anne Dufourmantelle
-          <span class="epi-tradfr">free translation from the French</span>
-        </cite>
+      <div class="vv-cite">
+        <Citation author="Anne Dufourmantelle" note="free translation from the French" justify>
+          <Fragment set:html={dufourmantellEN} />
+        </Citation>
       </div>
       <figure class="vv-photo vv-photo--stretch">
         <img src={s('2.jpg')} alt="" loading="lazy" />
@@ -200,61 +197,8 @@ const spreads: Spread[] = [
 
   .vv-cite {
     flex: 1;
-    max-width: none;
   }
-
-  /* Citations — structure identique à Work/About/En Corps */
-  .epi-wrap {
-    border-left: 2px solid var(--cerule);
-    padding: .2rem 0 1.8rem 1.3rem;
-    max-width: 60ch;
-  }
-
-  .epi-wrap + .epi-horizon + .epi-wrap { margin-top: 4.8rem; }
-
-  .epi-wrap blockquote {
-    font-family: var(--font-title);
-    font-weight: 300;
-    font-style: italic;
-    font-size: clamp(.88rem, 1.2vw, 1rem);
-    line-height: 1.55;
-    color: var(--ardoise);
-  }
-
-  .epi-wrap blockquote.epi-justify {
-    text-align: justify;
-    hyphens: auto;
-    -webkit-hyphens: auto;
-  }
-
-  .epi-wrap .k {
-    color: var(--cerule);
-    font-weight: 500;
-  }
-
-  .epi-wrap cite {
-    display: block;
-    margin-top: .9rem;
-    font-style: normal;
-    font-size: .7rem;
-    letter-spacing: .14em;
-    text-transform: uppercase;
-    color: var(--cerule);
-  }
-
-  .epi-tradfr {
-    display: block;
-    font-size: .62rem;
-    letter-spacing: .08em;
-    text-transform: none;
-    font-style: italic;
-    color: var(--ardoise);
-    margin-top: .2rem;
-  }
-
-  .epi-horizon {
-    margin-top: 0;
-  }
+  .vv-cite .epi-wrap { max-width: none; }
 
   /* Colonne projet */
   .opening-eyebrow {

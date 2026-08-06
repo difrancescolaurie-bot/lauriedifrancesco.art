@@ -138,70 +138,9 @@
 }
 .intro-text em { font-style: italic; }
 
-/* ── Citations ─────────────────────────────────────── */
-.epi-wrap {
-  position: relative;
-  border-left: 2px solid var(--cerule);
-  padding: .2rem 0 1.8rem 1.3rem;
-  max-width: 60ch;
-}
-/* Coin L propre : trait vertical contrôlé + trait horizontal */
-.epi-wrap:has(cite) {
-  border-left: none;
-}
-.epi-wrap:has(cite)::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  bottom: .8rem; /* s'arrête exactement là où commence le trait horizontal */
-  left: 0;
-  width: 2px;
-  background: var(--cerule);
-}
-.epi-wrap:has(cite)::after {
-  content: '';
-  position: absolute;
-  bottom: .8rem;
-  left: 0;
-  width: 1.5rem;
-  height: 2px;
-  background: var(--cerule);
-}
+/* ── Citations — styles définis dans Citation.astro ── */
+/* .epi-wrap, .epi-horizon, .epi-tradfr, .k : voir src/components/Citation.astro */
 .epi-wrap + .epi-horizon + .epi-wrap { margin-top: 4.8rem; }
-.epi-wrap blockquote {
-  font-family: var(--font-title);
-  font-weight: 300;
-  font-style: italic;
-  font-size: clamp(.83rem, 1.05vw, .93rem);
-  line-height: 1.55;
-  color: var(--ardoise);
-}
-.epi-wrap blockquote.epi-justify {
-  text-align: justify;
-  hyphens: auto;
-  -webkit-hyphens: auto;
-}
-/* Mot-clé en bleu-gras, partout */
-.k { color: var(--cerule); font-weight: 500; }
-.epi-wrap cite {
-  display: block;
-  margin-top: .9rem;
-  font-style: normal;
-  font-size: .7rem;
-  letter-spacing: .14em;
-  text-transform: uppercase;
-  color: var(--cerule);
-}
-.epi-tradfr {
-  display: block;
-  font-size: .62rem;
-  letter-spacing: .08em;
-  text-transform: none;
-  font-style: italic;
-  color: var(--ardoise);
-  margin-top: .2rem;
-}
-.epi-horizon { margin-top: 0; }
 .spilling-horizon { margin-top: 1.8rem; }
 
 /* ── Série photographique ──────────────────────────── */
