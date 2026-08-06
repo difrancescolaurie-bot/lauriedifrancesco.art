@@ -61,14 +61,12 @@ const spreads: Spread[] = [
           </blockquote>
           <cite>Plato — Republic, Book VII</cite>
         </div>
-        <hr class="horizon epi-horizon" />
         <div class="epi-wrap">
           <blockquote>
             Lucidity is the wound closest to the sun.
           </blockquote>
           <cite>René Char — Feuillets d'Hypnos (169)</cite>
         </div>
-        <hr class="horizon epi-horizon" />
       </div>
     </div>
 
@@ -201,7 +199,7 @@ const spreads: Spread[] = [
     gap: 16px;
     margin-top: clamp(3rem, 8vh, 5.5rem);
     padding-top: clamp(3rem, 8vh, 5.5rem);
-    padding-bottom: clamp(3rem, 7vh, 5rem);
+    padding-bottom: 16px;
     max-width: 1320px;
     margin-inline: auto;
     padding-inline: var(--gutter);
@@ -228,10 +226,16 @@ const spreads: Spread[] = [
     flex: 1;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    gap: 16px;
+    border-left: 2px solid var(--cerule);
+    padding-left: 1.3rem;
   }
-  /* Annule le margin-top fixe entre citations — le space-between s'en charge */
-  .qsq-cites .epi-wrap + .epi-horizon + .epi-wrap { margin-top: 0; }
+  .qsq-cites .epi-wrap {
+    flex: 1;
+    border-left: none;
+    padding-left: 0;
+    max-width: none;
+  }
 
   /* Rangée 2 : Citation Ramalho (gauche) + Photo 1 bleue (droite) */
   .qsq-row2 {
