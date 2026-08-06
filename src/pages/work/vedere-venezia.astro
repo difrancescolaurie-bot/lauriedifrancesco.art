@@ -1,6 +1,7 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 import Citation from '../../components/Citation.astro';
+import NextProject from '../../components/NextProject.astro';
 
 const s = (file: string) => `/images/work/vedere-venezia/${file}`;
 
@@ -91,10 +92,7 @@ const spreads: Spread[] = [
   )}
 
   <!-- ── Projet suivant ─────────────────────────────────────── -->
-  <div class="next-project container">
-    <span class="next-label">Next project</span>
-    <a href="/work/spilling-beyond-the-lines">Spilling Beyond the Lines →</a>
-  </div>
+  <NextProject current="vedere-venezia" />
 
 </Layout>
 
@@ -274,37 +272,6 @@ const spreads: Spread[] = [
   @media (prefers-reduced-motion: reduce) {
     .rv { opacity: 1; transform: none; transition: none; }
   }
-
-  /* ── Next project ─────────────────────────────────── */
-  .next-project {
-    display: flex;
-    align-items: baseline;
-    justify-content: space-between;
-    gap: 1rem;
-    border-top: 1px solid var(--brume);
-    padding-block: clamp(3rem, 8vh, 6rem);
-    margin-top: clamp(2rem, 5vh, 3rem);
-  }
-
-  .next-label {
-    font-family: var(--font-body);
-    font-size: .72rem;
-    letter-spacing: .16em;
-    text-transform: uppercase;
-    color: var(--ardoise);
-  }
-
-  .next-project a {
-    font-family: var(--font-title);
-    font-weight: 400;
-    font-size: clamp(1.3rem, 3vw, 2rem);
-    text-transform: uppercase;
-    letter-spacing: .06em;
-    color: var(--encre);
-    transition: color .3s;
-  }
-
-  .next-project a:hover { color: var(--cerule); }
 
   /* ── Mobile ───────────────────────────────────────── */
   @media (max-width: 700px) {

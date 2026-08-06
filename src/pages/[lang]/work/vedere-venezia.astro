@@ -2,6 +2,7 @@
 import Layout from '../../../layouts/Layout.astro';
 import '../../../styles/pages/work-project.css';
 import Citation from '../../../components/Citation.astro';
+import NextProject from '../../../components/NextProject.astro';
 import { ui, type Lang } from '../../../i18n/translations';
 
 export function getStaticPaths() {
@@ -117,10 +118,7 @@ const spreads: Spread[] = [
   )}
 
   <!-- ── Projet suivant ─────────────────────────────────────── -->
-  <div class="next-project container">
-    <span class="next-label">{t.work.nextProject}</span>
-    <a href={`/${lang}/work/en-corps-en-la-mer`}>En Corps à la Mer →</a>
-  </div>
+  <NextProject current="vedere-venezia" lang={lang} label={t.work.nextProject} />
 
 </Layout>
 

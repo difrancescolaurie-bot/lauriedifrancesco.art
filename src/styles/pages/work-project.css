@@ -138,9 +138,48 @@
 }
 .intro-text em { font-style: italic; }
 
-/* ── Citations — styles définis dans Citation.astro ── */
-/* .epi-wrap, .epi-horizon, .epi-tradfr, .k : voir src/components/Citation.astro */
+/* ── Citations ─────────────────────────────────────── */
+/* Styles canoniques dans src/components/Citation.astro — dupliqués ici
+   pour les pages qui utilisent <div class="epi-wrap"> sans le composant */
+.epi-wrap {
+  border-left: 2px solid var(--cerule);
+  padding: .2rem 0 1.8rem 1.3rem;
+  max-width: 60ch;
+}
 .epi-wrap + .epi-horizon + .epi-wrap { margin-top: 4.8rem; }
+.epi-wrap blockquote {
+  font-family: var(--font-title);
+  font-weight: 300;
+  font-style: italic;
+  font-size: clamp(.88rem, 1.2vw, 1rem);
+  line-height: 1.55;
+  color: var(--ardoise);
+}
+.epi-wrap blockquote.epi-justify {
+  text-align: justify;
+  hyphens: auto;
+  -webkit-hyphens: auto;
+}
+.k { color: var(--cerule); font-weight: 500; }
+.epi-wrap cite {
+  display: block;
+  margin-top: .9rem;
+  font-style: normal;
+  font-size: .7rem;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--cerule);
+}
+.epi-tradfr {
+  display: block;
+  font-size: .62rem;
+  letter-spacing: .08em;
+  text-transform: none;
+  font-style: italic;
+  color: var(--ardoise);
+  margin-top: .2rem;
+}
+.epi-horizon { margin-top: 0; }
 .spilling-horizon { margin-top: 1.8rem; }
 
 /* ── Série photographique ──────────────────────────── */
@@ -248,33 +287,7 @@
 }
 .private-link a:hover { color: var(--cerule); }
 
-/* ── Next project ───────────────────────────────────── */
-.next-project {
-  display: flex;
-  align-items: baseline;
-  justify-content: space-between;
-  gap: 1rem;
-  border-top: 1px solid var(--brume);
-  padding-block: clamp(3rem, 8vh, 6rem);
-  margin-top: clamp(2rem, 5vh, 3rem);
-}
-.next-label {
-  font-family: var(--font-body);
-  font-size: .72rem;
-  letter-spacing: .16em;
-  text-transform: uppercase;
-  color: var(--ardoise);
-}
-.next-project a {
-  font-family: var(--font-title);
-  font-weight: 400;
-  font-size: clamp(1.3rem, 3vw, 2rem);
-  text-transform: uppercase;
-  letter-spacing: .06em;
-  color: var(--encre);
-  transition: color .3s;
-}
-.next-project a:hover { color: var(--cerule); }
+/* ── Next project — styles dans src/components/NextProject.astro ── */
 
 /* ── Figure crop aligned to row height ─────────────── */
 figure.match {

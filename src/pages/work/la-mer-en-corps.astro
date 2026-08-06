@@ -2,6 +2,7 @@
 import Layout from '../../layouts/Layout.astro';
 import '../../styles/pages/work-project.css';
 import Citation from '../../components/Citation.astro';
+import NextProject from '../../components/NextProject.astro';
 ---
 
 <Layout
@@ -93,10 +94,7 @@ import Citation from '../../components/Citation.astro';
   </div>
 
   <!-- ── Projet suivant ───────────────────────────────────── -->
-  <div class="next-project container">
-    <span class="next-label">Next project</span>
-    <a href="/work/toward-the-blue">Toward the Blue →</a>
-  </div>
+  <NextProject current="la-mer-en-corps" />
 
 </Layout>
 

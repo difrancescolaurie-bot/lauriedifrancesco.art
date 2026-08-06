@@ -1,5 +1,6 @@
 ---
 import Layout from '../../layouts/Layout.astro';
+import NextProject from '../../components/NextProject.astro';
 
 const SQ = 'https://images.squarespace-cdn.com/content/v1/5fa6cb9fbca79b7a7020b762';
 const s = (path: string) => `/images/spilling/${path}`;
@@ -140,10 +141,7 @@ const spreads: Spread[] = [
   </div>
 
   <!-- ── Projet suivant ─────────────────────────────────────── -->
-  <div class="next-project container">
-    <span class="next-label">Next project</span>
-    <a href="/work/la-mer-en-corps">La Mer en Corps →</a>
-  </div>
+  <NextProject current="spilling-beyond-the-lines" />
 
 </Layout>
 
@@ -456,37 +454,6 @@ const spreads: Spread[] = [
     color: var(--ardoise);
     margin: 0;
   }
-
-  /* ── Next project ─────────────────────────────────── */
-  .next-project {
-    display: flex;
-    align-items: baseline;
-    justify-content: space-between;
-    gap: 1rem;
-    border-top: 1px solid var(--brume);
-    padding-block: clamp(3rem, 8vh, 6rem);
-    margin-top: clamp(2rem, 5vh, 3rem);
-  }
-
-  .next-label {
-    font-family: var(--font-body);
-    font-size: .72rem;
-    letter-spacing: .16em;
-    text-transform: uppercase;
-    color: var(--ardoise);
-  }
-
-  .next-project a {
-    font-family: var(--font-title);
-    font-weight: 400;
-    font-size: clamp(1.3rem, 3vw, 2rem);
-    text-transform: uppercase;
-    letter-spacing: .06em;
-    color: var(--encre);
-    transition: color .3s;
-  }
-
-  .next-project a:hover { color: var(--cerule); }
 
   /* ── Mobile ───────────────────────────────────────── */
   @media (max-width: 700px) {

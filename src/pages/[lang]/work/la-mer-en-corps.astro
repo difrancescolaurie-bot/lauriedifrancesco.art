@@ -2,6 +2,7 @@
 import Layout from '../../../layouts/Layout.astro';
 import '../../../styles/pages/work-project.css';
 import Citation from '../../../components/Citation.astro';
+import NextProject from '../../../components/NextProject.astro';
 import { ui, type Lang } from '../../../i18n/translations';
 
 export function getStaticPaths() {
@@ -172,10 +173,7 @@ const content = {
   </div>
 
   <!-- ── Projet suivant ───────────────────────────────────── -->
-  <div class="next-project container">
-    <span class="next-label">{t.work.nextProject}</span>
-    <a href={`/${lang}/work/toward-the-blue`}>Toward the Blue →</a>
-  </div>
+  <NextProject current="la-mer-en-corps" lang={lang} label={t.work.nextProject} />
 
 </Layout>
 

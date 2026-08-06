@@ -1,0 +1,51 @@
+---
+import { getNextProject } from '../data/projects';
+
+interface Props {
+  current: string;
+  lang?: string;
+  label?: string;
+}
+
+const { current, lang, label = 'Next project' } = Astro.props;
+const next = getNextProject(current);
+const href = next
+  ? (lang ? `/${lang}/work/${next.slug}` : `/work/${next.slug}`)
+  : null;
+---
+
+{next && href && (
+  <div class="next-project container">
+    <span class="next-label">{label}</span>
+    <a href={href}>{next.title} →</a>
+  </div>
+)}
+
+<style is:global>
+  .next-project {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 1rem;
+    border-top: 1px solid var(--brume);
+    padding-block: clamp(3rem, 8vh, 6rem);
+    margin-top: clamp(2rem, 5vh, 3rem);
+  }
+  .next-label {
+    font-family: var(--font-body);
+    font-size: .72rem;
+    letter-spacing: .16em;
+    text-transform: uppercase;
+    color: var(--ardoise);
+  }
+  .next-project a {
+    font-family: var(--font-title);
+    font-weight: 400;
+    font-size: clamp(1.3rem, 3vw, 2rem);
+    text-transform: uppercase;
+    letter-spacing: .06em;
+    color: var(--encre);
+    transition: color .3s;
+  }
+  .next-project a:hover { color: var(--cerule); }
+</style>

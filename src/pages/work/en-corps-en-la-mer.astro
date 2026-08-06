@@ -1,5 +1,7 @@
 ---
 import Layout from '../../layouts/Layout.astro';
+import Citation from '../../components/Citation.astro';
+import NextProject from '../../components/NextProject.astro';
 
 const s = (file: string) => `/images/work/en-corps-en-la-mer/${file}`;
 
@@ -61,27 +63,19 @@ const spreads: Spread[] = [
       <!-- Rangée : Nietzsche + Marin (gauche) | Photo 52 (droite) -->
       <div class="ecm-row1">
         <div class="ecm-cites">
-          <div class="epi-wrap">
-            <blockquote>
-              That fundamental artistic phenomenon which is called <span class="k">life</span>
-            </blockquote>
-            <cite>Friedrich Nietzsche — Posthumous Fragments</cite>
-          </div>
-          <hr class="horizon epi-horizon" />
-          <div class="epi-wrap">
-            <blockquote class="epi-justify">
-              <span class="k">Dreams and water are two worlds where I recover a little balance, a little lightness,
-              where I live again the pleasure of movement.</span> Held within the water's sheath, my body
-              lets go of its pain. It fades, dissolves, vanishes. My movements turn fluid, easy;
-              my body supple, almost deft. Gone, the tender catching-points: the hips, the elbows —
-              nothing rasps anymore, nothing chafes, nothing tears. I remember dreaming I was a mermaid.
-              My legs were imprisoned in a cocoon formed by the sheets, wound tight from turning and
-              turning on myself in search of a position without pain. In the dream, the mummification
-              had been transfigured into a power of movement.
-            </blockquote>
-            <cite>Claire Marin — Hors de moi <span class="epi-tradfr">freely translated from the French</span></cite>
-          </div>
-          <hr class="horizon epi-horizon" />
+          <Citation author="Friedrich Nietzsche — Posthumous Fragments">
+            That fundamental artistic phenomenon which is called <span class="k">life</span>
+          </Citation>
+          <Citation author="Claire Marin — Hors de moi" note="freely translated from the French" justify>
+            <span class="k">Dreams and water are two worlds where I recover a little balance, a little lightness,
+            where I live again the pleasure of movement.</span> Held within the water's sheath, my body
+            lets go of its pain. It fades, dissolves, vanishes. My movements turn fluid, easy;
+            my body supple, almost deft. Gone, the tender catching-points: the hips, the elbows —
+            nothing rasps anymore, nothing chafes, nothing tears. I remember dreaming I was a mermaid.
+            My legs were imprisoned in a cocoon formed by the sheets, wound tight from turning and
+            turning on myself in search of a position without pain. In the dream, the mummification
+            had been transfigured into a power of movement.
+          </Citation>
         </div>
         <figure class="ecm-photo1">
           <img src={s('52.jpg')} alt="" loading="lazy" />
@@ -143,10 +137,7 @@ const spreads: Spread[] = [
   </div>
 
   <!-- ── Projet suivant ─────────────────────────────────────── -->
-  <div class="next-project container">
-    <span class="next-label">Next project</span>
-    <a href="/work/vedere-venezia">Vedere Venezia e Non Morire →</a>
-  </div>
+  <NextProject current="en-corps-en-la-mer" />
 
 </Layout>
 
@@ -275,68 +266,6 @@ const spreads: Spread[] = [
     flex-direction: column;
   }
 
-  /* Citations — structure identique à Work/About */
-  .epi-wrap {
-    border-left: 2px solid var(--cerule);
-    padding: .2rem 0 1.8rem 1.3rem;
-    max-width: 60ch;
-  }
-
-  .epi-wrap + .epi-horizon + .epi-wrap {
-    margin-top: 4.8rem;
-  }
-
-  .epi-wrap blockquote {
-    font-family: var(--font-title);
-    font-weight: 300;
-    font-style: italic;
-    font-size: clamp(.88rem, 1.2vw, 1rem);
-    line-height: 1.55;
-    color: var(--ardoise);
-  }
-  .epi-wrap blockquote.epi-justify {
-    text-align: justify;
-    hyphens: auto;
-    -webkit-hyphens: auto;
-  }
-  .phero-wip {
-    font-family: var(--font-body);
-    font-size: 1rem;
-    text-transform: uppercase;
-    letter-spacing: .18em;
-    color: var(--ardoise);
-    padding-top: clamp(2.5rem, 6vh, 4rem);
-  }
-
-  .epi-wrap .k {
-    color: var(--cerule);
-    font-weight: 500;
-  }
-
-  .epi-wrap cite {
-    display: block;
-    margin-top: .9rem;
-    font-style: normal;
-    font-size: .7rem;
-    letter-spacing: .14em;
-    text-transform: uppercase;
-    color: var(--cerule);
-  }
-
-  .epi-tradfr {
-    display: block;
-    font-size: .62rem;
-    letter-spacing: .08em;
-    text-transform: none;
-    font-style: italic;
-    color: var(--ardoise);
-    margin-top: .2rem;
-  }
-
-  .epi-horizon {
-    margin-top: 0;
-  }
-
   /* Colonne projet */
   .opening-eyebrow {
     font-family: var(--font-body);
@@ -438,37 +367,6 @@ const spreads: Spread[] = [
   }
 
   .private-link a:hover { color: var(--cerule); }
-
-  /* ── Next project ─────────────────────────────────── */
-  .next-project {
-    display: flex;
-    align-items: baseline;
-    justify-content: space-between;
-    gap: 1rem;
-    border-top: 1px solid var(--brume);
-    padding-block: clamp(3rem, 8vh, 6rem);
-    margin-top: clamp(2rem, 5vh, 3rem);
-  }
-
-  .next-label {
-    font-family: var(--font-body);
-    font-size: .72rem;
-    letter-spacing: .16em;
-    text-transform: uppercase;
-    color: var(--ardoise);
-  }
-
-  .next-project a {
-    font-family: var(--font-title);
-    font-weight: 400;
-    font-size: clamp(1.3rem, 3vw, 2rem);
-    text-transform: uppercase;
-    letter-spacing: .06em;
-    color: var(--encre);
-    transition: color .3s;
-  }
-
-  .next-project a:hover { color: var(--cerule); }
 
   /* ── Project credits ─────────────────────────────── */
   .project-credits {
