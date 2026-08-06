@@ -51,7 +51,6 @@ type Spread = { type: 'row' | 'single'; photos: Photo[] };
 const p = (n: number): Photo => ({ src: s(`${n}.jpg`), n });
 
 const spreads: Spread[] = [
-  { type: 'row',    photos: [p(0), p(1)] },
   { type: 'row',    photos: [p(2), p(3), p(4)] },
   { type: 'single', photos: [p(5)] },
   { type: 'row',    photos: [p(6), p(7)] },
@@ -86,38 +85,46 @@ const spreads: Spread[] = [
 
   <p class="phero-wip container">{t.home.creedEyebrow}</p>
 
-  <!-- ── Ouverture 2 colonnes ──────────────────────────────── -->
-  <section class="opening container">
+  <!-- ── Ouverture : rangée 1 photo + citations, rangée 2 citation + photo ── -->
+  <section class="opening-qsq">
 
-    <!-- Colonne gauche : Platon + René Char -->
-    <div class="opening-epi">
-
-      <Citation author={content.platoSrc} justify>
-        {content.plato}
-      </Citation>
-      <Citation author={content.charSrc}>
-        {content.char}
-      </Citation>
-
+    <div class="qsq-row1">
+      <figure class="qsq-p0">
+        <img src={s('0.jpg')} alt="" loading="lazy" />
+      </figure>
+      <div class="qsq-cites">
+        <div class="qsq-cit">
+          <Citation author={content.platoSrc} justify>
+            {content.plato}
+          </Citation>
+        </div>
+        <div class="qsq-cit">
+          <Citation author={content.charSrc}>
+            {content.char}
+          </Citation>
+        </div>
+      </div>
     </div>
 
-    <!-- Colonne droite : José Ramalho (toujours en PT) + texte du projet -->
-    <div class="opening-proj">
-
-      <Citation author="José Ramalho Neto — Galope Resante">
-        A sombra que me move<br />
-        Também me ilumina<br />
-        Me leve nos cabelos<br />
-        Me lave na piscina<br />
-        Em cada ponto claro<br />
-        Cometa que cai no mar<br />
-        Em cada cor diferente<br />
-        Que tente me clarear<br />
-        É noite que vai chegar<br />
-        É claro que é de manhã<br />
-        É moça e anciã
-      </Citation>
-
+    <div class="qsq-row2">
+      <div class="qsq-ramalho">
+        <Citation author="José Ramalho Neto — Galope Resante">
+          A sombra que me move<br />
+          Também me ilumina<br />
+          Me leve nos cabelos<br />
+          Me lave na piscina<br />
+          Em cada ponto claro<br />
+          Cometa que cai no mar<br />
+          Em cada cor diferente<br />
+          Que tente me clarear<br />
+          É noite que vai chegar<br />
+          É claro que é de manhã<br />
+          É moça e anciã
+        </Citation>
+      </div>
+      <figure class="qsq-p1">
+        <img src={s('1.jpg')} alt="" loading="lazy" />
+      </figure>
     </div>
 
   </section>
@@ -156,7 +163,35 @@ const spreads: Spread[] = [
 </Layout>
 
 <style is:global>
-  .opening-proj { justify-content: flex-start; }
+  /* ── Ouverture : deux rangées flex ─────────────────────────────── */
+  .opening-qsq {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin-top: clamp(3rem, 8vh, 5.5rem);
+    padding-top: clamp(3rem, 8vh, 5.5rem);
+    padding-bottom: 16px;
+    max-width: 1320px;
+    margin-inline: auto;
+    padding-inline: var(--gutter);
+  }
+  .qsq-row1 { display: flex; gap: 16px; align-items: stretch; }
+  .qsq-p0 { flex: 0 0 55%; margin: 0; }
+  .qsq-p0 img { display: block; width: 100%; height: auto; }
+  .qsq-cites { flex: 1; display: flex; flex-direction: column; justify-content: space-between; }
+  .qsq-cites .epi-wrap { max-width: none; }
+  .qsq-row2 { display: flex; gap: 16px; align-items: flex-start; }
+  .qsq-ramalho { flex: 1; min-width: 0; }
+  .qsq-ramalho .epi-wrap { max-width: none; }
+  .qsq-p1 { flex: 0 0 41%; margin: 0; }
+  .qsq-p1 img { display: block; width: 100%; height: auto; }
+  @media (max-width: 700px) {
+    .opening-qsq { gap: 1rem; }
+    .qsq-row1, .qsq-row2 { flex-direction: column; gap: 1rem; }
+    .qsq-p0 { flex: 0 0 auto; }
+    .qsq-p1 { flex: 0 0 auto; }
+    .opening-qsq .epi-wrap { max-width: none; }
+  }
   .spread figure img { cursor: zoom-in; }
   .lb { position: fixed; inset: 0; background: rgba(20,32,43,.94); display: none; align-items: center; justify-content: center; z-index: 200; }
   .lb.open { display: flex; }

@@ -38,7 +38,6 @@ const content = {
 }[lang as 'fr' | 'it' | 'pt'];
 
 const spreads: Spread[] = [
-  { type: 'row',    photos: [p(1), p(2)] },
   { type: 'single', photos: [p(3)] },
   { type: 'row',    photos: [p(4), p(5)] },
   { type: 'row',    photos: [p(6), p(7), p(8)] },
@@ -67,25 +66,39 @@ const spreads: Spread[] = [
   </section>
 
   <!-- ── Épigraphes ──────────────────────────────────────────── -->
-  <section class="opening container">
-    <div class="opening-epi">
+  <section class="opening-vv container">
 
-      <Citation
-        author="Charles Aznavour — Que c'est triste Venise"
-        note={('tradfr' in content) ? (content as any).tradfr : undefined}
-      >
-        <Fragment set:html={content.aznavourPoem} />
-      </Citation>
-
-      <Citation
-        author="Anne Dufourmantelle"
-        note={('tradfr' in content) ? (content as any).tradfr : undefined}
-        justify
-      >
-        <Fragment set:html={content.dufourmantelle} />
-      </Citation>
-
+    <!-- Rangée 1 : Photo 1 (gauche) + Aznavour (droite) -->
+    <div class="vv-row1">
+      <figure class="vv-photo">
+        <img src={s('1.jpg')} alt="" loading="lazy" />
+      </figure>
+      <div class="vv-cite">
+        <Citation
+          author="Charles Aznavour — Que c'est triste Venise"
+          note={('tradfr' in content) ? (content as any).tradfr : undefined}
+        >
+          <Fragment set:html={content.aznavourPoem} />
+        </Citation>
+      </div>
     </div>
+
+    <!-- Rangée 2 : Dufourmantelle (gauche) + Photo 2 (droite) -->
+    <div class="vv-row2">
+      <div class="vv-cite">
+        <Citation
+          author="Anne Dufourmantelle"
+          note={('tradfr' in content) ? (content as any).tradfr : undefined}
+          justify
+        >
+          <Fragment set:html={content.dufourmantelle} />
+        </Citation>
+      </div>
+      <figure class="vv-photo vv-photo--stretch">
+        <img src={s('2.jpg')} alt="" loading="lazy" />
+      </figure>
+    </div>
+
   </section>
 
   <!-- ── Série photographique ──────────────────────────────── -->
@@ -112,12 +125,33 @@ const spreads: Spread[] = [
 </Layout>
 
 <style is:global>
+  /* ── Épigraphes : 2 rangées photo + citation ─────── */
+  .opening-vv {
+    display: flex;
+    flex-direction: column;
+    gap: clamp(2.5rem, 5vh, 4rem);
+    padding-top: clamp(3rem, 8vh, 5.5rem);
+    padding-bottom: clamp(3rem, 7vh, 5rem);
+    max-width: 1320px;
+  }
+  .vv-row1, .vv-row2 { display: flex; gap: clamp(1.5rem, 3vw, 3rem); }
+  .vv-row1 { align-items: center; }
+  .vv-row2 { align-items: stretch; }
+  .vv-photo { flex: 0 0 50%; margin: 0; overflow: hidden; }
+  .vv-photo img { display: block; width: 100%; height: auto; }
+  .vv-photo--stretch img { height: 100%; object-fit: cover; }
+  .vv-cite { flex: 1; }
+  .vv-cite .epi-wrap { max-width: none; }
+
   .spread figure img { cursor: zoom-in; }
 
   /* Photos 10+11 : hauteurs égales sur mobile */
   @media (max-width: 700px) {
-    .vv-series > div:nth-child(6) { align-items: stretch; }
-    .vv-series > div:nth-child(6) figure img { object-fit: cover; height: 100%; }
+    .vv-row1, .vv-row2 { flex-direction: column; }
+    .vv-photo { flex: 0 0 auto; }
+    .vv-photo img, .vv-photo--stretch img { height: auto; object-fit: unset; }
+    .vv-series > div:nth-child(5) { align-items: stretch; }
+    .vv-series > div:nth-child(5) figure img { object-fit: cover; height: 100%; }
   }
   .lb { position: fixed; inset: 0; background: rgba(20,32,43,.94); display: none; align-items: center; justify-content: center; z-index: 200; }
   .lb.open { display: flex; }
