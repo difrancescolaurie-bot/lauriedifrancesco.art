@@ -1,6 +1,7 @@
 ---
 import Layout from '../../../layouts/Layout.astro';
 import '../../../styles/pages/work-project.css';
+import Citation from '../../../components/Citation.astro';
 import NextProject from '../../../components/NextProject.astro';
 import { ui, type Lang } from '../../../i18n/translations';
 
@@ -104,18 +105,14 @@ const spreads: Spread[] = [
   <section class="intro">
 
     <div class="intro-epi">
-      <div class="epi-wrap">
-        <blockquote>
-          Por algum tempo<br />
-          Que afinal passou depressa, como tudo tem de passar<br />
-          Hoje eu me sinto<br />
-          Como se ter ido fosse necessário para voltar<br />
-          Tanto mais vivo<br />
-          De vida mais vivida, dividida pra lá e pra cá
-        </blockquote>
-        <cite>Gilberto Gil — Back in Bahia</cite>
-      </div>
-      <hr class="horizon spilling-horizon" />
+      <Citation author="Gilberto Gil — Back in Bahia">
+        Por algum tempo<br />
+        Que afinal passou depressa, como tudo tem de passar<br />
+        Hoje eu me sinto<br />
+        Como se ter ido fosse necessário para voltar<br />
+        Tanto mais vivo<br />
+        De vida mais vivida, dividida pra lá e pra cá
+      </Citation>
     </div>
 
     <div class="intro-proj">

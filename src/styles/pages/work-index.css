@@ -24,43 +24,7 @@ body { background: #ECEAE4; }
   line-height: 1.04;
 }
 
-.wi-epi {
-  margin-top: 1.6rem;
-  border-left: 2px solid var(--cerule);
-  padding: .2rem 0 .2rem 1.3rem;
-  max-width: 60ch;
-}
-
-.wi-epi blockquote {
-  font-family: var(--font-title);
-  font-weight: 300;
-  font-style: italic;
-  font-size: clamp(.88rem, 1.2vw, 1rem);
-  line-height: 1.55;
-  color: var(--ardoise);
-  text-align: justify;
-  hyphens: auto;
-  -webkit-hyphens: auto;
-}
-
-.wi-epi .k {
-  color: var(--cerule);
-  font-weight: 500;
-}
-
-.wi-epi cite {
-  display: block;
-  margin-top: .9rem;
-  font-style: normal;
-  font-size: .7rem;
-  letter-spacing: .14em;
-  text-transform: uppercase;
-  color: var(--cerule);
-}
-
-.wi-horizon {
-  margin-top: 1.8rem;
-}
+.wi-head .epi-wrap { margin-top: 1.6rem; }
 
 /* ── Project text atoms (tailles identiques partout) */
 .wi-cerule {

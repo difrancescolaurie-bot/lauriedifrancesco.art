@@ -1,6 +1,7 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 import '../../styles/pages/work-index.css';
+import Citation from '../../components/Citation.astro';
 
 const projects = [
   {
@@ -64,16 +65,11 @@ const projects = [
     <p class="wi-eyebrow">Projects</p>
     <h1 class="wi-h1">Stories in Images</h1>
 
-    <div class="wi-epi">
-      <blockquote>
-        To photograph is the process of discovering the other and, through the other, oneself.<br />
-        Ultimately, that is why the photographer seeks and discovers new worlds, but always ends
-        up <span class="k">revealing what lies within</span>.
-      </blockquote>
-      <cite>Claudia Andujar</cite>
-    </div>
-
-    <hr class="horizon wi-horizon" />
+    <Citation author="Claudia Andujar" justify>
+      To photograph is the process of discovering the other and, through the other, oneself.
+      Ultimately, that is why the photographer seeks and discovers new worlds, but always ends
+      up <span class="k">revealing what lies within</span>.
+    </Citation>
   </section>
 
   <div class="wi-projects">

@@ -3,13 +3,13 @@ interface Props {
   author?: string;
   note?: string;        // note secondaire en petit italique (ex: "free translation from the French")
   justify?: boolean;    // text-align: justify sur le blockquote
-  hr?: boolean;         // affiche le trait horizontal après (défaut: true)
+  hr?: boolean;         // affiche le trait horizontal (défaut: true)
 }
 
 const { author, note, justify = false, hr = true } = Astro.props;
 ---
 
-<div class="epi-wrap">
+<div class:list={['epi-wrap', { 'epi-wrap--hr': hr }]}>
   <blockquote class:list={[{ 'epi-justify': justify }]}>
     <slot />
   </blockquote>
@@ -20,13 +20,29 @@ const { author, note, justify = false, hr = true } = Astro.props;
     </cite>
   )}
 </div>
-{hr && <hr class="horizon epi-horizon" />}
 
 <style is:global>
   .epi-wrap {
     border-left: 2px solid var(--cerule);
     padding: .2rem 0 1.8rem 1.3rem;
     max-width: 60ch;
+  }
+
+  /* Le trait horizontal est un ::after ancré dans l'élément :
+     aucun margin externe sur .epi-wrap ne peut créer d'espace entre le
+     border-left et le trait, garantissant qu'ils se rejoignent toujours. */
+  .epi-wrap--hr {
+    padding-bottom: 0;
+  }
+  .epi-wrap--hr::after {
+    content: '';
+    display: block;
+    width: var(--horizon-width, 64px);
+    height: var(--horizon-height, 1.5px);
+    background: var(--cerule);
+    margin-top: 1.8rem;
+    /* aligne le trait avec le bord gauche du border-left */
+    margin-left: calc(-1.3rem - 2px);
   }
 
   .epi-wrap blockquote {
@@ -67,9 +83,5 @@ const { author, note, justify = false, hr = true } = Astro.props;
     font-style: italic;
     color: var(--ardoise);
     margin-top: .2rem;
-  }
-
-  .epi-horizon {
-    margin-top: 0;
   }
 </style>

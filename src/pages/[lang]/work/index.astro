@@ -1,6 +1,7 @@
 ---
 import Layout from '../../../layouts/Layout.astro';
 import '../../../styles/pages/work-index.css';
+import Citation from '../../../components/Citation.astro';
 import { ui, type Lang } from '../../../i18n/translations';
 
 export function getStaticPaths() {
@@ -75,12 +76,9 @@ const projects = t.home.projects.map((p, i) => {
     <p class="wi-eyebrow">{t.nav.work}</p>
     <h1 class="wi-h1">{t.work.h1}</h1>
 
-    <div class="wi-epi">
-      <blockquote set:html={t.work.quoteHtml} />
-      <cite>{t.work.quoteCite}</cite>
-    </div>
-
-    <hr class="horizon wi-horizon" />
+    <Citation author={t.work.quoteCite} justify>
+      <Fragment set:html={t.work.quoteHtml} />
+    </Citation>
   </section>
 
   <div class="wi-projects">
