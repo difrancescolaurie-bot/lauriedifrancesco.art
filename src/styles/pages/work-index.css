@@ -50,10 +50,11 @@ body { background: #ECEAE4; }
 .wi-title--quando {
   display: flex;
   flex-direction: column;
-  font-weight: 300;
-  font-size: clamp(1rem, 2.2vw, 1.65rem);
-  line-height: 1.35;
+  font-size: clamp(1rem, 2vw, 1.6rem);
+  line-height: 1.2;
 }
+
+.wi-title--quando span { white-space: nowrap; }
 .qt-it { color: var(--encre); }
 .qt-fr { color: var(--cerule); }
 .qt-pt { color: var(--ardoise); }
