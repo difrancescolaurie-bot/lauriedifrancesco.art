@@ -1,6 +1,7 @@
 ---
 import Layout from '../../../layouts/Layout.astro';
 import '../../../styles/pages/work-project.css';
+import Citation from '../../../components/Citation.astro';
 import { ui, type Lang } from '../../../i18n/translations';
 
 export function getStaticPaths() {
@@ -69,23 +70,20 @@ const spreads: Spread[] = [
   <section class="opening container">
     <div class="opening-epi">
 
-      <div class="epi-wrap">
-        <blockquote set:html={content.aznavourPoem} />
-        <cite>
-          Charles Aznavour — Que c'est triste Venise
-          {('tradfr' in content) && <span class="epi-tradfr">{(content as any).tradfr}</span>}
-        </cite>
-      </div>
-      <hr class="horizon epi-horizon" />
+      <Citation
+        author="Charles Aznavour — Que c'est triste Venise"
+        note={('tradfr' in content) ? (content as any).tradfr : undefined}
+      >
+        <Fragment set:html={content.aznavourPoem} />
+      </Citation>
 
-      <div class="epi-wrap">
-        <blockquote class="epi-justify" set:html={content.dufourmantelle} />
-        <cite>
-          Anne Dufourmantelle
-          {('tradfr' in content) && <span class="epi-tradfr">{(content as any).tradfr}</span>}
-        </cite>
-      </div>
-      <hr class="horizon epi-horizon" />
+      <Citation
+        author="Anne Dufourmantelle"
+        note={('tradfr' in content) ? (content as any).tradfr : undefined}
+        justify
+      >
+        <Fragment set:html={content.dufourmantelle} />
+      </Citation>
 
     </div>
   </section>

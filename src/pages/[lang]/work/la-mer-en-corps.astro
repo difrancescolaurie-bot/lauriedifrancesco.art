@@ -1,6 +1,7 @@
 ---
 import Layout from '../../../layouts/Layout.astro';
 import '../../../styles/pages/work-project.css';
+import Citation from '../../../components/Citation.astro';
 import { ui, type Lang } from '../../../i18n/translations';
 
 export function getStaticPaths() {
@@ -141,6 +142,7 @@ const content = {
           {content.bachelardTransl && <span class="epi-tradfr">{content.bachelardTransl}</span>}
         </cite>
       </div>
+      <hr class="horizon epi-horizon" />
     </div>
   </div>
 
@@ -150,10 +152,9 @@ const content = {
     <p class="opening-text"><span class="k" set:html={content.p1}></span></p>
     <p class="opening-text" set:html={content.p2}></p>
     <p class="opening-text">{content.clementineIntro}</p>
-    <div class="epi-wrap">
-      <blockquote class="epi-justify" set:html={content.clementineBq}></blockquote>
-      <cite>Benjamin Clementine</cite>
-    </div>
+    <Citation author="Benjamin Clementine" justify>
+      <Fragment set:html={content.clementineBq} />
+    </Citation>
     <p class="opening-text">{content.p3}</p>
   </div>
 

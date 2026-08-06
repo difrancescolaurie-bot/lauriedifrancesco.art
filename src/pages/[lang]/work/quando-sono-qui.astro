@@ -1,6 +1,7 @@
 ---
 import Layout from '../../../layouts/Layout.astro';
 import '../../../styles/pages/work-project.css';
+import Citation from '../../../components/Citation.astro';
 import { ui, type Lang } from '../../../i18n/translations';
 
 export function getStaticPaths() {
@@ -91,40 +92,31 @@ const spreads: Spread[] = [
     <!-- Colonne gauche : Platon + René Char -->
     <div class="opening-epi">
 
-      <div class="epi-wrap">
-        <blockquote class="epi-justify">{content.plato}</blockquote>
-        <cite>{content.platoSrc}</cite>
-      </div>
-      <hr class="horizon epi-horizon" />
-
-      <div class="epi-wrap">
-        <blockquote>{content.char}</blockquote>
-        <cite>{content.charSrc}</cite>
-      </div>
-      <hr class="horizon epi-horizon" />
+      <Citation author={content.platoSrc} justify>
+        {content.plato}
+      </Citation>
+      <Citation author={content.charSrc}>
+        {content.char}
+      </Citation>
 
     </div>
 
     <!-- Colonne droite : José Ramalho (toujours en PT) + texte du projet -->
     <div class="opening-proj">
 
-      <div class="epi-wrap">
-        <blockquote>
-          A sombra que me move<br />
-          Também me ilumina<br />
-          Me leve nos cabelos<br />
-          Me lave na piscina<br />
-          Em cada ponto claro<br />
-          Cometa que cai no mar<br />
-          Em cada cor diferente<br />
-          Que tente me clarear<br />
-          É noite que vai chegar<br />
-          É claro que é de manhã<br />
-          É moça e anciã
-        </blockquote>
-        <cite>José Ramalho Neto — Galope Resante</cite>
-      </div>
-      <hr class="horizon epi-horizon" />
+      <Citation author="José Ramalho Neto — Galope Resante">
+        A sombra que me move<br />
+        Também me ilumina<br />
+        Me leve nos cabelos<br />
+        Me lave na piscina<br />
+        Em cada ponto claro<br />
+        Cometa que cai no mar<br />
+        Em cada cor diferente<br />
+        Que tente me clarear<br />
+        É noite que vai chegar<br />
+        É claro que é de manhã<br />
+        É moça e anciã
+      </Citation>
 
     </div>
 
