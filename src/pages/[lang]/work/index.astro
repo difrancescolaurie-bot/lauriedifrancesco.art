@@ -256,21 +256,13 @@ const projects = t.home.projects.map((p, i) => {
     }, delay);
   }
 
-  const isHover = () => matchMedia('(hover: hover)').matches;
-
   document.querySelectorAll<HTMLAnchorElement>('.proj-img').forEach(el => {
-    el.addEventListener('mouseenter', () => { if (isHover()) showFso(el); });
-    el.addEventListener('mouseleave', () => { if (isHover()) hideFso(); });
     el.addEventListener('click', e => {
-      if (!isHover()) {
-        e.preventDefault();
-        fso.classList.contains('on') ? hideFso(0) : showFso(el);
-      }
+      e.preventDefault();
+      fso.classList.contains('on') ? hideFso(0) : showFso(el);
     });
   });
 
-  fso.addEventListener('mouseenter', () => clearTimeout(hideTimer));
-  fso.addEventListener('mouseleave', () => hideFso());
   fsoClose.addEventListener('click', () => hideFso(0));
   fso.addEventListener('click', e => {
     if (e.target === fso || e.target === fsoBg) hideFso(0);

@@ -304,7 +304,7 @@ figure.match img {
 /* ── Project credits ────────────────────────────────── */
 .project-credits {
   max-width: 62ch;
-  margin: clamp(2.5rem, 6vh, 4rem) 0 0;
+  margin: clamp(2.5rem, 6vh, 4rem) auto 0;
   padding: 0 var(--gutter);
 }
 .project-credits .group + .group { margin-top: 1rem; }
@@ -322,9 +322,6 @@ figure.match img {
   line-height: 1.55;
   color: var(--ardoise);
   margin: 0;
-  text-align: justify;
-  hyphens: auto;
-  -webkit-hyphens: auto;
 }
 
 /* ── La Mer en Corps ────────────────────────────────── */

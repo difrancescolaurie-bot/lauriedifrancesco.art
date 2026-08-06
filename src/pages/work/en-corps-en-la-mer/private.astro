@@ -137,7 +137,7 @@ const spreads: Spread[] = [
     <!-- ── Retour ─────────────────────────────────────────────── -->
     <div class="next-project container">
       <span class="next-label">Back</span>
-      <a href="/work/en-corps-en-la-mer">En Corps à la Mer →</a>
+      <a id="private-back" href="/work/en-corps-en-la-mer">En Corps à la Mer →</a>
     </div>
 
   </div>
@@ -459,6 +459,13 @@ const spreads: Spread[] = [
     gallery.style.display = 'block';
     gallery.removeAttribute('aria-hidden');
     initPage();
+  }
+
+  // Preserve lang from referrer page
+  const urlLang = new URLSearchParams(location.search).get('lang');
+  if (urlLang) {
+    const backLink = document.getElementById('private-back');
+    if (backLink) backLink.setAttribute('href', `/${urlLang}/work/en-corps-en-la-mer`);
   }
 
   if (sessionStorage.getItem('ecm-private-auth') === '1') unlock();
