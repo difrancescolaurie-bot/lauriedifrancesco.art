@@ -45,7 +45,7 @@ const spreads: Spread[] = [
   </section>
 
   <!-- ── Épigraphes ──────────────────────────────────────────── -->
-  <section class="opening-vv container">
+  <section class="opening-vv">
 
     <PhotoCitation src={s('1.jpg')} photoWidth="50%">
       <Citation author="Charles Aznavour — Que c'est triste Venise" note="free translation from the French">
@@ -155,6 +155,8 @@ const spreads: Spread[] = [
     padding-top: clamp(3rem, 8vh, 5.5rem);
     padding-bottom: clamp(3rem, 7vh, 5rem);
     max-width: 1320px;
+    margin-inline: auto;
+    padding-inline: var(--gutter);
   }
 
   /* Colonne projet */
