@@ -51,21 +51,27 @@ const spreads: Spread[] = [
         <img src={s('0.jpg')} alt="" loading="lazy" />
       </figure>
       <div class="qsq-cites">
-        <div class="epi-wrap">
-          <blockquote class="epi-justify">
-            But what if someone dragged them along a steep and harsh ascent against their
-            will, and did not let go until they were dragged right into the sunlight? Would
-            they not feel pain and discomfort? And if they walked towards the sun and their
-            eyes suddenly filled with brilliant light, would they be able to see even one of
-            those things that are now called true realities?
-          </blockquote>
-          <cite>Plato — Republic, Book VII</cite>
+        <div class="qsq-cit">
+          <div class="epi-wrap">
+            <blockquote class="epi-justify">
+              But what if someone dragged them along a steep and harsh ascent against their
+              will, and did not let go until they were dragged right into the sunlight? Would
+              they not feel pain and discomfort? And if they walked towards the sun and their
+              eyes suddenly filled with brilliant light, would they be able to see even one of
+              those things that are now called true realities?
+            </blockquote>
+            <cite>Plato — Republic, Book VII</cite>
+          </div>
+          <hr class="horizon epi-horizon" />
         </div>
-        <div class="epi-wrap">
-          <blockquote>
-            Lucidity is the wound closest to the sun.
-          </blockquote>
-          <cite>René Char — Feuillets d'Hypnos (169)</cite>
+        <div class="qsq-cit">
+          <div class="epi-wrap">
+            <blockquote>
+              Lucidity is the wound closest to the sun.
+            </blockquote>
+            <cite>René Char — Feuillets d'Hypnos (169)</cite>
+          </div>
+          <hr class="horizon epi-horizon" />
         </div>
       </div>
     </div>
@@ -226,16 +232,9 @@ const spreads: Spread[] = [
     flex: 1;
     display: flex;
     flex-direction: column;
-    gap: 16px;
-    border-left: 2px solid var(--cerule);
-    padding-left: 1.3rem;
+    justify-content: space-between;
   }
-  .qsq-cites .epi-wrap {
-    flex: 1;
-    border-left: none;
-    padding-left: 0;
-    max-width: none;
-  }
+  .qsq-cites .epi-wrap { max-width: none; }
 
   /* Rangée 2 : Citation Ramalho (gauche) + Photo 1 bleue (droite) */
   .qsq-row2 {
