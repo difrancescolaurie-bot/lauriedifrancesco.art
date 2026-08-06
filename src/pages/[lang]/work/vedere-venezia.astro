@@ -2,6 +2,7 @@
 import Layout from '../../../layouts/Layout.astro';
 import '../../../styles/pages/work-project.css';
 import Citation from '../../../components/Citation.astro';
+import PhotoCitation from '../../../components/PhotoCitation.astro';
 import NextProject from '../../../components/NextProject.astro';
 import { ui, type Lang } from '../../../i18n/translations';
 
@@ -69,36 +70,24 @@ const spreads: Spread[] = [
   <!-- ── Épigraphes ──────────────────────────────────────────── -->
   <section class="opening-vv container">
 
-    <!-- Rangée 1 : Photo 1 (gauche) + Aznavour (droite) -->
-    <div class="vv-row1">
-      <figure class="vv-photo">
-        <img src={s('1.jpg')} alt="" loading="lazy" />
-      </figure>
-      <div class="vv-cite">
-        <Citation
-          author="Charles Aznavour — Que c'est triste Venise"
-          note={('tradfr' in content) ? (content as any).tradfr : undefined}
-        >
-          <Fragment set:html={content.aznavourPoem} />
-        </Citation>
-      </div>
-    </div>
+    <PhotoCitation src={s('1.jpg')} photoWidth="50%">
+      <Citation
+        author="Charles Aznavour — Que c'est triste Venise"
+        note={('tradfr' in content) ? (content as any).tradfr : undefined}
+      >
+        <Fragment set:html={content.aznavourPoem} />
+      </Citation>
+    </PhotoCitation>
 
-    <!-- Rangée 2 : Dufourmantelle (gauche) + Photo 2 (droite) -->
-    <div class="vv-row2">
-      <div class="vv-cite">
-        <Citation
-          author="Anne Dufourmantelle"
-          note={('tradfr' in content) ? (content as any).tradfr : undefined}
-          justify
-        >
-          <Fragment set:html={content.dufourmantelle} />
-        </Citation>
-      </div>
-      <figure class="vv-photo vv-photo--stretch">
-        <img src={s('2.jpg')} alt="" loading="lazy" />
-      </figure>
-    </div>
+    <PhotoCitation src={s('2.jpg')} side="right" photoWidth="50%">
+      <Citation
+        author="Anne Dufourmantelle"
+        note={('tradfr' in content) ? (content as any).tradfr : undefined}
+        justify
+      >
+        <Fragment set:html={content.dufourmantelle} />
+      </Citation>
+    </PhotoCitation>
 
   </section>
 
@@ -132,22 +121,11 @@ const spreads: Spread[] = [
     padding-bottom: clamp(3rem, 7vh, 5rem);
     max-width: 1320px;
   }
-  .vv-row1, .vv-row2 { display: flex; gap: clamp(1.5rem, 3vw, 3rem); }
-  .vv-row1 { align-items: center; }
-  .vv-row2 { align-items: stretch; }
-  .vv-photo { flex: 0 0 50%; margin: 0; overflow: hidden; }
-  .vv-photo img { display: block; width: 100%; height: auto; }
-  .vv-photo--stretch img { height: 100%; object-fit: cover; }
-  .vv-cite { flex: 1; }
-  .vv-cite .epi-wrap { max-width: none; }
 
   .spread figure img { cursor: zoom-in; }
 
   /* Photos 10+11 : hauteurs égales sur mobile */
   @media (max-width: 700px) {
-    .vv-row1, .vv-row2 { flex-direction: column; }
-    .vv-photo { flex: 0 0 auto; }
-    .vv-photo img, .vv-photo--stretch img { height: auto; object-fit: unset; }
     .vv-series > div:nth-child(5) { align-items: stretch; }
     .vv-series > div:nth-child(5) figure img { object-fit: cover; height: 100%; }
   }

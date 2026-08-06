@@ -1,6 +1,7 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 import Citation from '../../components/Citation.astro';
+import PhotoCitation from '../../components/PhotoCitation.astro';
 import NextProject from '../../components/NextProject.astro';
 
 const s = (file: string) => `/images/work/vedere-venezia/${file}`;
@@ -46,29 +47,17 @@ const spreads: Spread[] = [
   <!-- ── Épigraphes ──────────────────────────────────────────── -->
   <section class="opening-vv container">
 
-    <!-- Rangée 1 : Photo 1 (gauche) + Aznavour (droite, centré) -->
-    <div class="vv-row1">
-      <figure class="vv-photo">
-        <img src={s('1.jpg')} alt="" loading="lazy" />
-      </figure>
-      <div class="vv-cite">
-        <Citation author="Charles Aznavour — Que c'est triste Venise" note="free translation from the French">
-          <Fragment set:html={aznavourEN} />
-        </Citation>
-      </div>
-    </div>
+    <PhotoCitation src={s('1.jpg')} photoWidth="50%">
+      <Citation author="Charles Aznavour — Que c'est triste Venise" note="free translation from the French">
+        <Fragment set:html={aznavourEN} />
+      </Citation>
+    </PhotoCitation>
 
-    <!-- Rangée 2 : Dufourmantelle (gauche) + Photo 2 (droite, même hauteur) -->
-    <div class="vv-row2">
-      <div class="vv-cite">
-        <Citation author="Anne Dufourmantelle" note="free translation from the French" justify>
-          <Fragment set:html={dufourmantellEN} />
-        </Citation>
-      </div>
-      <figure class="vv-photo vv-photo--stretch">
-        <img src={s('2.jpg')} alt="" loading="lazy" />
-      </figure>
-    </div>
+    <PhotoCitation src={s('2.jpg')} side="right" photoWidth="50%">
+      <Citation author="Anne Dufourmantelle" note="free translation from the French" justify>
+        <Fragment set:html={dufourmantellEN} />
+      </Citation>
+    </PhotoCitation>
 
   </section>
 
@@ -168,36 +157,6 @@ const spreads: Spread[] = [
     max-width: 1320px;
   }
 
-  .vv-row1, .vv-row2 {
-    display: flex;
-    gap: clamp(1.5rem, 3vw, 3rem);
-  }
-
-  .vv-row1 { align-items: center; }
-  .vv-row2 { align-items: stretch; }
-
-  .vv-photo {
-    flex: 0 0 50%;
-    margin: 0;
-    overflow: hidden;
-  }
-
-  .vv-photo img {
-    display: block;
-    width: 100%;
-    height: auto;
-  }
-
-  .vv-photo--stretch img {
-    height: 100%;
-    object-fit: cover;
-  }
-
-  .vv-cite {
-    flex: 1;
-  }
-  .vv-cite .epi-wrap { max-width: none; }
-
   /* Colonne projet */
   .opening-eyebrow {
     font-family: var(--font-body);
@@ -276,9 +235,6 @@ const spreads: Spread[] = [
   /* ── Mobile ───────────────────────────────────────── */
   @media (max-width: 700px) {
     .phero-bg img { object-position: 65% center; }
-    .vv-row1, .vv-row2 { flex-direction: column; }
-    .vv-photo { flex: 0 0 auto; }
-    .vv-photo img, .vv-photo--stretch img { height: auto; object-fit: unset; }
     .series { gap: 8px; }
     .spread { flex-wrap: wrap; gap: 8px; }
     .spread figure {

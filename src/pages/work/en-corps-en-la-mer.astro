@@ -1,6 +1,7 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 import Citation from '../../components/Citation.astro';
+import PhotoCitation from '../../components/PhotoCitation.astro';
 import NextProject from '../../components/NextProject.astro';
 
 const s = (file: string) => `/images/work/en-corps-en-la-mer/${file}`;
@@ -49,54 +50,43 @@ const spreads: Spread[] = [
     </div>
   </section>
 
-  <!-- ── Ouverture : photo + citations + photo + texte ───────── -->
-  <section class="opening-ecm container">
+  <!-- ── Ouverture : deux rangées photo + citation, puis texte ── -->
+  <section class="ecm-opening container">
 
-    <!-- Colonne gauche : Photo 51 -->
-    <figure class="ecm-photo0">
-      <img src={s('51.jpg')} alt="" loading="lazy" />
-    </figure>
+    <!-- Rangée 1 : Photo 51 (gauche) + Nietzsche (droite) -->
+    <PhotoCitation src={s('51.jpg')} photoWidth="55%">
+      <Citation author="Friedrich Nietzsche — Posthumous Fragments">
+        That fundamental artistic phenomenon which is called <span class="k">life</span>
+      </Citation>
+    </PhotoCitation>
 
-    <!-- Colonne droite : citations + photo 52, puis texte du projet -->
-    <div class="ecm-right">
+    <!-- Rangée 2 : Claire Marin (gauche) + Photo 52 (droite) -->
+    <PhotoCitation src={s('52.jpg')} side="right" photoWidth="42%">
+      <Citation author="Claire Marin — Hors de moi" note="freely translated from the French" justify>
+        <span class="k">Dreams and water are two worlds where I recover a little balance, a little lightness,
+        where I live again the pleasure of movement.</span> Held within the water's sheath, my body
+        lets go of its pain. It fades, dissolves, vanishes. My movements turn fluid, easy;
+        my body supple, almost deft. Gone, the tender catching-points: the hips, the elbows —
+        nothing rasps anymore, nothing chafes, nothing tears. I remember dreaming I was a mermaid.
+        My legs were imprisoned in a cocoon formed by the sheets, wound tight from turning and
+        turning on myself in search of a position without pain. In the dream, the mummification
+        had been transfigured into a power of movement.
+      </Citation>
+    </PhotoCitation>
 
-      <!-- Rangée : Nietzsche + Marin (gauche) | Photo 52 (droite) -->
-      <div class="ecm-row1">
-        <div class="ecm-cites">
-          <Citation author="Friedrich Nietzsche — Posthumous Fragments">
-            That fundamental artistic phenomenon which is called <span class="k">life</span>
-          </Citation>
-          <Citation author="Claire Marin — Hors de moi" note="freely translated from the French" justify>
-            <span class="k">Dreams and water are two worlds where I recover a little balance, a little lightness,
-            where I live again the pleasure of movement.</span> Held within the water's sheath, my body
-            lets go of its pain. It fades, dissolves, vanishes. My movements turn fluid, easy;
-            my body supple, almost deft. Gone, the tender catching-points: the hips, the elbows —
-            nothing rasps anymore, nothing chafes, nothing tears. I remember dreaming I was a mermaid.
-            My legs were imprisoned in a cocoon formed by the sheets, wound tight from turning and
-            turning on myself in search of a position without pain. In the dream, the mummification
-            had been transfigured into a power of movement.
-          </Citation>
-        </div>
-        <figure class="ecm-photo1">
-          <img src={s('52.jpg')} alt="" loading="lazy" />
-        </figure>
-      </div>
-
-      <!-- Texte du projet -->
-      <div class="ecm-project-text">
-        <p class="opening-eyebrow">The project</p>
-        <p class="opening-text">
-          There was a season when the body gave way — when illness pulled the ground
-          from under everything and strength drained off like a tide going out. <em>En Corps à la Mer</em> follows that long descent and its turning:
-          force returning not through stillness, but through water. To swim was to
-          be carried and to carry oneself at once — to surface, and surface again,
-          until surfacing became a way of living. The series moves from dark
-          interiors toward an open, dazzling white: the sea as the place where a
-          life is handed back.
-        </p>
-        <hr class="horizon opening-horizon" />
-      </div>
-
+    <!-- Texte du projet -->
+    <div class="ecm-text">
+      <p class="opening-eyebrow">The project</p>
+      <p class="opening-text">
+        There was a season when the body gave way — when illness pulled the ground
+        from under everything and strength drained off like a tide going out. <em>En Corps à la Mer</em> follows that long descent and its turning:
+        force returning not through stillness, but through water. To swim was to
+        be carried and to carry oneself at once — to surface, and surface again,
+        until surfacing became a way of living. The series moves from dark
+        interiors toward an open, dazzling white: the sea as the place where a
+        life is handed back.
+      </p>
+      <hr class="horizon opening-horizon" />
     </div>
 
   </section>
@@ -203,67 +193,20 @@ const spreads: Spread[] = [
 
   .phero-inner h1 strong { font-weight: 500; }
 
-  /* ── Ouverture : photo + citations + photo + texte ──── */
-  .opening-ecm {
+  /* ── Ouverture ─────────────────────────────────────── */
+  .ecm-opening {
     display: flex;
+    flex-direction: column;
     gap: 16px;
-    align-items: stretch;
     padding-top: clamp(3rem, 8vh, 5.5rem);
     padding-bottom: clamp(3rem, 7vh, 5rem);
     max-width: 1320px;
   }
 
-  .ecm-photo0 {
-    flex: 1 1 0;
-    min-width: 0;
-    margin: 0;
-    overflow: hidden;
-  }
-
-  .ecm-photo0 img {
-    display: block;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
-
-  .ecm-right {
-    flex: 1 1 0;
-    min-width: 0;
+  .ecm-text {
     display: flex;
     flex-direction: column;
-    gap: clamp(2rem, 4vh, 3rem);
-  }
-
-  .ecm-row1 {
-    display: flex;
-    gap: 16px;
-    align-items: stretch;
-  }
-
-  .ecm-cites {
-    flex: 1 1 0;
-    min-width: 0;
-    display: flex;
-    flex-direction: column;
-  }
-
-  .ecm-photo1 {
-    flex: 0 0 40%;
-    margin: 0;
-    overflow: hidden;
-  }
-
-  .ecm-photo1 img {
-    display: block;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
-
-  .ecm-project-text {
-    display: flex;
-    flex-direction: column;
+    margin-top: clamp(1.5rem, 3vh, 2.5rem);
   }
 
   /* Colonne projet */
@@ -393,14 +336,6 @@ const spreads: Spread[] = [
 
   /* ── Mobile ───────────────────────────────────────── */
   @media (max-width: 700px) {
-    .opening-ecm {
-      flex-direction: column;
-      gap: 2rem;
-    }
-    .ecm-photo0 img { height: 60vw; }
-    .ecm-row1 { flex-direction: column; }
-    .ecm-photo1 { flex: 0 0 auto; }
-    .ecm-photo1 img { height: auto; }
     .series { gap: 8px; }
     .spread { flex-wrap: wrap; gap: 8px; }
     .spread figure {

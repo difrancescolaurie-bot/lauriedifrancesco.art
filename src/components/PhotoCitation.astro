@@ -1,0 +1,66 @@
+---
+interface Props {
+  src: string;
+  alt?: string;
+  photoWidth?: string;
+  side?: 'left' | 'right';
+  loading?: 'lazy' | 'eager';
+}
+const { src, alt = '', photoWidth = '50%', side = 'left', loading = 'lazy' } = Astro.props;
+---
+
+<div class="pc-row">
+  {side === 'left' && (
+    <figure class="pc-photo" style={`flex: 0 0 ${photoWidth}`}>
+      <img src={src} alt={alt} loading={loading} />
+    </figure>
+  )}
+  <div class="pc-cite">
+    <slot />
+  </div>
+  {side === 'right' && (
+    <figure class="pc-photo" style={`flex: 0 0 ${photoWidth}`}>
+      <img src={src} alt={alt} loading={loading} />
+    </figure>
+  )}
+</div>
+
+<style is:global>
+  .pc-row {
+    display: flex;
+    gap: 16px;
+    align-items: center;
+  }
+
+  .pc-photo {
+    margin: 0;
+    min-width: 0;
+    flex-shrink: 0;
+  }
+
+  .pc-photo img {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+
+  .pc-cite {
+    flex: 1;
+    min-width: 0;
+  }
+
+  .pc-cite .epi-wrap {
+    max-width: none;
+  }
+
+  @media (max-width: 700px) {
+    .pc-row {
+      flex-direction: column;
+      gap: 1rem;
+    }
+    .pc-photo {
+      flex: 0 0 auto !important;
+      width: 100%;
+    }
+  }
+</style>

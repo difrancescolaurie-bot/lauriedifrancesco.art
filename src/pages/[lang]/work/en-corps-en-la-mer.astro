@@ -2,6 +2,7 @@
 import Layout from '../../../layouts/Layout.astro';
 import '../../../styles/pages/work-project.css';
 import Citation from '../../../components/Citation.astro';
+import PhotoCitation from '../../../components/PhotoCitation.astro';
 import NextProject from '../../../components/NextProject.astro';
 import { ui, type Lang } from '../../../i18n/translations';
 
@@ -83,43 +84,32 @@ const spreads: Spread[] = [
     </div>
   </section>
 
-  <!-- ── Ouverture : photo + citations + photo + texte ───────── -->
-  <section class="opening-ecm container">
+  <!-- ── Ouverture : deux rangées photo + citation, puis texte ── -->
+  <section class="ecm-opening container">
 
-    <!-- Colonne gauche : Photo 51 -->
-    <figure class="ecm-photo0">
-      <img src={s('51.jpg')} alt="" loading="lazy" />
-    </figure>
+    <!-- Rangée 1 : Photo 51 (gauche) + Nietzsche (droite) -->
+    <PhotoCitation src={s('51.jpg')} photoWidth="55%">
+      <Citation author={content.nietzscheCite}>
+        <Fragment set:html={content.nietzsche} />
+      </Citation>
+    </PhotoCitation>
 
-    <!-- Colonne droite : citations + photo 52, puis texte du projet -->
-    <div class="ecm-right">
+    <!-- Rangée 2 : Claire Marin (gauche) + Photo 52 (droite) -->
+    <PhotoCitation src={s('52.jpg')} side="right" photoWidth="42%">
+      <Citation
+        author={content.marineCite}
+        note={('marineNote' in content) ? (content as any).marineNote : undefined}
+        justify
+      >
+        <Fragment set:html={content.marineText} />
+      </Citation>
+    </PhotoCitation>
 
-      <!-- Rangée : Nietzsche + Marin (gauche) | Photo 52 (droite) -->
-      <div class="ecm-row1">
-        <div class="ecm-cites">
-          <Citation author={content.nietzscheCite}>
-            <Fragment set:html={content.nietzsche} />
-          </Citation>
-          <Citation
-            author={content.marineCite}
-            note={('marineNote' in content) ? (content as any).marineNote : undefined}
-            justify
-          >
-            <Fragment set:html={content.marineText} />
-          </Citation>
-        </div>
-        <figure class="ecm-photo1">
-          <img src={s('52.jpg')} alt="" loading="lazy" />
-        </figure>
-      </div>
-
-      <!-- Texte du projet -->
-      <div class="ecm-project-text">
-        <p class="opening-eyebrow">{t.work.theProject}</p>
-        <p class="opening-text" set:html={content.projectText} />
-        <hr class="horizon opening-horizon" />
-      </div>
-
+    <!-- Texte du projet -->
+    <div class="ecm-text">
+      <p class="opening-eyebrow">{t.work.theProject}</p>
+      <p class="opening-text" set:html={content.projectText} />
+      <hr class="horizon opening-horizon" />
     </div>
 
   </section>
@@ -159,28 +149,18 @@ const spreads: Spread[] = [
 </Layout>
 
 <style is:global>
-  .opening-ecm {
+  .ecm-opening {
     display: flex;
+    flex-direction: column;
     gap: 16px;
-    align-items: stretch;
     padding-top: clamp(3rem, 8vh, 5.5rem);
     padding-bottom: clamp(3rem, 7vh, 5rem);
     max-width: 1320px;
   }
-  .ecm-photo0 { flex: 1 1 0; min-width: 0; margin: 0; overflow: hidden; }
-  .ecm-photo0 img { display: block; width: 100%; height: 100%; object-fit: cover; }
-  .ecm-right { flex: 1 1 0; min-width: 0; display: flex; flex-direction: column; gap: clamp(2rem, 4vh, 3rem); }
-  .ecm-row1 { display: flex; gap: 16px; align-items: stretch; }
-  .ecm-cites { flex: 1 1 0; min-width: 0; display: flex; flex-direction: column; }
-  .ecm-photo1 { flex: 0 0 40%; margin: 0; overflow: hidden; }
-  .ecm-photo1 img { display: block; width: 100%; height: 100%; object-fit: cover; }
-  .ecm-project-text { display: flex; flex-direction: column; }
-  @media (max-width: 700px) {
-    .opening-ecm { flex-direction: column; gap: 2rem; }
-    .ecm-photo0 img { height: 60vw; }
-    .ecm-row1 { flex-direction: column; }
-    .ecm-photo1 { flex: 0 0 auto; }
-    .ecm-photo1 img { height: auto; }
+  .ecm-text {
+    display: flex;
+    flex-direction: column;
+    margin-top: clamp(1.5rem, 3vh, 2.5rem);
   }
 </style>
 

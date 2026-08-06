@@ -1,5 +1,7 @@
 ---
 import Layout from '../../../layouts/Layout.astro';
+import Citation from '../../../components/Citation.astro';
+import PhotoCitation from '../../../components/PhotoCitation.astro';
 
 // ── Mot de passe — change la valeur entre guillemets ──────────
 const PASSWORD = 'surfacing';
@@ -16,7 +18,6 @@ type Spread = { type: 'row' | 'single'; photos: Photo[] };
 // Série complète — pub(n) = photo publique · prv(n) = photo privée uniquement
 const spreads: Spread[] = [
   // La chute — intérieur, maladie
-  { type: 'row',    photos: [pub(51), pub(52)] },
   { type: 'row',    photos: [pub(53), prv(54), pub(56)] },
   // Les seuils — fenêtres, attente
   { type: 'row',    photos: [pub(55), pub(59)] },
@@ -74,37 +75,32 @@ const spreads: Spread[] = [
       </div>
     </section>
 
-    <!-- ── Ouverture 2 colonnes ──────────────────────────────── -->
-    <section class="opening container">
+    <!-- ── Ouverture : deux rangées photo + citation, puis texte ── -->
+    <section class="ecm-opening container">
 
-      <div class="opening-epi">
+      <!-- Rangée 1 : Photo 51 (gauche) + Nietzsche (droite) -->
+      <PhotoCitation src="/images/work/en-corps-en-la-mer/51.jpg" photoWidth="55%">
+        <Citation author="Friedrich Nietzsche — Posthumous Fragments">
+          That fundamental artistic phenomenon which is called <span class="k">life</span>
+        </Citation>
+      </PhotoCitation>
 
-        <div class="epi-wrap">
-          <blockquote>
-            That fundamental artistic phenomenon which is called <span class="k">life</span>
-          </blockquote>
-          <cite>Friedrich Nietzsche — Posthumous Fragments</cite>
-        </div>
-        <hr class="horizon epi-horizon" />
+      <!-- Rangée 2 : Claire Marin (gauche) + Photo 52 (droite) -->
+      <PhotoCitation src="/images/work/en-corps-en-la-mer/52.jpg" side="right" photoWidth="42%">
+        <Citation author="Claire Marin — Hors de moi" note="freely translated from the French" justify>
+          <span class="k">Dreams and water are two worlds where I recover a little balance, a little lightness,
+          where I live again the pleasure of movement.</span> Held within the water's sheath, my body
+          lets go of its pain. It fades, dissolves, vanishes. My movements turn fluid, easy;
+          my body supple, almost deft. Gone, the tender catching-points: the hips, the elbows —
+          nothing rasps anymore, nothing chafes, nothing tears. I remember dreaming I was a mermaid.
+          My legs were imprisoned in a cocoon formed by the sheets, wound tight from turning and
+          turning on myself in search of a position without pain. In the dream, the mummification
+          had been transfigured into a power of movement.
+        </Citation>
+      </PhotoCitation>
 
-        <div class="epi-wrap">
-          <blockquote>
-            <span class="k">Dreams and water are two worlds where I recover a little balance, a little lightness,
-            where I live again the pleasure of movement.</span> Held within the water's sheath, my body
-            lets go of its pain. It fades, dissolves, vanishes. My movements turn fluid, easy;
-            my body supple, almost deft. Gone, the tender catching-points: the hips, the elbows —
-            nothing rasps anymore, nothing chafes, nothing tears. I remember dreaming I was a mermaid.
-            My legs were imprisoned in a cocoon formed by the sheets, wound tight from turning and
-            turning on myself in search of a position without pain. In the dream, the mummification
-            had been transfigured into a power of movement.
-          </blockquote>
-          <cite>Claire Marin — Hors de moi <span class="epi-tradfr">freely translated from the French</span></cite>
-        </div>
-        <hr class="horizon epi-horizon" />
-
-      </div>
-
-      <div class="opening-proj">
+      <!-- Texte du projet -->
+      <div class="ecm-text">
         <p class="opening-eyebrow">The project</p>
         <p class="opening-text">
           There was a season when the body gave way — when illness pulled the ground
@@ -305,74 +301,21 @@ const spreads: Spread[] = [
 
   .phero-inner h1 strong { font-weight: 500; }
 
-  /* ── Ouverture 2 colonnes ───────────────────────────── */
-  .opening {
+  /* ── Ouverture ──────────────────────────────────────── */
+  .ecm-opening {
     display: flex;
+    flex-direction: column;
     gap: 16px;
-    align-items: stretch;
     padding-top: clamp(3rem, 8vh, 5.5rem);
     padding-bottom: clamp(3rem, 7vh, 5rem);
+    max-width: 1320px;
   }
-  .opening.container { max-width: 1320px; }
-
-  .opening-epi {
-    flex: 1 1 0;
+  .ecm-text {
     display: flex;
     flex-direction: column;
+    margin-top: clamp(1.5rem, 3vh, 2.5rem);
   }
 
-  .opening-proj {
-    flex: 1 1 0;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-  }
-
-  /* Citations — structure identique à Work/About */
-  .epi-wrap {
-    border-left: 2px solid var(--cerule);
-    padding: .2rem 0 1.8rem 1.3rem;
-    max-width: 60ch;
-  }
-
-  .epi-wrap + .epi-horizon + .epi-wrap {
-    margin-top: 4.8rem;
-  }
-
-  .epi-wrap blockquote {
-    font-family: var(--font-title);
-    font-weight: 300;
-    font-style: italic;
-    font-size: clamp(.88rem, 1.2vw, 1rem);
-    line-height: 1.55;
-    color: var(--ardoise);
-  }
-
-  .epi-wrap .k { color: var(--cerule); font-weight: 500; }
-
-  .epi-wrap cite {
-    display: block;
-    margin-top: .9rem;
-    font-style: normal;
-    font-size: .7rem;
-    letter-spacing: .14em;
-    text-transform: uppercase;
-    color: var(--cerule);
-  }
-
-  .epi-tradfr {
-    display: block;
-    font-size: .62rem;
-    letter-spacing: .08em;
-    text-transform: none;
-    font-style: italic;
-    color: var(--ardoise);
-    margin-top: .2rem;
-  }
-
-  .epi-horizon { margin-top: 0; }
-
-  /* Colonne projet */
   .opening-eyebrow {
     font-family: var(--font-body);
     font-size: .72rem;
@@ -473,8 +416,6 @@ const spreads: Spread[] = [
 
   /* ── Mobile ─────────────────────────────────────────── */
   @media (max-width: 700px) {
-    .opening { flex-direction: column; gap: 2.5rem; }
-    .opening-epi { justify-content: flex-start; }
     .series { gap: 8px; }
     .spread { flex-wrap: wrap; gap: 8px; }
     .spread figure { flex: none !important; width: calc(50% - 4px) !important; }
