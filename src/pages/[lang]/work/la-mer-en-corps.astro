@@ -172,6 +172,53 @@ const content = {
     <p class="opening-text" set:html={content.p8}></p>
   </div>
 
+  <!-- ── Galerie ──────────────────────────────────────────── -->
+  <div class="lmec-gallery rv">
+
+    <!-- rangée 1 -->
+    <div class="row">
+      <figure style="flex:1.4997 1 0">
+        <img src="/images/work/la-mer-en-corps/1.jpg" alt="" width="2500" height="1667" />
+      </figure>
+    </div>
+
+    <!-- rangée 2 : colonne (2 dessus, 3 dessous) + prisme 4 -->
+    <div class="row">
+      <div class="col" style="flex:0.7519 1 0">
+        <figure>
+          <img src="/images/work/la-mer-en-corps/2.jpg" alt="" width="2500" height="1658" loading="lazy" />
+        </figure>
+        <figure>
+          <img src="/images/work/la-mer-en-corps/3.jpg" alt="" width="2500" height="1667" loading="lazy" />
+        </figure>
+      </div>
+      <figure style="flex:0.6786 1 0">
+        <img src="/images/work/la-mer-en-corps/4.jpg" alt="" width="1667" height="2500" loading="lazy" />
+      </figure>
+    </div>
+
+    <!-- rangée 3 : prisme 5 + image 6 -->
+    <div class="row">
+      <figure style="flex:0.6668 1 0">
+        <img src="/images/work/la-mer-en-corps/5.jpg" alt="" width="1667" height="2500" loading="lazy" />
+      </figure>
+      <figure style="flex:1.4997 1 0">
+        <img src="/images/work/la-mer-en-corps/6.jpg" alt="" width="2500" height="1667" loading="lazy" />
+      </figure>
+    </div>
+
+    <!-- rangée 4 : images 7 + 8 -->
+    <div class="row">
+      <figure style="flex:1.4997 1 0">
+        <img src="/images/work/la-mer-en-corps/7.jpg" alt="" width="2500" height="1667" loading="lazy" />
+      </figure>
+      <figure style="flex:1.4997 1 0">
+        <img src="/images/work/la-mer-en-corps/8.jpg" alt="" width="2500" height="1667" loading="lazy" />
+      </figure>
+    </div>
+
+  </div>
+
   <!-- ── Projet suivant ───────────────────────────────────── -->
   <NextProject current="la-mer-en-corps" lang={lang} label={t.work.nextProject} />
 
