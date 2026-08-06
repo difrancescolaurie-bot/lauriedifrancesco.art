@@ -44,7 +44,7 @@ const spreads: Spread[] = [
   </section>
 
   <!-- ── Ouverture : rangée 1 photo + citations, rangée 2 citation + photo ── -->
-  <section class="opening-qsq container">
+  <section class="opening-qsq">
 
     <div class="qsq-row1">
       <figure class="qsq-p0">
@@ -203,6 +203,8 @@ const spreads: Spread[] = [
     padding-top: clamp(3rem, 8vh, 5.5rem);
     padding-bottom: clamp(3rem, 7vh, 5rem);
     max-width: 1320px;
+    margin-inline: auto;
+    padding-inline: var(--gutter);
   }
 
   /* Rangée 1 : Photo 0 (gauche) + Citations Platon & Char (droite) */
@@ -226,7 +228,10 @@ const spreads: Spread[] = [
     flex: 1;
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
   }
+  /* Annule le margin-top fixe entre citations — le space-between s'en charge */
+  .qsq-cites .epi-wrap + .epi-horizon + .epi-wrap { margin-top: 0; }
 
   /* Rangée 2 : Citation Ramalho (gauche) + Photo 1 bleue (droite) */
   .qsq-row2 {
@@ -239,9 +244,11 @@ const spreads: Spread[] = [
     flex: 1;
     min-width: 0;
   }
+  /* Supprime la limite 60ch dans la colonne Ramalho */
+  .qsq-ramalho .epi-wrap { max-width: none; }
 
   .qsq-p1 {
-    flex: 0 0 40%;
+    flex: 0 0 41%;
     margin: 0;
   }
   .qsq-p1 img {
