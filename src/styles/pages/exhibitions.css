@@ -309,11 +309,6 @@ body { background: var(--sable); }
   -webkit-hyphens: none;
 }
 
-.ex-thanks-name {
-  color: inherit;
-  font-weight: 400;
-}
-
 .rv {
   opacity: 0;
   transform: translateY(24px);
