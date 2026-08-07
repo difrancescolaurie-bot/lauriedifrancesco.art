@@ -9,9 +9,10 @@ interface Props {
   description?: string;
   image?: string;
   lang?: string;
+  bodyClass?: string;
 }
 
-const { title, image = "/og-default.jpg", lang = "en" } = Astro.props;
+const { title, image = "/og-default.jpg", lang = "en", bodyClass } = Astro.props;
 
 const validLang: Lang = (lang === 'fr' || lang === 'it' || lang === 'pt') ? lang as Lang : 'en';
 const t = ui[validLang];
@@ -71,7 +72,7 @@ const ogImage = image.startsWith("http") ? image : `${SITE_URL}${image}`;
     <link rel="alternate icon" href="/favicon.ico" />
     <title>{siteTitle}</title>
   </head>
-  <body>
+  <body class={bodyClass}>
     <Header />
     <main>
       <slot />
