@@ -2,15 +2,14 @@
 interface Props {
   author?: string;
   note?: string;        // note secondaire en petit italique (ex: "free translation from the French")
-  justify?: boolean;    // text-align: justify sur le blockquote
   hr?: boolean;         // affiche le trait horizontal (défaut: true)
 }
 
-const { author, note, justify = false, hr = true } = Astro.props;
+const { author, note, hr = true } = Astro.props;
 ---
 
 <div class:list={['epi-wrap', { 'epi-wrap--hr': hr }]}>
-  <blockquote class:list={[{ 'epi-justify': justify }]}>
+  <blockquote>
     <slot />
   </blockquote>
   {author && (
@@ -52,12 +51,6 @@ const { author, note, justify = false, hr = true } = Astro.props;
     font-size: clamp(.88rem, 1.2vw, 1rem);
     line-height: 1.55;
     color: var(--ardoise);
-  }
-
-  .epi-wrap blockquote.epi-justify {
-    text-align: justify;
-    hyphens: auto;
-    -webkit-hyphens: auto;
   }
 
   .k {

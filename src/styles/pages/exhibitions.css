@@ -137,9 +137,9 @@ body { background: #ECEAE4; }
   font-size: clamp(.92rem, 1.35vw, 1.06rem);
   line-height: 1.78;
   color: var(--encre);
-  text-align: justify;
-  hyphens: auto;
-  -webkit-hyphens: auto;
+  text-align: left;
+  hyphens: none;
+  -webkit-hyphens: none;
   margin-bottom: 1.8rem;
 }
 
@@ -297,9 +297,9 @@ body { background: #ECEAE4; }
   font-size: .78rem;
   line-height: 1.88;
   color: var(--ardoise);
-  text-align: justify;
-  hyphens: auto;
-  -webkit-hyphens: auto;
+  text-align: left;
+  hyphens: none;
+  -webkit-hyphens: none;
 }
 
 .ex-thanks-name {

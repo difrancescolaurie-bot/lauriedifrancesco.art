@@ -1,5 +1,6 @@
 ---
 import Layout from '../../layouts/Layout.astro';
+import '../../styles/pages/work-project.css';
 import Citation from '../../components/Citation.astro';
 import PhotoCitation from '../../components/PhotoCitation.astro';
 import NextProject from '../../components/NextProject.astro';
@@ -62,7 +63,7 @@ const spreads: Spread[] = [
 
     <!-- Rangée 2 : Claire Marin (gauche) + Photo 52 (droite) -->
     <PhotoCitation src={s('52.jpg')} side="right" photoWidth="42%">
-      <Citation author="Claire Marin — Hors de moi" note="freely translated from the French" justify>
+      <Citation author="Claire Marin — Hors de moi" note="freely translated from the French">
         <span class="k">Dreams and water are two worlds where I recover a little balance, a little lightness,
         where I live again the pleasure of movement.</span> Held within the water's sheath, my body
         lets go of its pain. It fades, dissolves, vanishes. My movements turn fluid, easy;
@@ -133,66 +134,6 @@ const spreads: Spread[] = [
 
 <style is:global>
 
-  /* ── Hero projet ──────────────────────────────────── */
-  .phero {
-    position: relative;
-    min-height: 90vh;
-    display: flex;
-    align-items: flex-end;
-    padding-bottom: clamp(3rem, 8vh, 6rem);
-    overflow: hidden;
-  }
-
-  .phero-bg {
-    position: absolute;
-    inset: 0;
-    z-index: -2;
-  }
-
-  .phero-bg img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
-
-  .phero-bg::after {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background:
-      linear-gradient(180deg,
-        rgba(20,32,43,.45) 0%,
-        rgba(20,32,43,0) 30%,
-        rgba(20,32,43,0) 55%,
-        rgba(20,32,43,.62) 100%
-      );
-  }
-
-  .phero-inner {
-    position: relative;
-    color: #fff;
-  }
-
-  .phero-eyebrow {
-    font-family: var(--font-body);
-    font-size: .74rem;
-    text-transform: uppercase;
-    letter-spacing: .2em;
-    color: rgba(255,255,255,.88);
-    margin-bottom: .7rem;
-  }
-
-  .phero-inner h1 {
-    font-family: var(--font-title);
-    font-weight: 300;
-    text-transform: uppercase;
-    font-size: clamp(2rem, 7vw, 4.6rem);
-    line-height: 1.02;
-    letter-spacing: clamp(.04em, .8vw, .12em);
-  }
-
-  .phero-inner h1 strong { font-weight: 500; }
-
   /* ── Ouverture ─────────────────────────────────────── */
   .ecm-opening {
     display: flex;
@@ -209,146 +150,23 @@ const spreads: Spread[] = [
     margin-top: clamp(1.5rem, 3vh, 2.5rem);
   }
 
-  /* Colonne projet */
-  .opening-eyebrow {
-    font-family: var(--font-body);
-    font-size: .72rem;
-    text-transform: uppercase;
-    letter-spacing: .2em;
-    color: var(--cerule);
-    margin-bottom: 1rem;
-  }
-
+  /* Corps de texte réduit, intentionnel pour cette page */
   .opening-text {
     font-weight: 300;
     font-size: clamp(.82rem, 1vw, .92rem);
     line-height: 1.85;
     color: var(--encre);
-    text-align: justify;
-    hyphens: auto;
-    -webkit-hyphens: auto;
+    text-align: left;
+    hyphens: none;
+    -webkit-hyphens: none;
     flex-grow: 1;
     margin-bottom: 1.8rem;
   }
 
   .opening-text em { font-style: italic; }
 
-  .opening-horizon {
-    margin-top: 0;
-  }
-
-  /* ── Série ────────────────────────────────────────── */
-  .series {
-    max-width: 1320px;
-    margin: 0 auto;
-    padding: 0 var(--gutter);
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
-  }
-
-  .spread {
-    display: flex;
-    gap: 16px;
-    align-items: flex-start;
-  }
-
-  .spread figure {
-    flex-grow: 1;
-    flex-basis: 0;
-    min-width: 0;
-    margin: 0;
-  }
-
-  .spread figure img {
-    display: block;
-    width: 100%;
-    height: auto;
-  }
-
-  .spread--single figure { flex: 1 1 100%; }
-
-  .series-caption {
-    font-family: var(--font-title);
-    font-weight: 300;
-    color: var(--cerule);
-    font-size: clamp(1rem, 1.8vw, 1.35rem);
-    line-height: 1.4;
-    max-width: 1320px;
-    margin: .5rem auto;
-    padding: 0 var(--gutter);
-  }
-
-  /* Scroll fade-in */
-  .rv {
-    opacity: 0;
-    transform: translateY(20px);
-    transition: opacity .8s ease, transform .8s ease;
-  }
-  .rv.in { opacity: 1; transform: none; }
-
-  @media (prefers-reduced-motion: reduce) {
-    .rv { opacity: 1; transform: none; transition: none; }
-  }
-
-  /* ── Accès privé ─────────────────────────────────── */
-  .private-link {
-    padding-block: 2.5rem;
-    border-top: 1px solid var(--brume);
-    margin-top: clamp(2rem, 5vh, 3rem);
-  }
-
-  .private-link a {
-    font-family: var(--font-body);
-    font-size: .72rem;
-    text-transform: uppercase;
-    letter-spacing: .16em;
-    color: var(--ardoise);
-    border-bottom: 1px solid var(--brume);
-    padding-bottom: 2px;
-    transition: color .25s;
-  }
-
-  .private-link a:hover { color: var(--cerule); }
-
-  /* ── Project credits ─────────────────────────────── */
-  .project-credits {
-    max-width: 62ch;
-    margin: clamp(2.5rem, 6vh, 4rem) auto 0;
-    padding: 0 var(--gutter);
-  }
-  .project-credits .group + .group { margin-top: 1rem; }
-  .project-credits .label {
-    font-family: var(--font-title);
-    font-weight: 500;
-    text-transform: uppercase;
-    letter-spacing: .2em;
-    font-size: .62rem;
-    color: var(--cerule);
-    margin-bottom: .4rem;
-  }
-  .project-credits p {
-    font-size: .8rem;
-    line-height: 1.55;
-    color: var(--ardoise);
-    margin: 0;
-  }
-
   /* ── Mobile ───────────────────────────────────────── */
   @media (max-width: 700px) {
-    .series { gap: 8px; }
-    .spread { flex-wrap: wrap; gap: 8px; }
-    .spread figure {
-      flex: none !important;
-      width: calc(50% - 4px) !important;
-    }
-    .spread--single figure { width: 100% !important; }
-
-    /* Trio : 3 colonnes égales pour éviter le blanc */
-    .spread--row:has(figure:nth-child(3)):not(:has(figure:nth-child(4))) figure {
-      width: calc(33.33% - 6px) !important;
-    }
-
     /* Hauteur uniforme dans les rangées de 2 */
     .spread--row:not(:has(figure:nth-child(3))) figure {
       aspect-ratio: 3 / 2;

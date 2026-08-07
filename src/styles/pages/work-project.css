@@ -95,9 +95,9 @@
   font-size: clamp(.92rem, 1.35vw, 1.06rem);
   line-height: 1.78;
   color: var(--encre);
-  text-align: justify;
-  hyphens: auto;
-  -webkit-hyphens: auto;
+  text-align: left;
+  hyphens: none;
+  -webkit-hyphens: none;
   flex-grow: 1;
   margin-bottom: 1.8rem;
 }
@@ -132,9 +132,9 @@
   line-height: 1.75;
   color: var(--encre);
   margin-bottom: 1.4rem;
-  text-align: justify;
-  hyphens: auto;
-  -webkit-hyphens: auto;
+  text-align: left;
+  hyphens: none;
+  -webkit-hyphens: none;
 }
 .intro-text em { font-style: italic; }
 
@@ -153,11 +153,6 @@
   font-size: clamp(.88rem, 1.2vw, 1rem);
   line-height: 1.55;
   color: var(--ardoise);
-}
-.epi-wrap blockquote.epi-justify {
-  text-align: justify;
-  hyphens: auto;
-  -webkit-hyphens: auto;
 }
 .k { color: var(--cerule); font-weight: 500; }
 .epi-wrap cite {
@@ -526,8 +521,6 @@ figure.match img {
   .lmec-text-col .epi-wrap { max-width: 100%; overflow-wrap: break-word; word-break: break-word; }
   .lmec-bq-long { display: none; }
   .lmec-bq-short { display: block; }
-  /* Texte projet : justifié sur mobile */
-  .lmec-prose .opening-text { text-align: justify; }
   /* Marge pulse→photo = eyebrow→texte (1.6rem) */
   .lmec-prose + .lmec-prose { margin-top: 1.6rem; }
   .lmec-photo-float {

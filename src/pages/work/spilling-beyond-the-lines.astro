@@ -1,5 +1,6 @@
 ---
 import Layout from '../../layouts/Layout.astro';
+import '../../styles/pages/work-project.css';
 import Citation from '../../components/Citation.astro';
 import NextProject from '../../components/NextProject.astro';
 
@@ -144,74 +145,7 @@ const spreads: Spread[] = [
 
 <style is:global>
 
-  /* ── Hero projet ──────────────────────────────────── */
-  .phero {
-    position: relative;
-    min-height: 90vh;
-    display: flex;
-    align-items: flex-end;
-    padding-bottom: clamp(3rem, 8vh, 6rem);
-    overflow: hidden;
-  }
-
-  .phero-bg {
-    position: absolute;
-    inset: 0;
-    z-index: -2;
-  }
-
-  .phero-bg img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
-
-  .phero-bg::after {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background:
-      linear-gradient(180deg, rgba(20,32,43,.18) 0%, rgba(20,32,43,0) 38%, rgba(20,32,43,.62) 100%);
-  }
-
-  .phero-inner {
-    position: relative;
-    color: #fff;
-  }
-
-  .phero-eyebrow {
-    font-family: var(--font-body);
-    font-size: .74rem;
-    text-transform: uppercase;
-    letter-spacing: .18em;
-    color: rgba(255,255,255,.86);
-    margin-bottom: 1rem;
-  }
-
-  .phero-inner h1 {
-    font-family: var(--font-title);
-    font-weight: 300;
-    text-transform: uppercase;
-    font-size: clamp(2rem, 7vw, 4.6rem);
-    line-height: 1.02;
-    letter-spacing: clamp(.04em, .8vw, .12em);
-  }
-
-  .phero-inner h1 strong { font-weight: 500; }
-
-  /* ── Intro ────────────────────────────────────────── */
-  .intro {
-    display: flex;
-    gap: clamp(2.5rem, 6vw, 5rem);
-    align-items: stretch;
-    max-width: 1320px;
-    margin-top: clamp(3rem, 8vh, 5.5rem);
-    margin-bottom: clamp(1.5rem, 3vh, 2.5rem);
-    margin-left: auto;
-    margin-right: auto;
-    padding: 0 var(--gutter);
-  }
-
+  /* ── Intro : colonnes épigraphe + projet ────────────────────── */
   .intro-epi {
     flex: 1 1 0;
     display: flex;
@@ -224,28 +158,9 @@ const spreads: Spread[] = [
     flex-direction: column;
   }
 
-  .opening-eyebrow {
-    font-family: var(--font-body);
-    font-size: .72rem;
-    text-transform: uppercase;
-    letter-spacing: .2em;
-    color: var(--cerule);
-    margin-bottom: 1rem;
-  }
-
   .intro-proj-horizon {
     margin-top: auto;
   }
-
-  .intro-text {
-    font-size: clamp(.9rem, 1.3vw, 1.05rem);
-    line-height: 1.75;
-    color: var(--encre);
-    margin-bottom: 1.4rem;
-    text-align: justify;
-  }
-
-  .intro-text em { font-style: italic; }
 
   .pullquote {
     font-family: var(--font-title);
@@ -256,63 +171,12 @@ const spreads: Spread[] = [
     margin: 1.6rem 0;
   }
 
-  .series-caption {
-    font-family: var(--font-title);
-    font-weight: 300;
-    color: var(--cerule);
-    font-size: clamp(1rem, 1.8vw, 1.35rem);
-    line-height: 1.4;
-    max-width: 1320px;
-    margin: 1.5rem auto;
-    padding: 0 var(--gutter);
-    text-align: justify;
-  }
+  /* ── Série : position relative nécessaire pour les recadrages ── */
+  .spread figure { position: relative; }
 
-  /* Citation "For me..." : même police que les paragraphes intro */
-  .series-caption--prose {
-    font-family: var(--font-body);
-    font-weight: 400;
-    font-size: clamp(.9rem, 1.3vw, 1.05rem);
-    color: var(--encre);
-    line-height: 1.75;
-  }
+  .spread figure img { cursor: zoom-in; }
 
-  /* ── Série ────────────────────────────────────────── */
-  .series {
-    max-width: 1320px;
-    margin: 0 auto;
-    padding: 0 var(--gutter);
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
-  }
-
-  .spread {
-    display: flex;
-    gap: 16px;
-    margin: 0;
-    align-items: flex-start;
-  }
-
-  .spread figure {
-    position: relative;
-    flex-grow: 1;
-    flex-basis: 0;
-    min-width: 0;
-    margin: 0;
-  }
-
-  .spread figure img {
-    display: block;
-    width: 100%;
-    height: auto;
-    cursor: zoom-in;
-  }
-
-  /* Single full-width */
-  .spread--single figure { flex: 1 1 100%; }
-
-  /* Cadrage forcé 3:2 (photo 47 → même format que photo 22) */
+  /* Cadrage forcé 3:2 (photos 47–48) */
   figure.land-crop {
     aspect-ratio: 3 / 2;
     overflow: hidden;
@@ -340,22 +204,7 @@ const spreads: Spread[] = [
     object-position: 90% center;
   }
 
-  /* Photo 21 : cadrage match (objet absolu, recadrage gauche) */
-  .spread figure.match {
-    align-self: stretch;
-    overflow: hidden;
-    position: relative;
-  }
-  .spread figure.match img {
-    position: absolute;
-    inset: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: right center;
-  }
-
-  /* Composed trio */
+  /* Triptyque composé (photos 11–13) */
   .spread--composed {
     align-items: flex-start;
     justify-content: center;
@@ -384,58 +233,11 @@ const spreads: Spread[] = [
 
   .spread--composed img { border-radius: 12px; }
 
-  /* Scroll fade-in */
-  .rv {
-    opacity: 0;
-    transform: translateY(20px);
-    transition: opacity .8s ease, transform .8s ease;
-  }
-
-  .rv.in {
-    opacity: 1;
-    transform: none;
-  }
-
-  @media (prefers-reduced-motion: reduce) {
-    .rv { opacity: 1; transform: none; transition: none; }
-  }
-
-  /* ── Project credits ─────────────────────────────── */
-  .project-credits {
-    max-width: 62ch;
-    margin: clamp(2.5rem, 6vh, 4rem) auto 0;
-    padding: 0 var(--gutter);
-  }
-  .project-credits .group + .group { margin-top: 1rem; }
-  .project-credits .label {
-    font-family: var(--font-title);
-    font-weight: 500;
-    text-transform: uppercase;
-    letter-spacing: .2em;
-    font-size: .62rem;
-    color: var(--cerule);
-    margin-bottom: .4rem;
-  }
-  .project-credits p {
-    font-size: .8rem;
-    line-height: 1.55;
-    color: var(--ardoise);
-    margin: 0;
-  }
-
   /* ── Mobile ───────────────────────────────────────── */
   @media (max-width: 700px) {
     .intro { flex-direction: column; }
-    .series { gap: 8px; }
-    .spread { flex-wrap: wrap; gap: 8px; }
-    .spread figure {
-      flex: none !important;
-      width: calc(50% - 4px) !important;
-      transform: none !important;
-      margin: 0 !important;
-    }
-    /* Single et paysage : pleine largeur */
-    .spread--single figure { width: 100% !important; }
+
+    /* Paysages pleine largeur */
     .spread .land { width: 100% !important; }
 
     /* Triptyque composé : restaurer l'effet superposé */
