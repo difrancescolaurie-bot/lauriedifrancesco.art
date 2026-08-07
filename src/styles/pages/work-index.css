@@ -48,6 +48,7 @@ body { background: var(--sable); }
   margin-bottom: .6rem;
 }
 
+.p1 .proj-head .wi-title,
 .p2 .wi-title,
 .p5 .wi-title { white-space: nowrap; }
 
@@ -117,7 +118,6 @@ body { background: var(--sable); }
 .p1 { padding: 4.5rem var(--gutter) 4rem; }
 
 .p1 .proj-head {
-  max-width: 44%;
   margin-bottom: 3rem;
 }
 
@@ -359,6 +359,7 @@ body { background: var(--sable); }
 @media (max-width: 700px) {
   .p1 { padding-top: 3rem; }
   .p1 .proj-head { max-width: 100%; margin-bottom: 2rem; }
+  .p1 .proj-head .wi-title { white-space: normal; }
   .p1 .p1-img-wrap {
     margin-right: calc(-1 * var(--gutter));
     margin-left: calc(-1 * var(--gutter));

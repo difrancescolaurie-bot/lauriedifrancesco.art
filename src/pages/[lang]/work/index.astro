@@ -89,7 +89,7 @@ const projects = t.home.projects.map((p, i) => {
   <section class="p1">
     <div class="proj-head">
       <span class="wi-cerule">{projects[0].cerule}</span>
-      <h2 class="wi-title">{projects[0].title}</h2>
+      <h2 class="wi-title" set:html="Quando&nbsp;sono&nbsp;qui, non&nbsp;sono&nbsp;là" />
     </div>
     <div class="p1-img-wrap">
       <a class="proj-img" href={projects[0].href}
