@@ -48,8 +48,8 @@ const t = ui[currentLang];
 
 <style>
   .site-footer {
-    background: var(--encre);
-    color: var(--brume);
+    background: var(--sable);
+    border-top: 1px solid var(--brume);
     padding-block: 3rem 2rem;
     margin-top: 0;
   }
@@ -66,18 +66,23 @@ const t = ui[currentLang];
     gap: 0.75rem;
   }
 
+  .footer-top .horizon {
+    width: 56px;
+    height: 1px;
+  }
+
   .footer-name {
-    font-size: clamp(0.75rem, 1.6vw, 0.9rem);
-    color: var(--blanc);
+    font-size: var(--t-xs);
+    letter-spacing: .22em;
+    color: var(--encre);
   }
 
   .footer-tagline {
     font-family: var(--font-body);
-    font-size: 0.82rem;
+    font-size: var(--t-s);
     font-weight: 300;
     font-style: italic;
-    color: #778A98;
-    letter-spacing: 0.03em;
+    color: var(--ardoise);
   }
 
   .footer-nav {
@@ -88,16 +93,16 @@ const t = ui[currentLang];
 
   .footer-nav a {
     font-family: var(--font-body);
-    font-size: 0.8rem;
+    font-size: var(--t-xs);
     font-weight: 400;
-    letter-spacing: 0.07em;
+    letter-spacing: .22em;
     text-transform: uppercase;
-    color: rgba(198, 211, 220, 0.7);
+    color: var(--encre);
     transition: color 0.2s;
   }
 
   .footer-nav a:hover {
-    color: var(--blanc);
+    color: var(--cerule);
   }
 
   .footer-social a {
@@ -105,15 +110,15 @@ const t = ui[currentLang];
     align-items: center;
     gap: 0.45rem;
     font-family: var(--font-body);
-    font-size: 0.8rem;
-    letter-spacing: 0.07em;
+    font-size: var(--t-xs);
+    letter-spacing: .22em;
     text-transform: uppercase;
-    color: rgba(198, 211, 220, 0.58);
+    color: var(--ardoise);
     transition: color 0.2s;
   }
 
   .footer-social a:hover {
-    color: var(--blanc);
+    color: var(--encre);
   }
 
   .footer-bottom {
@@ -123,28 +128,28 @@ const t = ui[currentLang];
     justify-content: space-between;
     gap: 0.5rem;
     padding-top: 1.5rem;
-    border-top: 1px solid rgba(198, 211, 220, 0.12);
+    border-top: 1px solid var(--brume);
   }
 
   .footer-copy {
-    font-size: 0.72rem;
-    color: #778A98;
+    font-size: var(--t-xs);
+    color: var(--ardoise);
   }
 
   .footer-legal-links {
     display: flex;
     gap: 0.5rem;
     align-items: center;
-    font-size: 0.72rem;
-    color: #778A98;
+    font-size: var(--t-xs);
+    color: var(--ardoise);
   }
 
   .footer-legal-links a {
-    color: #778A98;
+    color: var(--ardoise);
     transition: color 0.2s;
   }
 
   .footer-legal-links a:hover {
-    color: var(--brume);
+    color: var(--encre);
   }
 </style>
