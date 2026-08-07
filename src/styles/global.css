@@ -1,5 +1,5 @@
 /* ─── Google Fonts ───────────────────────────────────── */
-@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500&family=Hanken+Grotesk:wght@300;400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500&family=Hanken+Grotesk:wght@300;400;500&display=swap');
 
 /* ─── Palette ────────────────────────────────────────── */
 :root {
@@ -20,6 +20,31 @@
   --max-width:      1200px;
   --max-width-wide: 1320px;
   --gutter: clamp(1.25rem, 4vw, 3rem);
+
+  /* ─── Échelle typographique — corps fixes ─── */
+  --t-xs: .72rem;
+  --t-s:  .82rem;
+  --t-m:  .94rem;
+  --t-l:  1.06rem;
+  --t-xl: 1.25rem;
+
+  /* ─── Échelle typographique — titres ─── */
+  --T-projet:      clamp(1.4rem, 2.6vw, 2.1rem);
+  --T-projet-demi: clamp(.95rem, 1.66vw, 1.34rem);
+  --T-page:        clamp(1.9rem, 4.4vw, 3.2rem);
+  --T-hero:        clamp(2rem, 5.6vw, 3.8rem);
+  --T-sceau:       clamp(.9rem, calc(3.15vw + .17rem), 2.4rem);
+
+  /* ─── Accents de projet ─── */
+  --acc-lmec:    #1F728B;
+  --acc-quando:  #C62C3D;
+  --acc-ecm:     #A55224;
+  --acc-toward:  #1B793D;
+  --acc-venezia: #66696C;
+  --acc-spill:   #C22B65;
+
+  /* accent courant — redéfini sur chaque page projet */
+  --accent: var(--cerule);
 }
 
 /* ─── Reset ──────────────────────────────────────────── */
