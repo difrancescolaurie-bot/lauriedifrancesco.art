@@ -116,14 +116,15 @@
 .creed-lines p {
   font-family: var(--font-title);
   font-weight: 300;
-  font-size: clamp(1.1rem, 2.4vw, 1.8rem);
-  line-height: 1.25;
+  font-size: var(--T-sceau);
+  line-height: 1.42;
+  letter-spacing: -.006em;
   white-space: nowrap;
 }
 
 .creed-it { color: var(--encre); }
-.creed-fr { color: var(--cerule); }
-.creed-pt { color: var(--ardoise); }
+.creed-fr { color: var(--gris-2); }
+.creed-pt { color: var(--gris-3); }
 
 .creed-src {
   margin-top: 2.5rem;
@@ -307,7 +308,6 @@
 /* Mobile */
 @media (max-width: 700px) {
   .work-frame { aspect-ratio: 3/2; }
-  .creed-lines p { font-size: clamp(1rem, 5.5vw, 1.5rem); white-space: normal; }
 
   /* Recadrage mobile — ordre héro : hero-2, hero-3, hero-4, hero-1 */
   .hero-bg img:nth-child(1) { object-position: calc(62% + 45px) center; }

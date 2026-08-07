@@ -48,17 +48,6 @@ body { background: var(--sable); }
   margin-bottom: .6rem;
 }
 
-.wi-title--quando {
-  display: flex;
-  flex-direction: column;
-  line-height: 1.2;
-}
-
-.wi-title--quando span { white-space: nowrap; }
-.qt-it { color: var(--encre); }
-.qt-fr { color: var(--cerule); }
-.qt-pt { color: var(--ardoise); }
-
 .p2 .wi-title,
 .p5 .wi-title { white-space: nowrap; }
 
@@ -368,11 +357,6 @@ body { background: var(--sable); }
 
 /* ── Mobile ───────────────────────────────── */
 @media (max-width: 700px) {
-  /* Titre quand/FR/PT : réduit pour tenir sur une ligne à nowrap */
-  .wi-title--quando span {
-    font-size: clamp(0.94rem, 4.5vw, 1.19rem);
-  }
-
   .p1 { padding-top: 3rem; }
   .p1 .proj-head { max-width: 100%; margin-bottom: 2rem; }
   .p1 .p1-img-wrap {
