@@ -277,6 +277,12 @@ body { background: var(--sable); }
   opacity: 1;
 }
 
+/* Survol desktop : visible mais transparent aux clics */
+#fso.peek {
+  opacity: 1;
+  pointer-events: none;
+}
+
 #fso-bg {
   position: absolute;
   inset: 0;

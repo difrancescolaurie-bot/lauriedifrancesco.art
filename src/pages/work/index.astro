@@ -232,30 +232,45 @@ const projects = [
   const fsoClose  = document.getElementById('fso-close')!;
   let hideTimer: ReturnType<typeof setTimeout>;
 
+  const hasHover = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
+
   function showFso(el: HTMLAnchorElement) {
     clearTimeout(hideTimer);
-    fsoBg.style.background    = el.dataset.overlayColor ?? 'rgba(20,32,43,.92)';
-    fsoCerule.textContent     = el.dataset.overlayCerule ?? '';
-    fsoTitle.textContent      = el.dataset.overlayTitle ?? '';
-    fsoNote.textContent       = el.dataset.overlayNote ?? '';
-    fsoCta.href               = el.href;
+    fsoBg.style.background = el.dataset.overlayColor ?? 'rgba(20,32,43,.92)';
+    fsoCerule.textContent  = el.dataset.overlayCerule ?? '';
+    fsoTitle.textContent   = el.dataset.overlayTitle ?? '';
+    fsoNote.textContent    = el.dataset.overlayNote ?? '';
+    fsoCta.href            = el.href;
     fso.setAttribute('aria-hidden', 'false');
-    fso.classList.add('on');
+    fso.classList.remove('on', 'peek');
+    fso.classList.add(hasHover ? 'peek' : 'on');
   }
 
   function hideFso(delay = 120) {
     hideTimer = setTimeout(() => {
-      fso.classList.remove('on');
+      fso.classList.remove('on', 'peek');
       fso.setAttribute('aria-hidden', 'true');
     }, delay);
   }
 
   document.querySelectorAll<HTMLAnchorElement>('.proj-img').forEach(el => {
-    el.addEventListener('click', e => {
-      e.preventDefault();
-      fso.classList.contains('on') ? hideFso(0) : showFso(el);
-    });
+    if (hasHover) {
+      // Desktop : survol = voile, clic = navigation directe
+      el.addEventListener('mouseenter', () => showFso(el));
+      el.addEventListener('mouseleave', () => hideFso(200));
+    } else {
+      // Mobile : clic = afficher voile, CTA = naviguer
+      el.addEventListener('click', e => {
+        e.preventDefault();
+        fso.classList.contains('on') ? hideFso(0) : showFso(el);
+      });
+    }
   });
+
+  if (hasHover) {
+    fso.addEventListener('mouseenter', () => clearTimeout(hideTimer));
+    fso.addEventListener('mouseleave', () => hideFso(200));
+  }
 
   fsoClose.addEventListener('click', () => hideFso(0));
   fso.addEventListener('click', e => {
