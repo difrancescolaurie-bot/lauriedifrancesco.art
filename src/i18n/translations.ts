@@ -22,6 +22,9 @@ export const ui = {
         { category: "Venice",            cerule: "Rebirth. An attempt.",   note: "To hold on. To let go. To exist in one's own gaze." },
         { category: "Sea & body",        cerule: "Surfacing",              note: "Learning to walk again, through water and through dreams." },
       ],
+      exhiLabel: "Solo exhibition",
+      exhiBlurb: "Built around a single question: what a border truly separates.",
+      exhiLink: "See the exhibition →",
     },
     about: {
       eyebrow: "About",
@@ -124,6 +127,9 @@ export const ui = {
         { category: "Venise",            cerule: "Renaître. Un essai.",                  note: "Se tenir. Se lâcher. Exister dans son propre regard." },
         { category: "",                  cerule: "Les lignes divisent-elles ?",           note: "Quand la libre profusion des formes autour de nous, et le regard d'un autre, ont réécrit mon propre regard :<br />une œuvre née d'une rupture qui rapproche." },
       ],
+      exhiLabel: "Exposition solo",
+      exhiBlurb: "Construite autour d'une seule question : ce qu'une frontière sépare vraiment.",
+      exhiLink: "Voir l'exposition →",
     },
     about: {
       eyebrow: "À propos",
@@ -226,6 +232,9 @@ export const ui = {
         { category: "Venezia",            cerule: "Rinascita. Un tentativo.",      note: "Tenersi. Lasciarsi andare. Esistere nel proprio sguardo." },
         { category: "",                   cerule: "Le linee dividono davvero?",    note: "Quando la libera profusione delle forme intorno a noi, e lo sguardo di un altro, hanno riscritto il mio sguardo:<br />un progetto nato da una rottura che avvicina." },
       ],
+      exhiLabel: "Mostra personale",
+      exhiBlurb: "Costruita attorno a una sola domanda: ciò che un confine separa davvero.",
+      exhiLink: "Vedere la mostra →",
     },
     about: {
       eyebrow: "Chi sono",
@@ -328,6 +337,9 @@ export const ui = {
         { category: "Veneza",            cerule: "Renascer. Uma tentativa.",           note: "Segurar-se. Soltar-se. Existir no próprio olhar." },
         { category: "",                  cerule: "As linhas realmente dividem?",      note: "Quando a livre profusão das formas ao nosso redor, e o olhar do outro, reescreveram o meu:<br />uma obra nascida de uma ruptura que aproxima." },
       ],
+      exhiLabel: "Exposição individual",
+      exhiBlurb: "Construída em torno de uma única pergunta: o que uma fronteira separa verdadeiramente.",
+      exhiLink: "Ver a exposição →",
     },
     about: {
       eyebrow: "Sobre",

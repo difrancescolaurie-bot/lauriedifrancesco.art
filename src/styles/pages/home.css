@@ -305,6 +305,58 @@
 
 .works-more-link:hover { color: var(--cerule); }
 
+/* ── Bloc exposition ─────────────────────── */
+.ex-home {
+  padding-block: clamp(2.5rem, 6vh, 4rem);
+  border-top: 1px solid var(--brume);
+  border-bottom: 1px solid var(--brume);
+}
+
+.ex-home-label {
+  font-family: var(--font-body);
+  font-size: var(--t-xs);
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: .22em;
+  color: var(--acc-spill);
+  margin-bottom: .9rem;
+}
+
+.ex-home-title {
+  font-family: var(--font-title);
+  font-weight: 200;
+  text-transform: uppercase;
+  font-size: var(--T-projet);
+  line-height: 1.12;
+  letter-spacing: .055em;
+  color: var(--encre);
+  margin-bottom: 1rem;
+}
+
+.ex-home-meta {
+  font-family: var(--font-body);
+  font-size: var(--t-l);
+  font-weight: 300;
+  line-height: 1.9;
+  color: var(--ardoise);
+  max-width: 62ch;
+  margin-bottom: 1.5rem;
+}
+
+.ex-home-link {
+  font-family: var(--font-body);
+  font-size: var(--t-xs);
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: .22em;
+  color: var(--acc-spill);
+  border-bottom: 1px solid var(--acc-spill);
+  padding-bottom: 2px;
+  transition: opacity .25s;
+}
+
+.ex-home-link:hover { opacity: .7; }
+
 /* Mobile */
 @media (max-width: 700px) {
   .work-frame { aspect-ratio: 3/2; }

@@ -144,6 +144,17 @@ const prevProjects = [
 
   </section>
 
+  <!-- ─── Bloc exposition ───────────────────────────────────── -->
+  <section class="ex-home container" aria-label="Exhibition">
+    <p class="ex-home-label">{th.exhiLabel}</p>
+    <h2 class="ex-home-title">{t.exhibitions.exhibitionTitle}</h2>
+    <p class="ex-home-meta">
+      Livraria da Rua &mdash; {t.exhibitions.metaLocation} &middot; {t.exhibitions.metaDate} &middot; {t.exhibitions.metaCount}<br />
+      {th.exhiBlurb}
+    </p>
+    <a class="ex-home-link" href={`/${lang}/exhibitions`}>{th.exhiLink}</a>
+  </section>
+
 </Layout>
 
 <script>
