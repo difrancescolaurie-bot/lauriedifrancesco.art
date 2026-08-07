@@ -46,7 +46,7 @@ const content = {
 }[lang as 'fr' | 'it' | 'pt'];
 
 type Photo = { src: string; n: number };
-type Spread = { type: 'row' | 'single'; photos: Photo[]; caption?: string; captionStyle?: 'prose' };
+type Spread = { type: 'row' | 'single'; photos: Photo[]; caption?: string };
 
 const spreads: Spread[] = [
   { type: 'row',    photos: [{ src: s(1), n: 1 }, { src: s(2), n: 2 }] },
@@ -93,7 +93,7 @@ const spreads: Spread[] = [
           ))}
         </div>
         {spread.caption && (
-          <p class={`series-caption${spread.captionStyle === 'prose' ? ' series-caption--prose' : ''} rv`}>
+          <p class="series-caption rv">
             {spread.caption}
           </p>
         )}

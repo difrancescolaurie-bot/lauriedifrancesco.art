@@ -24,7 +24,6 @@ type Spread = {
   type: 'row' | 'single';
   photos: Photo[];
   caption?: string;
-  captionStyle?: 'prose';
 };
 
 const spreads: Spread[] = [
@@ -89,7 +88,7 @@ const spreads: Spread[] = [
           ))}
         </div>
         {spread.caption && (
-          <p class={`series-caption${spread.captionStyle === 'prose' ? ' series-caption--prose' : ''} rv`}>
+          <p class="series-caption rv">
             {spread.caption}
           </p>
         )}
