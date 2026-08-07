@@ -34,9 +34,13 @@ body { background: var(--sable); }
 }
 
 .ct-wrap {
+  padding-top: clamp(2.5rem, 6vh, 4rem);
+  padding-bottom: clamp(4rem, 10vh, 7rem);
+}
+
+.ct-wrap form,
+.ct-wrap .ct-legal {
   max-width: 56ch;
-  margin: clamp(2.5rem, 6vh, 4rem) auto clamp(4rem, 10vh, 7rem);
-  padding: 0 var(--gutter);
 }
 
 .ct-honeypot { display: none; }
