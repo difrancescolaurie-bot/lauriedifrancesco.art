@@ -232,12 +232,11 @@ body.page-toward  { --accent: var(--acc-toward); }
   font-size: var(--t-xs);
   text-transform: uppercase;
   letter-spacing: .22em;
-  color: var(--ardoise);
+  color: var(--accent);
   border-bottom: 1px solid var(--brume);
   padding-bottom: 2px;
   transition: color .25s;
 }
-.private-link a:hover { color: var(--accent); }
 
 /* ── Next project — styles dans src/components/NextProject.astro ── */
 
