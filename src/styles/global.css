@@ -34,6 +34,8 @@
   --T-page:        clamp(1.9rem, 4.4vw, 3.2rem);
   --T-hero:        clamp(2rem, 5.6vw, 3.8rem);
   --T-sceau:       clamp(.9rem, calc(3.15vw + .17rem), 2.4rem);
+  --T-nom:         clamp(2.2rem, 7.5vw, 5rem);
+  --T-serie:       clamp(1.1rem, 2vw, 1.5rem);
 
   /* ─── Accents de projet ─── */
   --acc-lmec:    #1F728B;
@@ -69,6 +71,12 @@ img, video { display: block; max-width: 100%; }
 a {
   color: inherit;
   text-decoration: none;
+}
+
+/* ─── Surfaces sombres ───────────────────────────────── */
+.on-dark {
+  --encre:   var(--blanc);
+  --ardoise: rgba(255, 255, 255, .75);
 }
 
 /* ─── Ligne d'horizon ────────────────────────────────── */

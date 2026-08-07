@@ -63,14 +63,12 @@
 
 .hero h1 {
   font-family: var(--font-title);
-  font-weight: 300;
+  font-weight: 200;
   text-transform: uppercase;
-  font-size: clamp(2.4rem, 9vw, 6.5rem);
-  line-height: 0.97;
-  letter-spacing: clamp(0.05em, 1.2vw, 0.18em);
+  font-size: var(--T-nom);
+  line-height: 1.02;
+  letter-spacing: .055em;
 }
-
-.hero h1 .l2 { font-weight: 400; }
 
 .hero-horizon {
   background: #fff;
