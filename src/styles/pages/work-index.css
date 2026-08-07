@@ -368,6 +368,11 @@ body { background: #ECEAE4; }
 
 /* ── Mobile ───────────────────────────────── */
 @media (max-width: 680px) {
+  /* Titre quand/FR/PT : réduit pour tenir sur une ligne à nowrap */
+  .wi-title--quando span {
+    font-size: clamp(0.94rem, 4.5vw, 1.19rem);
+  }
+
   .p1 { padding-top: 3rem; }
   .p1 .proj-head { max-width: 100%; margin-bottom: 2rem; }
   .p1 .p1-img-wrap {
