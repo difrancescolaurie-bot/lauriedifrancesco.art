@@ -87,7 +87,7 @@ a {
   display: block;
   width: var(--horizon-width);
   height: var(--horizon-height);
-  background: var(--cerule);
+  background: var(--brume);
   border: none;
   margin: 0;
   flex-shrink: 0;

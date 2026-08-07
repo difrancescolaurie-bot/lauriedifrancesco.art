@@ -139,42 +139,6 @@
 }
 .intro-text em { font-style: italic; }
 
-/* ── Citations ─────────────────────────────────────── */
-/* Styles canoniques dans src/components/Citation.astro — dupliqués ici
-   pour les pages qui utilisent <div class="epi-wrap"> sans le composant */
-.epi-wrap {
-  border-left: 1px solid var(--brume);
-  padding: .2rem 0 1.8rem 1.3rem;
-  max-width: 60ch;
-}
-.epi-wrap blockquote {
-  font-family: var(--font-body);
-  font-weight: 300;
-  font-style: italic;
-  font-size: var(--t-m);
-  line-height: 1.85;
-  color: var(--ardoise);
-}
-.k { font-weight: inherit; }
-.epi-wrap cite {
-  display: block;
-  margin-top: .9rem;
-  font-style: normal;
-  font-size: var(--t-xs);
-  letter-spacing: .22em;
-  text-transform: uppercase;
-  color: var(--cerule);
-}
-.epi-tradfr {
-  display: block;
-  font-size: var(--t-xs);
-  letter-spacing: .08em;
-  text-transform: none;
-  font-style: italic;
-  color: var(--ardoise);
-  margin-top: .2rem;
-}
-
 /* ── Série photographique ──────────────────────────── */
 .series {
   max-width: var(--max-width-wide);
@@ -397,16 +361,7 @@ figure.match img {
   gap: 0;
   padding-left: clamp(1.5rem, 3vw, 3rem);
 }
-.lmec-text-col .epi-wrap {
-  max-width: none;
-}
-/* Deux lignes de blanc entre les traits (les bordures se touchent toujours) */
-.lmec-text-col .epi-wrap:first-child {
-  padding-bottom: 2.8rem;
-}
-
-/* Variante longue/courte de la 2e citation Bachelard */
-.lmec-bq-short { display: none; }
+.lmec-text-col .epi-wrap { max-width: none; }
 
 /* Photo flottante dans le texte prose */
 .lmec-photo-float {
@@ -499,8 +454,6 @@ figure.match img {
   /* Citations Bachelard : reset du padding latéral, contraindre dans le container */
   .lmec-text-col { padding-left: 0; }
   .lmec-text-col .epi-wrap { max-width: 100%; overflow-wrap: break-word; word-break: break-word; }
-  .lmec-bq-long { display: none; }
-  .lmec-bq-short { display: block; }
   /* Marge pulse→photo = eyebrow→texte (1.6rem) */
   .lmec-prose + .lmec-prose { margin-top: 1.6rem; }
   .lmec-photo-float {

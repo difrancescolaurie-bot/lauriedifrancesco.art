@@ -1,17 +1,24 @@
 ---
 interface Props {
   author?: string;
-  note?: string;        // note secondaire en petit italique (ex: "free translation from the French")
-  hr?: boolean;         // affiche le trait horizontal (défaut: true)
+  note?: string;        // mention de traduction (epi-tradfr)
+  hr?: boolean;         // affiche la barre horizontale (défaut: true)
+  extraPad?: boolean;   // padding-bottom majoré pour blocs adjacents (2.8rem)
 }
 
-const { author, note, hr = true } = Astro.props;
+const { author, note, hr = true, extraPad = false } = Astro.props;
+const hasShort = Astro.slots.has('short');
 ---
 
-<div class:list={['epi-wrap', { 'epi-wrap--hr': hr }]}>
-  <blockquote>
-    <slot />
-  </blockquote>
+<div class:list={['epi-wrap', { 'epi-wrap--hr': hr, 'epi-wrap--extra-pad': extraPad }]}>
+  {hasShort ? (
+    <>
+      <blockquote class="bq-long"><slot /></blockquote>
+      <blockquote class="bq-short"><slot name="short" /></blockquote>
+    </>
+  ) : (
+    <blockquote><slot /></blockquote>
+  )}
   {author && (
     <cite>
       {author}
@@ -27,12 +34,9 @@ const { author, note, hr = true } = Astro.props;
     max-width: 60ch;
   }
 
-  /* Le trait horizontal est un ::after ancré dans l'élément :
-     aucun margin externe sur .epi-wrap ne peut créer d'espace entre le
-     border-left et le trait, garantissant qu'ils se rejoignent toujours. */
-  .epi-wrap--hr {
-    padding-bottom: 0;
-  }
+  .epi-wrap--extra-pad { padding-bottom: 2.8rem; }
+
+  .epi-wrap--hr { padding-bottom: 0; }
   .epi-wrap--hr::after {
     content: '';
     display: block;
@@ -40,7 +44,6 @@ const { author, note, hr = true } = Astro.props;
     height: var(--horizon-height, 1.5px);
     background: var(--brume);
     margin-top: 1.8rem;
-    /* aligne le trait avec le bord gauche du border-left */
     margin-left: calc(-1.3rem - 1px);
   }
 
@@ -53,9 +56,7 @@ const { author, note, hr = true } = Astro.props;
     color: var(--ardoise);
   }
 
-  .k {
-    font-weight: inherit;
-  }
+  .k { font-weight: inherit; }
 
   .epi-wrap cite {
     display: block;
@@ -69,11 +70,18 @@ const { author, note, hr = true } = Astro.props;
 
   .epi-tradfr {
     display: block;
-    font-size: .62rem;
+    font-size: var(--t-xs);
     letter-spacing: .08em;
     text-transform: none;
     font-style: italic;
     color: var(--ardoise);
     margin-top: .2rem;
+  }
+
+  /* Variante longue/courte : long visible desktop, court visible mobile */
+  .bq-short { display: none; }
+  @media (max-width: 700px) {
+    .bq-long { display: none; }
+    .bq-short { display: block; }
   }
 </style>

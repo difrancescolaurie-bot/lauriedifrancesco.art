@@ -132,18 +132,13 @@ const content = {
       </div>
     </div>
     <div class="lmec-text-col">
-      <div class="epi-wrap">
-        <blockquote>{content.bq1}</blockquote>
-      </div>
-      <div class="epi-wrap">
-        <blockquote class="lmec-bq-long">{content.bq2Long}</blockquote>
-        <blockquote class="lmec-bq-short">{content.bq2Short}</blockquote>
-        <cite>
-          {content.bachelardCite}
-          {content.bachelardTransl && <span class="epi-tradfr">{content.bachelardTransl}</span>}
-        </cite>
-      </div>
-      <hr class="horizon epi-horizon" />
+      <Citation hr={false} extraPad>
+        <Fragment set:html={content.bq1} />
+      </Citation>
+      <Citation author={content.bachelardCite} note={content.bachelardTransl}>
+        <Fragment set:html={content.bq2Long} />
+        <Fragment slot="short" set:html={content.bq2Short} />
+      </Citation>
     </div>
   </div>
 

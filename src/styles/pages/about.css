@@ -25,43 +25,7 @@ body { background: var(--sable); }
   color: var(--encre);
 }
 
-.about-epi {
-  margin-top: 1.6rem;
-  border-left: 1px solid var(--brume);
-  padding: .2rem 0 .2rem 1.3rem;
-  max-width: 60ch;
-}
-
-.about-epi blockquote {
-  font-family: var(--font-body);
-  font-weight: 300;
-  font-style: italic;
-  font-size: var(--t-m);
-  line-height: 1.85;
-  color: var(--ardoise);
-  text-align: left;
-  hyphens: none;
-  -webkit-hyphens: none;
-}
-
-.about-horizon { margin-top: 1.8rem; }
-
-.about-epi cite {
-  display: block;
-  margin-top: .9rem;
-  font-style: normal;
-  font-size: var(--t-xs);
-  letter-spacing: .22em;
-  text-transform: uppercase;
-  color: var(--cerule);
-}
-
-/* highlight in epigraph: italic only, no blue */
-.about-epi .k {
-  color: var(--ardoise);
-  font-weight: 300;
-  font-style: italic;
-}
+.about-head .epi-wrap { margin-top: 1.6rem; }
 
 /* ── Bio: outer wrapper ───────────────────── */
 .about-bio {

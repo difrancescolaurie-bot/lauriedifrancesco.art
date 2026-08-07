@@ -1,6 +1,7 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import '../styles/pages/about.css';
+import Citation from '../components/Citation.astro';
 ---
 
 <Layout
@@ -13,15 +14,11 @@ import '../styles/pages/about.css';
     <p class="about-eyebrow">About</p>
     <h1 class="about-h1">Laurie Di Francesco</h1>
 
-    <div class="about-epi">
-      <blockquote>
-        All men by nature desire to know. An indication of this is the delight we
-        take in our senses; for even apart from their usefulness they are loved for
-        themselves; and above all others <span class="k">the sense of sight</span>.
-      </blockquote>
-      <cite>Aristotle — Metaphysics, Book A</cite>
-    </div>
-    <hr class="horizon about-horizon" />
+    <Citation author="Aristotle — Metaphysics, Book A">
+      All men by nature desire to know. An indication of this is the delight we
+      take in our senses; for even apart from their usefulness they are loved for
+      themselves; and above all others <span class="k">the sense of sight</span>.
+    </Citation>
   </section>
 
   <!-- ── Bio ───────────────────────────────────────────── -->
