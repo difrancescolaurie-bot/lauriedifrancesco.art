@@ -93,20 +93,6 @@ body { background: var(--sable); }
   margin: 0 var(--gutter);
 }
 
-/* ── Image container partagé ─────────────── */
-.proj-img {
-  position: relative;
-  overflow: hidden;
-  display: block;
-}
-
-.proj-img img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-  transition: transform 1.1s cubic-bezier(.25, .46, .45, .94);
-}
 
 /* ══════════════════════════════════════════════
    SECTIONS PROJETS (mises en page déconstruites)
@@ -256,110 +242,71 @@ body { background: var(--sable); }
 .p6 .p6-note .wi-note { max-width: 28ch; }
 
 /* ══════════════════════════════════════════════
-   OVERLAY PLEINE PAGE (survol/tap)
+   VOILE AU SURVOL — CSS pur
 ══════════════════════════════════════════════ */
-#fso {
-  position: fixed;
-  inset: 0;
-  z-index: 200;
-  pointer-events: none;
-  opacity: 0;
-  transition: opacity .35s ease;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  padding: 2rem;
-}
-
-#fso.on {
-  pointer-events: auto;
-  opacity: 1;
-}
-
-/* Survol desktop : visible mais transparent aux clics */
-#fso.peek {
-  opacity: 1;
-  pointer-events: none;
-}
-
-#fso-bg {
-  position: absolute;
-  inset: 0;
-  transition: background .35s;
-}
-
-#fso-content {
+.proj-img {
   position: relative;
-  z-index: 2;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-#fso-cerule {
-  font-family: var(--font-body);
-  font-size: var(--t-xs);
-  letter-spacing: .22em;
-  text-transform: uppercase;
-  color: rgba(255, 255, 255, .55);
-  margin-bottom: 1.2rem;
+  overflow: hidden;
   display: block;
 }
 
-#fso-title {
-  font-family: var(--font-title);
-  font-weight: 200;
-  font-size: var(--T-page);
-  letter-spacing: .055em;
-  text-transform: uppercase;
-  color: #fff;
-  line-height: 1.05;
-  text-wrap: balance;
-  margin-bottom: 1.4rem;
+.proj-img img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform .7s ease;
 }
 
-#fso-note {
-  font-family: var(--font-body);
-  font-size: var(--t-l);
-  color: rgba(255,255,255,.6);
-  max-width: 42ch;
-  line-height: 1.9;
-  margin-bottom: 2rem;
-  text-align: center;
+.proj-img:hover img,
+.proj-img:active img,
+.proj-img:focus-visible img { transform: scale(1.02); }
+
+.proj-veil {
+  position: absolute;
+  inset: 0;
+  background: var(--veil-color, rgba(20,32,43,.72));
+  opacity: 0;
+  transition: opacity .45s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: .9rem;
+  padding: 1.5rem;
 }
 
-#fso-cta {
+.proj-img:hover .proj-veil,
+.proj-img:active .proj-veil,
+.proj-img:focus-visible .proj-veil { opacity: .72; }
+
+.proj-veil-cerule {
   font-family: var(--font-body);
   font-size: var(--t-xs);
   letter-spacing: .22em;
   text-transform: uppercase;
-  color: rgba(255, 255, 255, .75);
-  border-bottom: 1px solid rgba(255, 255, 255, .35);
-  padding-bottom: 3px;
-  transition: color .2s, border-color .2s;
+  color: rgba(255,255,255,.65);
 }
 
-#fso-cta:hover {
+.proj-veil-title {
+  font-family: var(--font-title);
+  font-weight: 200;
+  font-size: clamp(1.05rem, 2.2vw, 1.75rem);
+  letter-spacing: .055em;
+  text-transform: uppercase;
   color: #fff;
-  border-color: rgba(255, 255, 255, .75);
+  line-height: 1.1;
+  text-wrap: balance;
+  text-align: center;
 }
 
-#fso-close {
-  position: absolute;
-  top: 1.5rem;
-  right: 2rem;
-  background: none;
-  border: none;
-  cursor: pointer;
-  font-size: 1.6rem;
-  color: rgba(255, 255, 255, .45);
-  font-family: inherit;
-  line-height: 1;
-  transition: color .2s;
+@media (prefers-reduced-motion: reduce) {
+  .proj-img img { transition: none; }
+  .proj-img:hover img,
+  .proj-img:active img,
+  .proj-img:focus-visible img { transform: none; }
+  .proj-veil { transition: none; }
 }
-
-#fso-close:hover { color: #fff; }
 
 /* ── Mobile ───────────────────────────────── */
 @media (max-width: 700px) {
@@ -417,6 +364,3 @@ body { background: var(--sable); }
   .p6 .proj-img { width: 100%; }
 }
 
-@media (prefers-reduced-motion: reduce) {
-  .proj-img img, #fso { transition: none; }
-}

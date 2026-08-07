@@ -15,21 +15,20 @@ export function getStaticPaths() {
 const { lang } = Astro.params;
 const t = ui[lang as Lang];
 
-const overlayColors = [
-  'rgba(138,72,42,.92)',
-  'rgba(36,44,72,.92)',
-  'rgba(26,20,32,.92)',
-  'rgba(54,52,48,.92)',
-  'rgba(38,66,42,.92)',
+const accentTokens = [
+  'var(--acc-quando)',
+  'var(--acc-toward)',
+  'var(--acc-ecm)',
+  'var(--acc-venezia)',
+  'var(--acc-spill)',
 ];
 
 const laMerEnCorps = {
   href: `/${lang}/work/la-mer-en-corps`,
   title: 'La Mer en Corps',
   cerule: t.work.laMerCerule,
-  note: t.work.laMerNote,
   image: '/images/work/la-mer-en-corps-cover.jpg',
-  overlayColor: 'rgba(28,58,74,.92)',
+  accent: 'var(--acc-lmec)',
 };
 
 const projects = t.home.projects.map((p, i) => {
@@ -58,9 +57,8 @@ const projects = t.home.projects.map((p, i) => {
     href: `/${lang}/work/${slugs[i]}`,
     title: titles[i],
     cerule: p.cerule,
-    note: p.note,
     image: images[i],
-    overlayColor: overlayColors[i],
+    accent: accentTokens[i],
   };
 });
 ---
@@ -71,7 +69,7 @@ const projects = t.home.projects.map((p, i) => {
   lang={lang}
 >
 
-  <!-- ── Page head (inchangé) ────────────────── -->
+  <!-- ── Page head ────────────────────────────── -->
   <section class="wi-head container">
     <p class="wi-eyebrow">{t.nav.work}</p>
     <h1 class="wi-h1">{t.work.h1}</h1>
@@ -92,12 +90,12 @@ const projects = t.home.projects.map((p, i) => {
       <h2 class="wi-title" set:html="Quando&nbsp;sono&nbsp;qui, non&nbsp;sono&nbsp;là" />
     </div>
     <div class="p1-img-wrap">
-      <a class="proj-img" href={projects[0].href}
-         data-overlay-color={projects[0].overlayColor}
-         data-overlay-cerule={projects[0].cerule}
-         data-overlay-title={projects[0].title}
-         data-overlay-note={projects[0].note}>
+      <a class="proj-img" href={projects[0].href} style={`--veil-color: ${projects[0].accent}`}>
         <img src={projects[0].image} alt={projects[0].title} loading="lazy" />
+        <div class="proj-veil" aria-hidden="true">
+          <span class="proj-veil-cerule">{projects[0].cerule}</span>
+          <p class="proj-veil-title">{projects[0].title}</p>
+        </div>
       </a>
     </div>
   </section>
@@ -113,12 +111,12 @@ const projects = t.home.projects.map((p, i) => {
       <h2 class="wi-title">{laMerEnCorps.title}</h2>
     </div>
     <div class="p6-img-wrap">
-      <a class="proj-img" href={laMerEnCorps.href}
-         data-overlay-color={laMerEnCorps.overlayColor}
-         data-overlay-cerule={laMerEnCorps.cerule}
-         data-overlay-title={laMerEnCorps.title}
-         data-overlay-note={laMerEnCorps.note}>
+      <a class="proj-img" href={laMerEnCorps.href} style={`--veil-color: ${laMerEnCorps.accent}`}>
         <img src={laMerEnCorps.image} alt={laMerEnCorps.title} loading="lazy" />
+        <div class="proj-veil" aria-hidden="true">
+          <span class="proj-veil-cerule">{laMerEnCorps.cerule}</span>
+          <p class="proj-veil-title">{laMerEnCorps.title}</p>
+        </div>
       </a>
     </div>
   </section>
@@ -133,12 +131,12 @@ const projects = t.home.projects.map((p, i) => {
   ═════════════════════════════════════════════ -->
   <section class="p2">
     <div class="p2-img-side">
-      <a class="proj-img" href={projects[1].href}
-         data-overlay-color={projects[1].overlayColor}
-         data-overlay-cerule={projects[1].cerule}
-         data-overlay-title={projects[1].title}
-         data-overlay-note={projects[1].note}>
+      <a class="proj-img" href={projects[1].href} style={`--veil-color: ${projects[1].accent}`}>
         <img src={projects[1].image} alt={projects[1].title} loading="lazy" />
+        <div class="proj-veil" aria-hidden="true">
+          <span class="proj-veil-cerule">{projects[1].cerule}</span>
+          <p class="proj-veil-title">{projects[1].title}</p>
+        </div>
       </a>
     </div>
     <div class="p2-text-side">
@@ -153,12 +151,12 @@ const projects = t.home.projects.map((p, i) => {
     03 · EN CORPS À LA MER
   ═════════════════════════════════════════════ -->
   <section class="p3">
-    <a class="proj-img" href={projects[2].href}
-       data-overlay-color={projects[2].overlayColor}
-       data-overlay-cerule={projects[2].cerule}
-       data-overlay-title={projects[2].title}
-       data-overlay-note={projects[2].note}>
+    <a class="proj-img" href={projects[2].href} style={`--veil-color: ${projects[2].accent}`}>
       <img src={projects[2].image} alt={projects[2].title} loading="lazy" />
+      <div class="proj-veil" aria-hidden="true">
+        <span class="proj-veil-cerule">{projects[2].cerule}</span>
+        <p class="proj-veil-title">{projects[2].title}</p>
+      </div>
     </a>
     <div class="p3-meta">
       <span class="wi-cerule">{projects[2].cerule}</span>
@@ -173,12 +171,12 @@ const projects = t.home.projects.map((p, i) => {
   ═════════════════════════════════════════════ -->
   <section class="p4">
     <div class="p4-img-row">
-      <a class="proj-img" href={projects[3].href}
-         data-overlay-color={projects[3].overlayColor}
-         data-overlay-cerule={projects[3].cerule}
-         data-overlay-title={projects[3].title}
-         data-overlay-note={projects[3].note}>
+      <a class="proj-img" href={projects[3].href} style={`--veil-color: ${projects[3].accent}`}>
         <img src={projects[3].image} alt={projects[3].title} loading="lazy" />
+        <div class="proj-veil" aria-hidden="true">
+          <span class="proj-veil-cerule">{projects[3].cerule}</span>
+          <p class="proj-veil-title">{projects[3].title}</p>
+        </div>
       </a>
     </div>
     <div class="p4-below">
@@ -194,12 +192,12 @@ const projects = t.home.projects.map((p, i) => {
   ═════════════════════════════════════════════ -->
   <section class="p5">
     <div class="p5-img-side">
-      <a class="proj-img" href={projects[4].href}
-         data-overlay-color={projects[4].overlayColor}
-         data-overlay-cerule={projects[4].cerule}
-         data-overlay-title={projects[4].title}
-         data-overlay-note={projects[4].note}>
+      <a class="proj-img" href={projects[4].href} style={`--veil-color: ${projects[4].accent}`}>
         <img src={projects[4].image} alt={projects[4].title} loading="lazy" />
+        <div class="proj-veil" aria-hidden="true">
+          <span class="proj-veil-cerule">{projects[4].cerule}</span>
+          <p class="proj-veil-title">{projects[4].title}</p>
+        </div>
       </a>
     </div>
     <div class="p5-text-side">
@@ -212,70 +210,3 @@ const projects = t.home.projects.map((p, i) => {
   </div><!-- /wi-projects -->
 
 </Layout>
-
-<!-- ── Overlay pleine page ────────────────────── -->
-<div id="fso" aria-hidden="true">
-  <div id="fso-bg"></div>
-  <div id="fso-content">
-    <span id="fso-cerule"></span>
-    <p id="fso-title"></p>
-    <p id="fso-note"></p>
-    <a id="fso-cta" href="#">{t.home.enter}</a>
-  </div>
-  <button id="fso-close" aria-label="Close">×</button>
-</div>
-
-<script>
-  const fso       = document.getElementById('fso')!;
-  const fsoBg     = document.getElementById('fso-bg')!;
-  const fsoCerule = document.getElementById('fso-cerule')!;
-  const fsoTitle  = document.getElementById('fso-title')!;
-  const fsoNote   = document.getElementById('fso-note')!;
-  const fsoCta    = document.getElementById('fso-cta') as HTMLAnchorElement;
-  const fsoClose  = document.getElementById('fso-close')!;
-  let hideTimer: ReturnType<typeof setTimeout>;
-
-  const hasHover = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
-
-  function showFso(el: HTMLAnchorElement) {
-    clearTimeout(hideTimer);
-    fsoBg.style.background = el.dataset.overlayColor ?? 'rgba(20,32,43,.92)';
-    fsoCerule.textContent  = el.dataset.overlayCerule ?? '';
-    fsoTitle.textContent   = el.dataset.overlayTitle ?? '';
-    fsoNote.textContent    = el.dataset.overlayNote ?? '';
-    fsoCta.href            = el.href;
-    fso.setAttribute('aria-hidden', 'false');
-    fso.classList.remove('on', 'peek');
-    fso.classList.add(hasHover ? 'peek' : 'on');
-  }
-
-  function hideFso(delay = 120) {
-    hideTimer = setTimeout(() => {
-      fso.classList.remove('on', 'peek');
-      fso.setAttribute('aria-hidden', 'true');
-    }, delay);
-  }
-
-  document.querySelectorAll<HTMLAnchorElement>('.proj-img').forEach(el => {
-    if (hasHover) {
-      el.addEventListener('mouseenter', () => showFso(el));
-      el.addEventListener('mouseleave', () => hideFso(200));
-    } else {
-      el.addEventListener('click', e => {
-        e.preventDefault();
-        fso.classList.contains('on') ? hideFso(0) : showFso(el);
-      });
-    }
-  });
-
-  if (hasHover) {
-    fso.addEventListener('mouseenter', () => clearTimeout(hideTimer));
-    fso.addEventListener('mouseleave', () => hideFso(200));
-  }
-
-  fsoClose.addEventListener('click', () => hideFso(0));
-  fso.addEventListener('click', e => {
-    if (e.target === fso || e.target === fsoBg) hideFso(0);
-  });
-  document.addEventListener('keydown', e => { if (e.key === 'Escape') hideFso(0); });
-</script>
