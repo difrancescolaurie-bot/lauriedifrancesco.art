@@ -37,28 +37,27 @@
 }
 .phero-eyebrow {
   font-family: var(--font-body);
-  font-size: .74rem;
+  font-size: var(--t-xs);
   text-transform: uppercase;
-  letter-spacing: .2em;
+  letter-spacing: .22em;
   color: rgba(255,255,255,.88);
   margin-bottom: .7rem;
 }
 .phero-inner h1 {
   font-family: var(--font-title);
-  font-weight: 300;
+  font-weight: 200;
   text-transform: uppercase;
-  font-size: clamp(2rem, 7vw, 4.6rem);
-  line-height: 1.02;
-  letter-spacing: clamp(.04em, .8vw, .12em);
+  font-size: var(--T-hero);
+  line-height: 1.05;
+  letter-spacing: .055em;
 }
-.phero-inner h1 strong { font-weight: 500; }
 
 /* ── Work in progress label ───────────────────────── */
 .phero-wip {
   font-family: var(--font-body);
-  font-size: 1rem;
+  font-size: var(--t-xs);
   text-transform: uppercase;
-  letter-spacing: .18em;
+  letter-spacing: .22em;
   color: var(--ardoise);
   padding-top: clamp(3rem, 8vh, 5.5rem);
 }
@@ -85,15 +84,16 @@
 }
 .opening-eyebrow {
   font-family: var(--font-body);
-  font-size: .72rem;
+  font-size: var(--t-xs);
   text-transform: uppercase;
-  letter-spacing: .2em;
+  letter-spacing: .22em;
   color: var(--cerule);
   margin-bottom: 1rem;
 }
 .opening-text {
-  font-size: clamp(.92rem, 1.35vw, 1.06rem);
-  line-height: 1.78;
+  font-size: var(--t-l);
+  font-weight: 300;
+  line-height: 1.9;
   color: var(--encre);
   text-align: left;
   hyphens: none;
@@ -128,8 +128,9 @@
 }
 .intro-proj-horizon { margin-top: auto; }
 .intro-text {
-  font-size: clamp(.9rem, 1.3vw, 1.05rem);
-  line-height: 1.75;
+  font-size: var(--t-l);
+  font-weight: 300;
+  line-height: 1.9;
   color: var(--encre);
   margin-bottom: 1.4rem;
   text-align: left;
@@ -142,25 +143,25 @@
 /* Styles canoniques dans src/components/Citation.astro — dupliqués ici
    pour les pages qui utilisent <div class="epi-wrap"> sans le composant */
 .epi-wrap {
-  border-left: 2px solid var(--cerule);
+  border-left: 1px solid var(--brume);
   padding: .2rem 0 1.8rem 1.3rem;
   max-width: 60ch;
 }
 .epi-wrap blockquote {
-  font-family: var(--font-title);
+  font-family: var(--font-body);
   font-weight: 300;
   font-style: italic;
-  font-size: clamp(.88rem, 1.2vw, 1rem);
-  line-height: 1.55;
+  font-size: var(--t-m);
+  line-height: 1.85;
   color: var(--ardoise);
 }
-.k { color: var(--cerule); font-weight: 500; }
+.k { font-weight: inherit; }
 .epi-wrap cite {
   display: block;
   margin-top: .9rem;
   font-style: normal;
-  font-size: .7rem;
-  letter-spacing: .14em;
+  font-size: var(--t-xs);
+  letter-spacing: .22em;
   text-transform: uppercase;
   color: var(--cerule);
 }
@@ -269,9 +270,9 @@
 }
 .private-link a {
   font-family: var(--font-body);
-  font-size: .72rem;
+  font-size: var(--t-xs);
   text-transform: uppercase;
-  letter-spacing: .16em;
+  letter-spacing: .22em;
   color: var(--ardoise);
   border-bottom: 1px solid var(--brume);
   padding-bottom: 2px;
@@ -304,17 +305,17 @@ figure.match img {
 }
 .project-credits .group + .group { margin-top: 1rem; }
 .project-credits .label {
-  font-family: var(--font-title);
-  font-weight: 500;
+  font-family: var(--font-body);
+  font-weight: 400;
   text-transform: uppercase;
-  letter-spacing: .2em;
-  font-size: .62rem;
-  color: var(--cerule);
+  letter-spacing: .22em;
+  font-size: var(--t-xs);
+  color: var(--ardoise);
   margin-bottom: .4rem;
 }
 .project-credits p {
-  font-size: .8rem;
-  line-height: 1.55;
+  font-size: var(--t-s);
+  line-height: 1.75;
   color: var(--ardoise);
   margin: 0;
 }
@@ -441,14 +442,6 @@ figure.match img {
 }
 .lmec-prose .opening-eyebrow {
   margin-bottom: 1.6rem;
-  font-size: .85rem;
-}
-.lmec-prose .opening-text {
-  text-align: left;
-  font-weight: 300;
-  font-size: clamp(.82rem, 1vw, .92rem);
-  line-height: 1.85;
-  margin-bottom: 1.4rem;
 }
 .lmec-prose .epi-wrap {
   margin: .5rem 0 .5rem;
@@ -461,10 +454,10 @@ figure.match img {
 /* Légende photo */
 .lmec-photo-float figcaption {
   font-family: var(--font-body);
-  font-style: italic;
-  font-size: .7rem;
+  font-weight: 300;
+  font-size: var(--t-m);
+  line-height: 1.7;
   color: var(--ardoise);
-  letter-spacing: .03em;
   margin-top: .4rem;
 }
 

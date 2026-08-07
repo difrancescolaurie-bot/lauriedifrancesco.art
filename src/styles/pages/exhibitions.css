@@ -7,29 +7,29 @@ body { background: var(--sable); }
 
 .ex-eyebrow {
   font-family: var(--font-body);
-  font-size: .72rem;
+  font-size: var(--t-xs);
   text-transform: uppercase;
-  letter-spacing: .2em;
+  letter-spacing: .22em;
   color: var(--cerule);
   margin-bottom: 1rem;
 }
 
 .ex-h1 {
   font-family: var(--font-title);
-  font-weight: 300;
+  font-weight: 200;
   text-transform: uppercase;
-  letter-spacing: .1em;
-  font-size: clamp(1.8rem, 5vw, 3.2rem);
+  letter-spacing: .055em;
+  font-size: var(--T-page);
+  line-height: 1.05;
   color: var(--encre);
   margin-bottom: 1.2rem;
 }
 
 .ex-meta {
   font-family: var(--font-body);
-  font-size: .78rem;
-  letter-spacing: .06em;
+  font-size: var(--t-s);
   color: var(--ardoise);
-  line-height: 1.7;
+  line-height: 1.75;
 }
 
 .ex-meta-accent { color: var(--cerule); }
@@ -77,33 +77,35 @@ body { background: var(--sable); }
 
 .ex-artwork-border {
   display: block;
-  width: 2px;
-  background: var(--cerule);
+  width: 1px;
+  background: var(--brume);
   flex-shrink: 0;
   align-self: stretch;
   min-height: 1em;
 }
 
 .ex-artwork-title-pt {
-  font-family: var(--font-title);
+  font-family: var(--font-body);
   font-weight: 300;
   font-style: italic;
-  font-size: clamp(.95rem, 1.4vw, 1.1rem);
+  font-size: var(--t-m);
+  line-height: 1.7;
   color: var(--encre);
   margin-bottom: .2rem;
 }
 
 .ex-artwork-title-en {
   font-family: var(--font-body);
-  font-size: .78rem;
+  font-size: var(--t-s);
+  line-height: 1.75;
   color: var(--ardoise);
   margin-bottom: .5rem;
 }
 
 .ex-artwork-tech {
   font-family: var(--font-body);
-  font-size: .72rem;
-  letter-spacing: .08em;
+  font-size: var(--t-xs);
+  letter-spacing: .22em;
   text-transform: uppercase;
   color: var(--ardoise);
   margin-bottom: .4rem;
@@ -111,7 +113,7 @@ body { background: var(--sable); }
 
 .ex-artwork-status {
   font-family: var(--font-body);
-  font-size: .82rem;
+  font-size: var(--t-s);
   color: var(--cerule);
   font-style: italic;
 }
@@ -124,9 +126,9 @@ body { background: var(--sable); }
 
 .ex-intro-label {
   font-family: var(--font-body);
-  font-size: .72rem;
+  font-size: var(--t-xs);
   text-transform: uppercase;
-  letter-spacing: .18em;
+  letter-spacing: .22em;
   color: var(--cerule);
   margin-bottom: 1.2rem;
 }
@@ -134,8 +136,8 @@ body { background: var(--sable); }
 .ex-intro-text {
   font-family: var(--font-body);
   font-weight: 300;
-  font-size: clamp(.92rem, 1.35vw, 1.06rem);
-  line-height: 1.78;
+  font-size: var(--t-l);
+  line-height: 1.9;
   color: var(--encre);
   text-align: left;
   hyphens: none;
@@ -147,9 +149,9 @@ body { background: var(--sable); }
 
 .ex-link {
   font-family: var(--font-body);
-  font-size: .78rem;
+  font-size: var(--t-xs);
   text-transform: uppercase;
-  letter-spacing: .14em;
+  letter-spacing: .22em;
   color: var(--encre);
   border-bottom: 1px solid var(--cerule);
   padding-bottom: 2px;
@@ -194,17 +196,20 @@ body { background: var(--sable); }
 
 .ex-craft-eyebrow {
   font-family: var(--font-body);
-  font-size: .72rem;
+  font-size: var(--t-xs);
   text-transform: uppercase;
-  letter-spacing: .18em;
+  letter-spacing: .22em;
   color: var(--cerule);
   margin-bottom: .5rem;
 }
 
 .ex-craft-sub {
   font-family: var(--font-title);
-  font-weight: 300;
-  font-size: clamp(1.2rem, 2.5vw, 1.8rem);
+  font-weight: 200;
+  text-transform: uppercase;
+  letter-spacing: .055em;
+  font-size: var(--T-page);
+  line-height: 1.05;
   color: var(--encre);
   margin-bottom: clamp(1.5rem, 4vh, 3rem);
 }
@@ -232,18 +237,18 @@ body { background: var(--sable); }
 
 .ex-video-label {
   font-family: var(--font-body);
-  font-size: .72rem;
+  font-size: var(--t-xs);
   text-transform: uppercase;
-  letter-spacing: .16em;
+  letter-spacing: .22em;
   color: var(--ardoise);
 }
 
 .ex-video-title {
   font-family: var(--font-body);
-  font-size: .88rem;
-  font-weight: 500;
-  color: var(--encre);
-  line-height: 1.4;
+  font-size: var(--t-m);
+  font-weight: 300;
+  color: var(--ardoise);
+  line-height: 1.7;
 }
 
 .ex-credits {
@@ -255,25 +260,27 @@ body { background: var(--sable); }
 
 .ex-credit-role {
   font-family: var(--font-body);
-  font-size: .72rem;
+  font-size: var(--t-xs);
   text-transform: uppercase;
-  letter-spacing: .14em;
+  letter-spacing: .22em;
   color: var(--cerule);
   margin-bottom: .3rem;
 }
 
 .ex-credit-name {
   font-family: var(--font-body);
-  font-size: .9rem;
-  color: var(--encre);
+  font-weight: 300;
+  font-size: var(--t-m);
+  line-height: 1.7;
+  color: var(--ardoise);
   margin-bottom: .2rem;
 }
 
 .ex-credit-detail {
   font-family: var(--font-body);
-  font-size: .78rem;
+  font-size: var(--t-s);
   color: var(--ardoise);
-  line-height: 1.65;
+  line-height: 1.75;
 }
 
 .ex-thanks {
@@ -285,17 +292,17 @@ body { background: var(--sable); }
 
 .ex-thanks-label {
   font-family: var(--font-body);
-  font-size: .72rem;
+  font-size: var(--t-xs);
   text-transform: uppercase;
-  letter-spacing: .18em;
+  letter-spacing: .22em;
   color: var(--cerule);
   margin-bottom: 1rem;
 }
 
 .ex-thanks-text {
   font-family: var(--font-body);
-  font-size: .78rem;
-  line-height: 1.88;
+  font-size: var(--t-s);
+  line-height: 1.75;
   color: var(--ardoise);
   text-align: left;
   hyphens: none;
@@ -303,8 +310,8 @@ body { background: var(--sable); }
 }
 
 .ex-thanks-name {
-  color: var(--cerule);
-  font-weight: 500;
+  color: inherit;
+  font-weight: 400;
 }
 
 .rv {

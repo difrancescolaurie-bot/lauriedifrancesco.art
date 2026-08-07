@@ -8,20 +8,20 @@ body { background: var(--sable); }
 
 .wi-eyebrow {
   font-family: var(--font-body);
-  font-size: .72rem;
+  font-size: var(--t-xs);
   text-transform: uppercase;
-  letter-spacing: .2em;
+  letter-spacing: .22em;
   color: var(--cerule);
   margin-bottom: 1rem;
 }
 
 .wi-h1 {
   font-family: var(--font-title);
-  font-weight: 300;
+  font-weight: 200;
   text-transform: uppercase;
-  letter-spacing: .1em;
-  font-size: clamp(2rem, 5.4vw, 3.4rem);
-  line-height: 1.04;
+  letter-spacing: .055em;
+  font-size: var(--T-page);
+  line-height: 1.05;
 }
 
 .wi-head .epi-wrap { margin-top: 1.6rem; }
@@ -30,19 +30,20 @@ body { background: var(--sable); }
 .wi-cerule {
   display: block;
   font-family: var(--font-body);
-  font-size: .7rem;
+  font-size: var(--t-xs);
   text-transform: uppercase;
-  letter-spacing: .16em;
+  letter-spacing: .22em;
   color: var(--cerule);
   margin-bottom: .4rem;
 }
 
 .wi-title {
   font-family: var(--font-title);
-  font-weight: 500;
-  font-size: clamp(1.5rem, 3.8vw, 2.6rem);
-  letter-spacing: 0.005em;
-  line-height: 1.08;
+  font-weight: 200;
+  text-transform: uppercase;
+  font-size: var(--T-projet);
+  letter-spacing: .055em;
+  line-height: 1.12;
   color: var(--encre);
   margin-bottom: .6rem;
 }
@@ -63,8 +64,8 @@ body { background: var(--sable); }
 
 .wi-note {
   font-family: var(--font-body);
-  font-size: clamp(.82rem, 1.1vw, .92rem);
-  line-height: 1.65;
+  font-size: var(--t-m);
+  line-height: 1.7;
   color: var(--ardoise);
 }
 
@@ -89,9 +90,9 @@ body { background: var(--sable); }
 .proj-section-divider-label {
   margin-top: 1rem;
   font-family: var(--font-body);
-  font-size: .72rem;
+  font-size: var(--t-xs);
   text-transform: uppercase;
-  letter-spacing: .2em;
+  letter-spacing: .22em;
   color: var(--ardoise);
 }
 
@@ -205,10 +206,11 @@ body { background: var(--sable); }
 
 .p4-title-big {
   font-family: var(--font-title);
-  font-weight: 500;
-  font-size: clamp(1.5rem, 3.8vw, 2.6rem);
-  letter-spacing: 0.005em;
-  line-height: 1.08;
+  font-weight: 200;
+  text-transform: uppercase;
+  font-size: var(--T-projet);
+  letter-spacing: .055em;
+  line-height: 1.12;
   color: var(--encre);
   white-space: nowrap;
 }
@@ -304,7 +306,7 @@ body { background: var(--sable); }
 
 #fso-cerule {
   font-family: var(--font-body);
-  font-size: .7rem;
+  font-size: var(--t-xs);
   letter-spacing: .22em;
   text-transform: uppercase;
   color: rgba(255, 255, 255, .55);
@@ -314,30 +316,30 @@ body { background: var(--sable); }
 
 #fso-title {
   font-family: var(--font-title);
-  font-weight: 300;
-  font-size: clamp(2rem, 5vw, 4.5rem);
-  letter-spacing: .1em;
+  font-weight: 200;
+  font-size: var(--T-page);
+  letter-spacing: .055em;
   text-transform: uppercase;
   color: #fff;
-  line-height: 1.1;
+  line-height: 1.05;
   text-wrap: balance;
   margin-bottom: 1.4rem;
 }
 
 #fso-note {
   font-family: var(--font-body);
-  font-size: .85rem;
+  font-size: var(--t-l);
   color: rgba(255,255,255,.6);
   max-width: 42ch;
-  line-height: 1.65;
+  line-height: 1.9;
   margin-bottom: 2rem;
   text-align: center;
 }
 
 #fso-cta {
   font-family: var(--font-body);
-  font-size: .62rem;
-  letter-spacing: .2em;
+  font-size: var(--t-xs);
+  letter-spacing: .22em;
   text-transform: uppercase;
   color: rgba(255, 255, 255, .75);
   border-bottom: 1px solid rgba(255, 255, 255, .35);

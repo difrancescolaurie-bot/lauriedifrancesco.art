@@ -82,9 +82,9 @@
 
 .hero-tag {
   font-family: var(--font-body);
-  font-size: clamp(0.9rem, 1.6vw, 1.15rem);
+  font-size: var(--t-xl);
   font-weight: 300;
-  letter-spacing: 0.01em;
+  line-height: 1.62;
   opacity: 0.9;
   max-width: 52ch;
 }
@@ -102,9 +102,9 @@
 
 .creed-eyebrow {
   font-family: var(--font-body);
-  font-size: 1rem;
+  font-size: var(--t-xs);
   text-transform: uppercase;
-  letter-spacing: 0.18em;
+  letter-spacing: .22em;
   color: var(--ardoise);
   margin-bottom: 2.4rem;
 }
@@ -159,9 +159,9 @@
 .works-divider-label {
   margin-top: .9rem;
   font-family: var(--font-body);
-  font-size: 1rem;
+  font-size: var(--t-xs);
   text-transform: uppercase;
-  letter-spacing: .2em;
+  letter-spacing: .22em;
   color: var(--ardoise);
 }
 
@@ -205,8 +205,8 @@
 
 .work-placeholder-label {
   font-family: var(--font-body);
-  font-size: 0.75rem;
-  letter-spacing: 0.16em;
+  font-size: var(--t-xs);
+  letter-spacing: .22em;
   text-transform: uppercase;
   color: var(--ardoise);
 }
@@ -221,19 +221,20 @@
 
 .work-category {
   font-family: var(--font-body);
-  font-size: 0.72rem;
+  font-size: var(--t-xs);
   text-transform: uppercase;
-  letter-spacing: 0.16em;
+  letter-spacing: .22em;
   color: var(--cerule);
   flex: 0 0 auto;
 }
 
 .work-title {
   font-family: var(--font-title);
-  font-weight: 500;
-  font-size: clamp(1.5rem, 3.8vw, 2.6rem);
-  line-height: 1.08;
-  letter-spacing: 0.005em;
+  font-weight: 200;
+  text-transform: uppercase;
+  font-size: var(--T-projet);
+  line-height: 1.12;
+  letter-spacing: .055em;
   flex: 1 1 100%;
   order: 2;
   color: var(--encre);
@@ -245,7 +246,9 @@
   margin-top: 0.6rem;
   color: var(--ardoise);
   max-width: 54ch;
-  font-size: 1rem;
+  font-size: var(--t-l);
+  font-weight: 300;
+  line-height: 1.9;
 }
 
 .work-enter {
@@ -253,9 +256,9 @@
   margin-top: 1rem;
   margin-left: auto;
   font-family: var(--font-body);
-  font-size: 0.74rem;
+  font-size: var(--t-xs);
   text-transform: uppercase;
-  letter-spacing: 0.16em;
+  letter-spacing: .22em;
   color: var(--encre);
   border-bottom: 1px solid var(--cerule);
   padding-bottom: 2px;
@@ -281,11 +284,7 @@
 }
 
 .work-item--prev .work-title {
-  font-size: clamp(1rem, 2.2vw, 1.4rem);
-}
-
-.work-item--prev .work-note {
-  font-size: clamp(.72rem, 1vw, .82rem);
+  font-size: var(--T-projet-demi);
 }
 
 /* ── View more ───────────────────────────── */
@@ -296,9 +295,9 @@
 
 .works-more-link {
   font-family: var(--font-body);
-  font-size: .72rem;
+  font-size: var(--t-xs);
   text-transform: uppercase;
-  letter-spacing: .2em;
+  letter-spacing: .22em;
   color: var(--encre);
   border-bottom: 1px solid var(--cerule);
   padding-bottom: 2px;

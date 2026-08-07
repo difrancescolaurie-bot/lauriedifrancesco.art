@@ -22,7 +22,7 @@ const { author, note, hr = true } = Astro.props;
 
 <style is:global>
   .epi-wrap {
-    border-left: 2px solid var(--cerule);
+    border-left: 1px solid var(--brume);
     padding: .2rem 0 1.8rem 1.3rem;
     max-width: 60ch;
   }
@@ -38,32 +38,31 @@ const { author, note, hr = true } = Astro.props;
     display: block;
     width: var(--horizon-width, 64px);
     height: var(--horizon-height, 1.5px);
-    background: var(--cerule);
+    background: var(--brume);
     margin-top: 1.8rem;
     /* aligne le trait avec le bord gauche du border-left */
-    margin-left: calc(-1.3rem - 2px);
+    margin-left: calc(-1.3rem - 1px);
   }
 
   .epi-wrap blockquote {
-    font-family: var(--font-title);
+    font-family: var(--font-body);
     font-weight: 300;
     font-style: italic;
-    font-size: clamp(.88rem, 1.2vw, 1rem);
-    line-height: 1.55;
+    font-size: var(--t-m);
+    line-height: 1.85;
     color: var(--ardoise);
   }
 
   .k {
-    color: var(--cerule);
-    font-weight: 500;
+    font-weight: inherit;
   }
 
   .epi-wrap cite {
     display: block;
     margin-top: .9rem;
     font-style: normal;
-    font-size: .7rem;
-    letter-spacing: .14em;
+    font-size: var(--t-xs);
+    letter-spacing: .22em;
     text-transform: uppercase;
     color: var(--cerule);
   }

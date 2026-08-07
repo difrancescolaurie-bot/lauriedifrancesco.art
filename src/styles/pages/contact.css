@@ -7,27 +7,28 @@ body { background: var(--sable); }
 
 .ct-eyebrow {
   font-family: var(--font-body);
-  font-size: .72rem;
+  font-size: var(--t-xs);
   text-transform: uppercase;
-  letter-spacing: .2em;
+  letter-spacing: .22em;
   color: var(--cerule);
   margin-bottom: 1rem;
 }
 
 .ct-h1 {
   font-family: var(--font-title);
-  font-weight: 300;
+  font-weight: 200;
   text-transform: uppercase;
-  letter-spacing: .1em;
-  font-size: clamp(2rem, 5.5vw, 3.4rem);
+  letter-spacing: .055em;
+  font-size: var(--T-page);
+  line-height: 1.05;
   color: var(--encre);
 }
 
 .ct-sub {
   margin-top: .9rem;
   font-family: var(--font-body);
-  font-size: .8rem;
-  letter-spacing: .14em;
+  font-size: var(--t-xs);
+  letter-spacing: .22em;
   text-transform: uppercase;
   color: var(--ardoise);
 }
@@ -49,9 +50,9 @@ body { background: var(--sable); }
 
 .ct-field label {
   font-family: var(--font-body);
-  font-size: .72rem;
+  font-size: var(--t-xs);
   text-transform: uppercase;
-  letter-spacing: .14em;
+  letter-spacing: .22em;
   color: var(--ardoise);
 }
 
@@ -59,7 +60,7 @@ body { background: var(--sable); }
 .ct-field select,
 .ct-field textarea {
   font-family: var(--font-body);
-  font-size: 1rem;
+  font-size: var(--t-l);
   color: var(--encre);
   background: transparent;
   border: none;
@@ -97,9 +98,9 @@ body { background: var(--sable); }
   cursor: pointer;
   padding: 0;
   font-family: var(--font-body);
-  font-size: .78rem;
+  font-size: var(--t-xs);
   text-transform: uppercase;
-  letter-spacing: .16em;
+  letter-spacing: .22em;
   color: var(--encre);
   border-bottom: 1px solid var(--cerule);
   padding-bottom: 2px;
@@ -115,7 +116,7 @@ body { background: var(--sable); }
 
 .ct-feedback {
   margin-top: 1.2rem;
-  font-size: .85rem;
+  font-size: var(--t-m);
   color: var(--cerule);
   min-height: 1.4em;
 }
@@ -123,9 +124,9 @@ body { background: var(--sable); }
 .ct-legal {
   margin-top: 2.5rem;
   font-family: var(--font-body);
-  font-size: .72rem;
+  font-size: var(--t-s);
   color: var(--ardoise);
-  line-height: 1.6;
+  line-height: 1.75;
   border-top: 1px solid var(--brume);
   padding-top: 1.2rem;
 }

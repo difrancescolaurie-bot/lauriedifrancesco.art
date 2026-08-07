@@ -8,35 +8,36 @@ body { background: var(--sable); }
 
 .about-eyebrow {
   font-family: var(--font-body);
-  font-size: .72rem;
+  font-size: var(--t-xs);
   text-transform: uppercase;
-  letter-spacing: .2em;
+  letter-spacing: .22em;
   color: var(--cerule);
   margin-bottom: 1rem;
 }
 
 .about-h1 {
   font-family: var(--font-title);
-  font-weight: 300;
+  font-weight: 200;
   text-transform: uppercase;
-  letter-spacing: .1em;
-  font-size: clamp(2rem, 5.5vw, 3.4rem);
+  letter-spacing: .055em;
+  font-size: var(--T-page);
+  line-height: 1.05;
   color: var(--encre);
 }
 
 .about-epi {
   margin-top: 1.6rem;
-  border-left: 2px solid var(--cerule);
+  border-left: 1px solid var(--brume);
   padding: .2rem 0 .2rem 1.3rem;
   max-width: 60ch;
 }
 
 .about-epi blockquote {
-  font-family: var(--font-title);
+  font-family: var(--font-body);
   font-weight: 300;
   font-style: italic;
-  font-size: clamp(.88rem, 1.2vw, 1rem);
-  line-height: 1.55;
+  font-size: var(--t-m);
+  line-height: 1.85;
   color: var(--ardoise);
   text-align: left;
   hyphens: none;
@@ -49,8 +50,8 @@ body { background: var(--sable); }
   display: block;
   margin-top: .9rem;
   font-style: normal;
-  font-size: .7rem;
-  letter-spacing: .14em;
+  font-size: var(--t-xs);
+  letter-spacing: .22em;
   text-transform: uppercase;
   color: var(--cerule);
 }
@@ -78,9 +79,9 @@ body { background: var(--sable); }
 
 .bio-marg-lab {
   font-family: var(--font-body);
-  font-size: .72rem;
+  font-size: var(--t-xs);
   text-transform: uppercase;
-  letter-spacing: .2em;
+  letter-spacing: .22em;
   color: var(--cerule);
   font-weight: 400;
   padding-top: .55em;
@@ -92,9 +93,9 @@ body { background: var(--sable); }
 
 .bio-marg-par p {
   font-family: var(--font-body);
-  font-size: clamp(1rem, 1.35vw, 1.14rem);
+  font-size: var(--t-l);
   font-weight: 300;
-  line-height: 1.85;
+  line-height: 1.9;
   color: var(--encre);
   text-align: left;
   hyphens: none;
@@ -106,10 +107,10 @@ body { background: var(--sable); }
 
 .bio-marg-par em { font-style: italic; }
 
-/* Lead paragraph: ~1.2× body size, tighter leading */
-.bio-marg-lead {
-  font-size: clamp(1.2rem, 1.6vw, 1.36rem) !important;
-  line-height: 1.65 !important;
+/* Lead paragraph: chapeau function */
+.bio-marg-par p.bio-marg-lead {
+  font-size: var(--t-xl);
+  line-height: 1.62;
 }
 
 /* ── Refs table ───────────────────────────── */
@@ -124,9 +125,9 @@ body { background: var(--sable); }
 
 .bio-refs-title {
   font-family: var(--font-body);
-  font-size: .72rem;
+  font-size: var(--t-xs);
   text-transform: uppercase;
-  letter-spacing: .2em;
+  letter-spacing: .22em;
   color: var(--cerule);
   font-weight: 400;
   margin: 0 0 .56rem;
@@ -134,8 +135,8 @@ body { background: var(--sable); }
 
 .bio-refs-content {
   font-family: var(--font-body);
-  font-size: .82rem;
-  line-height: 1.8;
+  font-size: var(--t-s);
+  line-height: 1.75;
   color: var(--ardoise);
   font-weight: 300;
   margin: 0;
