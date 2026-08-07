@@ -4,7 +4,6 @@ import '../../styles/pages/work-project.css';
 import Citation from '../../components/Citation.astro';
 import NextProject from '../../components/NextProject.astro';
 
-const SQ = 'https://images.squarespace-cdn.com/content/v1/5fa6cb9fbca79b7a7020b762';
 const s = (path: string) => `/images/spilling/${path}`;
 
 type Photo = { src: string; full: string; n: number; figClass?: string };
@@ -71,7 +70,7 @@ const spreads: Spread[] = [
   <section class="phero">
     <div class="phero-bg" aria-hidden="true">
       <img
-        src={`${SQ}/5990bdbc-6934-4b56-83f4-dbf6b482b858/Tapajos+ok.jpg?format=2000w`}
+        src="/images/spilling/47.jpg"
         alt=""
         loading="eager"
       />
