@@ -71,7 +71,7 @@
   padding-top: clamp(3rem, 8vh, 5.5rem);
   padding-bottom: clamp(3rem, 7vh, 5rem);
 }
-.opening.container { max-width: 1320px; }
+.opening.container { max-width: var(--max-width-wide); }
 .opening-epi {
   flex: 1 1 0;
   display: flex;
@@ -109,7 +109,7 @@
   display: flex;
   gap: clamp(2.5rem, 6vw, 5rem);
   align-items: stretch;
-  max-width: 1320px;
+  max-width: var(--max-width-wide);
   margin-top: clamp(1.5rem, 3vh, 2.5rem);
   margin-bottom: clamp(1.5rem, 3vh, 2.5rem);
   margin-left: auto;
@@ -176,7 +176,7 @@
 
 /* ── Série photographique ──────────────────────────── */
 .series {
-  max-width: 1320px;
+  max-width: var(--max-width-wide);
   margin: 0 auto;
   padding: 0 var(--gutter);
   display: flex;
@@ -237,7 +237,7 @@
 
 /* ── Vidéo projet ───────────────────────────────────── */
 .pvideo {
-  max-width: 1320px;
+  max-width: var(--max-width-wide);
   margin: 0 auto;
   padding: clamp(3rem, 8vh, 5.5rem) var(--gutter) 0;
 }
@@ -387,7 +387,7 @@ figure.match img {
   gap: 0;
   align-items: stretch;
   padding: clamp(3rem, 8vh, 5.5rem) var(--gutter) 0;
-  max-width: 1320px;
+  max-width: var(--max-width-wide);
   margin: 0 auto;
 }
 .lmec-vid-col {
@@ -435,7 +435,7 @@ figure.match img {
 /* Prose texte projet — pleine largeur, police fine */
 .lmec-prose {
   display: flow-root; /* contient les floats */
-  max-width: 1320px;
+  max-width: var(--max-width-wide);
   margin: clamp(3rem, 7vh, 5rem) auto 0;
   padding: 0 var(--gutter);
 }
@@ -471,7 +471,7 @@ figure.match img {
 /* ── Galerie La Mer en Corps ──────────────────────────── */
 .lmec-gallery {
   --gap: clamp(10px, 1.1vw, 16px);
-  max-width: 1320px;
+  max-width: var(--max-width-wide);
   margin: clamp(3rem, 8vh, 5.5rem) auto 0;
   padding: 0 var(--gutter);
   display: flex;

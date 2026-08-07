@@ -1,4 +1,4 @@
-body { background: #ECEAE4; }
+body { background: var(--sable); }
 
 .ex-head {
   padding-top: clamp(3rem, 8vh, 5.5rem);
@@ -40,7 +40,7 @@ body { background: #ECEAE4; }
 }
 
 .ex-artwork-wrap {
-  max-width: 1320px;
+  max-width: var(--max-width-wide);
   margin: clamp(2.5rem, 6vh, 4rem) auto 0;
   padding: 0 var(--gutter);
 }
@@ -159,7 +159,7 @@ body { background: #ECEAE4; }
 .ex-link:hover { color: var(--cerule); }
 
 .ex-grid-wrap {
-  max-width: 1320px;
+  max-width: var(--max-width-wide);
   margin: 0 auto clamp(3rem, 8vh, 6rem);
   padding: 0 var(--gutter);
   display: flex;
@@ -187,7 +187,7 @@ body { background: #ECEAE4; }
 }
 
 .ex-craft {
-  max-width: 1320px;
+  max-width: var(--max-width-wide);
   margin: 0 auto;
   padding: 0 var(--gutter) clamp(3rem, 8vh, 6rem);
 }
@@ -277,7 +277,7 @@ body { background: #ECEAE4; }
 }
 
 .ex-thanks {
-  max-width: 1320px;
+  max-width: var(--max-width-wide);
   margin: 0 auto clamp(4rem, 10vh, 7rem);
   padding: 2rem var(--gutter) 0;
   border-top: 1px solid var(--brume);
@@ -304,7 +304,7 @@ body { background: #ECEAE4; }
 
 .ex-thanks-name {
   color: var(--cerule);
-  font-weight: 700;
+  font-weight: 500;
 }
 
 .rv {
@@ -322,7 +322,7 @@ body { background: #ECEAE4; }
   .rv { opacity: 1; transform: none; transition: none; }
 }
 
-@media (max-width: 680px) {
+@media (max-width: 700px) {
   .ex-artwork-pair { height: clamp(180px, 55vw, 300px); }
   .ex-grid-wrap { gap: 8px; }
   .ex-grid-row { gap: 8px; }

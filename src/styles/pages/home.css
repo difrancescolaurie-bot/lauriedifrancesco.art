@@ -308,7 +308,7 @@
 .works-more-link:hover { color: var(--cerule); }
 
 /* Mobile */
-@media (max-width: 680px) {
+@media (max-width: 700px) {
   .work-frame { aspect-ratio: 3/2; }
   .creed-lines p { font-size: clamp(1rem, 5.5vw, 1.5rem); white-space: normal; }
 

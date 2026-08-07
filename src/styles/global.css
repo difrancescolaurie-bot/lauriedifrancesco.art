@@ -1,5 +1,5 @@
 /* ─── Google Fonts ───────────────────────────────────── */
-@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600&family=Hanken+Grotesk:wght@300;400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500&family=Hanken+Grotesk:wght@300;400;500&display=swap');
 
 /* ─── Palette ────────────────────────────────────────── */
 :root {
@@ -9,6 +9,7 @@
   --brume-claire:  #F1F4F5;
   --ardoise:       #5C6B76;
   --blanc:         #FBFCFC;
+  --sable:         #ECEAE4;
 
   --font-title: 'Manrope', sans-serif;
   --font-body:  'Hanken Grotesk', sans-serif;
@@ -16,7 +17,8 @@
   --horizon-width: 64px;
   --horizon-height: 1.5px;
 
-  --max-width: 1200px;
+  --max-width:      1200px;
+  --max-width-wide: 1320px;
   --gutter: clamp(1.25rem, 4vw, 3rem);
 }
 

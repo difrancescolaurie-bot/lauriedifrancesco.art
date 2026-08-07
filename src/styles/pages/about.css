@@ -1,4 +1,4 @@
-body { background: #ECEAE4; }
+body { background: var(--sable); }
 
 /* ── Page head ────────────────────────────── */
 .about-head {

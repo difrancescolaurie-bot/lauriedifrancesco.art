@@ -1,4 +1,4 @@
-body { background: #ECEAE4; }
+body { background: var(--sable); }
 
 /* ── Page head ────────────────────────────── */
 .wi-head {
@@ -367,7 +367,7 @@ body { background: #ECEAE4; }
 #fso-close:hover { color: #fff; }
 
 /* ── Mobile ───────────────────────────────── */
-@media (max-width: 680px) {
+@media (max-width: 700px) {
   /* Titre quand/FR/PT : réduit pour tenir sur une ligne à nowrap */
   .wi-title--quando span {
     font-size: clamp(0.94rem, 4.5vw, 1.19rem);
