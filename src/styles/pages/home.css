@@ -94,8 +94,8 @@
 
 /* ── Creed / Manifeste ───────────────────── */
 .creed {
-  padding-top: clamp(3rem, 8vh, 7rem);
-  padding-bottom: clamp(2rem, 5vh, 4rem);
+  padding-top: 6rem;
+  padding-bottom: 7.5rem;
 }
 
 .creed-eyebrow {

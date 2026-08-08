@@ -93,7 +93,6 @@ const prevProjects = [
 
   <!-- ─── Manifeste trilingue ───────────────────────────────── -->
   <section class="creed container" aria-label="Manifesto">
-    <p class="creed-eyebrow">{th.creedEyebrow}</p>
     <div class="creed-lines">
       <p class="creed-it">Quando sono qui, non sono là.</p>
       <p class="creed-fr">Quand je suis ici, je ne suis pas là-bas.</p>
@@ -103,6 +102,8 @@ const prevProjects = [
 
   <!-- ─── Aperçu des œuvres ─────────────────────────────────── -->
   <section class="works container" aria-label="Selected work">
+
+    <p class="creed-eyebrow">{th.creedEyebrow}</p>
 
     {wipProjects.map(p => (
       <a class="work-item" href={p.href}>
