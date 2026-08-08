@@ -533,6 +533,19 @@ figure.match img {
 }
 .gal-cell--photo + .gal-cell--text,
 .lmec-vid-col + .gal-cell--text { padding-left: 24px; }
+
+/* Texte de projet — rangée autonome, jamais en regard d'une photo */
+.gal-cell--text:only-child {
+  padding-top: 2.5rem;
+  padding-bottom: 2.5rem;
+  justify-content: flex-start;
+  align-self: flex-start;
+  width: 100%;
+}
+.gal-cell--text:only-child .opening-eyebrow,
+.gal-cell--text:only-child .opening-text {
+  max-width: 64ch;
+}
 @media (max-width: 700px) {
   .gal-row { flex-wrap: wrap; gap: 8px; }
   .gal-cell--photo,
