@@ -201,6 +201,24 @@ Correspondance **numéro de badge → fichier** (numéros visibles dans le proto
 
 **Chantier 9 — Audit tirets cadratins.** Toutes les occurrences du tiret cadratin (—) ont été relevées et traitées selon leur nature. Les champs structurés (méta `description`, `title`, `author=`, attributs `alt`, champs de données de citations, notices légales, option de formulaire) ont été remplacés par le point médian (·) dans l'intégralité des fichiers `.astro` et `translations.ts`. Les textes courants (prose biographique, textes de projet, légendes courantes, textes d'expositions) contenant des tirets cadratins syntaxiques ont été listés pour révision par Laurie : ils demandent une reformulation au cas par cas et ne peuvent être modifiés mécaniquement sans altérer le sens. Fichiers touchés : `Layout.astro`, `Footer.astro`, `translations.ts`, toutes les pages projet EN et lang, `about.astro`, `exhibitions.astro`, `contact.astro`, `legal.astro`.
 
+**Lot L — Passe esthétique (chantiers A, B, C, D).**
+
+**A — Filet citation unifié.** La prop `hr` et le `::after` horizontal de pied ont été retirés de `Citation.astro`. Le filet (1 px, `--brume`, vertical) est porté exclusivement par `.epi-wrap { border-left }`. Le bloc `.gal-cell--cit { border-left }` concurrent dans `work-project.css` a été supprimé ; un `padding-left: 24px` a été ajouté sur `.gal-cell--cit` et `.gal-cell--text` pour que le filet flotte à l'intérieur de la cellule. Sur la cellule LMEC à deux citations, `flex-grow: 1` assure que chaque `.epi-wrap` grandit jusqu'à sa portion de hauteur de cellule, et `gap: 0` sur `.lmec-text-col.gal-cell--cit` soude les deux filets. `PhotoCitation.astro` a été supprimé ; `private.astro` reconstruit avec HTML + `Citation`. L'option `hr={false}` dans les pages `la-mer-en-corps` a été retirée.
+
+**B — Alignement haut des cellules texte.** `justify-content: flex-start` appliqué à `.gal-cell--cit` et `.gal-cell--text` : le premier caractère de texte s'aligne avec le bord supérieur des images de la rangée.
+
+**C — Galeries mobiles, 2 colonnes.** Le comportement mobile a été repris intégralement. `.spread` : déjà en 2 colonnes (inchangé). `.gal-row` [photo + cit/text] : les deux cellules passent à 100 % et s'empilent. `.lmec-gallery .row` : la règle `max-width: 900px` a été scindée en `(701–900px)` (tablette, empilement total) et `≤700px` (mobile, 2 colonnes, rangée unique pleine largeur). `.ex-grid-row` : `flex-wrap` + `.ex-grid-fig { flex: 0 0 calc(50% - 4px) }` ; rows de 3 → 2+1, de 4 → 2+2. Aucun recadrage ; valeurs flex LMEC verrouillées non modifiées. Fichiers : `work-project.css`, `exhibitions.css`.
+
+**D.1 — Formulaire contact.** Option vide `"choose"` → `"Choose a subject"` (EN) + traductions : `"Choisissez un sujet"` (FR), `"Scegli un argomento"` (IT), `"Escolha um assunto"` (PT). Fichiers : `translations.ts`, `contact.astro`.
+
+**D.2 — Header compile-time.** Le tableau JS `LIGHT_PAGES` (runtime) a été remplacé par une prop `lightHeader?: boolean` (défaut `true`) sur `Layout.astro` → `Header.astro`. Toutes les pages à hero sombre (index EN+lang, 6 projets EN, 6 projets lang, `private.astro`) reçoivent explicitement `lightHeader={false}`.
+
+**D.3 — Séparateur P2/P3.** `.p3` n'avait pas de `padding-top`. Le filet `proj-sep` entre "Toward the Blue" et "En Corps à la Mer" avait 72 px au-dessus (issu du `padding-bottom` de `.p2`) et 0 px en dessous, contre 72 px de part et d'autre pour tous les autres séparateurs. Fix : `padding-top: 4.5rem` ajouté à `.p3`. Fichier : `work-index.css`.
+
+**D.4 — Citations > 6 lignes (audit à 1440 px).** Mesures effectuées sur toutes les pages. Dépassements relevés : Aznavour/Vedere Venezia (13 L, poème en vers avec `<br>`), "A sombra que me move"/Quando (11 L, poème portugais), Spilling (10 L, poème portugais), Bachelard long/LMEC (8 L), Claire Marin/ECM (7 L). Note : les cas > 6 L sont tous des textes en vers avec retours forcés — structurellement longs par nature. Le slot `short` de `Citation.astro` est disponible pour des versions condensées mobile si la décision est prise de les raccourcir.
+
+**D.5 — Lightbox, vérification des exclusions.** Homepage hero `.hero-bg` : clic sans lightbox ✓. Hero projets `.phero-bg` : clic sans lightbox ✓. Photos craft exhibitions `.ex-artwork-fig` : lightbox ouverte ✓. Grille exhibitions `.ex-grid-fig` : lightbox ouverte ✓. `about.astro` : pas de photo header, pas de conflit.
+
 ---
 
 ## 9. Travailler avec Claude Code
