@@ -208,7 +208,7 @@ body { background: var(--sable); }
   font-weight: 200;
   text-transform: uppercase;
   letter-spacing: .055em;
-  font-size: var(--T-page);
+  font-size: var(--T-section);
   line-height: 1.05;
   color: var(--encre);
   margin-bottom: clamp(1.5rem, 4vh, 3rem);

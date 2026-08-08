@@ -39,6 +39,7 @@
   --T-sceau:       clamp(.9rem, calc(3.15vw + .17rem), 2.4rem);
   --T-nom:         clamp(2.2rem, 7.5vw, 5rem);
   --T-serie:       clamp(1.1rem, 2vw, 1.5rem);
+  --T-section:     clamp(1.2rem, 2.75vw, 2rem);
 
   /* ─── Accents de projet ─── */
   --acc-lmec:    #1F728B;
