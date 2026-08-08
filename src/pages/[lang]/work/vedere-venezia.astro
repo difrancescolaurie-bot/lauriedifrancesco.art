@@ -49,8 +49,8 @@ const spreads: Spread[] = [
 ---
 
 <Layout
-  title="Vedere Venezia e Non Morire — Laurie Di Francesco"
-  description="Vedere Venezia e Non Morire — Seeing Venice without dying from it."
+  title="Vedere Venezia e Non Morire · Laurie Di Francesco"
+  description="Vedere Venezia e Non Morire · Seeing Venice without dying from it."
   image="/images/work/vedere-venezia-cover.jpg"
   lang={lang}
   bodyClass="page-venezia"
@@ -76,7 +76,7 @@ const spreads: Spread[] = [
       </figure>
       <div class="gal-cell gal-cell--cit" data-ratio="1">
         <Citation
-          author="Charles Aznavour — Que c'est triste Venise"
+          author="Charles Aznavour · Que c'est triste Venise"
           note={('tradfr' in content) ? (content as any).tradfr : undefined}
         >
           <Fragment set:html={content.aznavourPoem} />
@@ -107,7 +107,7 @@ const spreads: Spread[] = [
         <div class={`spread spread--${spread.type} rv`}>
           {spread.photos.map((photo) => (
             <figure>
-              <img src={photo.src} alt={`Vedere Venezia e Non Morire — ${photo.n}`} loading="lazy" />
+              <img src={photo.src} alt={`Vedere Venezia e Non Morire · ${photo.n}`} loading="lazy" />
             </figure>
           ))}
         </div>

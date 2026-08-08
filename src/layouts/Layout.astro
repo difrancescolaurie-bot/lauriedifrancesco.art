@@ -36,10 +36,10 @@ const ogLocale: Record<Lang, string> = {
 
 const SITE_URL = "https://lauriedifrancesco.art";
 const siteTitle = title === "Home"
-  ? `Laurie Di Francesco — ${photographerLabel[validLang]}`
+  ? `Laurie Di Francesco · ${photographerLabel[validLang]}`
   : title.includes("Laurie Di Francesco")
     ? title
-    : `${title} — Laurie Di Francesco`;
+    : `${title} · Laurie Di Francesco`;
 const canonicalURL = new URL(Astro.url.pathname, SITE_URL).href;
 const ogImage = image.startsWith("http") ? image : `${SITE_URL}${image}`;
 ---
