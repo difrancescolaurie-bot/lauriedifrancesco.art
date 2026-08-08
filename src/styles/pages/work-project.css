@@ -512,27 +512,26 @@ figure.match img {
 .gal-cell figure { margin: 0; }
 .gal-cell figure img { display: block; width: 100%; height: auto; }
 .gal-cell--cit {
-  border-left: 1px solid var(--brume);
-  padding-left: 1.3rem;
+  padding-left: 24px;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
   gap: clamp(1.5rem, 3vh, 2.5rem);
 }
-.gal-cell--cit .epi-wrap {
-  border-left: none;
-  padding-left: 0;
-  max-width: none;
+.lmec-text-col.gal-cell--cit {
+  gap: 0;
 }
-.gal-cell--cit .epi-wrap--hr::after { display: none; }
+.gal-cell--cit .epi-wrap {
+  max-width: none;
+  flex-grow: 1;
+}
 .gal-cell--text {
+  padding-left: 24px;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
 }
 @media (max-width: 700px) {
-  .gal-row { flex-direction: column; }
-  .gal-cell { flex: none !important; width: 100%; }
-  .gal-cell--cit { border-left: none; padding-left: 0; }
-  .gal-cell--cit .epi-wrap { border-left: 1px solid var(--brume); padding-left: 1.3rem; }
+  .gal-row { flex-wrap: wrap; }
+  .gal-cell { flex: none; width: 100%; }
 }

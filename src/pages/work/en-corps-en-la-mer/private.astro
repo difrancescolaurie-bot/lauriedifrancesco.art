@@ -1,7 +1,6 @@
 ---
 import Layout from '../../../layouts/Layout.astro';
 import Citation from '../../../components/Citation.astro';
-import PhotoCitation from '../../../components/PhotoCitation.astro';
 
 // ── Mot de passe — change la valeur entre guillemets ──────────
 const PASSWORD = 'surfacing';
@@ -38,6 +37,7 @@ const spreads: Spread[] = [
 <Layout
   title="En Corps à la Mer · Complete series"
   description=""
+  lightHeader={false}
 >
 
   <!-- ── Gate mot de passe ──────────────────────────────────── -->
@@ -79,25 +79,35 @@ const spreads: Spread[] = [
     <section class="ecm-opening container">
 
       <!-- Rangée 1 : Photo 51 (gauche) + Nietzsche (droite) -->
-      <PhotoCitation src="/images/work/en-corps-en-la-mer/51.jpg" photoWidth="55%">
-        <Citation author="Friedrich Nietzsche · Posthumous Fragments">
-          That fundamental artistic phenomenon which is called life
-        </Citation>
-      </PhotoCitation>
+      <div class="priv-photo-cit">
+        <figure class="priv-pc-photo" style="flex: 0 0 55%">
+          <img src="/images/work/en-corps-en-la-mer/51.jpg" alt="" loading="lazy" />
+        </figure>
+        <div class="priv-pc-text">
+          <Citation author="Friedrich Nietzsche · Posthumous Fragments">
+            That fundamental artistic phenomenon which is called life
+          </Citation>
+        </div>
+      </div>
 
       <!-- Rangée 2 : Claire Marin (gauche) + Photo 52 (droite) -->
-      <PhotoCitation src="/images/work/en-corps-en-la-mer/52.jpg" side="right" photoWidth="42%">
-        <Citation author="Claire Marin · Hors de moi" note="freely translated from the French" justify>
-          Dreams and water are two worlds where I recover a little balance, a little lightness,
-          where I live again the pleasure of movement. Held within the water's sheath, my body
-          lets go of its pain. It fades, dissolves, vanishes. My movements turn fluid, easy;
-          my body supple, almost deft. Gone, the tender catching-points: the hips, the elbows —
-          nothing rasps anymore, nothing chafes, nothing tears. I remember dreaming I was a mermaid.
-          My legs were imprisoned in a cocoon formed by the sheets, wound tight from turning and
-          turning on myself in search of a position without pain. In the dream, the mummification
-          had been transfigured into a power of movement.
-        </Citation>
-      </PhotoCitation>
+      <div class="priv-photo-cit">
+        <div class="priv-pc-text">
+          <Citation author="Claire Marin · Hors de moi" note="freely translated from the French">
+            Dreams and water are two worlds where I recover a little balance, a little lightness,
+            where I live again the pleasure of movement. Held within the water's sheath, my body
+            lets go of its pain. It fades, dissolves, vanishes. My movements turn fluid, easy;
+            my body supple, almost deft. Gone, the tender catching-points: the hips, the elbows ·
+            nothing rasps anymore, nothing chafes, nothing tears. I remember dreaming I was a mermaid.
+            My legs were imprisoned in a cocoon formed by the sheets, wound tight from turning and
+            turning on myself in search of a position without pain. In the dream, the mummification
+            had been transfigured into a power of movement.
+          </Citation>
+        </div>
+        <figure class="priv-pc-photo" style="flex: 0 0 42%">
+          <img src="/images/work/en-corps-en-la-mer/52.jpg" alt="" loading="lazy" />
+        </figure>
+      </div>
 
       <!-- Texte du projet -->
       <div class="ecm-text">
@@ -315,6 +325,40 @@ const spreads: Spread[] = [
     display: flex;
     flex-direction: column;
     margin-top: clamp(1.5rem, 3vh, 2.5rem);
+  }
+
+  /* Photo + citation inline (replaces PhotoCitation) */
+  .priv-photo-cit {
+    display: flex;
+    gap: 16px;
+    align-items: center;
+  }
+  .priv-pc-photo {
+    margin: 0;
+    min-width: 0;
+    flex-shrink: 0;
+  }
+  .priv-pc-photo img {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+  .priv-pc-text {
+    flex: 1;
+    min-width: 0;
+  }
+  .priv-pc-text .epi-wrap {
+    max-width: none;
+  }
+  @media (max-width: 700px) {
+    .priv-photo-cit {
+      flex-direction: column;
+      gap: 1rem;
+    }
+    .priv-pc-photo {
+      flex: 0 0 auto !important;
+      width: 100%;
+    }
   }
 
   .opening-eyebrow {

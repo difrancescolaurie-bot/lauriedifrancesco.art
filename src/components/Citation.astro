@@ -1,16 +1,15 @@
 ---
 interface Props {
   author?: string;
-  note?: string;        // mention de traduction (epi-tradfr)
-  hr?: boolean;         // affiche la barre horizontale (défaut: true)
-  extraPad?: boolean;   // padding-bottom majoré pour blocs adjacents (2.8rem)
+  note?: string;
+  extraPad?: boolean;
 }
 
-const { author, note, hr = true, extraPad = false } = Astro.props;
+const { author, note, extraPad = false } = Astro.props;
 const hasShort = Astro.slots.has('short');
 ---
 
-<div class:list={['epi-wrap', { 'epi-wrap--hr': hr, 'epi-wrap--extra-pad': extraPad }]}>
+<div class:list={['epi-wrap', { 'epi-wrap--extra-pad': extraPad }]}>
   {hasShort ? (
     <>
       <blockquote class="bq-long"><slot /></blockquote>
@@ -35,17 +34,6 @@ const hasShort = Astro.slots.has('short');
   }
 
   .epi-wrap--extra-pad { padding-bottom: 2.8rem; }
-
-  .epi-wrap--hr { padding-bottom: 0; }
-  .epi-wrap--hr::after {
-    content: '';
-    display: block;
-    width: var(--horizon-width, 64px);
-    height: var(--horizon-height, 1.5px);
-    background: var(--brume);
-    margin-top: 1.8rem;
-    margin-left: calc(-1.3rem - 1px);
-  }
 
   .epi-wrap blockquote {
     font-family: var(--font-body);

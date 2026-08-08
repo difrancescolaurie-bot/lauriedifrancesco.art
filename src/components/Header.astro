@@ -1,6 +1,11 @@
 ---
 import { ui, type Lang } from '../i18n/translations';
 
+interface Props {
+  lightHeader?: boolean;
+}
+const { lightHeader = true } = Astro.props;
+
 const path = Astro.url.pathname;
 
 // Detect language from URL prefix
@@ -45,7 +50,7 @@ const langLabel: Record<Lang, string> = { en: 'EN', fr: 'FR', it: 'IT', pt: 'BR'
 const homeUrl = currentLang === 'en' ? '/' : `/${currentLang}`;
 ---
 
-<header class="site-header">
+<header class:list={['site-header', { 'site-header--light': lightHeader }]}>
   <div class="header-inner container">
 
     <a href={homeUrl} class="logotype" aria-label="Laurie Di Francesco — home">
@@ -351,12 +356,4 @@ const homeUrl = currentLang === 'en' ? '/' : `/${currentLang}`;
     });
   });
 
-  // Light header on pages with light backgrounds
-  const LIGHT_PAGES = ['/work', '/exhibitions', '/about', '/contact'];
-  const bp = window.location.pathname
-    .replace(/^\/(fr|it|pt)(\/|$)/, '/')
-    .replace(/\/$/, '') || '/';
-  if (LIGHT_PAGES.includes(bp)) {
-    header.classList.add('site-header--light');
-  }
 </script>

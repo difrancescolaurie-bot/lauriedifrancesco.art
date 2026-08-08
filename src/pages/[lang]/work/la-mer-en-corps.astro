@@ -86,6 +86,7 @@ const content = {
   image="/images/work/la-mer-en-corps-cover.jpg"
   lang={lang}
   bodyClass="page-lmec"
+  lightHeader={false}
 >
 
   <!-- ── Hero ─────────────────────────────────────────────── -->
@@ -133,7 +134,7 @@ const content = {
       </div>
     </div>
     <div class="lmec-text-col gal-cell gal-cell--cit" data-ratio="0.75">
-      <Citation hr={false} extraPad>
+      <Citation extraPad>
         <Fragment set:html={content.bq1} />
       </Citation>
       <Citation author={content.bachelardCite} note={content.bachelardTransl}>

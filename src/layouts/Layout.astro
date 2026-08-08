@@ -11,9 +11,10 @@ interface Props {
   image?: string;
   lang?: string;
   bodyClass?: string;
+  lightHeader?: boolean;
 }
 
-const { title, image = "/og-default.jpg", lang = "en", bodyClass } = Astro.props;
+const { title, image = "/og-default.jpg", lang = "en", bodyClass, lightHeader = true } = Astro.props;
 
 const validLang: Lang = (lang === 'fr' || lang === 'it' || lang === 'pt') ? lang as Lang : 'en';
 const t = ui[validLang];
@@ -74,7 +75,7 @@ const ogImage = image.startsWith("http") ? image : `${SITE_URL}${image}`;
     <title>{siteTitle}</title>
   </head>
   <body class={bodyClass}>
-    <Header />
+    <Header lightHeader={lightHeader} />
     <main>
       <slot />
     </main>
