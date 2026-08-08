@@ -147,6 +147,8 @@ body { background: var(--sable); }
 /* ── P3 · EN CORPS À LA MER ──────────────────
    Plein bord — meta dessous
    ─────────────────────────────────────────── */
+.p3 { padding-top: 4.5rem; }
+
 .p3 .proj-img {
   width: 100%;
   aspect-ratio: 16 / 9;
