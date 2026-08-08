@@ -88,7 +88,7 @@ const spreads: Spread[] = [
       <figure class="gal-cell gal-cell--photo">
         <img src={s('2.jpg')} alt="Spilling Beyond the Lines · photo 2" loading="lazy" />
       </figure>
-      <div class="gal-cell gal-cell--cit" data-ratio="1">
+      <div class="gal-cell gal-cell--cit">
         <Citation author="Gilberto Gil · Back in Bahia">
           Por algum tempo<br />
           Que afinal passou depressa, como tudo tem de passar<br />
@@ -101,7 +101,7 @@ const spreads: Spread[] = [
     </div>
 
     <div class="gal-row rv">
-      <div class="gal-cell gal-cell--text" data-ratio="1.3333">
+      <div class="gal-cell gal-cell--text">
         <p class="opening-eyebrow">The project</p>
         <p class="intro-text">This project, first conceived as an exhibition and later as a photobook, emerged at the end of a chapter of life marked by displacement. It was built from personal archives — images gathered over more than fifteen years, across several continents — less the record of a single journey than a slow sedimentation of places, encounters, and light.</p>
         <p class="intro-text">It was within this context that the question of borders asserted itself with force — visible or invisible boundaries drawn between bodies, territories, and narratives. These images, portraits, vegetation, textures, structures, form a sensitive cartography in which each photograph gently attempts to shift perception.</p>
@@ -234,8 +234,6 @@ const spreads: Spread[] = [
     .intro { flex-direction: column; }
 
     /* Paysages pleine largeur */
-    .spread .land { width: 100% !important; }
-
     /* Triptyque composé : restaurer l'effet superposé */
     .spread--composed {
       flex-wrap: nowrap !important;
@@ -269,93 +267,59 @@ const spreads: Spread[] = [
 <script>
   // Justified row layout — equal-height rows, proportional widths
   function justify() {
+    const mob = window.innerWidth <= 700;
     document.querySelectorAll<HTMLElement>('.spread--row').forEach(row => {
       const figs = Array.from(row.querySelectorAll<HTMLElement>('figure'));
-      const imgs = figs.map(f => f.querySelector('img') as HTMLImageElement);
+      const imgs = figs.map(f => f.querySelector<HTMLImageElement>('img')!);
+      const getR = (im: HTMLImageElement, fig: HTMLElement) => {
+        if (fig.classList.contains('land-crop')) return 3 / 2;
+        if (fig.classList.contains('port-crop')) return 2 / 3;
+        return (im.naturalWidth && im.naturalHeight) ? im.naturalWidth / im.naturalHeight : 1;
+      };
       function apply() {
-        const asp = imgs.map((im, i) => {
-          if (figs[i].classList.contains('land-crop')) return 3 / 2;
-          if (figs[i].classList.contains('port-crop')) return 2 / 3;
-          return (im.naturalWidth && im.naturalHeight) ? im.naturalWidth / im.naturalHeight : 1;
+        if (mob && figs.length === 3) {
+          figs[0].style.flex = `${getR(imgs[0], figs[0]).toFixed(4)} 1 0`;
+          figs[1].style.flex = `${getR(imgs[1], figs[1]).toFixed(4)} 1 0`;
+          figs[2].style.flex = '0 0 100%';
+          return;
+        }
+        if (mob && figs.length === 4) {
+          const avail = row.clientWidth - 8;
+          ([[0,1],[2,3]] as [number,number][]).forEach(([a,b]) => {
+            const ra = getR(imgs[a], figs[a]), rb = getR(imgs[b], figs[b]);
+            const wa = Math.round(ra / (ra + rb) * avail);
+            figs[a].style.flex = `0 0 ${wa}px`;
+            figs[b].style.flex = `0 0 ${avail - wa}px`;
+          });
+          return;
+        }
+        figs.forEach((fig, i) => {
+          fig.style.flex = '';
+          fig.style.flexGrow = getR(imgs[i], fig).toFixed(4);
         });
-        figs.forEach((f, i) => { f.style.flexGrow = asp[i].toFixed(4); });
       }
       if (imgs.every(im => im.complete && im.naturalWidth)) apply();
       else imgs.forEach(im => im.addEventListener('load', apply));
     });
   }
-  function justifyGalRows() {
+  function layoutGalRows() {
     const mob = window.innerWidth <= 700;
+    const H = parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--rowh')) || 380;
     document.querySelectorAll<HTMLElement>('.gal-cell--photo').forEach(cell => {
       const img = cell.querySelector<HTMLImageElement>('img');
       if (!img) return;
       function apply() {
-        if (mob) { cell.style.flexGrow = ''; return; }
+        if (mob) { cell.style.width = ''; return; }
         const r = img!.naturalWidth && img!.naturalHeight ? img!.naturalWidth / img!.naturalHeight : 1;
-        cell.style.flexGrow = r.toFixed(4);
+        cell.style.width = Math.round(r * H) + 'px';
       }
       if (img.complete && img.naturalWidth) apply();
       else img.addEventListener('load', apply);
     });
   }
   justify();
-  justifyGalRows();
-  window.addEventListener('resize', () => { clearTimeout((window as any)._jt); (window as any)._jt = setTimeout(() => { justify(); justifyGalRows(); }, 150); });
-
-  // Photos paysage : pleine largeur sur mobile, portraits regroupés par 2
-  function tagLandscape() {
-    if (window.innerWidth > 700) return;
-    const imgs = Array.from(document.querySelectorAll<HTMLImageElement>('.spread--row figure img'));
-    let remaining = imgs.filter(img => !img.complete || !img.naturalWidth).length;
-
-    imgs.forEach(img => {
-      function mark() {
-        if (img.naturalWidth && img.naturalHeight && img.naturalWidth / img.naturalHeight > 1.4)
-          img.closest('figure')!.classList.add('land');
-      }
-      if (img.complete && img.naturalWidth) mark();
-      else {
-        img.addEventListener('load', () => { mark(); if (--remaining <= 0) reorgMobile(); }, { once: true });
-        img.addEventListener('error', () => { if (--remaining <= 0) reorgMobile(); }, { once: true });
-      }
-    });
-
-    if (remaining <= 0) reorgMobile();
-  }
-
-  // Regroupe les portraits en paires, isole les paysages sur leur propre ligne
-  function reorgMobile() {
-    if (window.innerWidth > 700) return;
-    document.querySelectorAll<HTMLElement>('.spread--row').forEach(spread => {
-      const figs = Array.from(spread.querySelectorAll<HTMLElement>(':scope > figure'));
-      const lands = figs.filter(f => f.classList.contains('land'));
-      const ports = figs.filter(f => !f.classList.contains('land'));
-      if (!lands.length || !ports.length) return;
-
-      const parent = spread.parentElement!;
-      const anchor = spread.nextSibling;
-      figs.forEach(f => spread.removeChild(f));
-      ports.forEach(f => spread.appendChild(f));
-
-      let ins = anchor;
-      lands.forEach(f => {
-        const row = document.createElement('div');
-        row.className = 'spread spread--row in';
-        row.appendChild(f);
-        parent.insertBefore(row, ins);
-        ins = row.nextSibling;
-      });
-    });
-  }
-
-  tagLandscape();
-  window.addEventListener('resize', () => {
-    clearTimeout((window as any)._lt);
-    (window as any)._lt = setTimeout(() => {
-      document.querySelectorAll('.spread figure').forEach(f => f.classList.remove('land'));
-      tagLandscape();
-    }, 150);
-  });
+  layoutGalRows();
+  window.addEventListener('resize', () => { clearTimeout((window as any)._jt); (window as any)._jt = setTimeout(() => { justify(); layoutGalRows(); }, 150); });
 
   // Scroll reveal
   const obs = new IntersectionObserver(entries => {

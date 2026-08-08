@@ -476,7 +476,7 @@ figure.match img {
     margin-bottom: 1.5rem;
   }
   .series { gap: 8px; }
-  .spread { flex-wrap: nowrap; gap: 8px; min-height: 100px; }
+  .spread { flex-wrap: wrap; gap: 8px; min-height: 100px; }
   .spread--single figure { flex: 1 1 100%; }
   .spread figure img { height: auto; }
 }
@@ -487,27 +487,26 @@ figure.match img {
   padding-bottom: clamp(3rem, 7vh, 5rem);
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: var(--gap-gal);
 }
 .gal-row {
   display: flex;
-  gap: 16px;
-  align-items: stretch;
+  gap: var(--gap-gal);
+  align-items: center;
+  width: 100%;
   max-width: var(--max-width-wide);
   margin-inline: auto;
   padding-inline: var(--gutter);
 }
-.lmec-vid-intro.gal-row { gap: 0; }
+.lmec-vid-intro.gal-row { gap: 0; align-items: stretch; }
 .gal-cell {
-  flex-grow: 1;
-  flex-shrink: 1;
-  flex-basis: 0;
+  flex: 1 1 0;
   min-width: 0;
 }
-.gal-cell[data-ratio="0.75"]   { flex-grow: 0.75; }
-.gal-cell[data-ratio="1"]      { flex-grow: 1; }
-.gal-cell[data-ratio="1.3333"] { flex-grow: 1.3333; }
-.gal-cell[data-ratio="1.5"]    { flex-grow: 1.5; }
+.gal-cell--photo {
+  flex: 0 0 auto;
+}
+.gal-cell--photo img { display: block; width: 100%; height: auto; }
 .gal-cell figure { margin: 0; }
 .gal-cell figure img { display: block; width: 100%; height: auto; }
 .gal-cell--cit {

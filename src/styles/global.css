@@ -24,6 +24,10 @@
   --max-width-wide: 1320px;
   --gutter: clamp(1.25rem, 4vw, 3rem);
 
+  /* ─── Rangées photo/texte (gal-opening) ─── */
+  --rowh:   380px;
+  --gap-gal: 16px;
+
   /* ─── Échelle typographique — corps fixes ─── */
   --t-xs: .72rem;
   --t-s:  .82rem;
