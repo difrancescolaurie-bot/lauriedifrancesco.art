@@ -25,16 +25,40 @@ const content = {
   fr: {
     aznavourPoem: `Que c'est triste Venise<br />Le soir sur la lagune<br />Quand on cherche une main<br />Que l'on ne vous tend pas<br />Et que l'on ironise<br />Devant le clair de lune<br />Pour tenter d'oublier<br />Ce que l'on ne se dit pas`,
     dufourmantelle: `Se séparer, ainsi, c'est commencer à traduire. C'est trouver ne serait-ce qu'un mot pour traduire ce qui en soi fait signe et sens dans une langue nouvelle afin qu'elle soit audible pour un autre. C'est quitter la langue maternelle pour risquer sa propre langue, la langue poétique par excellence.`,
+    projectLabel: 'Le Projet',
+    projectText: [
+      `Le titre retourne un proverbe. Voir Venise et mourir : la beauté comme achèvement, le lieu où l'on peut s'arrêter. Ici, il s'agit de la traverser et de continuer.`,
+      `La série commence par un enfant sous un parapluie à motifs de cœurs. Elle passe par la nuit et revient au jour, comme une nécessité de renaître.`,
+      `Venise est un lieu de mémoire familiale, et il fallait le traverser à nouveau, seule, pour en faire autre chose.`,
+      `L'avant-dernière image superpose deux temporalités : une photographie d'archive familiale, et une image faite au téléphone à l'instant précis où le retour dans ce lieu chargé prenait fin. Le point de départ du projet et le point de sortie coïncident en une seule image, comme s'il fallait enfin poser un point final. Une séparation nécessaire, dont il ne reste ici que la signalétique.`,
+      `De cette coïncidence naît une dernière figure, dans un reflet de vitrine. Quelque chose de Gelsomina, chez Fellini : l'émerveillement qui traverse la brutalité sans en être défait. Non pas la naïveté d'avant, mais l'innocence comme conquête, celle qui vient après. C'est la figure du lion qui devient enfant, chez Nietzsche, et elle revient d'un projet à l'autre.`,
+    ],
   },
   it: {
     aznavourPoem: `Com'è triste Venezia<br />La sera sulla laguna<br />Quando si cerca una mano<br />Che non ci viene tesa<br />E si ironizza<br />Davanti al chiaro di luna<br />Per tentare di dimenticare<br />Ciò che non ci si dice`,
     dufourmantelle: `Separarsi, così, è cominciare a tradurre. È trovare almeno una parola per tradurre ciò che in sé fa segno e senso in una lingua nuova affinché sia audibile per un altro. È lasciare la lingua materna per rischiare la propria lingua, la lingua poetica per eccellenza.`,
     tradfr: 'traduzione libera dal francese',
+    projectLabel: 'Il Progetto',
+    projectText: [
+      `Il titolo rovescia un proverbio. Vedere Venezia e poi morire: la bellezza come compimento, il luogo dove ci si può fermare. Qui si tratta di attraversarla e di proseguire.`,
+      `La serie comincia con un bambino sotto un ombrello a cuori. Passa per la notte e torna al giorno, come una necessità di rinascere.`,
+      `Venezia è un luogo di memoria familiare, e bisognava attraversarlo di nuovo, da sola, per farne altro.`,
+      `La penultima immagine sovrappone due temporalità: una fotografia d'archivio familiare, e un'immagine scattata col telefono nell'istante preciso in cui il ritorno in quel luogo carico stava finendo. Il punto di partenza del progetto e il punto di uscita coincidono in una sola immagine, come se finalmente si dovesse mettere un punto fermo. Una separazione necessaria, di cui qui non resta che la segnaletica.`,
+      `Da questa coincidenza nasce un'ultima figura, in un riflesso di vetrina. Qualcosa di Gelsomina, in Fellini: la meraviglia che attraversa la brutalità senza esserne disfatta. Non l'ingenuità di prima, ma l'innocenza come conquista, quella che viene dopo. È la figura del leone che diventa bambino, in Nietzsche, e ritorna da un progetto all'altro.`,
+    ],
   },
   pt: {
     aznavourPoem: `Como é triste Veneza<br />À tarde na laguna<br />Quando se procura uma mão<br />Que não nos é estendida<br />E faz-se ironia<br />Perante o luar<br />Para tentar esquecer<br />O que não nos dizemos`,
     dufourmantelle: `Separar-se, assim, é começar a traduzir. É encontrar ao menos uma palavra para traduzir o que em si faz signo e sentido numa língua nova para que seja audível para o outro. É abandonar a língua materna para arriscar a sua própria língua, a língua poética por excelência.`,
     tradfr: 'tradução livre do francês',
+    projectLabel: 'O Projeto',
+    projectText: [
+      `O título inverte um provérbio. Ver Veneza e morrer: a beleza como conclusão, o lugar onde se pode parar. Aqui, trata-se de atravessá-la e seguir adiante.`,
+      `A série começa com uma criança sob um guarda-chuva estampado de corações. Passa pela noite e volta ao dia, como uma necessidade de renascer.`,
+      `Veneza é um lugar de memória familiar, e era preciso atravessá-lo de novo, sozinha, para fazer dele outra coisa.`,
+      `A penúltima imagem sobrepõe duas temporalidades: uma fotografia de arquivo familiar, e uma imagem feita no celular no instante exato em que o retorno àquele lugar carregado chegava ao fim. O ponto de partida do projeto e o ponto de saída coincidem numa única imagem, como se enfim fosse preciso pôr um ponto final. Uma separação necessária, da qual aqui resta apenas a sinalização.`,
+      `Dessa coincidência nasce uma última figura, num reflexo de vitrine. Algo de Gelsomina, em Fellini: o encantamento que atravessa a brutalidade sem ser desfeito por ela. Não a ingenuidade de antes, mas a inocência como conquista, aquela que vem depois. É a figura do leão que se torna criança, em Nietzsche, e que retorna de um projeto a outro.`,
+    ],
   },
 }[lang as 'fr' | 'it' | 'pt'];
 
@@ -97,6 +121,15 @@ const spreads: Spread[] = [
       <figure class="gal-cell gal-cell--photo">
         <img src={s('2.jpg')} alt="" loading="lazy" />
       </figure>
+    </div>
+
+    <div class="gal-row rv">
+      <div class="gal-cell gal-cell--text">
+        <p class="opening-eyebrow">{content.projectLabel}</p>
+        {content.projectText.map((para) => (
+          <p class="opening-text">{para}</p>
+        ))}
+      </div>
     </div>
 
   </section>
