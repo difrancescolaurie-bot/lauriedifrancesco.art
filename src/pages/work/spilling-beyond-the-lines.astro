@@ -269,12 +269,10 @@ const spreads: Spread[] = [
 <script>
   // Justified row layout — equal-height rows, proportional widths
   function justify() {
-    const mob = window.innerWidth <= 700;
     document.querySelectorAll<HTMLElement>('.spread--row').forEach(row => {
       const figs = Array.from(row.querySelectorAll<HTMLElement>('figure'));
       const imgs = figs.map(f => f.querySelector('img') as HTMLImageElement);
       function apply() {
-        if (mob) { figs.forEach(f => { f.style.flexGrow = ''; }); return; }
         const asp = imgs.map((im, i) => {
           if (figs[i].classList.contains('land-crop')) return 3 / 2;
           if (figs[i].classList.contains('port-crop')) return 2 / 3;

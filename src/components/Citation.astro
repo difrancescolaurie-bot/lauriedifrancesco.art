@@ -6,21 +6,22 @@ interface Props {
 }
 
 const { author, note, extraPad = false } = Astro.props;
-const hasShort = Astro.slots.has('short');
+
+// Split "Author Name · Work Title" so neither segment breaks internally.
+// The interpunct is the only allowed break-point between them.
+const authorParts = author ? author.split(' · ') : [];
 ---
 
 <div class:list={['epi-wrap', { 'epi-wrap--extra-pad': extraPad }]}>
-  {hasShort ? (
-    <>
-      <blockquote class="bq-long"><slot /></blockquote>
-      <blockquote class="bq-short"><slot name="short" /></blockquote>
-    </>
-  ) : (
-    <blockquote><slot /></blockquote>
-  )}
+  <blockquote><slot /></blockquote>
   {author && (
     <cite>
-      {author}
+      {authorParts.map((part, i) => (
+        <>
+          {i > 0 && ' · '}
+          <span class="epi-nowrap">{part}</span>
+        </>
+      ))}
       {note && <span class="epi-tradfr">{note}</span>}
     </cite>
   )}
@@ -54,6 +55,14 @@ const hasShort = Astro.slots.has('short');
     color: var(--cerule);
   }
 
+  /* Règle système : le nom de l'auteur et le titre de l'œuvre ne se coupent
+     jamais individuellement. Le seul point de rupture autorisé est le · qui
+     les sépare. white-space: nowrap sur la ligne entière est interdit (débord
+     horizontal à faible largeur). */
+  .epi-nowrap {
+    white-space: nowrap;
+  }
+
   .epi-tradfr {
     display: block;
     font-size: var(--t-xs);
@@ -62,12 +71,5 @@ const hasShort = Astro.slots.has('short');
     font-style: italic;
     color: var(--ardoise);
     margin-top: .2rem;
-  }
-
-  /* Variante longue/courte : long visible desktop, court visible mobile */
-  .bq-short { display: none; }
-  @media (max-width: 700px) {
-    .bq-long { display: none; }
-    .bq-short { display: block; }
   }
 </style>

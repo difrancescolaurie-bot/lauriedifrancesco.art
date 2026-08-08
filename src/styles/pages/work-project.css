@@ -476,16 +476,9 @@ figure.match img {
     margin-bottom: 1.5rem;
   }
   .series { gap: 8px; }
-  .spread { flex-wrap: wrap; gap: 8px; }
-  .spread figure {
-    flex: none !important;
-    width: calc(50% - 4px) !important;
-  }
-  .spread--single figure { width: 100% !important; }
-  /* Trio : 2+1 (premier rang de 2, dernier pleine largeur) */
-  .spread--row:has(figure:nth-child(3)):not(:has(figure:nth-child(4))) figure:nth-child(3) {
-    width: 100% !important;
-  }
+  .spread { flex-wrap: nowrap; gap: 8px; min-height: 100px; }
+  .spread--single figure { flex: 1 1 100%; }
+  .spread figure img { height: auto; }
 }
 
 /* ── Rangée photo/texte/citation (chantier 1) ──────────── */
@@ -518,25 +511,35 @@ figure.match img {
 .gal-cell figure { margin: 0; }
 .gal-cell figure img { display: block; width: 100%; height: auto; }
 .gal-cell--cit {
-  padding-left: 24px;
+  padding-left: 0;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   gap: clamp(1.5rem, 3vh, 2.5rem);
 }
+.gal-cell--photo + .gal-cell--cit,
+.lmec-vid-col + .gal-cell--cit { padding-left: 24px; }
 .lmec-text-col.gal-cell--cit {
   gap: 0;
+}
+/* Alignement cap-height : compense le demi-interligne supérieur du premier
+   élément pour aligner visuellement le premier caractère avec le haut de l'image */
+.gal-cell--photo + .gal-cell--cit > .epi-wrap:first-child,
+.lmec-vid-col + .gal-cell--cit > .epi-wrap:first-child {
+  margin-top: -0.425em;
 }
 .gal-cell--cit .epi-wrap {
   max-width: none;
   flex-grow: 1;
 }
 .gal-cell--text {
-  padding-left: 24px;
+  padding-left: 0;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
 }
+.gal-cell--photo + .gal-cell--text,
+.lmec-vid-col + .gal-cell--text { padding-left: 24px; }
 @media (max-width: 700px) {
   .gal-row { flex-wrap: wrap; gap: 8px; }
   .gal-cell--photo,

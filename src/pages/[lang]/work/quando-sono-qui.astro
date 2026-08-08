@@ -172,12 +172,10 @@ const spreads: Spread[] = [
 
 <script>
   function justify() {
-    const mob = window.innerWidth <= 700;
     document.querySelectorAll<HTMLElement>('.spread--row').forEach(row => {
       const figs = Array.from(row.querySelectorAll<HTMLElement>('figure'));
       const imgs = figs.map(f => f.querySelector('img') as HTMLImageElement);
       function apply() {
-        if (mob) { figs.forEach(f => { f.style.flexGrow = ''; }); return; }
         imgs.forEach((im, i) => {
           const r = (im.naturalWidth && im.naturalHeight) ? im.naturalWidth / im.naturalHeight : 1;
           figs[i].style.flexGrow = r.toFixed(4);
