@@ -36,10 +36,10 @@ const content = {
     eyebrow: 'LE PROJET',
     rilkeAuthor: 'Rainer Maria Rilke · Lettres à un jeune poète',
     rilkeNote: "traduction libre de l'édition brésilienne",
-    rilkeText: "Regarder les choses comme un enfant observe quelque chose d'étrange, depuis la profondeur de son propre monde.",
+    rilkeText: "Ce qui est nécessaire est seulement ceci: la solitude, une grande solitude intérieure. Entrer en soi-même et ne rencontrer personne pendant des heures, il faut y parvenir. Être solitaire comme on l'était enfant, quand les adultes allaient et venaient, mêlés à des choses qui semblaient importantes […] pourquoi ne pas les regarder comme un enfant observe quelque chose d'étrange, depuis la profondeur de son propre monde, depuis l'ampleur de sa propre solitude, qui est elle-même un travail, une charge et un métier ?",
     nietzscheAuthor: 'Friedrich Nietzsche · Ainsi parlait Zarathoustra',
     nietzscheNote: undefined as string | undefined,
-    nietzscheText: "L'enfant est innocence et oubli, un recommencement, un jeu, une roue roulant d'elle-même, un premier mouvement, un oui sacré.",
+    nietzscheText: "Mais dites, mes frères, de quoi l'enfant est donc capable dont ne le fut pas le lion ? Pourquoi faut-il donc que le lion féroce devienne un enfant ? L'enfant est innocence et oubli, un recommencement, un jeu, une roue roulant d'elle-même, un premier mouvement, un « oui » sacré.",
     project: [
       "La série s'ouvre sur le regard d'une jeune fille et se referme sur le visage d'une femme adulte. Entre les deux, des dragons de pierre, un toboggan vu de trop près, des vitres qui décomposent la lumière, des bâches, des reflets. Presque pas de cauchemar. Mais le voile est là.",
       "Le bleu du ciel traverse l'ensemble de ce travail comme un opérateur conceptuel. Il est le même d'un bout à l'autre de la terre, au-dessus des guerres comme au-dessus des jeux. C'est peut-être pour cela qu'il tient : il ne promet rien et il ne cède pas.",
@@ -54,10 +54,10 @@ const content = {
     eyebrow: 'IL PROGETTO',
     rilkeAuthor: 'Rainer Maria Rilke · Lettere a un giovane poeta',
     rilkeNote: "traduzione libera dall'edizione brasiliana",
-    rilkeText: 'Guardare le cose come un bambino osserva qualcosa di strano, dalla profondità del proprio mondo.',
+    rilkeText: "Ciò che è necessario è soltanto questo: solitudine, una grande solitudine interiore. Entrare in se stessi e non incontrare nessuno per ore, bisogna riuscirci. Essere solitari come lo si era da bambini, quando gli adulti andavano avanti e indietro, presi da cose che sembravano importanti […] perché non guardarli come un bambino osserva qualcosa di strano, dalla profondità del proprio mondo, dall'ampiezza della propria solitudine, che è essa stessa un lavoro, un incarico e una professione?",
     nietzscheAuthor: 'Friedrich Nietzsche · Così parlò Zarathustra',
     nietzscheNote: "traduzione libera dall'edizione francese" as string | undefined,
-    nietzscheText: 'Il bambino è innocenza e oblio, un ricominciamento, un gioco, una ruota che gira da sé, un primo movimento, un sacro sì.',
+    nietzscheText: "Ma dite, fratelli miei, di che cosa è capace il bambino, che il leone non poteva? Perché il leone feroce deve ancora diventare bambino? Il bambino è innocenza e oblio, un ricominciamento, un gioco, una ruota che gira da sé, un primo movimento, un sacro «sì».",
     project: [
       'La serie si apre sullo sguardo di una ragazza e si chiude sul volto di una donna adulta. Nel mezzo: draghi di pietra, uno scivolo visto troppo da vicino, vetri che scompongono la luce, teloni, riflessi. Quasi nessun incubo. Ma il velo c\'è.',
       "L'azzurro del cielo attraversa tutto questo lavoro come un operatore concettuale. È lo stesso da un capo all'altro della terra, sopra le guerre come sopra i giochi. Forse è per questo che tiene: non promette nulla e non cede.",
@@ -72,10 +72,10 @@ const content = {
     eyebrow: 'O PROJETO',
     rilkeAuthor: 'Rainer Maria Rilke · Cartas a um jovem poeta',
     rilkeNote: undefined as string | undefined,
-    rilkeText: 'Olhar para as coisas como uma criança observa algo de estranho, a partir da profundeza do próprio mundo.',
+    rilkeText: "O que é necessário é apenas o seguinte: solidão, uma grande solidão interior. Entrar em si mesmo e não encontrar ninguém durante horas, é preciso conseguir isso. Ser solitário como se era quando criança, quando os adultos passavam para lá e para cá, envolvidos com coisas que pareciam importantes […] por que não olhar para eles como uma criança observa algo de estranho, a partir da profundeza do próprio mundo, da amplitude da própria solidão, que é ela mesma um trabalho, um cargo e uma profissão?",
     nietzscheAuthor: 'Friedrich Nietzsche · Assim falou Zaratustra',
     nietzscheNote: 'tradução livre da edição francesa' as string | undefined,
-    nietzscheText: 'A criança é inocência e esquecimento, um recomeço, um jogo, uma roda que gira por si mesma, um primeiro movimento, um sim sagrado.',
+    nietzscheText: 'Mas digam, meus irmãos, do que é capaz a criança que o leão não foi? Por que o leão feroz precisa ainda tornar-se criança? A criança é inocência e esquecimento, um recomeço, um jogo, uma roda que gira por si mesma, um primeiro movimento, um "sim" sagrado.',
     project: [
       'A série se abre no olhar de uma menina e se fecha no rosto de uma mulher adulta. Entre os dois: dragões de pedra, um escorregador visto de perto demais, vidros que decompõem a luz, lonas, reflexos. Quase nenhum pesadelo. Mas o véu está lá.',
       'O azul do céu atravessa todo este trabalho como um operador conceitual. É o mesmo de um extremo a outro da terra, acima das guerras como acima das brincadeiras. Talvez seja por isso que ele sustenta: não promete nada e não cede.',
@@ -120,7 +120,7 @@ const spreads: Spread[] = [
     </div>
   </section>
 
-  <!-- ── Ouverture : deux rangées photo + citation ── -->
+  <!-- ── Ouverture : trois rangées photo + citation + texte ── -->
   <section class="gal-opening">
 
     <div class="gal-row rv">
@@ -131,10 +131,18 @@ const spreads: Spread[] = [
         <Citation author={content.rilkeAuthor} note={content.rilkeNote}>
           {content.rilkeText}
         </Citation>
+      </div>
+    </div>
+
+    <div class="gal-row rv">
+      <div class="gal-cell gal-cell--cit">
         <Citation author={content.nietzscheAuthor} note={content.nietzscheNote}>
           {content.nietzscheText}
         </Citation>
       </div>
+      <figure class="gal-cell gal-cell--photo">
+        <img src={s(2)} alt="Toward the Blue · photo 2" loading="lazy" />
+      </figure>
     </div>
 
     <div class="gal-row rv">
@@ -145,9 +153,6 @@ const spreads: Spread[] = [
         ))}
         <hr class="horizon intro-proj-horizon" />
       </div>
-      <figure class="gal-cell gal-cell--photo">
-        <img src={s(2)} alt="Toward the Blue · photo 2" loading="lazy" />
-      </figure>
     </div>
 
   </section>

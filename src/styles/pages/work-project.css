@@ -386,7 +386,7 @@ figure.match img {
 .lmec-prose {
   display: flow-root; /* contient les floats */
   max-width: var(--max-width-wide);
-  margin: clamp(3rem, 7vh, 5rem) auto 0;
+  margin: var(--gap-gal) auto 0;
   padding: 0 var(--gutter);
 }
 .lmec-prose .opening-eyebrow {
@@ -414,7 +414,7 @@ figure.match img {
 .lmec-gallery {
   --gap: clamp(10px, 1.1vw, 16px);
   max-width: var(--max-width-wide);
-  margin: clamp(3rem, 8vh, 5.5rem) auto 0;
+  margin: var(--gap-gal) auto 0;
   padding: 0 var(--gutter);
   display: flex;
   flex-direction: column;
@@ -484,7 +484,7 @@ figure.match img {
 /* ── Rangée photo/texte/citation (chantier 1) ──────────── */
 .gal-opening {
   padding-top: clamp(3rem, 8vh, 5.5rem);
-  padding-bottom: clamp(3rem, 7vh, 5rem);
+  padding-bottom: var(--gap-gal);
   display: flex;
   flex-direction: column;
   gap: var(--gap-gal);
@@ -535,15 +535,45 @@ figure.match img {
 
 /* Texte de projet — rangée autonome, jamais en regard d'une photo */
 .gal-cell--text:only-child {
-  padding-top: 2.5rem;
-  padding-bottom: 2.5rem;
-  justify-content: flex-start;
+  display: block;
+  flex: 0 0 100%;
   align-self: flex-start;
-  width: 100%;
+  padding-top: 0;
+  padding-bottom: 32px;
 }
-.gal-cell--text:only-child .opening-eyebrow,
-.gal-cell--text:only-child .opening-text {
-  max-width: 64ch;
+@media (min-width: 721px) {
+  .gal-cell--text:only-child {
+    column-count: 2;
+    column-gap: var(--gap-gal);
+    orphans: 2;
+    widows: 2;
+  }
+  .gal-cell--text:only-child .opening-eyebrow { column-span: all; }
+  .gal-cell--text:only-child .horizon { column-span: all; }
+}
+/* Filet accent — règle 3 */
+.gal-cell--text .horizon,
+.ecm-text .horizon { background: var(--accent); }
+
+/* Texte de projet ECM — pleine largeur, même règle que gal-cell--text:only-child */
+.ecm-text {
+  display: block;
+  max-width: var(--max-width-wide);
+  margin-top: 0;
+  margin-bottom: var(--gap-gal);
+  margin-inline: auto;
+  padding-inline: var(--gutter);
+  padding-bottom: 32px;
+}
+@media (min-width: 721px) {
+  .ecm-text {
+    column-count: 2;
+    column-gap: var(--gap-gal);
+    orphans: 2;
+    widows: 2;
+  }
+  .ecm-text .opening-eyebrow { column-span: all; }
+  .ecm-text .horizon { column-span: all; }
 }
 @media (max-width: 700px) {
   .gal-row { flex-wrap: wrap; gap: 8px; }

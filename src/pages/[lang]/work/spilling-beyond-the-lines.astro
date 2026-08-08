@@ -60,6 +60,7 @@ const local = (file: string, n: number, figClass?: string): Photo => ({
 });
 
 const spreads: Spread[] = [
+  { type: 'single', photos: [local('1.jpg',1)] },
   { type: 'row', photos: [local('3.jpg',3), local('4.jpg',4), local('5.jpg',5), local('6.jpg',6)] },
   { type: 'row', photos: [local('7.jpg',7), local('8.jpg',8), local('9.jpg',9), local('10.jpg',10)], caption: content.cap1 },
   { type: 'composed', photos: [local('11.jpg',11), local('12.jpg',12), local('13.jpg',13)] },
@@ -126,9 +127,6 @@ const spreads: Spread[] = [
         <p class="intro-text">{content.p2}</p>
         <hr class="horizon intro-proj-horizon" />
       </div>
-      <figure class="gal-cell gal-cell--photo">
-        <img src={s('1.jpg')} alt={`${t.work.spillingTitle} · photo 1`} loading="lazy" />
-      </figure>
     </div>
 
   </section>
