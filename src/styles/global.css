@@ -25,7 +25,7 @@
   --gutter: clamp(1.25rem, 4vw, 3rem);
 
   /* ─── Rangées photo/texte (gal-opening) ─── */
-  --rowh:   380px;
+  --rowh:   403px;
   --gap-gal: 16px;
 
   /* ─── Échelle typographique — corps fixes ─── */

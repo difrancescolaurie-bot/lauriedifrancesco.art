@@ -90,10 +90,10 @@ const spreads: Spread[] = [
   <div class="ecm-text">
     <p class="opening-eyebrow">The project</p>
     <p class="opening-text">
-      There was a season when the body gave way — when illness pulled the ground
+      There was a season when the body gave way, when illness pulled the ground
       from under everything and strength drained off like a tide going out. <em>En Corps à la Mer</em> follows that long descent and its turning:
       force returning not through stillness, but through water. To swim was to
-      be carried and to carry oneself at once — to surface, and surface again,
+      be carried and to carry oneself at once. To surface, and surface again,
       until surfacing became a way of living. The series moves from dark
       interiors toward an open, dazzling white: the sea as the place where a
       life is handed back.
@@ -147,6 +147,7 @@ const spreads: Spread[] = [
   // Justified row layout
   function justify() {
     const mob = window.innerWidth <= 700;
+    const H = parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--rowh')) || 403;
     document.querySelectorAll<HTMLElement>('.spread--row').forEach(row => {
       const figs = Array.from(row.querySelectorAll<HTMLElement>('figure'));
       const imgs = figs.map(f => f.querySelector<HTMLImageElement>('img')!);
@@ -169,14 +170,34 @@ const spreads: Spread[] = [
           });
           return;
         }
-        imgs.forEach((im, i) => {
-          figs[i].style.flex = '';
-          figs[i].style.flexGrow = getR(im).toFixed(4);
-        });
+        const sumR = imgs.reduce((s, im) => s + getR(im), 0);
+        const totalW = Math.round(sumR * H) + (figs.length - 1) * 16;
+        if (totalW > row.clientWidth + 2) {
+          imgs.forEach((im, i) => {
+            figs[i].style.flex = '';
+            figs[i].style.flexGrow = getR(im).toFixed(4);
+          });
+        } else {
+          imgs.forEach((im, i) => {
+            figs[i].style.flex = `0 0 ${Math.round(getR(im) * H)}px`;
+          });
+        }
       }
       if (imgs.every(im => im.complete && im.naturalWidth)) apply();
       else imgs.forEach(im => im.addEventListener('load', apply));
     });
+  document.querySelectorAll<HTMLElement>('.spread--single').forEach(single => {
+    const fig = single.querySelector<HTMLElement>('figure');
+    const img = fig && fig.querySelector<HTMLImageElement>('img');
+    if (!fig || !img) return;
+    function applyS() {
+      if (mob) { fig.style.flex = ''; return; }
+      const r = img!.naturalWidth && img!.naturalHeight ? img!.naturalWidth / img!.naturalHeight : 1;
+      fig.style.flex = `0 0 ${Math.round(r * H)}px`;
+    }
+    if (img.complete && img.naturalWidth) applyS();
+    else img.addEventListener('load', applyS);
+  });
   }
   function layoutGalRows() {
     const mob = window.innerWidth <= 700;

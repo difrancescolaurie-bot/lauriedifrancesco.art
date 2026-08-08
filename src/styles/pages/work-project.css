@@ -373,13 +373,13 @@ figure.match img {
 /* Photo flottante dans le texte prose */
 .lmec-photo-float {
   float: left;
-  width: 66%;
+  width: auto;
   margin: 0 clamp(1.5rem, 3vw, 3rem) 1rem 0;
 }
 .lmec-photo-float img {
   display: block;
-  width: 100%;
-  height: auto;
+  height: var(--rowh);
+  width: auto;
 }
 
 /* Prose texte projet — pleine largeur, police fine */
@@ -503,6 +503,7 @@ figure.match img {
   flex: 1 1 0;
   min-width: 0;
 }
+.lmec-vid-intro .lmec-vid-col { flex: 3.3; }
 .gal-cell--photo {
   flex: 0 0 auto;
 }
@@ -553,7 +554,11 @@ figure.match img {
 }
 /* Filet accent — règle 3 */
 .gal-cell--text .horizon,
-.ecm-text .horizon { background: var(--accent); }
+.ecm-text .horizon {
+  background: var(--accent);
+  width: 100%;
+  margin-top: 48px;
+}
 
 /* Texte de projet ECM — pleine largeur, même règle que gal-cell--text:only-child */
 .ecm-text {

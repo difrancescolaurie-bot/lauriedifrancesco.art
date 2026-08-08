@@ -221,6 +221,7 @@ const spreads: Spread[] = [
 <script>
   function justify() {
     const mob = window.innerWidth <= 700;
+    const H = parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--rowh')) || 403;
     document.querySelectorAll<HTMLElement>('.spread--row').forEach(row => {
       const figs = Array.from(row.querySelectorAll<HTMLElement>('figure'));
       const imgs = figs.map(f => f.querySelector<HTMLImageElement>('img')!);
@@ -246,14 +247,34 @@ const spreads: Spread[] = [
           });
           return;
         }
-        figs.forEach((fig, i) => {
-          fig.style.flex = '';
-          fig.style.flexGrow = getR(imgs[i], fig).toFixed(4);
-        });
+        const sumR = figs.reduce((s, fig, i) => s + getR(imgs[i], fig), 0);
+        const totalW = Math.round(sumR * H) + (figs.length - 1) * 16;
+        if (totalW > row.clientWidth + 2) {
+          figs.forEach((fig, i) => {
+            fig.style.flex = '';
+            fig.style.flexGrow = getR(imgs[i], fig).toFixed(4);
+          });
+        } else {
+          figs.forEach((fig, i) => {
+            fig.style.flex = `0 0 ${Math.round(getR(imgs[i], fig) * H)}px`;
+          });
+        }
       }
       if (imgs.every(im => im.complete && im.naturalWidth)) apply();
       else imgs.forEach(im => im.addEventListener('load', apply));
     });
+  document.querySelectorAll<HTMLElement>('.spread--single').forEach(single => {
+    const fig = single.querySelector<HTMLElement>('figure');
+    const img = fig && fig.querySelector<HTMLImageElement>('img');
+    if (!fig || !img) return;
+    function applyS() {
+      if (mob) { fig.style.flex = ''; return; }
+      const r = fig.classList.contains('land-crop') ? 3/2 : fig.classList.contains('port-crop') ? 2/3 : (img!.naturalWidth && img!.naturalHeight ? img!.naturalWidth / img!.naturalHeight : 1);
+      fig.style.flex = `0 0 ${Math.round(r * H)}px`;
+    }
+    if (img.complete && img.naturalWidth) applyS();
+    else img.addEventListener('load', applyS);
+  });
   }
   function layoutGalRows() {
     const mob = window.innerWidth <= 700;

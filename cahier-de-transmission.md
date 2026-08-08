@@ -287,6 +287,26 @@ Correspondance **numéro de badge → fichier** (numéros visibles dans le proto
 
 Fichiers touchés : `src/styles/pages/work-project.css`, `src/pages/[lang]/work/quando-sono-qui.astro`, `src/pages/work/vedere-venezia.astro`, `src/pages/[lang]/work/vedere-venezia.astro`, `src/pages/work/toward-the-blue.astro`, `src/pages/[lang]/work/toward-the-blue.astro`, `src/pages/work/spilling-beyond-the-lines.astro`, `src/pages/[lang]/work/spilling-beyond-the-lines.astro`, `src/pages/work/en-corps-en-la-mer.astro`, `src/pages/[lang]/work/en-corps-en-la-mer.astro`.
 
+**Lot R — Hauteur commune, vidéo LMEC, filet pleine colonne, corrections ECM.**
+
+**R.1 — Règle unique : hauteur commune à toutes les photos.** Toutes les photographies d'une page projet ont la même hauteur, qu'elles soient en rangée série ou en regard d'une citation. `--rowh` n'est plus une valeur choisie : elle est dérivée. Formule : `(largeur_colonne - gouttière) / somme_des_deux_ratios`. Pour 2 photos 3:2 à 1224 px avec 16 px de gouttière : (1224 - 16) / 3,0008 ≈ 402 px. Mesure navigateur à 1440 px : **403 px**. Valeur appliquée dans `src/styles/global.css` : `--rowh: 403px`.
+
+**R.2 — justify() : hauteur fixe sur desktop, flex-grow maintenu pour les rangées en dépassement.** La fonction `justify()` est mise à jour dans les 10 fichiers de pages série (EN + lang pour TTB, QSQ, VV, ECM, Spilling). Desktop : calcul de `totalW = Math.round(sumR * H) + (n-1) * 16`. Si `totalW <= row.clientWidth + 2` : `flex: 0 0 (ratio * H)px` sur chaque figure. Si dépassement : `flexGrow = ratio` maintenu (rangée non recomposée, à traiter séparément). Ajout de la gestion des `spread--single` dans `justify()` : `flex: 0 0 (ratio * H)px` avec prise en compte des classes `land-crop` / `port-crop` (Spilling). Rangées en dépassement signalées : TTB r0 (3 paysages, 1846 px), QSQ r0/r2/r4/r6 (3 paysages chacune), VV r1 (3 paysages), ECM r2/r4 (4 paysages, 2466 px), ECM r3 (3 paysages).
+
+**R.3 — Vidéo LMEC : correctif du bug cascade + flex 3,3.** `.gal-cell { flex: 1 1 0 }` (ligne 502 de `work-project.css`) écrasait `.lmec-vid-col { flex: 2 }` par spécificité égale. Correctif : `.lmec-vid-intro .lmec-vid-col { flex: 3.3; }` ajouté après `.gal-cell`. Test des citations Bachelard dans les 4 langues à flex 3,4 (maximum sans dépassement en IT, marge 2 px) et 3,3 (retenu pour robustesse) : EN vidH=614, citeH=533, marge 81 px ; FR vidH=614, citeH=566, marge 48 px ; IT vidH=614, citeH=560, marge 54 px ; PT vidH=614, citeH=560, marge 54 px. Les citations de Bachelard restent dans la rangée et leur hauteur ne dépasse pas la hauteur de la vidéo.
+
+**R.4 — Photo GP LMEC : passage à la hauteur commune.** La photo flottante `GP010207.jpg` (ratio 1,4997) passe de `float: left; width: 66%` (808 x 539 px) à `height: var(--rowh); width: auto` via `.lmec-photo-float img`. Résultat : 604 x 403 px, flottement conservé, le texte reste enroulé autour.
+
+**R.5 — Galerie LMEC rangée 1 : hauteur commune.** La figure de `1.jpg` (rangée 1 de `.lmec-gallery`) passe de `flex:1.4997 1 0` (pleine colonne, 1224 x 816 px) à `flex:0 0 605px` dans les fichiers EN et lang. Rangées 2-4 (valeurs verrouillées 0.7519 / 0.6786) : non modifiées.
+
+**R.6 — Filet : pleine colonne + distance unique 48 px.** Avant : filet 64 px de large, margin-top 0 px. Après : `width: 100%` et `margin-top: 48 px` dans la règle `.gal-cell--text .horizon, .ecm-text .horizon`. Confirmé dans le navigateur : horizon 1224 px, distance texte-filet 48 px, identique sur TTB, QSQ, VV, ECM, Spilling.
+
+**R.7 — ECM : correction des tirets cadratins EN et FR.** EN (appliqué) : "gave way, when illness" et "at once. To surface" (virgule et point remplacent les tirets). FR (appliqué) : "Il y a eu une saison où le corps a cédé, quand la maladie a retiré le sol de sous toute chose et que la force s'est retirée comme une marée." et "à la fois. Refaire surface". IT : pas de tiret cadratin. PT (non corrigé) : reformulation en attente : "Houve uma estação em que o corpo cedeu — quando a doença arrancou o chão de tudo e a força escoou como uma maré vazante." et "Nadar era ser carregada e carregar a si mesma ao mesmo tempo — emergir, e emergir de novo, até que emergir se tornasse uma forma de viver."
+
+**R.8 — Spilling photo 1 : en attente de confirmation.** La photo `1.jpg` (portrait 0.6664, ajoutée en Lot Q comme premier `spread--single`) était affichée en pleine colonne (1837 px de haut). Après R.2, `justify()` lui applique `flex: 0 0 269px` (403 px de haut). Sa suppression de la série (décision de contenu) est en attente de validation.
+
+Fichiers touchés : `src/styles/global.css`, `src/styles/pages/work-project.css`, `src/pages/work/la-mer-en-corps.astro`, `src/pages/[lang]/work/la-mer-en-corps.astro`, `src/pages/work/en-corps-en-la-mer.astro`, `src/pages/[lang]/work/en-corps-en-la-mer.astro`, `src/pages/work/toward-the-blue.astro`, `src/pages/[lang]/work/toward-the-blue.astro`, `src/pages/work/quando-sono-qui.astro`, `src/pages/[lang]/work/quando-sono-qui.astro`, `src/pages/work/vedere-venezia.astro`, `src/pages/[lang]/work/vedere-venezia.astro`, `src/pages/work/spilling-beyond-the-lines.astro`, `src/pages/[lang]/work/spilling-beyond-the-lines.astro`.
+
 ---
 
 ## 9. Travailler avec Claude Code
