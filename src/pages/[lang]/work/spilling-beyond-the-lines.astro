@@ -60,7 +60,6 @@ const local = (file: string, n: number, figClass?: string): Photo => ({
 });
 
 const spreads: Spread[] = [
-  { type: 'row', photos: [local('1.jpg',1), local('2.jpg',2)] },
   { type: 'row', photos: [local('3.jpg',3), local('4.jpg',4), local('5.jpg',5), local('6.jpg',6)] },
   { type: 'row', photos: [local('7.jpg',7), local('8.jpg',8), local('9.jpg',9), local('10.jpg',10)], caption: content.cap1 },
   { type: 'composed', photos: [local('11.jpg',11), local('12.jpg',12), local('13.jpg',13)] },
@@ -101,24 +100,34 @@ const spreads: Spread[] = [
   </section>
 
   <!-- ── Intro ─────────────────────────────────────────────── -->
-  <section class="intro">
+  <section class="gal-opening">
 
-    <div class="intro-epi">
-      <Citation author="Gilberto Gil — Back in Bahia">
-        Por algum tempo<br />
-        Que afinal passou depressa, como tudo tem de passar<br />
-        Hoje eu me sinto<br />
-        Como se ter ido fosse necessário para voltar<br />
-        Tanto mais vivo<br />
-        De vida mais vivida, dividida pra lá e pra cá
-      </Citation>
+    <div class="gal-row rv">
+      <figure class="gal-cell gal-cell--photo">
+        <img src={s('2.jpg')} alt={`${t.work.spillingTitle} — photo 2`} loading="lazy" />
+      </figure>
+      <div class="gal-cell gal-cell--cit" data-ratio="1">
+        <Citation author="Gilberto Gil — Back in Bahia">
+          Por algum tempo<br />
+          Que afinal passou depressa, como tudo tem de passar<br />
+          Hoje eu me sinto<br />
+          Como se ter ido fosse necessário para voltar<br />
+          Tanto mais vivo<br />
+          De vida mais vivida, dividida pra lá e pra cá
+        </Citation>
+      </div>
     </div>
 
-    <div class="intro-proj">
-      <p class="opening-eyebrow">{t.work.theProject}</p>
-      <p class="intro-text">{content.p1}</p>
-      <p class="intro-text">{content.p2}</p>
-      <hr class="horizon intro-proj-horizon" />
+    <div class="gal-row rv">
+      <div class="gal-cell gal-cell--text" data-ratio="1.3333">
+        <p class="opening-eyebrow">{t.work.theProject}</p>
+        <p class="intro-text">{content.p1}</p>
+        <p class="intro-text">{content.p2}</p>
+        <hr class="horizon intro-proj-horizon" />
+      </div>
+      <figure class="gal-cell gal-cell--photo">
+        <img src={s('1.jpg')} alt={`${t.work.spillingTitle} — photo 1`} loading="lazy" />
+      </figure>
     </div>
 
   </section>
@@ -230,8 +239,23 @@ const spreads: Spread[] = [
       else imgs.forEach(im => im.addEventListener('load', apply));
     });
   }
+  function justifyGalRows() {
+    const mob = window.innerWidth <= 700;
+    document.querySelectorAll<HTMLElement>('.gal-cell--photo').forEach(cell => {
+      const img = cell.querySelector<HTMLImageElement>('img');
+      if (!img) return;
+      function apply() {
+        if (mob) { cell.style.flexGrow = ''; return; }
+        const r = img!.naturalWidth && img!.naturalHeight ? img!.naturalWidth / img!.naturalHeight : 1;
+        cell.style.flexGrow = r.toFixed(4);
+      }
+      if (img.complete && img.naturalWidth) apply();
+      else img.addEventListener('load', apply);
+    });
+  }
   justify();
-  window.addEventListener('resize', () => { clearTimeout((window as any)._jt); (window as any)._jt = setTimeout(justify, 150); });
+  justifyGalRows();
+  window.addEventListener('resize', () => { clearTimeout((window as any)._jt); (window as any)._jt = setTimeout(() => { justify(); justifyGalRows(); }, 150); });
 
   function tagLandscape() {
     if (window.innerWidth > 700) return;
