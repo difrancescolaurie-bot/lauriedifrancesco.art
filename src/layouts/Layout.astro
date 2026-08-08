@@ -1,6 +1,7 @@
 ---
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
+import Lightbox from '../components/Lightbox.astro';
 import '../styles/global.css';
 import { ui, type Lang } from '../i18n/translations';
 
@@ -78,5 +79,6 @@ const ogImage = image.startsWith("http") ? image : `${SITE_URL}${image}`;
       <slot />
     </main>
     <Footer />
+    <Lightbox />
   </body>
 </html>

@@ -1,0 +1,157 @@
+---
+---
+
+<style is:global>
+  .lb {
+    position: fixed;
+    inset: 0;
+    background: rgba(20, 32, 43, .94);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 200;
+    outline: none;
+  }
+  .lb.open { display: flex; }
+  .lb-photo {
+    max-width: min(86vw, calc(100vw - 5.5rem));
+    max-height: 92vh;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    border-radius: 4px;
+    display: block;
+  }
+  .lb-nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    padding: 1rem .7rem;
+    cursor: pointer;
+    color: rgba(255, 255, 255, .45);
+    line-height: 0;
+    -webkit-tap-highlight-color: transparent;
+  }
+  .lb-nav:hover,
+  .lb-nav:focus-visible { color: rgba(255, 255, 255, .9); outline: none; }
+  .lb-nav svg {
+    width: clamp(1.5rem, 3vw, 2.2rem);
+    height: clamp(1.5rem, 3vw, 2.2rem);
+    display: block;
+  }
+  .lb-prev { left: .5rem; }
+  .lb-next { right: .5rem; }
+  @media (prefers-reduced-motion: no-preference) {
+    .lb-nav { transition: color .25s; }
+  }
+</style>
+
+<script>
+  const SKIP_PARENTS = ['.phero-bg', '.hero-bg', '.lmec-video-wrap'];
+
+  function isEligible(img: HTMLImageElement): boolean {
+    if (img.hasAttribute('data-no-lightbox')) return false;
+    return !SKIP_PARENTS.some(sel => img.closest(sel));
+  }
+
+  function buildLightbox() {
+    const imgs = Array.from(
+      document.querySelectorAll<HTMLImageElement>('img')
+    ).filter(isEligible);
+    if (!imgs.length) return;
+
+    imgs.forEach(img => { img.style.cursor = 'zoom-in'; });
+
+    let idx = 0;
+    let opener: HTMLElement | null = null;
+
+    const lb = document.createElement('div');
+    lb.className = 'lb';
+    lb.setAttribute('role', 'dialog');
+    lb.setAttribute('aria-modal', 'true');
+    lb.setAttribute('aria-label', 'Image viewer');
+    lb.setAttribute('tabindex', '-1');
+    lb.innerHTML = `
+      <button class="lb-nav lb-prev" aria-label="Previous image">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="15 18 9 12 15 6"/>
+        </svg>
+      </button>
+      <img class="lb-photo" alt="" />
+      <button class="lb-nav lb-next" aria-label="Next image">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="9 6 15 12 9 18"/>
+        </svg>
+      </button>`;
+    document.body.appendChild(lb);
+
+    const photo = lb.querySelector<HTMLImageElement>('.lb-photo')!;
+    const prev  = lb.querySelector<HTMLButtonElement>('.lb-prev')!;
+    const next  = lb.querySelector<HTMLButtonElement>('.lb-next')!;
+
+    function show(i: number) {
+      idx = Math.max(0, Math.min(i, imgs.length - 1));
+      photo.src = imgs[idx].dataset.full || imgs[idx].src;
+      prev.style.opacity = idx > 0 ? '1' : '0';
+      prev.style.pointerEvents = idx > 0 ? 'auto' : 'none';
+      next.style.opacity = idx < imgs.length - 1 ? '1' : '0';
+      next.style.pointerEvents = idx < imgs.length - 1 ? 'auto' : 'none';
+    }
+
+    function open(i: number, trigger: HTMLElement) {
+      opener = trigger;
+      show(i);
+      lb.classList.add('open');
+      document.body.style.overflow = 'hidden';
+      lb.focus();
+    }
+
+    function close() {
+      lb.classList.remove('open');
+      document.body.style.overflow = '';
+      opener?.focus();
+      opener = null;
+    }
+
+    imgs.forEach((img, i) => img.addEventListener('click', () => open(i, img)));
+    prev.addEventListener('click', e => { e.stopPropagation(); show(idx - 1); });
+    next.addEventListener('click', e => { e.stopPropagation(); show(idx + 1); });
+    lb.addEventListener('click', e => {
+      if (e.target === lb || e.target === photo) close();
+    });
+
+    document.addEventListener('keydown', e => {
+      if (!lb.classList.contains('open')) return;
+      if (e.key === 'Escape')     { close(); return; }
+      if (e.key === 'ArrowLeft')  { show(idx - 1); return; }
+      if (e.key === 'ArrowRight') { show(idx + 1); return; }
+      if (e.key === 'Tab') {
+        e.preventDefault();
+        const focusable = [prev, next].filter(
+          el => el.style.pointerEvents !== 'none'
+        );
+        if (!focusable.length) return;
+        const fi = focusable.indexOf(document.activeElement as HTMLButtonElement);
+        const ni = e.shiftKey ? fi - 1 : fi + 1;
+        focusable[(ni + focusable.length) % focusable.length]?.focus();
+      }
+    });
+
+    let tx = 0;
+    lb.addEventListener('touchstart', e => {
+      tx = (e as TouchEvent).touches[0].clientX;
+    }, { passive: true });
+    lb.addEventListener('touchend', e => {
+      const dx = tx - (e as TouchEvent).changedTouches[0].clientX;
+      if (Math.abs(dx) > 50) dx > 0 ? show(idx + 1) : show(idx - 1);
+    });
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', buildLightbox);
+  } else {
+    buildLightbox();
+  }
+</script>

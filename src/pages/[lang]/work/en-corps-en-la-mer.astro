@@ -128,7 +128,7 @@ const spreads: Spread[] = [
         <div class={`spread spread--${spread.type} rv`}>
           {spread.photos.map((photo) => (
             <figure>
-              <img src={photo.src} alt={`En Corps à la Mer — ${photo.n}`} loading="lazy" />
+              <img src={photo.src} alt={`En Corps à la Mer — ${photo.n}`} loading="lazy" data-no-lightbox />
             </figure>
           ))}
         </div>
