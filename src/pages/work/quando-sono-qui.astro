@@ -47,33 +47,29 @@ const spreads: Spread[] = [
     </div>
   </section>
 
-  <!-- ── Ouverture : rangée 1 photo + citations, rangée 2 citation + photo ── -->
-  <section class="opening-qsq">
+  <!-- ── Ouverture : gal-rows photo + citations ── -->
+  <section class="gal-opening">
 
-    <div class="qsq-row1">
-      <figure class="qsq-p0">
+    <div class="gal-row rv">
+      <figure class="gal-cell gal-cell--photo">
         <img src={s('0.jpg')} alt="" loading="lazy" />
       </figure>
-      <div class="qsq-cites">
-        <div class="qsq-cit">
-          <Citation author="Plato — Republic, Book VII">
-            But what if someone dragged them along a steep and harsh ascent against their
-            will, and did not let go until they were dragged right into the sunlight? Would
-            they not feel pain and discomfort? And if they walked towards the sun and their
-            eyes suddenly filled with brilliant light, would they be able to see even one of
-            those things that are now called true realities?
-          </Citation>
-        </div>
-        <div class="qsq-cit">
-          <Citation author="René Char — Feuillets d'Hypnos (169)">
-            Lucidity is the wound closest to the sun.
-          </Citation>
-        </div>
+      <div class="gal-cell gal-cell--cit" data-ratio="1">
+        <Citation author="Plato — Republic, Book VII">
+          But what if someone dragged them along a steep and harsh ascent against their
+          will, and did not let go until they were dragged right into the sunlight? Would
+          they not feel pain and discomfort? And if they walked towards the sun and their
+          eyes suddenly filled with brilliant light, would they be able to see even one of
+          those things that are now called true realities?
+        </Citation>
+        <Citation author="René Char — Feuillets d'Hypnos (169)">
+          Lucidity is the wound closest to the sun.
+        </Citation>
       </div>
     </div>
 
-    <div class="qsq-row2">
-      <div class="qsq-ramalho">
+    <div class="gal-row rv">
+      <div class="gal-cell gal-cell--cit" data-ratio="0.75">
         <Citation author="José Ramalho Neto — Galope Resante">
           A sombra que me move<br />
           Também me ilumina<br />
@@ -88,7 +84,7 @@ const spreads: Spread[] = [
           É moça e anciã
         </Citation>
       </div>
-      <figure class="qsq-p1">
+      <figure class="gal-cell gal-cell--photo">
         <img src={s('1.jpg')} alt="" loading="lazy" />
       </figure>
     </div>
@@ -126,73 +122,16 @@ const spreads: Spread[] = [
 </Layout>
 
 <style is:global>
-
-  /* ── Ouverture : deux rangées flex ─────────────────────────────── */
-  .opening-qsq {
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
-    margin-top: clamp(3rem, 8vh, 5.5rem);
-    padding-top: clamp(3rem, 8vh, 5.5rem);
-    padding-bottom: 16px;
-    max-width: var(--max-width-wide);
-    margin-inline: auto;
-    padding-inline: var(--gutter);
-  }
-
-  .qsq-row1 {
-    display: flex;
-    gap: 16px;
-    align-items: stretch;
-  }
-
-  .qsq-p0 {
-    flex: 0 0 55%;
-    margin: 0;
-  }
-  .qsq-p0 img {
-    display: block;
-    width: 100%;
-    height: auto;
-  }
-
-  .qsq-cites {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-  }
-  .qsq-cites .epi-wrap { max-width: none; }
-
-  .qsq-row2 {
-    display: flex;
-    gap: 16px;
-    align-items: flex-start;
-  }
-
-  .qsq-ramalho {
-    flex: 1;
-    min-width: 0;
-  }
-  /* Supprime la limite 60ch dans la colonne Ramalho */
-  .qsq-ramalho .epi-wrap { max-width: none; }
-
-  .qsq-p1 {
-    flex: 0 0 41%;
-    margin: 0;
-  }
-  .qsq-p1 img {
-    display: block;
-    width: 100%;
-    height: auto;
-  }
-
-  /* ── Mobile ───────────────────────────────────────── */
+  /* ── Mobile : rangées 2 photos ─────────────────────── */
   @media (max-width: 700px) {
-    .opening-qsq { gap: 1rem; }
-    .qsq-row1, .qsq-row2 { gap: 1rem; }
-    .qsq-p0 { flex: 0 0 50%; }
-    .opening-qsq .epi-wrap { max-width: none; }
+    .spread--row:not(:has(figure:nth-child(3))) figure {
+      aspect-ratio: 3 / 2;
+      overflow: hidden;
+    }
+    .spread--row:not(:has(figure:nth-child(3))) figure img {
+      height: 100%;
+      object-fit: cover;
+    }
   }
 
   /* ── Lightbox ─────────────────────────────────────── */
@@ -205,11 +144,10 @@ const spreads: Spread[] = [
   .lb-nav svg { width: clamp(1.5rem, 3vw, 2.2rem); height: clamp(1.5rem, 3vw, 2.2rem); display: block; }
   .lb-prev { left: .5rem; }
   .lb-next { right: .5rem; }
-
 </style>
 
 <script>
-  // Justified row layout
+  // Justified row layout — spreads
   function justify() {
     const mob = window.innerWidth <= 700;
     document.querySelectorAll<HTMLElement>('.spread--row').forEach(row => {
@@ -227,10 +165,27 @@ const spreads: Spread[] = [
       else imgs.forEach(im => im.addEventListener('load', apply));
     });
   }
+  // Justified row layout — gal-rows
+  function justifyGalRows() {
+    const mob = window.innerWidth <= 700;
+    document.querySelectorAll<HTMLElement>('.gal-cell--photo').forEach(cell => {
+      const img = cell.querySelector<HTMLImageElement>('img');
+      if (!img) return;
+      function apply() {
+        if (mob) { cell.style.flexGrow = ''; return; }
+        const r = img!.naturalWidth && img!.naturalHeight
+          ? img!.naturalWidth / img!.naturalHeight : 1;
+        cell.style.flexGrow = r.toFixed(4);
+      }
+      if (img.complete && img.naturalWidth) apply();
+      else img.addEventListener('load', apply);
+    });
+  }
   justify();
+  justifyGalRows();
   window.addEventListener('resize', () => {
     clearTimeout((window as any)._jt);
-    (window as any)._jt = setTimeout(justify, 150);
+    (window as any)._jt = setTimeout(() => { justify(); justifyGalRows(); }, 150);
   });
 
   // Scroll reveal

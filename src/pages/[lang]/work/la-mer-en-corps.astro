@@ -106,8 +106,8 @@ const content = {
   </section>
 
   <!-- ── Vidéo (2/3) + citations Bachelard (1/3) ──────────── -->
-  <div class="lmec-vid-intro rv">
-    <div class="lmec-vid-col">
+  <div class="lmec-vid-intro gal-row rv">
+    <div class="lmec-vid-col gal-cell" data-ratio="1.5">
       <div class="lmec-video-wrap">
         <video
           muted
@@ -132,7 +132,7 @@ const content = {
         </button>
       </div>
     </div>
-    <div class="lmec-text-col">
+    <div class="lmec-text-col gal-cell gal-cell--cit" data-ratio="0.75">
       <Citation hr={false} extraPad>
         <Fragment set:html={content.bq1} />
       </Citation>

@@ -476,8 +476,63 @@ figure.match img {
     width: calc(50% - 4px) !important;
   }
   .spread--single figure { width: 100% !important; }
-  /* Trio : 3 colonnes égales pour éviter la photo seule avec blanc */
-  .spread--row:has(figure:nth-child(3)):not(:has(figure:nth-child(4))) figure {
-    width: calc(33.33% - 6px) !important;
+  /* Trio : 2+1 (premier rang de 2, dernier pleine largeur) */
+  .spread--row:has(figure:nth-child(3)):not(:has(figure:nth-child(4))) figure:nth-child(3) {
+    width: 100% !important;
   }
+}
+
+/* ── Rangée photo/texte/citation (chantier 1) ──────────── */
+.gal-opening {
+  padding-top: clamp(3rem, 8vh, 5.5rem);
+  padding-bottom: clamp(3rem, 7vh, 5rem);
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.gal-row {
+  display: flex;
+  gap: 16px;
+  align-items: stretch;
+  max-width: var(--max-width-wide);
+  margin-inline: auto;
+  padding-inline: var(--gutter);
+}
+.lmec-vid-intro.gal-row { gap: 0; }
+.gal-cell {
+  flex-grow: 1;
+  flex-shrink: 1;
+  flex-basis: 0;
+  min-width: 0;
+}
+.gal-cell[data-ratio="0.75"]   { flex-grow: 0.75; }
+.gal-cell[data-ratio="1"]      { flex-grow: 1; }
+.gal-cell[data-ratio="1.3333"] { flex-grow: 1.3333; }
+.gal-cell[data-ratio="1.5"]    { flex-grow: 1.5; }
+.gal-cell figure { margin: 0; }
+.gal-cell figure img { display: block; width: 100%; height: auto; }
+.gal-cell--cit {
+  border-left: 1px solid var(--brume);
+  padding-left: 1.3rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: clamp(1.5rem, 3vh, 2.5rem);
+}
+.gal-cell--cit .epi-wrap {
+  border-left: none;
+  padding-left: 0;
+  max-width: none;
+}
+.gal-cell--cit .epi-wrap--hr::after { display: none; }
+.gal-cell--text {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+@media (max-width: 700px) {
+  .gal-row { flex-direction: column; }
+  .gal-cell { flex: none !important; width: 100%; }
+  .gal-cell--cit { border-left: none; padding-left: 0; }
+  .gal-cell--cit .epi-wrap { border-left: 1px solid var(--brume); padding-left: 1.3rem; }
 }

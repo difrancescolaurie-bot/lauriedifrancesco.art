@@ -2,7 +2,6 @@
 import Layout from '../../layouts/Layout.astro';
 import '../../styles/pages/work-project.css';
 import Citation from '../../components/Citation.astro';
-import PhotoCitation from '../../components/PhotoCitation.astro';
 import NextProject from '../../components/NextProject.astro';
 
 const s = (file: string) => `/images/work/en-corps-en-la-mer/${file}`;
@@ -52,46 +51,54 @@ const spreads: Spread[] = [
     </div>
   </section>
 
-  <!-- ── Ouverture : deux rangées photo + citation, puis texte ── -->
-  <section class="ecm-opening container">
+  <!-- ── Ouverture : deux rangées photo + citation ── -->
+  <section class="gal-opening">
 
-    <!-- Rangée 1 : Photo 51 (gauche) + Nietzsche (droite) -->
-    <PhotoCitation src={s('51.jpg')} photoWidth="55%">
-      <Citation author="Friedrich Nietzsche — Posthumous Fragments">
-        That fundamental artistic phenomenon which is called <span class="q-fort">life</span>
-      </Citation>
-    </PhotoCitation>
+    <div class="gal-row rv">
+      <figure class="gal-cell gal-cell--photo">
+        <img src={s('51.jpg')} alt="" loading="lazy" data-no-lightbox />
+      </figure>
+      <div class="gal-cell gal-cell--cit" data-ratio="0.75">
+        <Citation author="Friedrich Nietzsche — Posthumous Fragments">
+          That fundamental artistic phenomenon which is called <span class="q-fort">life</span>
+        </Citation>
+      </div>
+    </div>
 
-    <!-- Rangée 2 : Claire Marin (gauche) + Photo 52 (droite) -->
-    <PhotoCitation src={s('52.jpg')} side="right" photoWidth="42%">
-      <Citation author="Claire Marin — Hors de moi" note="freely translated from the French">
-        <span class="q-fort">Dreams and water are two worlds where I recover a little balance, a little lightness,
-        where I live again the pleasure of movement.</span> Held within the water's sheath, my body
-        lets go of its pain. It fades, dissolves, vanishes. My movements turn fluid, easy;
-        my body supple, almost deft. Gone, the tender catching-points: the hips, the elbows —
-        nothing rasps anymore, nothing chafes, nothing tears. I remember dreaming I was a mermaid.
-        My legs were imprisoned in a cocoon formed by the sheets, wound tight from turning and
-        turning on myself in search of a position without pain. In the dream, the mummification
-        had been transfigured into a power of movement.
-      </Citation>
-    </PhotoCitation>
-
-    <!-- Texte du projet -->
-    <div class="ecm-text">
-      <p class="opening-eyebrow">The project</p>
-      <p class="opening-text">
-        There was a season when the body gave way — when illness pulled the ground
-        from under everything and strength drained off like a tide going out. <em>En Corps à la Mer</em> follows that long descent and its turning:
-        force returning not through stillness, but through water. To swim was to
-        be carried and to carry oneself at once — to surface, and surface again,
-        until surfacing became a way of living. The series moves from dark
-        interiors toward an open, dazzling white: the sea as the place where a
-        life is handed back.
-      </p>
-      <hr class="horizon opening-horizon" />
+    <div class="gal-row rv">
+      <div class="gal-cell gal-cell--cit" data-ratio="1.3333">
+        <Citation author="Claire Marin — Hors de moi" note="freely translated from the French">
+          <span class="q-fort">Dreams and water are two worlds where I recover a little balance, a little lightness,
+          where I live again the pleasure of movement.</span> Held within the water's sheath, my body
+          lets go of its pain. It fades, dissolves, vanishes. My movements turn fluid, easy;
+          my body supple, almost deft. Gone, the tender catching-points: the hips, the elbows —
+          nothing rasps anymore, nothing chafes, nothing tears. I remember dreaming I was a mermaid.
+          My legs were imprisoned in a cocoon formed by the sheets, wound tight from turning and
+          turning on myself in search of a position without pain. In the dream, the mummification
+          had been transfigured into a power of movement.
+        </Citation>
+      </div>
+      <figure class="gal-cell gal-cell--photo">
+        <img src={s('52.jpg')} alt="" loading="lazy" data-no-lightbox />
+      </figure>
     </div>
 
   </section>
+
+  <!-- ── Texte du projet ──────────────────────────────────── -->
+  <div class="ecm-text">
+    <p class="opening-eyebrow">The project</p>
+    <p class="opening-text">
+      There was a season when the body gave way — when illness pulled the ground
+      from under everything and strength drained off like a tide going out. <em>En Corps à la Mer</em> follows that long descent and its turning:
+      force returning not through stillness, but through water. To swim was to
+      be carried and to carry oneself at once — to surface, and surface again,
+      until surfacing became a way of living. The series moves from dark
+      interiors toward an open, dazzling white: the sea as the place where a
+      life is handed back.
+    </p>
+    <hr class="horizon opening-horizon" />
+  </div>
 
   <!-- ── Série photographique ──────────────────────────────── -->
   <div class="series">
@@ -135,20 +142,13 @@ const spreads: Spread[] = [
 
 <style is:global>
 
-  /* ── Ouverture ─────────────────────────────────────── */
-  .ecm-opening {
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
-    padding-top: clamp(3rem, 8vh, 5.5rem);
-    padding-bottom: clamp(3rem, 7vh, 5rem);
-    max-width: var(--max-width-wide);
-  }
-
   .ecm-text {
     display: flex;
     flex-direction: column;
     margin-top: clamp(1.5rem, 3vh, 2.5rem);
+    max-width: var(--max-width-wide);
+    margin-inline: auto;
+    padding-inline: var(--gutter);
   }
 
   /* ── Mobile ───────────────────────────────────────── */
@@ -185,10 +185,26 @@ const spreads: Spread[] = [
       else imgs.forEach(im => im.addEventListener('load', apply));
     });
   }
+  function justifyGalRows() {
+    const mob = window.innerWidth <= 700;
+    document.querySelectorAll<HTMLElement>('.gal-cell--photo').forEach(cell => {
+      const img = cell.querySelector<HTMLImageElement>('img');
+      if (!img) return;
+      function apply() {
+        if (mob) { cell.style.flexGrow = ''; return; }
+        const r = img!.naturalWidth && img!.naturalHeight
+          ? img!.naturalWidth / img!.naturalHeight : 1;
+        cell.style.flexGrow = r.toFixed(4);
+      }
+      if (img.complete && img.naturalWidth) apply();
+      else img.addEventListener('load', apply);
+    });
+  }
   justify();
+  justifyGalRows();
   window.addEventListener('resize', () => {
     clearTimeout((window as any)._jt);
-    (window as any)._jt = setTimeout(justify, 150);
+    (window as any)._jt = setTimeout(() => { justify(); justifyGalRows(); }, 150);
   });
 
   // Scroll reveal
