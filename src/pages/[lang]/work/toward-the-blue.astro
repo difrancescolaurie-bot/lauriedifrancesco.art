@@ -1,6 +1,7 @@
 ---
 import Layout from '../../../layouts/Layout.astro';
 import '../../../styles/pages/work-project.css';
+import Citation from '../../../components/Citation.astro';
 import NextProject from '../../../components/NextProject.astro';
 import { ui, type Lang } from '../../../i18n/translations';
 
@@ -32,16 +33,58 @@ const s = (n: number) => `/images/work/toward-the-blue/${files[n]}`;
 
 const content = {
   fr: {
+    eyebrow: 'LE PROJET',
+    rilkeAuthor: 'Rainer Maria Rilke · Lettres à un jeune poète',
+    rilkeNote: "traduction libre de l'édition brésilienne",
+    rilkeText: "Regarder les choses comme un enfant observe quelque chose d'étrange, depuis la profondeur de son propre monde.",
+    nietzscheAuthor: 'Friedrich Nietzsche · Ainsi parlait Zarathoustra',
+    nietzscheNote: undefined as string | undefined,
+    nietzscheText: "L'enfant est innocence et oubli, un recommencement, un jeu, une roue roulant d'elle-même, un premier mouvement, un oui sacré.",
+    project: [
+      "La série s'ouvre sur le regard d'une jeune fille et se referme sur le visage d'une femme adulte. Entre les deux, des dragons de pierre, un toboggan vu de trop près, des vitres qui décomposent la lumière, des bâches, des reflets. Presque pas de cauchemar. Mais le voile est là.",
+      "Le bleu du ciel traverse l'ensemble de ce travail comme un opérateur conceptuel. Il est le même d'un bout à l'autre de la terre, au-dessus des guerres comme au-dessus des jeux. C'est peut-être pour cela qu'il tient : il ne promet rien et il ne cède pas.",
+      "Cette série s'inscrit dans le courant du réalisme magique. Un regard tropical plus que brésilien, celui de quelqu'un qui a vécu assez longtemps en Amérique latine pour que le merveilleux cesse d'être une exception.",
+      "Il y a bien un passage, de l'enfant à l'adulte. Mais il ne raconte pas comment on grandit. Il réécrit ce passage à l'endroit où l'enfance a manqué, et cherche à récupérer après coup une légèreté qui n'a pas eu lieu.",
+      "Chez Nietzsche, l'enfant ne vient pas en premier. Il vient après le fardeau du chameau et après le refus du lion.",
+    ],
     creditsLabel: 'Crédits & remerciements',
     creditsText: "Images reproduites avec l'aimable autorisation d'Ana Valant et Tereza Kozinc — avec mes remerciements à Tereza et à Klavdij Sluban, qui ont su mettre des mots justes sur ma façon de voir.",
   },
   it: {
+    eyebrow: 'IL PROGETTO',
+    rilkeAuthor: 'Rainer Maria Rilke · Lettere a un giovane poeta',
+    rilkeNote: "traduzione libera dall'edizione brasiliana",
+    rilkeText: 'Guardare le cose come un bambino osserva qualcosa di strano, dalla profondità del proprio mondo.',
+    nietzscheAuthor: 'Friedrich Nietzsche · Così parlò Zarathustra',
+    nietzscheNote: "traduzione libera dall'edizione francese" as string | undefined,
+    nietzscheText: 'Il bambino è innocenza e oblio, un ricominciamento, un gioco, una ruota che gira da sé, un primo movimento, un sacro sì.',
+    project: [
+      'La serie si apre sullo sguardo di una ragazza e si chiude sul volto di una donna adulta. Nel mezzo: draghi di pietra, uno scivolo visto troppo da vicino, vetri che scompongono la luce, teloni, riflessi. Quasi nessun incubo. Ma il velo c\'è.',
+      "L'azzurro del cielo attraversa tutto questo lavoro come un operatore concettuale. È lo stesso da un capo all'altro della terra, sopra le guerre come sopra i giochi. Forse è per questo che tiene: non promette nulla e non cede.",
+      "Questa serie si inscrive nella corrente del realismo magico. Uno sguardo tropicale più che brasiliano, quello di chi ha vissuto in America Latina abbastanza a lungo perché il meraviglioso smetta di essere un'eccezione.",
+      "C'è davvero un passaggio, dalla bambina all'adulta. Ma non racconta come si diventa grandi. Riscrive quel passaggio là dove l'infanzia è mancata, e cerca di recuperare a posteriori una leggerezza che non c'è stata.",
+      'In Nietzsche, il bambino non viene per primo. Viene dopo il fardello del cammello e dopo il rifiuto del leone.',
+    ],
     creditsLabel: 'Crediti e ringraziamenti',
-    creditsText: "Immagini riprodotte per gentile concessione di Ana Valant e Tereza Kozinc, con un ringraziamento a Tereza e a Klavdij Sluban, che hanno saputo dare le parole giuste al mio modo di vedere.",
+    creditsText: 'Immagini riprodotte per gentile concessione di Ana Valant e Tereza Kozinc, con un ringraziamento a Tereza e a Klavdij Sluban, che hanno saputo dare le parole giuste al mio modo di vedere.',
   },
   pt: {
+    eyebrow: 'O PROJETO',
+    rilkeAuthor: 'Rainer Maria Rilke · Cartas a um jovem poeta',
+    rilkeNote: undefined as string | undefined,
+    rilkeText: 'Olhar para as coisas como uma criança observa algo de estranho, a partir da profundeza do próprio mundo.',
+    nietzscheAuthor: 'Friedrich Nietzsche · Assim falou Zaratustra',
+    nietzscheNote: 'tradução livre da edição francesa' as string | undefined,
+    nietzscheText: 'A criança é inocência e esquecimento, um recomeço, um jogo, uma roda que gira por si mesma, um primeiro movimento, um sim sagrado.',
+    project: [
+      'A série se abre no olhar de uma menina e se fecha no rosto de uma mulher adulta. Entre os dois: dragões de pedra, um escorregador visto de perto demais, vidros que decompõem a luz, lonas, reflexos. Quase nenhum pesadelo. Mas o véu está lá.',
+      'O azul do céu atravessa todo este trabalho como um operador conceitual. É o mesmo de um extremo a outro da terra, acima das guerras como acima das brincadeiras. Talvez seja por isso que ele sustenta: não promete nada e não cede.',
+      'Esta série se inscreve na corrente do realismo mágico. Um olhar tropical mais que brasileiro, o de quem viveu na América Latina o tempo suficiente para que o maravilhoso deixe de ser uma exceção.',
+      'Há de fato uma passagem, da criança à adulta. Mas ela não conta como se cresce. Reescreve essa passagem onde a infância faltou, e busca recuperar depois uma leveza que não aconteceu.',
+      'Em Nietzsche, a criança não vem primeiro. Vem depois do fardo do camelo e depois da recusa do leão.',
+    ],
     creditsLabel: 'Créditos e agradecimentos',
-    creditsText: "Imagens reproduzidas com a gentil autorização de Ana Valant e Tereza Kozinc — com um agradecimento a Tereza e a Klavdij Sluban, que souberam encontrar as palavras certas para o meu modo de ver.",
+    creditsText: 'Imagens reproduzidas com a gentil autorização de Ana Valant e Tereza Kozinc — com um agradecimento a Tereza e a Klavdij Sluban, que souberam encontrar as palavras certas para o meu modo de ver.',
   },
 }[lang as 'fr' | 'it' | 'pt'];
 
@@ -49,7 +92,6 @@ type Photo = { src: string; n: number };
 type Spread = { type: 'row' | 'single'; photos: Photo[]; caption?: string };
 
 const spreads: Spread[] = [
-  { type: 'row',    photos: [{ src: s(1), n: 1 }, { src: s(2), n: 2 }] },
   { type: 'single', photos: [{ src: s(3), n: 3 }] },
   { type: 'row',    photos: [{ src: s(4), n: 4 }, { src: s(5), n: 5 }, { src: s(6), n: 6 }] },
   { type: 'row',    photos: [{ src: s(7), n: 7 }, { src: s(8), n: 8 }] },
@@ -78,9 +120,36 @@ const spreads: Spread[] = [
     </div>
   </section>
 
-  <!-- ── Intro ─────────────────────────────────────────────── -->
-  <section class="intro">
-    <!-- Texte de présentation — à ajouter -->
+  <!-- ── Ouverture : deux rangées photo + citation ── -->
+  <section class="gal-opening">
+
+    <div class="gal-row rv">
+      <figure class="gal-cell gal-cell--photo">
+        <img src={s(1)} alt="Toward the Blue · photo 1" loading="lazy" />
+      </figure>
+      <div class="gal-cell gal-cell--cit" data-ratio="0.75">
+        <Citation author={content.rilkeAuthor} note={content.rilkeNote}>
+          {content.rilkeText}
+        </Citation>
+        <Citation author={content.nietzscheAuthor} note={content.nietzscheNote}>
+          {content.nietzscheText}
+        </Citation>
+      </div>
+    </div>
+
+    <div class="gal-row rv">
+      <div class="gal-cell gal-cell--text" data-ratio="0.75">
+        <p class="opening-eyebrow">{content.eyebrow}</p>
+        {content.project.map((para) => (
+          <p class="intro-text">{para}</p>
+        ))}
+        <hr class="horizon intro-proj-horizon" />
+      </div>
+      <figure class="gal-cell gal-cell--photo">
+        <img src={s(2)} alt="Toward the Blue · photo 2" loading="lazy" />
+      </figure>
+    </div>
+
   </section>
 
   <!-- ── Série photographique ──────────────────────────────── -->
@@ -134,8 +203,24 @@ const spreads: Spread[] = [
       else imgs.forEach(im => im.addEventListener('load', apply));
     });
   }
+  function justifyGalRows() {
+    const mob = window.innerWidth <= 700;
+    document.querySelectorAll<HTMLElement>('.gal-cell--photo').forEach(cell => {
+      const img = cell.querySelector<HTMLImageElement>('img');
+      if (!img) return;
+      function apply() {
+        if (mob) { cell.style.flexGrow = ''; return; }
+        const r = img!.naturalWidth && img!.naturalHeight
+          ? img!.naturalWidth / img!.naturalHeight : 1;
+        cell.style.flexGrow = r.toFixed(4);
+      }
+      if (img.complete && img.naturalWidth) apply();
+      else img.addEventListener('load', apply);
+    });
+  }
   justify();
-  window.addEventListener('resize', () => { clearTimeout((window as any)._jt); (window as any)._jt = setTimeout(justify, 150); });
+  justifyGalRows();
+  window.addEventListener('resize', () => { clearTimeout((window as any)._jt); (window as any)._jt = setTimeout(() => { justify(); justifyGalRows(); }, 150); });
 
   const obs = new IntersectionObserver(entries => {
     entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); obs.unobserve(e.target); } });
