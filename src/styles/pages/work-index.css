@@ -253,19 +253,14 @@ body { background: var(--sable); }
 
 .proj-img:hover,
 .proj-img:active,
-.proj-img:focus-visible { transform: translateY(-3px); }
+.proj-img:focus-visible { transform: scale(1.03); }
 
 .proj-img img {
   display: block;
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: transform .5s cubic-bezier(.2,.8,.25,1);
 }
-
-.proj-img:hover img,
-.proj-img:active img,
-.proj-img:focus-visible img { transform: scale(1.045); }
 
 .proj-veil {
   position: absolute;

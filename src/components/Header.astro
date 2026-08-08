@@ -289,6 +289,25 @@ const homeUrl = currentLang === 'en' ? '/' : `/${currentLang}`;
   .mobile-lang-link.lang-active { color: var(--blanc); font-weight: 500; }
   .mobile-lang-link:hover { color: rgba(251, 252, 252, 0.85); }
 
+  /* ── Light-background pages (work index, exhibitions, about, contact) ── */
+  .site-header--light {
+    background: linear-gradient(
+      to bottom,
+      rgba(241, 244, 245, 0.95) 0%,
+      rgba(241, 244, 245, 0.0) 100%
+    );
+  }
+  .site-header--light .logotype,
+  .site-header--light .nav-link { color: rgba(20, 32, 43, 0.7); }
+  .site-header--light .nav-link:hover,
+  .site-header--light .nav-link.active { color: var(--encre); }
+  .site-header--light .lang-selector { border-left-color: rgba(20, 32, 43, 0.18); }
+  .site-header--light .lang-link { color: rgba(20, 32, 43, 0.4); }
+  .site-header--light .lang-link:hover { color: rgba(20, 32, 43, 0.75); }
+  .site-header--light .lang-active { color: var(--encre) !important; }
+  .site-header--light .lang-sep { color: rgba(20, 32, 43, 0.28); }
+  .site-header--light .burger span { background: rgba(20, 32, 43, 0.75); }
+
   /* ── Responsive ── */
   @media (max-width: 700px) {
     .header-nav { display: none; }
@@ -331,4 +350,13 @@ const homeUrl = currentLang === 'en' ? '/' : `/${currentLang}`;
       document.body.style.overflow = '';
     });
   });
+
+  // Light header on pages with light backgrounds
+  const LIGHT_PAGES = ['/work', '/exhibitions', '/about', '/contact'];
+  const bp = window.location.pathname
+    .replace(/^\/(fr|it|pt)(\/|$)/, '/')
+    .replace(/\/$/, '') || '/';
+  if (LIGHT_PAGES.includes(bp)) {
+    header.classList.add('site-header--light');
+  }
 </script>
