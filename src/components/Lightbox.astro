@@ -147,12 +147,8 @@
     const cnt   = lb.querySelector<HTMLElement>('.lb-cnt')!;
 
     function show(i: number) {
-      idx = Math.max(0, Math.min(i, imgs.length - 1));
+      idx = ((i % imgs.length) + imgs.length) % imgs.length;
       photo.src = imgs[idx].dataset.full || imgs[idx].src;
-      prev.style.opacity = idx > 0 ? '1' : '0';
-      prev.style.pointerEvents = idx > 0 ? 'auto' : 'none';
-      next.style.opacity = idx < imgs.length - 1 ? '1' : '0';
-      next.style.pointerEvents = idx < imgs.length - 1 ? 'auto' : 'none';
       cnt.textContent = `${idx + 1} / ${imgs.length}`;
     }
 
@@ -187,13 +183,9 @@
       if (e.key === 'ArrowRight') { show(idx + 1); return; }
       if (e.key === 'Tab') {
         e.preventDefault();
-        const focusable = [prev, next].filter(
-          el => el.style.pointerEvents !== 'none'
-        );
-        if (!focusable.length) return;
-        const fi = focusable.indexOf(document.activeElement as HTMLButtonElement);
+        const fi = [prev, next].indexOf(document.activeElement as HTMLButtonElement);
         const ni = e.shiftKey ? fi - 1 : fi + 1;
-        focusable[(ni + focusable.length) % focusable.length]?.focus();
+        [prev, next][(ni + 2) % 2]?.focus();
       }
     });
 
