@@ -470,6 +470,7 @@ figure.match img {
   .opening, .intro { flex-direction: column; gap: 2.5rem; }
   /* Gap vertical vidéo↔citation = espace citation↔"The Project" */
   .lmec-vid-intro { flex-direction: column; gap: clamp(3rem, 7vh, 5rem); overflow: hidden; }
+  .lmec-vid-intro + .lmec-prose { margin-top: clamp(3rem, 7vh, 5rem); }
   /* Vidéo verticale (reel Instagram) sur mobile */
   .lmec-vid-col video { aspect-ratio: 9 / 16; }
   /* Citations Bachelard : reset du padding latéral, contraindre dans le container */
