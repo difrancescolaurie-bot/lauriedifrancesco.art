@@ -412,6 +412,28 @@ Commits : `37425a5` (W.1), `9da11af` (W.4+W.5), `13882ed` (W.7), `1a73dc6` (W.3)
 
 ---
 
+---
+
+**Lot AA — Textes de projet et corrections de traduction (2026-08-09, commit 7a31b21).**
+
+**AA.1 — QSQ : texte de projet 8 paragraphes (4 langues).** Le champ `projectText: string` est remplacé par `projectParas: string[]` (8 éléments) dans `[lang]/work/quando-sono-qui.astro`. La page EN statique reçoit une troisième `gal-row` avec les 8 paragraphes EN. Ancien texte de projet court (FR/IT/PT) : supprimé et remplacé. Note René Char : EN reçoit `note="freely translated from the French"` dans `Citation.astro` ; IT `charNote: "tradotto liberamente dall'edizione francese"` ; PT `charNote: "traduzido livremente da edição francesa"` ; FR `charNote: null` (pas de note).
+
+**AA.2 — Spilling : texte de projet 5 paragraphes (4 langues).** Les 2 anciens paragraphes + les 3 légendes de série (`cap1`/`cap2`/`cap3`) sont supprimés et remplacés par 5 nouveaux paragraphes dans `[lang]/work/spilling-beyond-the-lines.astro` et la page EN statique. Les clés `cap1`/`cap2`/`cap3` retirées de l'objet `content`.
+
+**AA.3 — LMEC bq1 : attribution Bachelard ajoutée (4 langues).** La première citation Bachelard ("La mer n'est pas un corps...") n'avait pas d'auteur. Ajouté : `author="Gaston Bachelard · L'Eau et les Rêves"` en EN + `author={content.bachelardCite}` dans [lang]. Notes de traduction : EN `note="freely translated from the French"` ; FR aucune (bachelardTransl: null) ; IT `"traduzione libera dal francese"` ; PT `"tradução livre do francês"`. Fichiers : `work/la-mer-en-corps.astro` (EN) et `[lang]/work/la-mer-en-corps.astro`.
+
+**AA.4 — LMEC PT p8 : "mergulho" → "nado".** Dans le texte de projet PT de `[lang]/work/la-mer-en-corps.astro` : "nunca se volta de um mergulho igual" corrigé en "nunca se volta de um nado igual".
+
+**AA.5 — ECM : crédits Antoine d'Agata complétés (4 langues).** EN : "his eye and his kindness" → "his eye, his kindness and his generosity". FR : "son œil et sa bienveillance" → "son œil, sa bienveillance et sa générosité". IT : "sguardo e la sua benevolenza" → "sguardo, la sua benevolenza e la sua generosità". PT : "pelo olhar e pela generosidade" → "pelo olhar, pela benevolência e pela generosidade".
+
+**AA.6 — ECM IT : temps verbal et tournure corrigés.** `projectText` IT : "C'era una stagione in cui il corpo cedette" → "C'è stata una stagione in cui il corpo ha ceduto" ; "strappò il suolo sotto tutto" → "strappò il terreno da sotto ogni cosa".
+
+**AA.7 — translations.ts : corrections ponctuelles.** TTB EN phero-eyebrow : "dreaming" → "Dreaming". Exhibitions EN : "from Studio Artmosphere" et "from Atelier Baumecker" → "of". TTB note FR : "insouciance perdue" → "légèreté perdue". IT about.eyebrow + pageTitle : "Chi sono" → "Biografia". IT epigraph : "piú di tutte" → "più di tutte". IT artworkStatus : "acquistata in una collezione privata" → "Acquistata in una collezione privata." PT artworkStatus : réduit à "Adquirida em coleção privada." EN Spilling count : "Twenty-five" → "25 photographs".
+
+Fichiers touchés : `src/i18n/translations.ts`, `src/pages/exhibitions.astro`, `src/pages/work/toward-the-blue.astro`, `src/pages/work/en-corps-en-la-mer.astro`, `src/pages/[lang]/work/en-corps-en-la-mer.astro`, `src/pages/work/la-mer-en-corps.astro`, `src/pages/[lang]/work/la-mer-en-corps.astro`, `src/pages/work/quando-sono-qui.astro`, `src/pages/[lang]/work/quando-sono-qui.astro`, `src/pages/work/spilling-beyond-the-lines.astro`, `src/pages/[lang]/work/spilling-beyond-the-lines.astro`.
+
+---
+
 ## 9. Travailler avec Claude Code
 1. Créer le dépôt GitHub + projet Astro, connecter Cloudflare Pages.
 2. Donner **ce cahier** en contexte.

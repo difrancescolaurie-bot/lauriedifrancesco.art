@@ -17,10 +17,10 @@ export const ui = {
       viewMore: "View more →",
       projects: [
         { category: "Brazil · ongoing",  cerule: "Resignifying",          note: "Being there means missing here. Or does it?" },
-        { category: "",                  cerule: "Do lines truly divide?", note: "When the free profusion of forms around us, and another's gaze, rewrote my own: a work born of a rupture that draws us closer." },
         { category: "Water & sky",       cerule: "dreaming",               note: "Look up into the blue of the sky. Dream of a lightness lost." },
-        { category: "Venice",            cerule: "Rebirth. An attempt.",   note: "To hold on. To let go. To exist in one's own gaze." },
         { category: "Sea & body",        cerule: "Surfacing",              note: "Learning to walk again, through water and through dreams." },
+        { category: "Venice",            cerule: "Rebirth. An attempt.",   note: "To hold on. To let go. To exist in one's own gaze." },
+        { category: "",                  cerule: "Do lines truly divide?", note: "When the free profusion of forms around us, and another's gaze, rewrote my own: a work born of a rupture that draws us closer." },
       ],
       exhiLabel: "Solo exhibition",
       exhiBlurb: "Built around a single question: what a border truly separates.",

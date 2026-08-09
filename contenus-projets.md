@@ -1,5 +1,5 @@
 # Contenus des pages projet — état actuel
-Extrait le 2026-08-08, commit b58002b (Lot O). Bio mise à jour Lot X, 2026-08-09.
+Extrait le 2026-08-08, commit b58002b (Lot O). Bio mise à jour Lot X, 2026-08-09. Textes QSQ et Spilling (8+5 paragraphes), corrections traductions, Lot AA, 2026-08-09.
 Copie exacte — aucune reformulation
 
 ---
@@ -78,6 +78,7 @@ But what if someone dragged them along a steep and harsh ascent against their wi
 
 **Rangée 1, citation 2**
 Auteur : René Char · Feuillets d'Hypnos (169)
+Note : freely translated from the French
 
 Lucidity is the wound closest to the sun.
 
@@ -96,7 +97,24 @@ Que tente me clarear
 É claro que é de manhã
 É moça e anciã
 
-Texte de projet : (absent — à compléter ultérieurement)
+**Rangée 3, texte de projet**
+Eyebrow : The project
+
+The title stayed in Italian. A sentence spoken in passing, about a double belonging become triple, since adopted as an echo of an identity made of many shores.
+
+In this project, the geographical shore becomes an inner shore.
+
+Everything ends in a cave. Chosen, this one, not endured: a protected natural site, its forms drawn by water and time, a place one enters as into an enveloping, fertile shelter. On its walls, rock paintings. Lines that look almost childlike, thousands of years old, protected now, and that no one would think of burning anymore.
+
+There is a deep, faraway territory, indigenous lands protected and defended. That is where the faces come from: dignity, anger, peace regained. There one meets an innocence, under the light of the cerrado, of the tropics, where the end of the day carries another density.
+
+For all of this, it was necessary to return: to find again the marks of a millennial past that nothing and no one has erased, to meet faces that express the cycles of a life, hindered first, freed after. One can always make something of what has been made of us.
+
+The series follows the movement of the allegory: shadows taken for the real, the descent, the fear that settles in, then the way out. It does not seek to prove and asks for nothing: it passes through.
+
+The question it raises is simple: how does one hold on, after a childhood in which the gaze of adults was a tribunal. These images do not answer by bearing witness. They are made from outside, by a gaze that no longer mistakes shadows for the real.
+
+To transfigure the real: that is where these images are made from. We have art in order not to die of the truth.
 
 Crédits (label) : Credits
 Crédits : Image reproduced with the kind permission of Tatila Lyma.
@@ -133,9 +151,25 @@ Que tente me clarear
 É claro que é de manhã
 É moça e anciã
 
-Texte de projet : Certains voyages ne se font pas de distance mais de présence divisée — cette impression d'être toujours en partie ailleurs. Quando sono qui, non sono là trace cette géographie intérieure : portraits et paysages rassemblés à travers le Brésil, où la question de l'appartenance s'écrit dans les corps, les frontières et la lumière.
-
+**Rangée 3, texte de projet**
 Label projet : Le Projet
+
+Le titre est resté en italien. Une phrase prononcée en passant, à propos d'une double appartenance devenue triple, adoptée désormais comme un écho à une identité faite de multiples rivages.
+
+Dans ce projet, le rivage géographique devient rivage intérieur.
+
+Tout se termine dans une caverne. Choisie, celle-là, et non subie : un lieu naturel classé, aux formes dessinées par l'eau et le temps, où l'on entre comme dans un abri enveloppant et fertile. Sur ses parois, des peintures rupestres. Des traits qui semblent presque enfantins, vieux de milliers d'années, que l'on protège et que personne ne songerait plus à brûler.
+
+Il y a un territoire profond, éloigné, des terres indigènes protégées et défendues. C'est de là que viennent les visages : la dignité, la colère, la paix retrouvée. On y rencontre une candeur, sous la lumière du cerrado, des tropiques, là où la fin du jour porte une autre densité.
+
+C'est pour tout cela qu'il fallait revenir : retrouver les marques d'un passé millénaire que rien ni personne n'a effacé, rencontrer des visages qui expriment les cycles d'une vie, empêchée d'abord, libérée après. On peut toujours faire quelque chose de ce qu'on a fait de nous.
+
+La série suit le mouvement de l'allégorie : les ombres prises pour le réel, la descente, la peur qui s'installe, puis la sortie. Elle ne cherche pas à démontrer et ne demande rien : elle traverse.
+
+La question qu'elle pose est simple : comment on tient, après une enfance où le regard des adultes fut un tribunal. Ces images ne répondent pas en témoignant. Elles sont faites depuis dehors, par un regard qui ne confond plus les ombres avec le réel.
+
+Transfigurer le réel : c'est de là que ces images sont faites. Nous avons l'art pour ne pas mourir de la vérité.
+
 Crédits (label) : Crédits
 Crédits : Image reproduite avec l'aimable autorisation de Tatila Lyma.
 
@@ -171,9 +205,26 @@ Que tente me clarear
 É claro que é de manhã
 É moça e anciã
 
-Texte de projet : Certi viaggi non si misurano di distanza, ma di presenza divisa — la sensazione di essere sempre in parte altrove. Quando sono qui, non sono là traccia quella geografia interiore: ritratti e paesaggi raccolti attraverso il Brasile, dove la questione dell'appartenenza si scrive nei corpi, nelle frontiere e nella luce.
-
+**Rangée 3, texte de projet**
 Label projet : Il Progetto
+Note René Char : tradotto liberamente dall'edizione francese
+
+Il titolo è rimasto in italiano. Una frase pronunciata di passaggio, a proposito di una doppia appartenenza diventata tripla, adottata ormai come eco di un'identità fatta di rive molteplici.
+
+In questo progetto, la riva geografica diventa riva interiore.
+
+Tutto finisce in una caverna. Scelta, questa, e non subita: un luogo naturale tutelato, dalle forme disegnate dall'acqua e dal tempo, dove si entra come in un rifugio avvolgente e fertile. Sulle sue pareti, pitture rupestri. Tratti che sembrano quasi infantili, vecchi di migliaia di anni, oggi protetti, e che nessuno penserebbe più di bruciare.
+
+C'è un territorio profondo, lontano, terre indigene protette e difese. È da lì che vengono i volti: la dignità, la rabbia, la pace ritrovata. Vi si incontra un candore, sotto la luce del cerrado, dei tropici, là dove la fine del giorno porta un'altra densità.
+
+È per tutto questo che bisognava tornare: ritrovare i segni di un passato millenario che niente e nessuno ha cancellato, incontrare volti che esprimono i cicli di una vita, prima impedita, poi liberata. Si può sempre fare qualcosa di ciò che hanno fatto di noi.
+
+La serie segue il movimento dell'allegoria: le ombre scambiate per il reale, la discesa, la paura che si insinua, poi l'uscita. Non cerca di dimostrare e non chiede nulla: attraversa.
+
+La domanda che pone è semplice: come si resta in piedi, dopo un'infanzia in cui lo sguardo degli adulti fu un tribunale. Queste immagini non rispondono testimoniando. Sono fatte da fuori, da uno sguardo che non scambia più le ombre per il reale.
+
+Trasfigurare il reale: è da lì che queste immagini sono fatte. Abbiamo l'arte per non morire della verità.
+
 Crédits (label) : Crediti
 Crédits : Immagine riprodotta per gentile concessione di Tatila Lyma.
 
@@ -209,9 +260,26 @@ Que tente me clarear
 É claro que é de manhã
 É moça e anciã
 
-Texte de projet : Certas viagens não são feitas de distância, mas de presença dividida — a sensação de estar sempre em parte em outro lugar. Quando sono qui, non sono là traça essa geografia interior: retratos e paisagens reunidos pelo Brasil, onde a questão do pertencimento se escreve nos corpos, nas fronteiras e na luz.
-
+**Rangée 3, texte de projet**
 Label projet : O Projeto
+Note René Char : traduzido livremente da edição francesa
+
+O título ficou em italiano. Uma frase dita de passagem, sobre um duplo pertencimento que se tornou triplo, adotada desde então como eco de uma identidade feita de muitas margens.
+
+Neste projeto, a margem geográfica se torna margem interior.
+
+Tudo termina numa caverna. Escolhida, esta, e não sofrida: um lugar natural tombado, de formas desenhadas pela água e pelo tempo, onde se entra como num abrigo envolvente e fértil. Nas suas paredes, pinturas rupestres. Traços que parecem quase infantis, com milhares de anos, hoje protegidos, e que ninguém pensaria mais em queimar.
+
+Há um território profundo, distante, terras indígenas protegidas e defendidas. É de lá que vêm os rostos: a dignidade, a raiva, a paz reencontrada. Ali se encontra uma candura, sob a luz do cerrado, dos trópicos, lá onde o fim do dia carrega outra densidade.
+
+Foi por tudo isso que era preciso voltar: reencontrar as marcas de um passado milenar que nada nem ninguém apagou, encontrar rostos que exprimem os ciclos de uma vida, impedida primeiro, libertada depois. Sempre se pode fazer alguma coisa daquilo que fizeram de nós.
+
+A série segue o movimento da alegoria: as sombras tomadas pelo real, a descida, o medo que se instala, depois a saída. Ela não procura demonstrar e não pede nada: ela atravessa.
+
+A pergunta que ela faz é simples: como se fica de pé, depois de uma infância em que o olhar dos adultos foi um tribunal. Estas imagens não respondem testemunhando. São feitas de fora, por um olhar que já não confunde as sombras com o real.
+
+Transfigurar o real: é daí que estas imagens são feitas. Temos a arte para não morrer da verdade.
+
 Crédits (label) : Créditos
 Crédits : Imagem reproduzida com a gentil autorização de Tatila Lyma.
 
@@ -383,7 +451,7 @@ Eyebrow : The project
 There was a season when the body gave way — when illness pulled the ground from under everything and strength drained off like a tide going out. En Corps à la Mer follows that long descent and its turning: force returning not through stillness, but through water. To swim was to be carried and to carry oneself at once — to surface, and surface again, until surfacing became a way of living. The series moves from dark interiors toward an open, dazzling white: the sea as the place where a life is handed back.
 
 Crédits (label) : With thanks
-Crédits : With thanks to Jérôme Gaudin and Boriana Goranova for their friendship, to Lucie Lejeune for her support, and to Antoine d'Agata for his eye and his kindness.
+Crédits : With thanks to Jérôme Gaudin and Boriana Goranova for their friendship, to Lucie Lejeune for her support, and to Antoine d'Agata for his eye, his kindness and his generosity.
 
 ---
 
@@ -408,7 +476,7 @@ Eyebrow : (via t.work.theProject)
 Il y eut une saison où le corps a cédé — quand la maladie a arraché le sol sous les pieds de tout et que la force s'est retirée comme une marée qui se retire. En Corps à la Mer suit cette longue descente et son retournement : la force qui revient non par l'immobilité, mais par l'eau. Nager, c'était être portée et se porter soi-même à la fois — refaire surface, et refaire surface encore, jusqu'à ce que refaire surface devienne une façon de vivre. La série va des intérieurs sombres vers un blanc ouvert et éblouissant : la mer comme lieu où une vie est rendue.
 
 Crédits (label) : Remerciements
-Crédits : Avec mes remerciements à Jérôme Gaudin et Boriana Goranova pour leur amitié, à Lucie Lejeune pour son aide, et à Antoine d'Agata pour son œil et sa bienveillance.
+Crédits : Avec mes remerciements à Jérôme Gaudin et Boriana Goranova pour leur amitié, à Lucie Lejeune pour son aide, et à Antoine d'Agata pour son œil, sa bienveillance et sa générosité.
 
 ---
 
@@ -429,10 +497,10 @@ Note : tradotto dal francese
 I sogni e l'acqua sono due mondi in cui recupero un po' di equilibrio, un po' di leggerezza, in cui vivo di nuovo il piacere del movimento. Tenuto nella guaina dell'acqua, il mio corpo lascia andare il suo dolore. Sfuma, si dissolve, scompare. I miei movimenti diventano fluidi, facili; il mio corpo duttile, quasi agile. Spariti i punti di aggancio teneri: i fianchi, i gomiti, niente più raschia, niente più graffia, niente più lacera. Ricordo di aver sognato di essere una sirena. Le mie gambe erano imprigionate in un bozzolo formato dalle lenzuola, avvolte strette a forza di girarmi e rigirarmi alla ricerca di una posizione senza dolore. Nel sogno, la mummificazione si era trasfigurata in una potenza di movimento.
 
 **Texte de projet**
-C'era una stagione in cui il corpo cedette, quando la malattia strappò il suolo sotto tutto e la forza defluì come una marea calante. En Corps à la Mer segue quella lunga discesa e il suo rovesciamento: la forza che ritorna non attraverso l'immobilità, ma attraverso l'acqua. Nuotare era essere portata e portarsi allo stesso tempo: riemergere, e riemergere ancora, finché riemergere divenne un modo di vivere. La serie si muove dagli interni bui verso un bianco aperto e abbagliante: il mare come il luogo dove una vita viene restituita.
+C'è stata una stagione in cui il corpo ha ceduto, quando la malattia strappò il terreno da sotto ogni cosa e la forza defluì come una marea calante. En Corps à la Mer segue quella lunga discesa e il suo rovesciamento: la forza che ritorna non attraverso l'immobilità, ma attraverso l'acqua. Nuotare era essere portata e portarsi allo stesso tempo: riemergere, e riemergere ancora, finché riemergere divenne un modo di vivere. La serie si muove dagli interni bui verso un bianco aperto e abbagliante: il mare come il luogo dove una vita viene restituita.
 
 Crédits (label) : Ringraziamenti
-Crédits : Con un ringraziamento a Jérôme Gaudin e Boriana Goranova per l'amicizia, a Lucie Lejeune per il suo aiuto, e ad Antoine d'Agata per il suo sguardo e la sua benevolenza.
+Crédits : Con un ringraziamento a Jérôme Gaudin e Boriana Goranova per l'amicizia, a Lucie Lejeune per il suo aiuto, e ad Antoine d'Agata per il suo sguardo, la sua benevolenza e la sua generosità.
 
 ---
 
@@ -456,7 +524,7 @@ Os sonhos e a água são dois mundos em que recupero um pouco de equilíbrio, um
 Houve uma estação em que o corpo cedeu — quando a doença arrancou o chão de tudo e a força escoou como uma maré vazante. En Corps à la Mer acompanha essa longa descida e sua virada: a força que retorna não pela imobilidade, mas pela água. Nadar era ser carregada e carregar a si mesma ao mesmo tempo — emergir, e emergir de novo, até que emergir se tornasse uma forma de viver. A série vai dos interiores escuros em direção a um branco aberto e ofuscante: o mar como o lugar onde uma vida é devolvida.
 
 Crédits (label) : Agradecimentos
-Crédits : Com um agradecimento a Jérôme Gaudin e Boriana Goranova pela amizade, a Lucie Lejeune pela ajuda, e a Antoine d'Agata pelo olhar e pela generosidade.
+Crédits : Com um agradecimento a Jérôme Gaudin e Boriana Goranova pela amizade, a Lucie Lejeune pela ajuda, e a Antoine d'Agata pelo olhar, pela benevolência e pela generosidade.
 
 ---
 ---
@@ -627,7 +695,9 @@ Titre : La Mer / en Corps
 
 Légende hero : Water and dreams, giving body to movement. / A year of passages.
 
-**Citation 1 (sans attribution)**
+**Citation 1**
+Auteur : Gaston Bachelard · L'Eau et les Rêves
+Note : freely translated from the French
 
 The sea is not a body one sees, nor even a body one embraces. It is a dynamic medium that responds to the dynamics of our offences.
 
@@ -672,7 +742,9 @@ Titre : La Mer / en Corps
 
 Légende hero : L'eau et les rêves pour donner corps au mouvement. / Un an de traversées.
 
-**Citation 1 (sans attribution)**
+**Citation 1**
+Auteur : Gaston Bachelard · L'Eau et les Rêves
+(pas de note de traduction en FR)
 
 La mer n'est pas un corps qu'on voit, pas même un corps qu'on étreint. C'est un milieu dynamique qui répond à la dynamique de nos offenses.
 
@@ -721,7 +793,9 @@ Titre : La Mer / en Corps
 
 Légende hero : L'acqua e i sogni per dare corpo al movimento. / Un anno di traversate.
 
-**Citation 1 (sans attribution)**
+**Citation 1**
+Auteur : Gaston Bachelard · L'Eau et les Rêves
+Note : traduzione libera dal francese
 
 Il mare non è un corpo che si vede, e nemmeno un corpo che si abbraccia. È un mezzo dinamico che risponde alla dinamica delle nostre offese.
 
@@ -771,7 +845,9 @@ Titre : La Mer / en Corps
 
 Légende hero : A água e os sonhos para dar corpo ao movimento. / Um ano de travessias.
 
-**Citation 1 (sans attribution)**
+**Citation 1**
+Auteur : Gaston Bachelard · L'Eau et les Rêves
+Note : tradução livre do francês
 
 O mar não é um corpo que se vê, nem sequer um corpo que se abraça. É um meio dinâmico que responde à dinâmica das nossas ofensas.
 
@@ -810,7 +886,7 @@ O que volta são dados, pixels, prata exposta, e na maior parte do tempo tentati
 
 Sobrepostos, os cinquenta e três traçados já não descrevem um lugar. Cada um é trazido ao seu próprio centro; a margem desaparece e resta apenas o gesto. O que brilha mais forte é o que foi mais repetido.
 
-O ano se fecha num loop. Na música, um loop é um trecho sonoro repetido continuamente, sem corte perceptível. No mar, é uma figura que termina na margem onde começou. Mas nunca se volta de um mergulho igual: o corpo que termina este ano não é o que o começou. Visto de lado, o loop sempre foi uma espiral que sobe.
+O ano se fecha num loop. Na música, um loop é um trecho sonoro repetido continuamente, sem corte perceptível. No mar, é uma figura que termina na margem onde começou. Mas nunca se volta de um nado igual: o corpo que termina este ano não é o que o começou. Visto de lado, o loop sempre foi uma espiral que sobe.
 
 ---
 ---
@@ -835,14 +911,15 @@ De vida mais vivida, dividida pra lá e pra cá
 **Rangée 2, texte de projet**
 Eyebrow : The project
 
-This project, first conceived as an exhibition and later as a photobook, emerged at the end of a chapter of life marked by displacement. It was built from personal archives — images gathered over more than fifteen years, across several continents — less the record of a single journey than a slow sedimentation of places, encounters, and light.
+This project did not begin with a theme. It began with an archive: twenty years of images, several continents, accumulated without a plan. One day they had to be reread, in search of what ran through them all.
 
-It was within this context that the question of borders asserted itself with force — visible or invisible boundaries drawn between bodies, territories, and narratives. These images, portraits, vegetation, textures, structures, form a sensitive cartography in which each photograph gently attempts to shift perception.
+What appeared were lines. Geographical ones first, since these images come from different countries. But above all the others: social, economic, racial. The ones that appear on no map and that everyone knows how to see.
 
-Légendes de série :
-- cap1 : Neither quite a departure nor truly a return, but a way of inhabiting thresholds, passages, the folds of an inner geography.
-- cap2 : Spilling beyond the lines lets contours tremble, space open, certainties pause.
-- cap3 : For me, photography is a way of remaining in motion without fleeing, of entering into contact without imposing — of capturing that fleeting je-ne-sais-quoi that connects and reveals.
+These photographs were not taken in passing. They come from inhabited places, from streets walked every day, from countries where I lived as a foreigner, as an immigrant. My gaze does not look down from above: it is caught in what it looks at, on one side of the lines here, on the other side there.
+
+Spilling beyond the lines does not mean denying them. They exist, they separate, some cannot be crossed. But a life can spill beyond them, and an image can hold together what the map keeps apart.
+
+Conceived as an exhibition, later a book dummy, this project is my first: the first time I sought to make my images into a whole, to give form to what had, until then, only accumulated. It is built in reverse, the thread came after the photographs, and that may be its most exact truth. I did not decide to photograph borders. Looking back, I realized I had photographed nothing else.
 
 Crédits (label) : Credits
 Crédits : Images reproduced with the kind permission of Diana Ferreira and Giovane Marquez.
@@ -867,14 +944,15 @@ De vida mais vivida, dividida pra lá e pra cá
 **Rangée 2, texte de projet**
 Eyebrow : (via t.work.theProject)
 
-Ce projet, d'abord conçu comme une exposition puis comme un livre de photographies, a émergé à la fin d'un chapitre de vie marqué par le déplacement. Il a été construit à partir d'archives personnelles — des images rassemblées sur plus de quinze ans, à travers plusieurs continents — moins le récit d'un voyage unique qu'une lente sédimentation de lieux, de rencontres et de lumière.
+Ce projet n'est pas parti d'un thème. Il est parti d'une archive : vingt ans d'images, plusieurs continents, accumulées sans programme. Il a fallu un jour les relire, et chercher ce qui les traversait toutes.
 
-C'est dans ce contexte que la question des frontières s'est imposée avec force — limites visibles ou invisibles tracées entre les corps, les territoires et les récits. Ces images, portraits, végétaux, textures, structures, forment une cartographie sensible dans laquelle chaque photographie tente doucement de déplacer la perception.
+Ce qui est apparu, ce sont des lignes. Géographiques d'abord, puisque ces images viennent de pays différents. Mais surtout les autres : sociales, économiques, raciales. Celles qui ne figurent sur aucune carte et que tout le monde sait voir.
 
-Légendes de série :
-- cap1 : Ni tout à fait un départ ni vraiment un retour, mais une façon d'habiter les seuils, les passages, les plis d'une géographie intérieure.
-- cap2 : Déborder les lignes laisse trembler les contours, ouvrir l'espace, suspendre les certitudes.
-- cap3 : Pour moi, la photographie est une façon de rester en mouvement sans fuir, d'entrer en contact sans imposer — de capter ce je-ne-sais-quoi fugitif qui relie et révèle.
+Ces photographies n'ont pas été prises en passant. Elles viennent de lieux habités, de rues empruntées chaque jour, de pays où j'ai vécu en étrangère, en immigrée. Mon regard ne surplombe pas : il est pris dans ce qu'il regarde, d'un côté des lignes ici, de l'autre là-bas.
+
+Déborder les lignes ne veut pas dire les nier. Elles existent, elles séparent, certaines ne se franchissent pas. Mais une vie peut les déborder, et une image peut tenir ensemble ce que la carte sépare.
+
+Conçu comme une exposition, devenu maquette de livre, ce projet est mon premier : la première fois que j'ai cherché à faire de mes images un ensemble, une première mise en image de ce qui, jusque-là, s'était seulement accumulé. Il est construit à rebours, le fil est venu après les photographies, et c'est peut-être sa vérité la plus exacte. Je n'ai pas décidé de photographier les frontières. Je me suis aperçue, en me retournant, que je n'avais photographié que ça.
 
 Crédits (label) : Crédits
 Crédits : Images reproduites avec l'aimable autorisation de Diana Ferreira et Giovane Marquez.
@@ -898,14 +976,15 @@ De vida mais vivida, dividida pra lá e pra cá
 
 **Rangée 2, texte de projet**
 
-Questo progetto, concepito dapprima come una mostra e poi come un libro fotografico, è emerso alla fine di un capitolo di vita segnato dallo spostamento. È stato costruito a partire da archivi personali, immagini scattate prima ancora di pensarmi fotografa, raccolte nel corso di più di quindici anni, attraverso diversi continenti: non tanto il resoconto di un singolo viaggio quanto una lenta sedimentazione di luoghi, incontri e luce.
+Questo progetto non è partito da un tema. È partito da un archivio: vent'anni di immagini, diversi continenti, accumulate senza programma. Un giorno è stato necessario rileggerle, e cercare ciò che le attraversava tutte.
 
-È in questo contesto che la questione dei confini si è imposta con forza: limiti visibili o invisibili tracciati tra i corpi, i territori e le narrazioni. Queste immagini, ritratti, vegetazione, texture, strutture, formano una cartografia sensibile in cui ogni fotografia tenta dolcemente di spostare la percezione.
+Ciò che è apparso sono linee. Geografiche, innanzitutto, perché queste immagini vengono da paesi diversi. Ma soprattutto le altre: sociali, economiche, razziali. Quelle che non figurano su nessuna carta e che tutti sanno vedere.
 
-Légendes de série :
-- cap1 : Non proprio una partenza né davvero un ritorno, ma un modo di abitare le soglie, i passaggi, le pieghe di una geografia interiore
-- cap2 : Attraversare lascia tremare i contorni
-- cap3 : Per me, la fotografia è un modo di rimanere in movimento senza fuggire, di entrare in contatto senza imporre: di cogliere quel fuggitivo je-ne-sais-quoi che connette e rivela.
+Queste fotografie non sono state scattate di passaggio. Vengono da luoghi abitati, da strade percorse ogni giorno, da paesi in cui ho vissuto da straniera, da immigrata. Il mio sguardo non sovrasta: è preso in ciò che guarda, da un lato delle linee qui, dall'altro là.
+
+Sconfinare non significa negare le linee. Esistono, separano, alcune non si attraversano. Ma una vita può sconfinare, e un'immagine può tenere insieme ciò che la carta separa.
+
+Concepito come una mostra, diventato poi il prototipo di un libro, questo progetto è il mio primo: la prima volta che ho cercato di fare delle mie immagini un insieme, di dare forma a ciò che fino ad allora si era soltanto accumulato. È costruito a ritroso, il filo è venuto dopo le fotografie, ed è forse la sua verità più esatta. Non ho deciso di fotografare le frontiere. Mi sono accorta, voltandomi indietro, di non aver fotografato altro.
 
 Crédits (label) : Crediti
 Crédits : Immagini riprodotte per gentile concessione di Diana Ferreira e Giovane Marquez.
@@ -929,14 +1008,15 @@ De vida mais vivida, dividida pra lá e pra cá
 
 **Rangée 2, texte de projet**
 
-Este projeto, inicialmente concebido como uma exposição e depois como um livro fotográfico, emergiu ao fim de um capítulo de vida marcado pelo deslocamento. Foi construído a partir de arquivos pessoais — imagens reunidas ao longo de mais de quinze anos, em vários continentes — menos o registro de uma única jornada do que uma lenta sedimentação de lugares, encontros e luz.
+Este projeto não partiu de um tema. Partiu de um arquivo: vinte anos de imagens, vários continentes, acumuladas sem programa. Um dia foi preciso relê-las, e procurar o que atravessava todas elas.
 
-Foi nesse contexto que a questão das fronteiras se impôs com força — fronteiras visíveis ou invisíveis traçadas entre corpos, territórios e narrativas. Essas imagens, retratos, vegetação, texturas, estruturas, formam uma cartografia sensível em que cada fotografia tenta suavemente deslocar a percepção.
+O que apareceu foram linhas. Geográficas, primeiro, já que estas imagens vêm de países diferentes. Mas sobretudo as outras: sociais, econômicas, raciais. Aquelas que não figuram em nenhum mapa e que todo mundo sabe ver.
 
-Légendes de série :
-- cap1 : Nem bem uma partida nem realmente um retorno, mas uma forma de habitar os limiares, as passagens, as dobras de uma geografia interior.
-- cap2 : Transbordar das linhas deixa os contornos tremer, o espaço abrir-se, as certezas suspenderem-se.
-- cap3 : Para mim, a fotografia é uma forma de permanecer em movimento sem fugir, de entrar em contato sem impor — de capturar aquele fugidio je-ne-sais-quoi que conecta e revela.
+Estas fotografias não foram feitas de passagem. Vêm de lugares habitados, de ruas percorridas todos os dias, de países onde vivi como estrangeira, como imigrante. Meu olhar não sobrevoa: está preso naquilo que olha, de um lado das linhas aqui, do outro lá.
+
+Transbordar as linhas não significa negá-las. Elas existem, separam, algumas não se atravessam. Mas uma vida pode transbordá-las, e uma imagem pode manter junto o que o mapa separa.
+
+Concebido como uma exposição, depois boneco de livro, este projeto é o meu primeiro: a primeira vez que procurei fazer das minhas imagens um conjunto, dar forma ao que, até então, apenas se acumulava. Ele é construído às avessas, o fio veio depois das fotografias, e talvez seja essa a sua verdade mais exata. Não decidi fotografar fronteiras. Percebi, ao olhar para trás, que não tinha fotografado outra coisa.
 
 Crédits (label) : Créditos
 Crédits : Imagens reproduzidas com a gentil autorização de Diana Ferreira e Giovane Marquez.
