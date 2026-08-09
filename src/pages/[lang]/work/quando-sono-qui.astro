@@ -59,8 +59,7 @@ const spreads: Spread[] = [
   { type: 'single', photos: [p(5)] },
   { type: 'row',    photos: [p(6), p(7)] },
   { type: 'row',    photos: [p(8), p(9), p(10)] },
-  { type: 'single', photos: [p(11)] },
-  { type: 'row',    photos: [p(12), p(13)] },
+  { type: 'row',    photos: [p(11), p(12), p(13)] },
   { type: 'row',    photos: [p(14), p(15), p(16)] },
   { type: 'single', photos: [p(17)] },
   { type: 'row',    photos: [p(18), p(19)] },
@@ -198,7 +197,7 @@ const spreads: Spread[] = [
           return;
         }
         if (mob && figs.length === 4) {
-          const avail = row.clientWidth - 8;
+          const avail = row.clientWidth - 4;
           ([[0,1],[2,3]] as [number,number][]).forEach(([a,b]) => {
             const ra = getR(imgs[a]), rb = getR(imgs[b]);
             const wa = Math.round(ra / (ra + rb) * avail);
@@ -208,8 +207,7 @@ const spreads: Spread[] = [
           return;
         }
         imgs.forEach((im, i) => {
-          figs[i].style.flex = '';
-          figs[i].style.flexGrow = getR(im).toFixed(4);
+          figs[i].style.flex = `${getR(im).toFixed(4)} 1 0`;
         });
       }
       if (imgs.every(im => im.complete && im.naturalWidth)) apply();

@@ -530,7 +530,7 @@ figure.match img {
 .gal-cell--photo + .gal-cell--cit,
 .lmec-vid-col + .gal-cell--cit { padding-left: 24px; }
 .lmec-text-col.gal-cell--cit {
-  gap: 0;
+  gap: var(--gap-gal);
 }
 .gal-cell--cit .epi-wrap {
   max-width: none;

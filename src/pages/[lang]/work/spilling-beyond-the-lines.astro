@@ -229,7 +229,7 @@ const spreads: Spread[] = [
           return;
         }
         if (mob && figs.length === 4) {
-          const avail = row.clientWidth - 8;
+          const avail = row.clientWidth - 4;
           ([[0,1],[2,3]] as [number,number][]).forEach(([a,b]) => {
             const ra = getR(imgs[a], figs[a]), rb = getR(imgs[b], figs[b]);
             const wa = Math.round(ra / (ra + rb) * avail);
@@ -239,8 +239,7 @@ const spreads: Spread[] = [
           return;
         }
         figs.forEach((fig, i) => {
-          fig.style.flex = '';
-          fig.style.flexGrow = getR(imgs[i], fig).toFixed(4);
+          fig.style.flex = `${getR(imgs[i], fig).toFixed(4)} 1 0`;
         });
       }
       if (imgs.every(im => im.complete && im.naturalWidth)) apply();
