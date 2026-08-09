@@ -328,7 +328,8 @@ body { background: var(--sable); }
   .ex-artwork-pair { height: clamp(180px, 55vw, 300px); }
   .ex-grid-wrap { gap: 8px; }
   .ex-grid-row { gap: 8px; flex-wrap: wrap; }
-  .ex-grid-fig { flex: 0 0 calc(50% - 4px); }
+  .ex-grid-fig { flex: 0 0 calc(50% - 4px); height: clamp(130px, 36vw, 170px); overflow: hidden; }
   .ex-grid-fig:nth-child(3):last-child { flex: 0 0 100%; }
+  .ex-grid-img { height: 100%; object-fit: cover; }
   .ex-intro { text-align: left; }
 }
