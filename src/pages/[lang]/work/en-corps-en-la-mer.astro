@@ -192,7 +192,7 @@ const spreads: Spread[] = [
   }
   function layoutGalRows() {
     const mob = window.innerWidth <= 700;
-    const H = parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--rowh')) || 380;
+    const H = parseFloat(getComputedStyle(document.body).getPropertyValue('--rowh')) || 380;
     document.querySelectorAll<HTMLElement>('.gal-cell--photo').forEach(cell => {
       const img = cell.querySelector<HTMLImageElement>('img');
       if (!img) return;

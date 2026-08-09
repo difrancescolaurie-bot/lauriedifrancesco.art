@@ -5,7 +5,7 @@ body.page-lmec    { --accent: var(--acc-lmec); }
 body.page-ecm     { --accent: var(--acc-ecm); }
 body.page-quando  { --accent: var(--acc-quando); }
 body.page-venezia { --accent: var(--acc-venezia); }
-body.page-spill   { --accent: var(--acc-spill); }
+body.page-spill   { --accent: var(--acc-spill); --rowh: 906px; }
 body.page-toward  { --accent: var(--acc-toward); }
 
 /* ── Hero ─────────────────────────────────────────── */
