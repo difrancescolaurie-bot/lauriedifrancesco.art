@@ -45,6 +45,7 @@ const spreads: Spread[] = [
     <div class="phero-inner container">
       <p class="phero-eyebrow">Resignifying</p>
       <h1>Quando sono qui,<br /><strong>non sono là</strong></h1>
+      <p class="phero-count" aria-live="polite"></p>
     </div>
   </section>
 
@@ -93,7 +94,7 @@ const spreads: Spread[] = [
   </section>
 
   <!-- ── Série photographique ──────────────────────────────── -->
-  <div class="series">
+  <div class="series" id="serie">
     {spreads.map((spread) => (
       <div class={`spread spread--${spread.type} rv`}>
         {spread.photos.map((photo) => (

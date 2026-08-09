@@ -89,6 +89,7 @@ const spreads: Spread[] = [
     <div class="phero-inner container">
       <p class="phero-eyebrow">{t.home.projects[3].cerule}</p>
       <h1>Vedere Venezia<br /><strong>e Non Morire</strong></h1>
+      <p class="phero-count" aria-live="polite"></p>
     </div>
   </section>
 
@@ -129,6 +130,7 @@ const spreads: Spread[] = [
         {content.projectText.map((para) => (
           <p class="opening-text">{para}</p>
         ))}
+        <a class="see-images" href="#serie"></a>
         <hr class="horizon" />
       </div>
     </div>
@@ -137,7 +139,7 @@ const spreads: Spread[] = [
 
   <!-- ── Série photographique ──────────────────────────────── -->
   {spreads.length > 0 && (
-    <div class="series vv-series">
+    <div class="series vv-series" id="serie">
       {spreads.map((spread) => (
         <div class={`spread spread--${spread.type} rv`}>
           {spread.photos.map((photo) => (

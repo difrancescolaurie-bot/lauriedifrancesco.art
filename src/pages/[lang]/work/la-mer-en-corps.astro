@@ -100,6 +100,7 @@ const content = {
       <p class="phero-eyebrow">{content.eyebrow}</p>
       <h1>La Mer<br /><strong>en Corps</strong></h1>
       <p class="phero-caption" set:html={content.caption}></p>
+      <p class="phero-count" aria-live="polite"></p>
     </div>
   </section>
 
@@ -166,7 +167,7 @@ const content = {
   </div>
 
   <!-- ── Galerie ──────────────────────────────────────────── -->
-  <div class="lmec-gallery rv">
+  <div class="lmec-gallery rv" id="serie">
 
     <!-- rangée 1 -->
     <div class="row">

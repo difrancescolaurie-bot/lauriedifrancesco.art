@@ -126,7 +126,7 @@ const homeUrl = currentLang === 'en' ? '/' : `/${currentLang}`;
       rgba(20, 32, 43, 0.0) 100%
     );
     padding-block: 1.25rem 2rem;
-    transition: transform .35s ease;
+    transition: transform .28s ease, background .28s ease;
   }
   .site-header.is-hidden {
     transform: translateY(-100%);
@@ -322,15 +322,19 @@ const homeUrl = currentLang === 'en' ? '/' : `/${currentLang}`;
 </style>
 
 <script>
-  // Hide nav on scroll down, reveal on scroll up
+  // Hide nav on scroll down, reveal on scroll up; switch to light past the hero
   const header = document.querySelector('.site-header') as HTMLElement;
+  const heroEl = document.querySelector('.phero') as HTMLElement | null;
   let lastY = window.scrollY;
   window.addEventListener('scroll', () => {
     const y = window.scrollY;
-    if (y > lastY && y > 80) {
+    if (y > lastY && y > 140) {
       header.classList.add('is-hidden');
     } else {
       header.classList.remove('is-hidden');
+    }
+    if (heroEl) {
+      header.classList.toggle('site-header--light', y > heroEl.offsetHeight - 60);
     }
     lastY = y;
   }, { passive: true });

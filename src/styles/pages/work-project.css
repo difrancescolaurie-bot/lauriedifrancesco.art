@@ -60,6 +60,17 @@ body.page-toward  { --accent: var(--acc-toward); }
   letter-spacing: .055em;
 }
 
+/* ── Compte d'images dans le hero ─────────────────── */
+.phero-count {
+  font-family: var(--font-body);
+  font-size: var(--t-xs);
+  text-transform: uppercase;
+  letter-spacing: .16em;
+  color: rgba(255, 255, 255, .6);
+  margin-top: .75rem;
+}
+.phero-count:empty { display: none; }
+
 /* ── Work in progress label ───────────────────────── */
 .phero-wip {
   font-family: var(--font-body);
@@ -473,8 +484,9 @@ figure.match img {
     margin-bottom: 1.5rem;
   }
   .lmec-photo-float img { height: auto; width: 100%; }
-  .series { gap: 8px; }
-  .spread { flex-wrap: wrap; gap: 8px; min-height: 100px; }
+  .phero { height: 62dvh; min-height: 280px; }
+  .series { gap: 4px; margin-top: 40px; }
+  .spread { flex-wrap: wrap; gap: 4px; min-height: 100px; }
   .spread--single figure { flex: 1 1 100%; }
   .spread figure img { height: auto; }
 }
@@ -577,11 +589,28 @@ figure.match img {
   .ecm-text .opening-eyebrow { column-span: all; }
   .ecm-text .horizon { column-span: all; }
 }
+.see-images { display: none; }
 @media (max-width: 700px) {
-  .gal-row { flex-wrap: wrap; gap: 8px; }
+  .gal-opening { padding-top: 40px; padding-bottom: 0; gap: 36px; }
+  .gal-row { flex-wrap: wrap; gap: 40px; padding-inline: 0; }
+  .lmec-vid-intro { gap: clamp(3rem, 7vh, 5rem); }
+  .ecm-text { margin-top: 40px; margin-bottom: 0; }
   .gal-cell--photo,
   .gal-cell--cit,
   .gal-cell--text { flex: 0 0 100%; }
   .gal-cell--cit,
-  .gal-cell--text { padding-left: 0; }
+  .gal-cell--text { padding-inline: 24px; }
+  .gal-cell--text:only-child { padding-bottom: 0; }
+  .see-images {
+    display: block;
+    margin-top: 28px;
+    font-size: var(--t-xs);
+    letter-spacing: .16em;
+    text-transform: uppercase;
+    color: var(--ardoise);
+    border-bottom: 1px solid var(--brume);
+    padding-bottom: 3px;
+    text-decoration: none;
+    width: fit-content;
+  }
 }

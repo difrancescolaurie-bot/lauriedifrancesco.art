@@ -56,6 +56,7 @@ const spreads: Spread[] = [
     <div class="phero-inner container">
       <p class="phero-eyebrow">dreaming</p>
       <h1>Toward<br /><strong>the Blue</strong></h1>
+      <p class="phero-count" aria-live="polite"></p>
     </div>
   </section>
 
@@ -92,6 +93,7 @@ const spreads: Spread[] = [
         <p class="intro-text">This series belongs to the current of magical realism. A tropical gaze rather than a Brazilian one, the gaze of someone who lived in Latin America long enough for the marvellous to stop being an exception.</p>
         <p class="intro-text">There is indeed a passage here, from child to adult. But it does not tell how one grows up. It rewrites that passage where childhood was missing, and seeks to recover, after the fact, a lightness that never took place.</p>
         <p class="intro-text">In Nietzsche, the child does not come first. It comes after the camel's burden and after the lion's refusal.</p>
+        <a class="see-images" href="#serie"></a>
         <hr class="horizon intro-proj-horizon" />
       </div>
     </div>
@@ -99,7 +101,7 @@ const spreads: Spread[] = [
   </section>
 
   <!-- ── Série photographique ──────────────────────────────── -->
-  <div class="series">
+  <div class="series" id="serie">
     {spreads.map((spread) => (
       <>
         <div class={`spread spread--${spread.type} rv`}>

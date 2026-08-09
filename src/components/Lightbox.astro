@@ -43,6 +43,18 @@
   }
   .lb-prev { left: .5rem; }
   .lb-next { right: .5rem; }
+  .lb-cnt {
+    position: absolute;
+    left: 0; right: 0;
+    bottom: calc(20px + env(safe-area-inset-bottom));
+    text-align: center;
+    color: rgba(255, 255, 255, .5);
+    font-size: 11px;
+    letter-spacing: .16em;
+    font-family: var(--font-body);
+    pointer-events: none;
+    user-select: none;
+  }
   @media (prefers-reduced-motion: no-preference) {
     .lb-nav { transition: color .25s; }
   }
@@ -50,6 +62,38 @@
 
 <script>
   const SKIP_PARENTS = ['.phero-bg', '.hero-bg', '.lmec-video-wrap', '.ex-grid-wrap', '.ex-artwork-wrap'];
+
+  const NUMS: Record<string, Record<number, string>> = {
+    en: {1:'One',2:'Two',3:'Three',4:'Four',5:'Five',6:'Six',7:'Seven',8:'Eight',9:'Nine',10:'Ten',11:'Eleven',12:'Twelve',13:'Thirteen',14:'Fourteen',15:'Fifteen',16:'Sixteen',17:'Seventeen',18:'Eighteen',19:'Nineteen',20:'Twenty',21:'Twenty-one',22:'Twenty-two',23:'Twenty-three',24:'Twenty-four',25:'Twenty-five'},
+    fr: {1:'Une',2:'Deux',3:'Trois',4:'Quatre',5:'Cinq',6:'Six',7:'Sept',8:'Huit',9:'Neuf',10:'Dix',11:'Onze',12:'Douze',13:'Treize',14:'Quatorze',15:'Quinze',16:'Seize',17:'Dix-sept',18:'Dix-huit',19:'Dix-neuf',20:'Vingt',21:'Vingt et une',22:'Vingt-deux',23:'Vingt-trois',24:'Vingt-quatre',25:'Vingt-cinq'},
+    it: {1:'Una',2:'Due',3:'Tre',4:'Quattro',5:'Cinque',6:'Sei',7:'Sette',8:'Otto',9:'Nove',10:'Dieci',11:'Undici',12:'Dodici',13:'Tredici',14:'Quattordici',15:'Quindici',16:'Sedici',17:'Diciassette',18:'Diciotto',19:'Diciannove',20:'Venti',21:'Ventuno',22:'Ventidue',23:'Ventitré',24:'Ventiquattro',25:'Venticinque'},
+    pt: {1:'Uma',2:'Duas',3:'Três',4:'Quatro',5:'Cinco',6:'Seis',7:'Sete',8:'Oito',9:'Nove',10:'Dez',11:'Onze',12:'Doze',13:'Treze',14:'Quatorze',15:'Quinze',16:'Dezesseis',17:'Dezessete',18:'Dezoito',19:'Dezenove',20:'Vinte',21:'Vinte e uma',22:'Vinte e duas',23:'Vinte e três',24:'Vinte e quatro',25:'Vinte e cinco'},
+  };
+
+  const PHOTO_SG: Record<string, string> = { en:'photograph', fr:'photographie', it:'fotografia', pt:'fotografia' };
+  const PHOTO_PL: Record<string, string> = { en:'photographs', fr:'photographies', it:'fotografie', pt:'fotografias' };
+
+  function numWord(n: number, lang: string): string {
+    return (NUMS[lang] ?? NUMS.en)[n] ?? String(n);
+  }
+
+  function heroCountText(n: number, lang: string): string {
+    if (n === 0) return '';
+    const w = numWord(n, lang);
+    const noun = n === 1 ? (PHOTO_SG[lang] ?? PHOTO_SG.en) : (PHOTO_PL[lang] ?? PHOTO_PL.en);
+    return `${w} ${noun}`;
+  }
+
+  function seeLinkText(n: number, lang: string): string {
+    if (n === 0) return '';
+    const w = numWord(n, lang).toLowerCase();
+    switch (lang) {
+      case 'fr': return n === 1 ? "Voir l'image ↓" : `Voir les ${w} images ↓`;
+      case 'it': return n === 1 ? "Vedere l'immagine ↓" : `Vedere le ${w} immagini ↓`;
+      case 'pt': return n === 1 ? 'Ver a imagem ↓' : `Ver as ${w} imagens ↓`;
+      default:   return n === 1 ? 'See the image ↓' : `See the ${w} images ↓`;
+    }
+  }
 
   function isEligible(img: HTMLImageElement): boolean {
     if (img.hasAttribute('data-no-lightbox')) return false;
@@ -60,7 +104,17 @@
     const imgs = Array.from(
       document.querySelectorAll<HTMLImageElement>('img')
     ).filter(isEligible);
-    if (!imgs.length) return;
+
+    const lang = document.documentElement.lang || 'en';
+    const n = imgs.length;
+
+    const heroCountEl = document.querySelector<HTMLElement>('.phero-count');
+    if (heroCountEl) heroCountEl.textContent = heroCountText(n, lang);
+
+    const seeEl = document.querySelector<HTMLAnchorElement>('.see-images');
+    if (seeEl && n > 0) seeEl.textContent = seeLinkText(n, lang);
+
+    if (!n) return;
 
     imgs.forEach(img => { img.style.cursor = 'zoom-in'; });
 
@@ -84,12 +138,14 @@
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
           <polyline points="9 6 15 12 9 18"/>
         </svg>
-      </button>`;
+      </button>
+      <div class="lb-cnt" aria-live="polite"></div>`;
     document.body.appendChild(lb);
 
     const photo = lb.querySelector<HTMLImageElement>('.lb-photo')!;
     const prev  = lb.querySelector<HTMLButtonElement>('.lb-prev')!;
     const next  = lb.querySelector<HTMLButtonElement>('.lb-next')!;
+    const cnt   = lb.querySelector<HTMLElement>('.lb-cnt')!;
 
     function show(i: number) {
       idx = Math.max(0, Math.min(i, imgs.length - 1));
@@ -98,6 +154,7 @@
       prev.style.pointerEvents = idx > 0 ? 'auto' : 'none';
       next.style.opacity = idx < imgs.length - 1 ? '1' : '0';
       next.style.pointerEvents = idx < imgs.length - 1 ? 'auto' : 'none';
+      cnt.textContent = `${idx + 1} / ${imgs.length}`;
     }
 
     function open(i: number, trigger: HTMLElement) {
@@ -111,6 +168,8 @@
     function close() {
       lb.classList.remove('open');
       document.body.style.overflow = '';
+      photo.style.transform = '';
+      lb.style.background = '';
       opener?.focus();
       opener = null;
     }
@@ -139,13 +198,42 @@
       }
     });
 
-    let tx = 0;
-    lb.addEventListener('touchstart', e => {
-      tx = (e as TouchEvent).touches[0].clientX;
+    let txStart = 0, tyStart = 0, txMove = 0, tyMove = 0;
+
+    lb.addEventListener('touchstart', (e: TouchEvent) => {
+      txStart = e.touches[0].clientX;
+      tyStart = e.touches[0].clientY;
+      txMove = 0;
+      tyMove = 0;
+      photo.style.transition = 'none';
     }, { passive: true });
-    lb.addEventListener('touchend', e => {
-      const dx = tx - (e as TouchEvent).changedTouches[0].clientX;
-      if (Math.abs(dx) > 50) dx > 0 ? show(idx + 1) : show(idx - 1);
+
+    lb.addEventListener('touchmove', (e: TouchEvent) => {
+      txMove = e.touches[0].clientX - txStart;
+      tyMove = e.touches[0].clientY - tyStart;
+      if (Math.abs(tyMove) > Math.abs(txMove) && tyMove > 0) {
+        photo.style.transform = `translateY(${tyMove}px) scale(${Math.max(0.8, 1 - tyMove / 600)})`;
+        lb.style.background = `rgba(13,21,28,${Math.max(0.15, 0.94 - tyMove / 400)})`;
+      } else {
+        photo.style.transform = `translateX(${txMove}px)`;
+        lb.style.background = '';
+      }
+    }, { passive: true });
+
+    lb.addEventListener('touchend', () => {
+      photo.style.transition = '';
+      lb.style.background = '';
+      if (Math.abs(tyMove) > Math.abs(txMove) && tyMove > 90) {
+        photo.style.transform = '';
+        close();
+        return;
+      }
+      if (Math.abs(txMove) > 60 && Math.abs(txMove) > Math.abs(tyMove)) {
+        photo.style.transform = '';
+        txMove < 0 ? show(idx + 1) : show(idx - 1);
+      } else {
+        photo.style.transform = '';
+      }
     });
   }
 
