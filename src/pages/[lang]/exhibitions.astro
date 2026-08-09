@@ -176,7 +176,7 @@ const t = ui[lang as Lang].exhibitions;
           return;
         }
         if (mob && figs.length === 4) {
-          const avail = row.clientWidth - 4;
+          const avail = row.clientWidth - 8;
           ([[0,1],[2,3]] as [number,number][]).forEach(([a,b]) => {
             const ra = getR(imgs[a]), rb = getR(imgs[b]);
             const wa = Math.round(ra / (ra + rb) * avail);
