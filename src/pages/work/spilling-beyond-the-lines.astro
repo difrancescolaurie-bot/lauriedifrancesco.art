@@ -276,9 +276,20 @@ const spreads: Spread[] = [
         return (im.naturalWidth && im.naturalHeight) ? im.naturalWidth / im.naturalHeight : 1;
       };
       function apply() {
+        if (mob && figs.length === 2) {
+          const avail = row.clientWidth - 4;
+          const r0 = getR(imgs[0], figs[0]), r1 = getR(imgs[1], figs[1]);
+          const w0 = Math.round(r0 / (r0 + r1) * avail);
+          figs[0].style.flex = `0 0 ${w0}px`;
+          figs[1].style.flex = `0 0 ${avail - w0}px`;
+          return;
+        }
         if (mob && figs.length === 3) {
-          figs[0].style.flex = `${getR(imgs[0], figs[0]).toFixed(4)} 1 0`;
-          figs[1].style.flex = `${getR(imgs[1], figs[1]).toFixed(4)} 1 0`;
+          const avail = row.clientWidth - 4;
+          const r0 = getR(imgs[0], figs[0]), r1 = getR(imgs[1], figs[1]);
+          const w0 = Math.round(r0 / (r0 + r1) * avail);
+          figs[0].style.flex = `0 0 ${w0}px`;
+          figs[1].style.flex = `0 0 ${avail - w0}px`;
           figs[2].style.flex = '0 0 100%';
           return;
         }
