@@ -355,6 +355,24 @@ Fichiers touchés : `src/styles/pages/work-project.css`, `src/styles/pages/work-
 
 ---
 
+**Lot U — Version mobile, Direction A.**
+
+**U.1+2 — Composition et hero.** `work-project.css` (bloc `@media (max-width: 700px)`) : `.phero { height: 62dvh; min-height: 280px }` remplace `min-height: 90vh`. `.gal-row { padding-inline: 0; gap: 40px }` (photos bord-à-bord, écart 40 px image↔texte). `.gal-opening { padding-top: 40px; padding-bottom: 0; gap: 36px }` (écart texte↔texte entre rangées). `.series { gap: 4px; margin-top: 40px }` (écart image↔image dans la série, rupture de 40 px entre l'ouverture et la série). `.spread { gap: 4px }`. `.gal-cell--cit, .gal-cell--text { padding-inline: 24px }` (marges latérales du texte). `.lmec-vid-intro { gap: clamp(3rem,7vh,5rem) }` rétabli après la règle générale `.gal-row`. Vérification JS à 375 px : hero 503 px = 62dvh ✓, photo 375 px plein bord ✓, gap gal-opening/série 40 px ✓, gap inter-spreads 4 px ✓.
+
+**U.3 — En-tête dynamique.** `Header.astro` : seuil de masquage 80 → 140 px, transition `transform .28s ease, background .28s ease` (était `.35s`). Au passage du hero, le JS ajoute/retire `site-header--light` selon `scrollY > heroEl.offsetHeight - 60` : l'en-tête passe du fond sombre (pages projet) au fond clair sans rechargement. Sur les pages sans `.phero`, le comportement est inchangé.
+
+**U.4 — Visionneuse tactile.** `Lightbox.astro` : remplacement du gestionnaire tactile minimal par trois écouteurs complets. `touchstart` mémorise les coordonnées et désactive la transition de la photo. `touchmove` applique `translateX(dx)` pour la navigation horizontale ou `translateY(dy) scale(...)` + opacité de fond progressives pour le glisser-vers-le-bas. `touchend` : si `|dy| > |dx|` et `dy > 90 px` → fermeture ; si `|dx| > 60 px` → photo précédente/suivante ; sinon retour à la position initiale. Compteur discret `.lb-cnt` ajouté dans la visionneuse, mis à jour à chaque `show()` au format `n / total`.
+
+**U.5 — Compte dynamique (4 langues).** `Lightbox.astro` : tableaux `NUMS` (formes féminines 1-25 pour EN/FR/IT/PT), `PHOTO_SG/PL` (singulier/pluriel), fonctions `heroCountText()` et `seeLinkText()`. Dans `buildLightbox()`, après constitution du tableau `imgs` : `.phero-count` est rempli (`"Eleven photographs"`, `"Onze photographies"`, etc.) ; `.see-images` est rempli (`"See the eleven images ↓"`, `"Voir les onze images ↓"`, etc.) si la page en a un. La langue est lue via `document.documentElement.lang`. Élément `.phero-count` ajouté dans le hero de toutes les pages projet EN et [lang] (QSQ, Spilling, TTB, VV, ECM, LMEC). Lien `.see-images href="#serie"` ajouté avant `<hr class="horizon">` dans les pages avec texte de projet (Spilling, TTB, VV, EN + [lang]). `id="serie"` ajouté sur `.series` (QSQ, Spilling, TTB, VV, ECM) et `.lmec-gallery` (LMEC). `.phero-count:empty { display: none }` masque le compteur sur ECM (toutes photos `data-no-lightbox`). `.see-images` global `display: none`, visible uniquement via `@media (max-width: 700px)`.
+
+**U.6 — Diagnostic animation `.rv`.** IntersectionObserver threshold 0.06, `unobserve` après activation : aucun risque d'élément bloqué. Conforme sur mobile.
+
+**U.7 — Rapport poids des images (sans correction).** Cible retina 485 px × densité 2.23 = 1081 px minimum. Série `spilling/` : toutes images > 1081 px (1145-4464 px) mais non redimensionnées pour le web (548 Ko à 3,8 Mo par fichier). Série `work/*/` : 2000 px, 280-600 Ko. Aucune image en dessous du seuil de netteté retina. La série Spilling mériterait un redimensionnement à 1200 px et un export JPEG optimisé (session ultérieure).
+
+Commit : `1fcab42`. Fichiers touchés : `src/components/Header.astro`, `src/components/Lightbox.astro`, `src/styles/pages/work-project.css`, et les 12 pages projet (6 EN + 6 [lang]).
+
+---
+
 ## 9. Travailler avec Claude Code
 1. Créer le dépôt GitHub + projet Astro, connecter Cloudflare Pages.
 2. Donner **ce cahier** en contexte.
