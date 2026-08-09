@@ -72,7 +72,7 @@ const content = {
     p5: "O registro é então entregue a outra coisa. De um lado, as ferramentas mais conectadas que existem: uma constelação de satélites, um sensor no pulso, um algoritmo que transforma um ano de posições num desenho. Do outro, as mais antigas e as mais improvisadas: um rolo de filme, uma câmera lacrada dentro de uma capa impermeável de celular, amarrada à boia. Nenhuma das duas me devolve o controle. A primeira registra sem mim; a segunda deixa entrar o sal, o reflexo e o que a ondulação decidir.",
     p6: "O que volta são dados, pixels, prata exposta, e na maior parte do tempo tentativas às cegas, antes que qualquer coisa vire uma fotografia. <span class=\"k\">Parei de tratar essa cegueira como fracasso. É uma condição do trabalho: àquela distância da margem, com os dois braços ocupados, o acaso não é o que estraga a imagem, é o que a faz.</span> Transformar tudo isso em imagem significa passar de novo por cada ferramenta que a produziu, do algoritmo ao tanque de revelação. Não quis deixar nenhuma delas fora do quadro.",
     p7: "Sobrepostos, os cinquenta e três traçados já não descrevem um lugar. Cada um é trazido ao seu próprio centro; a margem desaparece e resta apenas o gesto. O que brilha mais forte é o que foi mais repetido.",
-    p8: "O ano se fecha num loop. Na música, um loop é um trecho sonoro repetido continuamente, sem corte perceptível. No mar, é uma figura que termina na margem onde começou. Mas nunca se volta de um mergulho igual: o corpo que termina este ano não é o que o começou. <span class=\"k\">Visto de lado, o loop sempre foi uma espiral que sobe.</span>",
+    p8: "O ano se fecha num loop. Na música, um loop é um trecho sonoro repetido continuamente, sem corte perceptível. No mar, é uma figura que termina na margem onde começou. Mas nunca se volta de um nado igual: o corpo que termina este ano não é o que o começou. <span class=\"k\">Visto de lado, o loop sempre foi uma espiral que sobe.</span>",
   },
 }[lang as 'fr' | 'it' | 'pt'];
 ---
@@ -132,7 +132,7 @@ const content = {
       </div>
     </div>
     <div class="lmec-text-col gal-cell gal-cell--cit" data-ratio="0.75">
-      <Citation extraPad>
+      <Citation extraPad author={content.bachelardCite} note={content.bachelardTransl ?? undefined}>
         <Fragment set:html={content.bq1} />
       </Citation>
       <Citation author={content.bachelardCite} note={content.bachelardTransl}>
