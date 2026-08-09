@@ -508,7 +508,7 @@ figure.match img {
   margin-inline: auto;
   padding-inline: var(--gutter);
 }
-.lmec-vid-intro.gal-row { gap: 0; align-items: stretch; }
+.lmec-vid-intro.gal-row { align-items: stretch; }
 .gal-cell {
   flex: 1 1 0;
   min-width: 0;
