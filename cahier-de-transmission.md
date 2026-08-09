@@ -309,6 +309,28 @@ Fichiers touchés : `src/styles/global.css`, `src/styles/pages/work-project.css`
 
 ---
 
+**Lot S — Correction d'une règle trop large (rangées série, filet, Spilling).**
+
+**S.1 — Règle clarifiée : `--rowh` s'applique uniquement aux rangées mixtes.** La hauteur commune 403 px concerne uniquement les photos situées dans une rangée contenant une cellule de texte ou de citation (`.gal-cell--photo` traitée par `layoutGalRows()`). Les rangées de série restituent leur comportement d'origine : `justify()` utilise `flexGrow = ratio` sur desktop (sans calcul de hauteur fixe), les photos remplissent la colonne bord à bord. Aucune rangée de série ne laisse de vide à droite.
+
+**S.2 — justify() : revert complet.** Les 10 fichiers de pages série (EN + lang, TTB / QSQ / VV / ECM / Spilling) sont repassés à la version d'avant le Lot R via script Python. Desktop : `fig.style.flexGrow = ratio`. Le bloc `spread--single` ajouté en R.2 est supprimé. La constante `const H` est supprimée de `justify()`. `layoutGalRows()` (rangées gal-opening) reste intact à 403 px.
+
+**S.3 — Filet : retour à 64 px.** `width: 100%` annulé dans la règle `.gal-cell--text .horizon, .ecm-text .horizon`. Conservé : `margin-top: 48px`, couleur accent, dégagement image suivante. Largeur par défaut CSS : 64 px.
+
+**S.4 — LMEC galerie rangée 1 : retour pleine colonne.** La figure de `1.jpg` repasse de `flex:0 0 605px` (Lot R.5) à `flex:1.4997 1 0` dans EN et lang. Cette rangée est une rangée de série pure, non concernée par `--rowh`.
+
+**S.5 — Spilling 1.jpg : suppression confirmée.** Le `spread--single` de `1.jpg` est retiré du tableau `spreads` dans EN et lang. Le fichier est conservé dans le dépôt.
+
+**S.6 — Spilling 2.jpg : deux options proposées, non appliquées.** Portrait ratio 0.6664, actuellement 269×404 px dans la rangée gal-opening en face de la citation Gilberto Gil. Options soumises : A) portrait dans la même rangée à H=800 px (533×800 px, citation à 675 px de large, ne recoule pas dans les 4 langues) ; B) portrait en `spread--single` pleine colonne (1224×1837 px) en tête de série, citation Gilberto Gil déplacée dans une gal-row autonome. Décision de contenu en attente.
+
+**S.7 — ECM PT : reformulation en attente.** Deux phrases avec tirets cadratins en portugais non encore corrigées (attente de reformulation par Laurie). Texte actuel : "Houve uma estação em que o corpo cedeu — quando a doença arrancou o chão de tudo e a força escoou como uma maré vazante." et "Nadar era ser carregada e carregar a si mesma ao mesmo tempo — emergir, e emergir de novo, até que emergir se tornasse uma forma de viver."
+
+Recette S vérifiée dans le navigateur à 1440 px : toutes les rangées de série à 1224 px (totalW=1224 px, JS), gal-cell--photo à 403-404 px (JS), filet 64 px.
+
+Fichiers touchés : `src/styles/pages/work-project.css`, `src/pages/work/la-mer-en-corps.astro`, `src/pages/[lang]/work/la-mer-en-corps.astro`, `src/pages/work/toward-the-blue.astro`, `src/pages/[lang]/work/toward-the-blue.astro`, `src/pages/work/quando-sono-qui.astro`, `src/pages/[lang]/work/quando-sono-qui.astro`, `src/pages/work/vedere-venezia.astro`, `src/pages/[lang]/work/vedere-venezia.astro`, `src/pages/work/en-corps-en-la-mer.astro`, `src/pages/[lang]/work/en-corps-en-la-mer.astro`, `src/pages/work/spilling-beyond-the-lines.astro`, `src/pages/[lang]/work/spilling-beyond-the-lines.astro`.
+
+---
+
 ## 9. Travailler avec Claude Code
 1. Créer le dépôt GitHub + projet Astro, connecter Cloudflare Pages.
 2. Donner **ce cahier** en contexte.

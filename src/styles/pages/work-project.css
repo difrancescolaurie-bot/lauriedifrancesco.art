@@ -556,7 +556,6 @@ figure.match img {
 .gal-cell--text .horizon,
 .ecm-text .horizon {
   background: var(--accent);
-  width: 100%;
   margin-top: 48px;
 }
 
