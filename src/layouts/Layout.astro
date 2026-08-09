@@ -12,9 +12,11 @@ interface Props {
   lang?: string;
   bodyClass?: string;
   lightHeader?: boolean;
+  hasTranslations?: boolean;
+  noindex?: boolean;
 }
 
-const { title, image = "/og-default.jpg", lang = "en", bodyClass, lightHeader = true } = Astro.props;
+const { title, image = "/og-default.jpg", lang = "en", bodyClass, lightHeader = true, hasTranslations = true, noindex = false } = Astro.props;
 
 const validLang: Lang = (lang === 'fr' || lang === 'it' || lang === 'pt') ? lang as Lang : 'en';
 const t = ui[validLang];
@@ -43,6 +45,14 @@ const siteTitle = title === "Home"
     : `${title} · Laurie Di Francesco`;
 const canonicalURL = new URL(Astro.url.pathname, SITE_URL).href;
 const ogImage = image.startsWith("http") ? image : `${SITE_URL}${image}`;
+
+// Hreflang — strip lang prefix to get the base path common to all variants
+const pathname = Astro.url.pathname;
+const hreflangBase = validLang !== 'en'
+  ? (pathname.replace(/^\/(fr|it|pt)/, '') || '/')
+  : pathname;
+const hreflangURL = (l: string) =>
+  l === 'en' ? `${SITE_URL}${hreflangBase}` : `${SITE_URL}/${l}${hreflangBase}`;
 ---
 
 <!doctype html>
@@ -70,6 +80,16 @@ const ogImage = image.startsWith("http") ? image : `${SITE_URL}${image}`;
     <meta name="twitter:image" content={ogImage} />
 
     <link rel="canonical" href={canonicalURL} />
+    {noindex && <meta name="robots" content="noindex, follow" />}
+    {hasTranslations && (
+      <>
+        <link rel="alternate" hreflang="en" href={hreflangURL('en')} />
+        <link rel="alternate" hreflang="fr" href={hreflangURL('fr')} />
+        <link rel="alternate" hreflang="it" href={hreflangURL('it')} />
+        <link rel="alternate" hreflang="pt" href={hreflangURL('pt')} />
+        <link rel="alternate" hreflang="x-default" href={hreflangURL('en')} />
+      </>
+    )}
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="alternate icon" href="/favicon.ico" />
     <title>{siteTitle}</title>

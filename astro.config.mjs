@@ -4,6 +4,8 @@ import sitemap from '@astrojs/sitemap';
 
 export default defineConfig({
   site: 'https://lauriedifrancesco.art',
-  integrations: [sitemap()],
+  integrations: [sitemap({
+    filter: (page) => !page.includes('/private'),
+  })],
   server: { port: 4321, host: true },
 });
