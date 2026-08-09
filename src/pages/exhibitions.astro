@@ -182,14 +182,32 @@ const videos = [
 <script>
   /* ── Justified grid rows (natural aspect ratios) ────── */
   function justifyGrid() {
+    const mob = window.innerWidth <= 700;
     document.querySelectorAll<HTMLElement>('.ex-grid-row').forEach(row => {
       const figs = Array.from(row.querySelectorAll<HTMLElement>('.ex-grid-fig'));
       const imgs = figs.map(f => f.querySelector('img') as HTMLImageElement);
+      const getR = (im: HTMLImageElement) =>
+        (im.naturalWidth && im.naturalHeight) ? im.naturalWidth / im.naturalHeight : 1;
       function apply() {
+        if (mob && figs.length === 3) {
+          figs[0].style.flex = `${getR(imgs[0]).toFixed(4)} 1 0`;
+          figs[1].style.flex = `${getR(imgs[1]).toFixed(4)} 1 0`;
+          figs[2].style.flex = '0 0 100%';
+          return;
+        }
+        if (mob && figs.length === 4) {
+          const avail = row.clientWidth - 8;
+          ([[0,1],[2,3]] as [number,number][]).forEach(([a,b]) => {
+            const ra = getR(imgs[a]), rb = getR(imgs[b]);
+            const wa = Math.round(ra / (ra + rb) * avail);
+            figs[a].style.flex = `0 0 ${wa}px`;
+            figs[b].style.flex = `0 0 ${avail - wa}px`;
+          });
+          return;
+        }
         imgs.forEach((im, i) => {
-          const ratio = (im.naturalWidth && im.naturalHeight)
-            ? im.naturalWidth / im.naturalHeight : 1;
-          figs[i].style.flexGrow = ratio.toFixed(4);
+          figs[i].style.flex = '';
+          figs[i].style.flexGrow = getR(im).toFixed(4);
         });
       }
       if (imgs.every(im => im.complete && im.naturalWidth)) apply();

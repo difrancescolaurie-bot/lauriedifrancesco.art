@@ -325,11 +325,33 @@ Fichiers touchés : `src/styles/global.css`, `src/styles/pages/work-project.css`
 
 **S.7 — Correction `layoutGalRows()` : lecture de `document.body`.** La propriété `--rowh` étant définie sur `body.page-spill` (non sur `:root`), `getComputedStyle(document.documentElement)` renvoyait la valeur racine 403 px sur Spilling. Correction dans les 10 fichiers de pages série (EN + lang) via script Python : `getComputedStyle(document.documentElement)` remplacé par `getComputedStyle(document.body)`. Vérification JS sur Spilling : rowhBody=906 px ; sur ECM : rowhBody=403 px.
 
-**S.8 — ECM PT : reformulation en attente.** Deux phrases avec tirets cadratins en portugais non encore corrigées (attente de reformulation par Laurie). Texte actuel : "Houve uma estação em que o corpo cedeu — quando a doença arrancou o chão de tudo e a força escoou como uma maré vazante." et "Nadar era ser carregada e carregar a si mesma ao mesmo tempo — emergir, e emergir de novo, até que emergir se tornasse uma forma de viver."
+**S.8 — ECM PT : reformulation appliquée.** Les deux phrases avec tirets cadratins dans `projectText` (portugais) ont été reformulées par Laurie et corrigées dans `src/pages/[lang]/work/en-corps-en-la-mer.astro`. Note : une citation Claire Marin dans un `<blockquote>` de la même page contient encore un tiret cadratin ; décision de contenu signalée à Laurie, non modifiée.
 
 Recette S vérifiée dans le navigateur à 1440 px : toutes les rangées de série à 1224 px (totalW=1224 px, JS), gal-cell--photo à 403-404 px (JS), filet 64 px. Spilling 2.jpg : 604×906 px (JS).
 
 Fichiers touchés : `src/styles/pages/work-project.css`, `src/pages/work/la-mer-en-corps.astro`, `src/pages/[lang]/work/la-mer-en-corps.astro`, `src/pages/work/toward-the-blue.astro`, `src/pages/[lang]/work/toward-the-blue.astro`, `src/pages/work/quando-sono-qui.astro`, `src/pages/[lang]/work/quando-sono-qui.astro`, `src/pages/work/vedere-venezia.astro`, `src/pages/[lang]/work/vedere-venezia.astro`, `src/pages/work/en-corps-en-la-mer.astro`, `src/pages/[lang]/work/en-corps-en-la-mer.astro`, `src/pages/work/spilling-beyond-the-lines.astro`, `src/pages/[lang]/work/spilling-beyond-the-lines.astro`.
+
+---
+
+**Lot T — Passe mobile (audit Android 485 px portrait).**
+
+**T.1 — Photo flottante LMEC sur mobile.** `.lmec-photo-float img` avait `height: var(--rowh); width: auto` sans override mobile : l'image occupait 403 px de haut avec une largeur auto, ne remplissant pas la colonne. Correction dans `work-project.css` : ajout de `.lmec-photo-float img { height: auto; width: 100%; }` dans le bloc `@media (max-width: 700px)`. Les 5 pages série (gal-cell--photo) étaient déjà correctes : `flex: 0 0 100%` en CSS et `cell.style.width = ''` en JS suffisaient. Vérification JS : floatImg 445×297 px (ratio naturel).
+
+**T.2 — Galerie LMEC sur mobile.** Le bloc `@media (max-width: 700px)` forçait `flex: 0 0 calc(50% - 4px) !important` sur toutes les figures, écrasant les valeurs calibrées en ligne (0.7519, 0.6786, 1.4997, 0.6668). Résultat : largeurs identiques, hauteurs divergentes. Correction : suppression complète du bloc, remplacé par `.lmec-gallery { --gap: 8px; }`. Les valeurs calibrées en ligne gouvernent à toutes tailles et maintiennent des hauteurs cohérentes par rangée. Vérification JS à 485 px : rangée 2 (313/311 px), rangée 3 (202/202 px), rangée 4 (146/146 px). Valeurs verrouillées 0.7519 et 0.6786 préservées.
+
+**T.3 — Citation Benjamin Clementine (LMEC).** `.lmec-prose .epi-wrap` avait `margin: .5rem 0 .5rem` : la citation était trop proche du texte suivant. Correction : `margin: 1.4rem 0 1.4rem` (aligné sur le `margin-bottom: 1.4rem` de `.opening-text`). Vérification JS : margins 22.4 px = 1.4rem ✓. Le bug existait aussi sur desktop.
+
+**T.4 — Page Projects, bloc P4 sur mobile.** `.p4 .p4-below { gap: 1.5rem; }` créait un écart excessif entre le label "Rebirth. An attempt." et le titre "Vedere Venezia". Correction dans `work-index.css` : `gap: 0`. L'espacement résiduel (6 px) est assuré par `margin-bottom: .4rem` sur `.wi-cerule`. Vérification JS : spaceBetween = 6 px ✓.
+
+**T.5a — Expositions : grille justifiée sur mobile.** `justifyGrid()` n'avait pas de vérification mobile, causant un item isolé en pleine largeur sur les rangées à 3 photos. Correction dans `exhibitions.astro` : ajout du même modèle que `justify()` dans les pages série. Rangées 3-photos : fig[0]+fig[1] côte à côte proportionnels, fig[2] pleine largeur. Rangées 4-photos : deux paires proportionnelles (même mécanisme que QSQ 4-photos). Desktop : `fig.style.flex = ''` + `flexGrow = ratio` (comportement d'origine préservé). Vérification JS à 485 px : rangée 1 (0.6669/1.4308/100%), rangée 2 (0.6667/1.0/100%), rangée 3 (paires 230+207 et 278+159 px).
+
+**T.5b — Expositions : images exclues de la visionneuse.** Les images de `.ex-grid-wrap` et `.ex-artwork-wrap` ne doivent pas être cliquables. Correction dans `Lightbox.astro` : ajout de `.ex-grid-wrap` et `.ex-artwork-wrap` à `SKIP_PARENTS`. Vérification JS : cursor:auto sur les images de grille ✓.
+
+**T.6 — Orientation paysage (diagnostic seulement, aucune correction).** À 1003×377 px (Android paysage), le breakpoint mobile `max-width: 700px` ne s'applique pas (1003 > 700) : le layout desktop s'active. `--rowh: 403px` dépasse la hauteur de l'écran (377 px). Aucune mesure de hauteur ou d'orientation dans le CSS actuel. Approche proposée pour une session ultérieure : `--rowh: min(403px, 55dvh)` sur `:root` dans `global.css`. Cette valeur se réduit automatiquement quand la hauteur d'écran est insuffisante, sans affecter le desktop standard (900 px+ : 55dvh = 495 px > 403 px, donc la valeur fixe s'applique).
+
+Recette T vérifiée dans le navigateur à 485 px : float LMEC 445×297 px, galerie LMEC hauteurs cohérentes, citation margins 22.4 px, P4 gap 0 px, grille expositions proportionnelle, cursor:auto sur images expo.
+
+Fichiers touchés : `src/styles/pages/work-project.css`, `src/styles/pages/work-index.css`, `src/components/Lightbox.astro`, `src/pages/exhibitions.astro`.
 
 ---
 

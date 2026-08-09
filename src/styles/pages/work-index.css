@@ -344,7 +344,7 @@ body { background: var(--sable); }
   /* P4 : bleed droite uniquement → gap à gauche (alternance avec P2) */
   .p4 .p4-img-row { margin-right: calc(-1 * var(--gutter)); }
   .p4 .proj-img { width: 88%; aspect-ratio: 3 / 2; }
-  .p4 .p4-below { gap: 1.5rem; }
+  .p4 .p4-below { gap: 0; }
   .p4-title-big { max-width: none; }
 
   /* P5 mobile : même comportement que P2 */

@@ -393,7 +393,7 @@ figure.match img {
   margin-bottom: 1.6rem;
 }
 .lmec-prose .epi-wrap {
-  margin: .5rem 0 .5rem;
+  margin: 1.4rem 0 1.4rem;
   max-width: 60ch;
 }
 /* Supprimer la marge basse du dernier enfant pour égaliser l'espace avant la photo */
@@ -451,10 +451,7 @@ figure.match img {
   .lmec-gallery .row > .col { flex: 1 1 100% !important; }
 }
 @media (max-width: 700px) {
-  .lmec-gallery .row { flex-wrap: wrap; gap: 8px; }
-  .lmec-gallery .row > figure,
-  .lmec-gallery .row > .col { flex: 0 0 calc(50% - 4px) !important; }
-  .lmec-gallery .row:has(> figure:only-child) > figure { flex: 0 0 100% !important; }
+  .lmec-gallery { --gap: 8px; }
 }
 
 /* ── Mobile ─────────────────────────────────────────── */
@@ -475,6 +472,7 @@ figure.match img {
     margin-right: 0;
     margin-bottom: 1.5rem;
   }
+  .lmec-photo-float img { height: auto; width: 100%; }
   .series { gap: 8px; }
   .spread { flex-wrap: wrap; gap: 8px; min-height: 100px; }
   .spread--single figure { flex: 1 1 100%; }
