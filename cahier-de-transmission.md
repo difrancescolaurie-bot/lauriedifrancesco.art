@@ -373,6 +373,43 @@ Commit : `1fcab42`. Fichiers touchés : `src/components/Header.astro`, `src/comp
 
 ---
 
+**Lot W — Corrections mobile, Spilling, suppression de l'effet éventail.**
+
+**W.1 — Rangées de galerie justifiées au pixel près sur mobile.** Toutes les pages série disposaient d'une logique `justify()` pour le desktop (flex-grow proportionnel), mais les rangées de deux ou trois images en mobile n'étaient pas justifiées exactement : le dernier élément prenait la largeur restante par flexbox, ce qui introduisait un écart sub-pixel visible. Correction : ajout d'une fonction `apply()` dans chaque page avec cas mobile explicites. Rangée 2 : `avail = row.clientWidth - 4` (écart 4 px entre images) ; `w0 = round(r0/(r0+r1)*avail)` ; `figs[0].flex = 0 0 w0px` ; `figs[1].flex = 0 0 (avail-w0)px`. Rangée 3 : même calcul pour les deux premières images, troisième en `100%`. Rangée 4 : deux paires proportionnelles (avail - 8 px pour deux écarts). Pages Spilling (avec recadrages `land-crop`/`port-crop`) : version 2 paramètres `getR(img, fig)` qui retourne le ratio fixe si un recadrage CSS est présent. Vérification JS à 375 px : rangée 2 `[166, 165]` px, somme 331 + 4 = 335 = `clientWidth` ✓. À 485 px : `[221, 220]` px ✓.
+
+Fichiers touchés : les 10 pages série EN et [lang] (QSQ, Spilling, TTB, VV, ECM, LMEC).
+
+**W.2 — Visionneuse circulaire, flèches toujours visibles.** La visionneuse masquait les flèches aux extrémités (`opacity: 0; pointer-events: none`) et bloquait la navigation. Correction dans `Lightbox.astro` : suppression des règles `opacity`/`pointerEvents` dans `show()` ; navigation circulaire via `idx = ((i % n) + n) % n`. Clic sur `prev` depuis la première image → dernière image ; clic sur `next` depuis la dernière image → première image. Gestes tactiles et touches clavier (ArrowLeft/ArrowRight) bénéficient du même comportement. Gestionnaire Tab simplifié (les deux boutons sont toujours focusables). Vérification JS : depuis photo 1/9 → clic prev → photo 9/9 ✓ ; clic next → photo 1/9 ✓.
+
+Fichier touché : `src/components/Lightbox.astro`.
+
+**W.3 — La Mer en Corps, espace entre la vidéo et la citation sur mobile.** La citation était collée à la vidéo en mobile. Cause : `.lmec-vid-intro.gal-row { gap: 0; align-items: stretch; }` (sélecteur à deux classes, spécificité 2) écrasait la règle mobile `.lmec-vid-intro { gap: clamp(3rem,7vh,5rem); }` (spécificité 1). Correction : suppression de `gap: 0` dans le sélecteur double-classe, qui passe à `.lmec-vid-intro.gal-row { align-items: stretch; }`. Desktop non affecté : `--gap-gal: 16px` s'applique via `.gal-row`. Vérification JS : mobile `gap: 56.84px` (= 7vh de 812 px) ✓ ; desktop `gap: 16px` ✓.
+
+Fichier touché : `src/styles/pages/work-project.css` (ligne 511).
+
+**W.4 — Lien « voir les images » découplé du texte de projet.** Sur les pages sans texte de projet (QSQ version EN), le lien `.see-images` n'avait pas de point d'ancrage logique. Règle révisée : si la page a un texte de projet → le lien se place à sa fin ; si la page n'a que du texte d'ouverture → le lien se place après le dernier bloc d'ouverture. Implémentation : `.see-images` déplacé après `<p class="intro-text">` dans les pages EN sans texte de projet, et après `<a class="see-images">` avant `<hr class="horizon">` dans les pages [lang] avec texte de projet.
+
+Pages touchées : `quando-sono-qui.astro` (EN et [lang]), `la-mer-en-corps.astro` (EN et [lang]), `spilling-beyond-the-lines.astro` (EN et [lang]).
+
+**W.5 — Audit du compte d'images.** Contrôle sur toutes les pages projet : la vidéo LMEC est exclue du compte (`SKIP_PARENTS` contient `.lmec-video-wrap`). Aucune image ne compte deux fois. Spilling : après suppression des captions et réintégration de la photo 44, le compte est 47 photographies (1 ouverture + 46 en série). QSQ : 24 photographies confirmé (le `.lb-photo` créé par le JS lui-même ne se compte pas car il n'existe pas encore au moment de l'inventaire). LMEC : 9 photographies (vidéo exclue). Aucune correction requise.
+
+**W.6 — Spilling, poids des images.** 43 images redimensionnées à 1200 px de large (max) avec `sips` (ratio conservé) ; `19.jpg` déjà à 1145 px, inchangé. 4 fichiers (39, 45, 46, 48) avaient été supprimés du répertoire sans commit : restaurés depuis l'historique git et redimensionnés. Poids total avant : 72 Mo (44 fichiers). Poids total après : 25 Mo (48 fichiers, 4 restaurés). Réduction : 65 %.
+
+Fichier touché : `public/images/spilling/` (48 fichiers .jpg).
+
+**W.7 — Spilling, composition de la galerie.**
+- **W.7a — Suppression des trois légendes.** Les phrases intercalées dans la galerie (attribut `caption`) ont été supprimées de toutes les langues avant suppression définitive. Textes supprimés : FR « Ni tout à fait un départ ni vraiment un retour... » (row 7-10), « Déborder les lignes laisse trembler les contours... » (row 45-46), « Pour moi, la photographie est une façon de rester en mouvement... » (single 30) — et leurs équivalents IT et PT. EN : les chaînes étaient inline dans la page. [lang] : les clés `cap1`/`cap2`/`cap3` du dictionnaire `content` ont été supprimées.
+- **W.7b — Suppression de l'effet éventail.** Le type `composed` et toutes les règles CSS `.spread--composed` ont été supprimés. Le spread concerné est passé en `type: 'row'`. Règles supprimées : `align-items: flex-start; gap: 0; margin-block; figure flex/transform/z-index/margin; img border-radius: 12px` et leurs overrides mobile `!important`.
+- **W.7c — Photos 22 et 23 séparées.** La rangée commune a été remplacée par deux `type: 'single'` consécutifs.
+- **W.7d — Photo 44 réintégrée.** Ajoutée dans une rangée partagée avec la photo 47 (`type: 'row'`). Nouveau compte série : 47 photographies.
+- **W.7e — Coins arrondis supprimés dans la visionneuse.** `border-radius: 4px` retiré de `.lb-photo` dans `Lightbox.astro`. Vérification JS : `borderRadius: "0px"` ✓. Aucune ombre portée détectée.
+
+Fichiers touchés : `src/pages/work/spilling-beyond-the-lines.astro`, `src/pages/[lang]/work/spilling-beyond-the-lines.astro`, `src/styles/pages/work-project.css`, `src/components/Lightbox.astro`.
+
+Commits : `37425a5` (W.1), `9da11af` (W.4+W.5), `13882ed` (W.7), `1a73dc6` (W.3), `aebc304` (W.2), `07c52fc` + `f2e477f` (W.6).
+
+---
+
 ## 9. Travailler avec Claude Code
 1. Créer le dépôt GitHub + projet Astro, connecter Cloudflare Pages.
 2. Donner **ce cahier** en contexte.
