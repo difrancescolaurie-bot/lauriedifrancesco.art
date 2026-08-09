@@ -1,6 +1,66 @@
 # Contenus des pages projet — état actuel
-Extrait le 2026-08-08, commit b58002b (Lot O)
+Extrait le 2026-08-08, commit b58002b (Lot O). Bio mise à jour Lot X, 2026-08-09.
 Copie exacte — aucune reformulation
+
+---
+
+## ABOUT — BIO (Lot X, 2026-08-09)
+
+### FR
+
+**Origines**
+Laurie Di Francesco est photographe et autrice, largement autodidacte.
+Elle a grandi entre la France et l'Italie, puis a découvert le Brésil, qui est devenu une troisième terre d'accueil.
+
+**Approche**
+Elle met en images des récits intimes qui traitent des déplacements, géographiques d'abord, intérieurs ensuite. Ses projets illustrent les mouvements qui précèdent une transformation et interrogent régulièrement la notion de seuil, comme l'invitation d'une ligne à dépasser.
+Son langage est poétique, sensoriel et philosophique. Elle pense et s'exprime en plusieurs langues, dont elle travaille les rythmes.
+
+**Travaux**
+Elle travaille actuellement sur deux séries. *Quando sono qui, non sono là* interroge la possibilité d'une renaissance après une enfance empêchée. *La Mer en Corps* documente le rapport d'un corps affaibli à la mer, en mêlant effort physique, nouvelles technologies et photographie argentique.
+Elle a exposé pour la première fois au Brésil, à Belo Horizonte, en 2024, et a rejoint en 2026 le collectif français Monolit.
+
+### EN
+
+**Origins**
+Laurie Di Francesco is a photographer and author, largely self-taught.
+She grew up between France and Italy, then discovered Brazil, which became a third home.
+
+**Approach**
+She gives image to intimate narratives about displacement, geographical first, inner afterwards. Her projects trace the movements that precede a transformation, and return again and again to the notion of the threshold, as the invitation of a line to be crossed.
+Her language is poetic, sensory and philosophical. She thinks and speaks in several languages, whose rhythms she works with.
+
+**Work**
+She is currently working on two series. *Quando sono qui, non sono là* questions the possibility of a rebirth after a childhood held back. *La Mer en Corps* documents the relation of a weakened body to the sea, weaving together physical effort, new technologies and film photography.
+Her first exhibition was held in Brazil, in Belo Horizonte, in 2024, and she joined the French collective Monolit in 2026.
+
+### IT
+
+**Origini**
+Laurie Di Francesco è fotografa e autrice, in gran parte autodidatta.
+È cresciuta tra la Francia e l'Italia, poi ha scoperto il Brasile, diventato una terza terra d'accoglienza.
+
+**Approccio**
+Mette in immagini racconti intimi che parlano di spostamenti, prima geografici, poi interiori. I suoi progetti mostrano i movimenti che precedono una trasformazione e interrogano di continuo la nozione di soglia, come l'invito di una linea da oltrepassare.
+Il suo linguaggio è poetico, sensoriale e filosofico. Pensa e si esprime in più lingue, di cui lavora i ritmi.
+
+**Lavori**
+Attualmente lavora a due serie. *Quando sono qui, non sono là* interroga la possibilità di una rinascita dopo un'infanzia impedita. *La Mer en Corps* documenta il rapporto di un corpo indebolito con il mare, intrecciando sforzo fisico, nuove tecnologie e fotografia analogica.
+Ha esposto per la prima volta in Brasile, a Belo Horizonte, nel 2024, e nel 2026 è entrata nel collettivo francese Monolit.
+
+### PT
+
+**Origens**
+Laurie Di Francesco é fotógrafa e autora, em grande parte autodidata.
+Cresceu entre a França e a Itália, e depois descobriu o Brasil, que se tornou uma terceira terra de acolhimento.
+
+**Abordagem**
+Coloca em imagens narrativas íntimas que tratam de deslocamentos, geográficos primeiro, interiores depois. Seus projetos mostram os movimentos que precedem uma transformação e interrogam com frequência a noção de limiar, como o convite de uma linha a ultrapassar.
+Sua linguagem é poética, sensorial e filosófica. Pensa e se expressa em várias línguas, cujos ritmos ela trabalha.
+
+**Trabalhos**
+Atualmente trabalha em duas séries. *Quando sono qui, non sono là* interroga a possibilidade de um renascimento depois de uma infância impedida. *La Mer en Corps* documenta a relação de um corpo enfraquecido com o mar, unindo esforço físico, novas tecnologias e fotografia analógica.
+Expôs pela primeira vez no Brasil, em Belo Horizonte, em 2024, e em 2026 entrou para o coletivo francês Monolit.
 
 ---
 

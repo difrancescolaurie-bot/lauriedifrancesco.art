@@ -136,9 +136,11 @@ Correspondance **numéro de badge → fichier** (numéros visibles dans le proto
 **Épigraphe** : citation d'ouverture de **Gilberto Gil — *Back in Bahia***. Laurie **colle elle-même les vers** (droits d'auteur — ne pas les reproduire automatiquement).
 
 ### À propos (About)
-- **Ouvre sur une épigraphe d'Aristote.**
-- **Biographie curatoriale à la 3e personne**, multilingue → *[Laurie : coller ici la bio finalisée]*.
-- Portrait. Influences (Andujar, Iturbide, Ghirri, Lartigue, Álvarez Bravo, Rio Branco, Diniz, Battaglia…). Trois projets en cours.
+- **Ouvre sur l'épigraphe d'Aristote** (Métaphysique, Livre A) — traduction propre à chaque langue, déjà présente dans `translations.ts`.
+- **Bio en 3 blocs libellés** (Lot X, 2026-08-09) : Origines · Approche · Travaux (FR), Origins · Approach · Work (EN), Origini · Approccio · Lavori (IT), Origens · Abordagem · Trabalhos (PT). Chaque bloc a deux courts paragraphes. Le libellé est à gauche sur desktop, au-dessus sur mobile.
+- **Tableau de références** (Collectif, Formation, Ateliers, Inspirations) sous un filet, en 4 colonnes desktop, 1 colonne mobile.
+- **Sortie en bas de page** sous un filet : libellé discret (Suite / Next / Segue) à gauche, lien vers les projets à droite.
+- Textes de la bio dans `translations.ts` (clé `about.bio.p1` à `p6`). Textes source en FR écrits par Laurie ; traductions EN, IT, PT à relire avant mise en ligne.
 
 ### Expositions (Exhibitions) — page dédiée
 - Parcours : **Belo Horizonte, Brésil — 2024**. Vues d'accrochage / photos. (Page autonome volontairement, pour que le parcours soit visible.)
