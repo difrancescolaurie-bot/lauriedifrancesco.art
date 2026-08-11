@@ -584,6 +584,42 @@ Les rangées 1, 2, 4 sont dans les seuils. La rangée 3 est à recomposer en mob
 
 ---
 
+**Lot AJ — Corrections techniques SEO (2026-08-11).**
+
+**AJ.1 — Duplication www corrigée.** Règle Cloudflare Redirect Rule créée : wildcard `https://www.lauriedifrancesco.art/*` → `https://lauriedifrancesco.art/${1}`, 301. Le code était déjà propre (canonical non-www partout). Vérifié : `curl -I https://www.lauriedifrancesco.art/fr/` retourne `HTTP/2 301` vers la version non-www.
+
+**AJ.2 — Hreflang pt-BR.** Diagnostic : `hreflang="pt"` au lieu de `"pt-BR"`, et `<html lang="pt">` incorrects. Correction proposée, appliquée en lot AK.
+
+**AJ.3 — URLs 404 (Squarespace).** Trois URLs identifiées dans GSC : `/projects` (8 impressions), `/photos/carnaval?…`, `/landingpage`. Solution : redirection Cloudflare `/projects*` → `/work${1}` (301) ; les deux autres restent en 404 (reliques Squarespace sans valeur). 9 autres anciens chemins Squarespace testés (/portfolio, /gallery, /bio, /info, /about-1, /work-1, /photos, /contact-1, /home) : tous en 404, rien à faire.
+
+**AJ.4 — Sitemap.** Filtre ajouté dans `astro.config.mjs` pour exclure `/private` (déjà fait) et `/legal` (nouveau). Pas de `lastmod` dans le sitemap : comportement normal d'`@astrojs/sitemap` sans dates explicites.
+
+---
+
+**Lot AK — Validations et suite (2026-08-11). Commit 16c6e8a.**
+
+**AK.1 — www redirect.** Confirmé clos.
+
+**AK.2 — hreflang pt-BR appliqué.** `Layout.astro` : constante `htmlLang` (mappe `pt` → `pt-BR` pour l'attribut HTML uniquement), `<html lang={htmlLang}>`, `hreflang="pt-BR"`. Les URLs `/pt/` restent inchangées.
+
+**AK.3 — Sitemap /legal filtré.** `astro.config.mjs` mis à jour. Vérifié en production : `/legal` absent du sitemap en ligne (https://lauriedifrancesco.art/sitemap-0.xml).
+
+**AK.4 — Cloudflare /projects → /work.** Règle déployée : wildcard `https://lauriedifrancesco.art/projects*` → `https://lauriedifrancesco.art/work${1}`, 301. Vérifié : `curl -I https://lauriedifrancesco.art/projects` retourne `HTTP/2 301` vers `/work`.
+
+**AK.5 — LMEC rangée 3 mobile recomposée.** Rangée 3 (portrait flex:0.6668 + paysage flex:1.4997) : `flex-wrap: wrap` + `flex: 1 1 100% !important` sur figures à `≤700px`. Chaque image prend 335 px (pleine largeur), ordre préservé. Desktop inchangé. Fichier : `work-project.css`.
+
+**AK.6 — Audit galeries mobiles.** Résultat avant correction : QSQ/VV/TTB à 109 px (3-col, ratio 1:1, 1 px sous seuil), ECLM à 81 px (4-col), Spilling à 81 px (4-col). Aucun rapport > 1:2. Correction 4-col reportée en lot AM.
+
+---
+
+**Lot AM — Descriptions localisées et recomposition spread mobile (2026-08-11). Commit 7203871.**
+
+**AM.1 — Recomposition spread mobile.** Diagnostic : `.spread { flex-wrap: wrap }` était en place, mais sans `flex-basis` contraint sur les figures, les 4 colonnes tenaient sur une ligne à 81 px. La règle qui fonctionne sur la page Exhibitions (`.ex-grid-fig { flex: 0 0 calc(50% - 4px) }`) couvre `.ex-grid-fig`, pas `.spread--row > figure`. Extension du sélecteur existant : `.spread--row figure { flex: 1 1 calc(50% - 2px) }` ajouté dans le bloc `@media (max-width: 700px)` de `work-project.css`. Résultat : 4-col → 2+2 à 166 px, 3-col → 2+1 à 166 px. Aucune rangée sous 110 px sur l'ensemble du site. LMEC rangée 3 inchangée (sélecteur `.lmec-gallery .row:nth-child(3)` plus spécifique).
+
+**AM.2 — Descriptions SEO localisées.** 24 descriptions (6 projets × 4 langues) intégrées. Chaque page `[lang]/work/*.astro` reçoit un objet `descriptions: Record<Lang, string>` ; la prop `description={descriptions[lang as Lang]}` alimente `meta description` et `og:description`. Pages EN (`work/*.astro`) : description hardcodée EN. Longueurs vérifiées (toutes conformes aux comptes attendus, max 154 car.). Textes déposés dans `contenus-projets.md`.
+
+---
+
 ## 9. Travailler avec Claude Code
 1. Créer le dépôt GitHub + projet Astro, connecter Cloudflare Pages.
 2. Donner **ce cahier** en contexte.

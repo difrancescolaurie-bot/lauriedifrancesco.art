@@ -1,6 +1,48 @@
 # Contenus des pages projet — état actuel
-Extrait le 2026-08-08, commit b58002b (Lot O). Bio mise à jour Lot X, 2026-08-09. Textes QSQ et Spilling (8+5 paragraphes), corrections traductions, Lot AA, 2026-08-09.
+Extrait le 2026-08-08, commit b58002b (Lot O). Bio mise à jour Lot X, 2026-08-09. Textes QSQ et Spilling (8+5 paragraphes), corrections traductions, Lot AA, 2026-08-09. Descriptions SEO ajoutées (24 entrées, 6 projets × 4 langues), Lot AM, 2026-08-11.
 Copie exacte — aucune reformulation
+
+---
+
+## DESCRIPTIONS SEO (Lot AM, 2026-08-11)
+
+Alimentent `meta description` et `og:description` sur chaque page localisée.
+
+### QUANDO SONO QUI, NON SONO LÀ
+- **FR** Une traversée photographique de l'allégorie de la caverne : cerrado brésilien, peintures rupestres, enfance ressignifiée. Série en cours.
+- **EN** A photographic crossing of the allegory of the cave: Brazilian cerrado, rock paintings, a childhood given new meaning. Ongoing series.
+- **IT** Un attraversamento fotografico dell'allegoria della caverna: cerrado brasiliano, pitture rupestri, un'infanzia risignificata. Serie in corso.
+- **PT** Uma travessia fotográfica da alegoria da caverna: cerrado brasileiro, pinturas rupestres, uma infância ressignificada. Série em curso.
+
+### TOWARD THE BLUE
+- **FR** Lever les yeux vers le bleu du ciel et le voir s'ouvrir en nuances. Une série photographique sur le rêve d'une légèreté perdue.
+- **EN** Looking up into the blue of the sky and watching it open into new shades. A photographic series on the dream of a lightness lost.
+- **IT** Alzare gli occhi verso il blu del cielo e vederlo aprirsi in sfumature. Una serie fotografica sul sogno di una leggerezza perduta.
+- **PT** Erguer os olhos para o azul do céu e vê-lo abrir-se em nuances. Uma série fotográfica sobre o sonho de uma leveza perdida.
+
+### EN CORPS À LA MER
+- **FR** Refaire surface · Réapprendre à marcher par l'eau et par les rêves. Une série photographique entre nuit, corps et mer · 2025.
+- **EN** Surfacing · Learning to walk again through water and dreams. A photographic series between night, body and sea · 2025.
+- **IT** Riemergere · Reimparare a camminare attraverso l'acqua e i sogni. Una serie fotografica tra notte, corpo e mare · 2025.
+- **PT** Emergir · Reaprender a andar pela água e pelos sonhos. Uma série fotográfica entre noite, corpo e mar · 2025.
+
+### LA MER EN CORPS
+- **FR** Une année de nage en eau libre : 53 traces GPS devenues dessins, l'eau et les rêves donnant corps au mouvement. Deuxième saison d'En Corps à la Mer.
+- **EN** A year of open-water swimming: 53 GPS traces turned into drawings, water and dreams giving body to movement. Season two of En Corps à la Mer.
+- **IT** Un anno di nuoto in acque libere: 53 tracce GPS diventate disegni, l'acqua e i sogni che danno corpo al movimento. Seconda stagione di En Corps à la Mer.
+- **PT** Um ano de natação em águas abertas: 53 traços GPS que viram desenhos, a água e os sonhos dando corpo ao movimento. Segunda temporada de En Corps à la Mer.
+
+### VEDERE VENEZIA E NON MORIRE
+- **FR** Voir Venise sans en mourir : le proverbe retourné. Une ville de mémoire familiale retraversée seule, en noir et blanc, de la nuit vers le jour.
+- **EN** To see Venice and not die: the proverb turned around. A city of family memory crossed again, alone, in black and white, from night into day.
+- **IT** Vedere Venezia e non morirne: il proverbio rovesciato. Una città di memoria familiare riattraversata da sola, in bianco e nero, dalla notte al giorno.
+- **PT** Ver Veneza sem morrer disso: o provérbio invertido. Uma cidade de memória familiar atravessada de novo, sozinha, em preto e branco, da noite ao dia.
+
+### SPILLING BEYOND THE LINES
+- **FR** Vingt ans d'archives relues à la recherche des lignes : frontières sociales et contours du monde. Exposition puis maquette de livre · 2024.
+- **EN** Twenty years of archives reread in search of lines: social borders and the contours of the world. An exhibition, then a book dummy · 2024.
+- **IT** Vent'anni di archivi riletti in cerca delle linee: confini sociali e contorni del mondo. Una mostra, poi il prototipo di un libro · 2024.
+- **PT** Vinte anos de arquivos relidos em busca das linhas: fronteiras sociais e contornos do mundo. Exposição e depois boneco de livro · 2024.
 
 ---
 
