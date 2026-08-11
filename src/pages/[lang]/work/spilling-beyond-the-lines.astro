@@ -56,7 +56,7 @@ const content = {
   },
 }[lang as 'fr' | 'it' | 'pt'];
 
-const s = (path: string) => `/images/spilling/${path}`;
+const s = (path: string) => `/images/work/spilling-beyond-the-lines/${path}`;
 
 type Photo = { src: string; full: string; n: number; figClass?: string };
 type Spread = {
@@ -91,7 +91,7 @@ const spreads: Spread[] = [
 <Layout
   title={`${t.work.spillingTitle} · Laurie Di Francesco`}
   description={descriptions[lang as Lang]}
-  image="/images/work/spilling-cover.jpg"
+  image="/images/work/spilling-beyond-cover.jpg"
   lang={lang}
   bodyClass="page-spill"
   lightHeader={false}
@@ -100,7 +100,7 @@ const spreads: Spread[] = [
   <!-- ── Hero ─────────────────────────────────────────────── -->
   <section class="phero">
     <div class="phero-bg" aria-hidden="true">
-      <img src="/images/spilling/47.jpg" alt="" loading="eager" />
+      <img src="/images/work/spilling-beyond-the-lines/47.jpg" alt="" loading="eager" />
     </div>
     <div class="phero-inner container">
       <p class="phero-eyebrow">{t.home.projects[4].cerule}</p>

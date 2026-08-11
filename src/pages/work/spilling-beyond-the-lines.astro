@@ -4,7 +4,7 @@ import '../../styles/pages/work-project.css';
 import Citation from '../../components/Citation.astro';
 import NextProject from '../../components/NextProject.astro';
 
-const s = (path: string) => `/images/spilling/${path}`;
+const s = (path: string) => `/images/work/spilling-beyond-the-lines/${path}`;
 
 type Photo = { src: string; full: string; n: number; figClass?: string };
 type Spread = {
@@ -54,7 +54,7 @@ const spreads: Spread[] = [
 <Layout
   title="Spilling Beyond the Lines · Laurie Di Francesco"
   description="Twenty years of archives reread in search of lines: social borders and the contours of the world. An exhibition, then a book dummy · 2024."
-  image="/images/work/spilling-cover.jpg"
+  image="/images/work/spilling-beyond-cover.jpg"
   bodyClass="page-spill"
   lightHeader={false}
 >
@@ -63,7 +63,7 @@ const spreads: Spread[] = [
   <section class="phero">
     <div class="phero-bg" aria-hidden="true">
       <img
-        src="/images/spilling/47.jpg"
+        src="/images/work/spilling-beyond-the-lines/47.jpg"
         alt=""
         loading="eager"
       />
