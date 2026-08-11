@@ -42,7 +42,7 @@ export const ui = {
         training: "Training",
         workshops: "Workshops",
         inspirations: "Inspirations",
-        collectiveFoundedBy: "founded by Oriane Ciantar Olive",
+        collectiveFoundedBy: "founded by Orianne Ciantar Olive",
       },
       bio: {
         p1: "Laurie Di Francesco is a photographer and author, largely self-taught.",
@@ -145,7 +145,7 @@ export const ui = {
         training: "Formation",
         workshops: "Workshops",
         inspirations: "Inspirations",
-        collectiveFoundedBy: "fondé par Oriane Ciantar Olive",
+        collectiveFoundedBy: "fondé par Orianne Ciantar Olive",
       },
       bio: {
         p1: "Laurie Di Francesco est photographe et autrice, largement autodidacte.",
@@ -248,7 +248,7 @@ export const ui = {
         training: "Formazione",
         workshops: "Workshop",
         inspirations: "Ispirazioni",
-        collectiveFoundedBy: "fondato da Oriane Ciantar Olive",
+        collectiveFoundedBy: "fondato da Orianne Ciantar Olive",
       },
       bio: {
         p1: "Laurie Di Francesco è fotografa e autrice, in gran parte autodidatta.",
@@ -351,7 +351,7 @@ export const ui = {
         training: "Formação",
         workshops: "Workshops",
         inspirations: "Inspirações",
-        collectiveFoundedBy: "fundado por Oriane Ciantar Olive",
+        collectiveFoundedBy: "fundado por Orianne Ciantar Olive",
       },
       bio: {
         p1: "Laurie Di Francesco é fotógrafa e autora, em grande parte autodidata.",
