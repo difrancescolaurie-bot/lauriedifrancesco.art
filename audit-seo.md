@@ -90,11 +90,11 @@ La page `private.astro` est également exclue du sitemap par le filtre `/private
 | `/[lang]/` (home) | localisée via `t.home.*` ✓ | id. ✓ | id. ✓ |
 | `/[lang]/work` | `t.work.h1 · Laurie Di Francesco` ✓ | id. ✓ | id. ✓ |
 | `/[lang]/work/la-mer-en-corps` | localisée via `content.caption` ✓ | id. ✓ | id. ✓ |
-| `/[lang]/work/quando-sono-qui` | EN (non localisée) ⚠ | EN ⚠ | EN ⚠ |
-| `/[lang]/work/toward-the-blue` | EN (non localisée) ⚠ | EN ⚠ | EN ⚠ |
-| `/[lang]/work/en-corps-en-la-mer` | EN (non localisée) ⚠ | EN ⚠ | EN ⚠ |
-| `/[lang]/work/vedere-venezia` | EN (non localisée) ⚠ | EN ⚠ | EN ⚠ |
-| `/[lang]/work/spilling-beyond-the-lines` | EN (non localisée) ⚠ | EN ⚠ | EN ⚠ |
+| `/[lang]/work/quando-sono-qui` | localisée ✓ | localisée ✓ | localisée ✓ |
+| `/[lang]/work/toward-the-blue` | localisée ✓ | localisée ✓ | localisée ✓ |
+| `/[lang]/work/en-corps-en-la-mer` | localisée ✓ | localisée ✓ | localisée ✓ |
+| `/[lang]/work/vedere-venezia` | localisée ✓ | localisée ✓ | localisée ✓ |
+| `/[lang]/work/spilling-beyond-the-lines` | localisée ✓ | localisée ✓ | localisée ✓ |
 | `/[lang]/about` | localisée via `t.description` ✓ | id. ✓ | id. ✓ |
 | `/[lang]/exhibitions` | localisée via `t.*` ✓ | id. ✓ | id. ✓ |
 | `/[lang]/contact` | localisée via `t.h1` ✓ | id. ✓ | id. ✓ |
@@ -105,13 +105,13 @@ Les cinq pages projet FR/IT/PT avec description EN ne génèrent pas d'erreur te
 
 ## 3. Observations
 
-### O1 — Sitemap et page `/legal`
+### O1 — Sitemap et page `/legal` — RÉSOLU lot AK (2026-08-11)
 
-La page `/legal` a `noindex={true}` mais n'est pas filtrée du sitemap (seul `/private` l'est). Un moteur d'exploration verra donc `/legal` dans le sitemap et la balise `noindex` sur la page. Ce n'est pas une erreur — la directive `noindex` prime — mais c'est un léger signal contradictoire. Filtre facultatif.
+Filtre `/legal` ajouté dans `astro.config.mjs`. Vérifié en production : `/legal` absent du sitemap en ligne.
 
-### O2 — Descriptions non localisées sur cinq pages projet
+### O2 — Descriptions non localisées sur cinq pages projet — RÉSOLU lot AM (2026-08-11)
 
-Cinq pages projet servies en FR/IT/PT ont une `description=` codée en anglais (voir tableau §2). Cela n'affecte pas le classement pour les requêtes EN, mais peut réduire la pertinence dans les SERPs FR/IT/PT. Correction possible dans `[lang]/work/*.astro` via données de contenu ou traductions dédiées.
+24 descriptions localisées intégrées (6 projets × 4 langues) dans les pages `[lang]/work/*.astro`. Textes déposés dans `contenus-projets.md`. Tableau §2 mis à jour ci-dessous.
 
 ### O3 — `hasTranslations` sur `/contact`
 
@@ -131,3 +131,7 @@ Les pages qui passent une `image="/images/work/[cover].jpg"` relative à `/publi
 | 2026-07 (approx.) | `noindex={true}` sur `/legal` et `/private` | Même audit |
 | 2026-07 (approx.) | Filtre sitemap `!page.includes('/private')` | Même audit |
 | 2026-07 (approx.) | 2 URLs 404 (reliques Squarespace) traitées via outil de suppression GSC | Même audit |
+| 2026-08-11 | Filtre sitemap `/legal` ajouté dans `astro.config.mjs` (lot AK) | O1 |
+| 2026-08-11 | 24 descriptions localisées intégrées, 6 projets × 4 langues (lot AM) | O2 |
+| 2026-08-11 | JSON-LD Person (global), CreativeWork (12 pages), ExhibitionEvent (2 pages) ajoutés via `Layout.astro` (lot AR) | SEO structuré |
+| 2026-08-11 | En-têtes sécurité (`_headers`) : X-Frame-Options, X-Content-Type-Options, Referrer-Policy, Permissions-Policy, CSP (lot AR) | Sécurité |
