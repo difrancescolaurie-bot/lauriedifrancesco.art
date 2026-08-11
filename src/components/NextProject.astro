@@ -17,7 +17,7 @@ const href = next
 {next && href && (
   <div class="next-project container">
     <span class="next-label">{label}</span>
-    <a href={href}>{next.title} →</a>
+    <a href={href}>{next.title}&nbsp;→</a>
   </div>
 )}
 
@@ -49,4 +49,8 @@ const href = next
     transition: color .3s;
   }
   .next-project a:hover { color: var(--cerule); }
+
+  @media (max-width: 700px) {
+    .next-project a { text-align: right; }
+  }
 </style>

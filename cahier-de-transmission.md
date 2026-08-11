@@ -560,6 +560,30 @@ Fichiers touchés : `src/pages/index.astro`, `src/pages/[lang]/index.astro`, `sr
 
 ---
 
+**Lot AH — Micro-corrections (2026-08-11).**
+
+**AH-MC.1 — Citations Bachelard LMEC : attribution retirée de la première citation.** La règle "deux citations consécutives de même source : attribution uniquement sur la dernière" est désormais formalisée dans `CLAUDE.md`. La première citation Bachelard (EN `<Citation extraPad>`, lang `<Citation extraPad>`) n'a plus `author` ni `note`. La seconde conserve `author="Gaston Bachelard · L'Eau et les Rêves"` et les notes de traduction. Fichiers : `src/pages/work/la-mer-en-corps.astro` (EN) et `src/pages/[lang]/work/la-mer-en-corps.astro`. Débordement IT à 1440 px (26 px) accepté : la rangée grandit de 26 px, la vidéo se centre verticalement, comportement normal du modèle.
+
+**AH-MC.2 — NextProject mobile : alignement à droite du titre.** `text-align: right` ajouté sur `.next-project a` dans `@media (max-width: 700px)`. Espace insécable `&nbsp;` entre le dernier mot du titre et la flèche `→` pour qu'ils ne puissent jamais être séparés. Vérifié sur les 5 pages projet à 485 px et 375 px, y compris les titres longs "Vedere Venezia e non morire" et "Quando sono qui, non sono là". Le libellé "Next project" reste à gauche, inchangé. Fichier : `src/components/NextProject.astro`.
+
+---
+
+**Lot AI — Points traités (2026-08-11).**
+
+**AI.1 — NextProject : voir AH-MC.2 ci-dessus.** Intégré dans les micro-corrections du lot AH.
+
+**AI.2 — Galerie LMEC mobile, diagnostic (sans correction).** La rangée 3 (`rangée 3 : prisme 5 + image 6`, flex 0.6668 / 1.4997) produit un rapport 1:2,24 sur mobile, qui dépasse le seuil 1:2. À 375 px, l'image portrait descend à 101 px (sous le seuil 110 px). Les valeurs verrouillées (0.7519 / 0.6786) ne sont pas en cause. Valeurs mesurées :
+- 485 px : portrait 135 px / paysage 303 px, ratio 1:2,24, hauteur rangée 202 px
+- 375 px : portrait 101 px / paysage 226 px, ratio 1:2,24, hauteur rangée 151 px
+
+Les rangées 1, 2, 4 sont dans les seuils. La rangée 3 est à recomposer en mobile (décision non encore prise).
+
+**AI.3 — Débordement IT citations LMEC.** 26 px de dépassement en italien acceptés. La rangée grandit dans cette langue, la vidéo se centre verticalement. Aucune correction. Point clos.
+
+**AI.4 — Audit SEO.** Fichier `audit-seo.md` créé à la racine du projet. Documente l'état du balisage SEO, les observations et l'historique des actions (hreflang, noindex, sitemap filter, URLs 404 Squarespace).
+
+---
+
 ## 9. Travailler avec Claude Code
 1. Créer le dépôt GitHub + projet Astro, connecter Cloudflare Pages.
 2. Donner **ce cahier** en contexte.

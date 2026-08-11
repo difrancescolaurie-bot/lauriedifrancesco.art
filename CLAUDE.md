@@ -16,6 +16,8 @@ Ne jamais créer de variante locale. Un besoin nouveau est une fonction manquant
 
 Citation.astro est le seul chemin d'affichage d'une citation. Le filet suit la hauteur du texte, jamais celle de la cellule.
 
+Deux citations consécutives d'une même source : l'attribution (`author`, `note`) figure uniquement sur la dernière. La première est rendue sans `author` ni `note`. S'applique dans toutes les langues.
+
 ## Mesures
 
 Toute mesure se prend dans le navigateur à 1440 px de large, images chargées. Vérifier la largeur réelle de la colonne avant tout calcul.
