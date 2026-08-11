@@ -41,6 +41,12 @@ Cadrages fixes en vigueur (mobile, `@media (max-width: 700px)`) :
 
 Les slots matières (nth-child 3, 5, 7) recoivent leur `object-position` par injection JS au chargement. Valeur par défaut : `center center`.
 
+## Déploiement — vérification des images
+
+Avant chaque commit qui touche à des chemins d'images (déplacement, renommage, création de dossier) : vérifier que chaque chemin référencé dans le code source existe bien dans `public/`. Un seul git status suffit pour comparer ce qui est supprimé et ce qui est ajouté.
+
+Si un chemin est renommé dans le code et que le fichier n'est pas encore déplacé (ou inversement), grouper les deux opérations dans le même commit. Ne jamais pousser un commit où le code référence un chemin absent de `public/`.
+
 ## Décisions
 
 Proposer, ne pas appliquer, sur toute décision qui touche au contenu.
