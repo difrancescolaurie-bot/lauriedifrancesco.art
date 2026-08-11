@@ -16,6 +16,13 @@ export function getStaticPaths() {
 const { lang } = Astro.params;
 const t = ui[lang as Lang];
 
+const descriptions: Record<Lang, string> = {
+  en: 'Twenty years of archives reread in search of lines: social borders and the contours of the world. An exhibition, then a book dummy · 2024.',
+  fr: "Vingt ans d'archives relues à la recherche des lignes : frontières sociales et contours du monde. Exposition puis maquette de livre · 2024.",
+  it: "Vent'anni di archivi riletti in cerca delle linee: confini sociali e contorni del mondo. Una mostra, poi il prototipo di un libro · 2024.",
+  pt: 'Vinte anos de arquivos relidos em busca das linhas: fronteiras sociais e contornos do mundo. Exposição e depois boneco de livro · 2024.',
+};
+
 const content = {
   fr: {
     p1: "Ce projet n'est pas parti d'un thème. Il est parti d'une archive : vingt ans d'images, plusieurs continents, accumulées sans programme. Il a fallu un jour les relire, et chercher ce qui les traversait toutes.",
@@ -83,7 +90,7 @@ const spreads: Spread[] = [
 
 <Layout
   title={`${t.work.spillingTitle} · Laurie Di Francesco`}
-  description="A photobook born from displacement and the question of borders · Belo Horizonte, Brazil, 2024."
+  description={descriptions[lang as Lang]}
   image="/images/work/spilling-cover.jpg"
   lang={lang}
   bodyClass="page-spill"

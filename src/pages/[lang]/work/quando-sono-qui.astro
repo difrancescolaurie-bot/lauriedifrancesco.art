@@ -16,6 +16,13 @@ export function getStaticPaths() {
 const { lang } = Astro.params;
 const t = ui[lang as Lang];
 
+const descriptions: Record<Lang, string> = {
+  en: 'A photographic crossing of the allegory of the cave: Brazilian cerrado, rock paintings, a childhood given new meaning. Ongoing series.',
+  fr: "Une traversée photographique de l'allégorie de la caverne : cerrado brésilien, peintures rupestres, enfance ressignifiée. Série en cours.",
+  it: "Un attraversamento fotografico dell'allegoria della caverna: cerrado brasiliano, pitture rupestri, un'infanzia risignificata. Serie in corso.",
+  pt: 'Uma travessia fotográfica da alegoria da caverna: cerrado brasileiro, pinturas rupestres, uma infância ressignificada. Série em curso.',
+};
+
 const content = {
   fr: {
     plato: 'Et si on les forçait à monter une pente rude et escarpée, sans les lâcher avant de les avoir amenés à la pleine lumière du soleil, n\'en éprouveraient-ils pas douleur et gêne ? Et si, marchant vers le soleil, les yeux soudainement inondés de lumière éblouissante, pourraient-ils distinguer une seule des choses que nous appelons maintenant vraies réalités ?',
@@ -102,7 +109,7 @@ const spreads: Spread[] = [
 
 <Layout
   title="Quando sono qui, non sono là · Laurie Di Francesco"
-  description="Quando sono qui, non sono là · An intimate geography of presence and absence. Brazil · ongoing."
+  description={descriptions[lang as Lang]}
   image="/images/work/quando-cover.jpg"
   lang={lang}
   bodyClass="page-quando"

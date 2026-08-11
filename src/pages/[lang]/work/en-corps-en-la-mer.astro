@@ -16,6 +16,13 @@ export function getStaticPaths() {
 const { lang } = Astro.params;
 const t = ui[lang as Lang];
 
+const descriptions: Record<Lang, string> = {
+  en: 'Surfacing · Learning to walk again through water and dreams. A photographic series between night, body and sea · 2025.',
+  fr: 'Refaire surface · Réapprendre à marcher par l\'eau et par les rêves. Une série photographique entre nuit, corps et mer · 2025.',
+  it: 'Riemergere · Reimparare a camminare attraverso l\'acqua e i sogni. Una serie fotografica tra notte, corpo e mare · 2025.',
+  pt: 'Emergir · Reaprender a andar pela água e pelos sonhos. Uma série fotográfica entre noite, corpo e mar · 2025.',
+};
+
 const content = {
   fr: {
     nietzsche: 'Ce phénomène artistique fondamental qu\'on appelle la vie',
@@ -67,7 +74,7 @@ const spreads: Spread[] = [
 
 <Layout
   title="En Corps à la Mer · Laurie Di Francesco"
-  description="En Corps à la Mer · Surfacing · 2025. A photographic series by Laurie Di Francesco."
+  description={descriptions[lang as Lang]}
   image="/images/work/en-corps-cover.jpg"
   lang={lang}
   bodyClass="page-ecm"

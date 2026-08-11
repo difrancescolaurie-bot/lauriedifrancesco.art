@@ -16,6 +16,13 @@ export function getStaticPaths() {
 const { lang } = Astro.params;
 const t = ui[lang as Lang];
 
+const descriptions: Record<Lang, string> = {
+  en: 'To see Venice and not die: the proverb turned around. A city of family memory crossed again, alone, in black and white, from night into day.',
+  fr: "Voir Venise sans en mourir : le proverbe retourné. Une ville de mémoire familiale retraversée seule, en noir et blanc, de la nuit vers le jour.",
+  it: "Vedere Venezia e non morirne: il proverbio rovesciato. Una città di memoria familiare riattraversata da sola, in bianco e nero, dalla notte al giorno.",
+  pt: "Ver Veneza sem morrer disso: o provérbio invertido. Uma cidade de memória familiar atravessada de novo, sozinha, em preto e branco, da noite ao dia.",
+};
+
 const s = (file: string) => `/images/work/vedere-venezia/${file}`;
 type Photo = { src: string; n: number };
 type Spread = { type: 'row' | 'single'; photos: Photo[] };
@@ -74,7 +81,7 @@ const spreads: Spread[] = [
 
 <Layout
   title="Vedere Venezia e Non Morire · Laurie Di Francesco"
-  description="Vedere Venezia e Non Morire · Seeing Venice without dying from it."
+  description={descriptions[lang as Lang]}
   image="/images/work/vedere-venezia-cover.jpg"
   lang={lang}
   bodyClass="page-venezia"

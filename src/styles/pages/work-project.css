@@ -491,6 +491,7 @@ figure.match img {
   .series { gap: 4px; margin-top: 40px; }
   .spread { flex-wrap: wrap; gap: 4px; min-height: 100px; }
   .spread--single figure { flex: 1 1 100%; }
+  .spread--row figure { flex: 1 1 calc(50% - 2px); }
   .spread figure img { height: auto; }
 }
 
