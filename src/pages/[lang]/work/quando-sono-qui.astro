@@ -87,9 +87,10 @@ const content = {
 }[lang as 'fr' | 'it' | 'pt'];
 
 const s = (file: string) => `/images/work/quando-sono-qui/${file}`;
-type Photo = { src: string; n: number };
+type Photo = { src: string; n: number; w: number; h: number };
 type Spread = { type: 'row' | 'single'; photos: Photo[] };
-const p = (n: number): Photo => ({ src: s(`${n}.jpg`), n });
+const qW: Record<number, [number,number]> = { 23: [7728,5152] };
+const p = (n: number): Photo => { const [w,h] = qW[n] ?? [2000,1333]; return { src: s(`${n}.jpg`), n, w, h }; };
 
 const spreads: Spread[] = [
   { type: 'row',    photos: [p(2), p(3), p(4)] },
@@ -99,7 +100,7 @@ const spreads: Spread[] = [
   { type: 'single', photos: [p(11)] },
   { type: 'row',    photos: [p(12), p(13)] },
   { type: 'row',    photos: [p(14), p(15), p(16)] },
-  { type: 'single', photos: [{ src: s('15 2.jpg'), n: 15 }] },
+  { type: 'single', photos: [{ src: s('15 2.jpg'), n: 15, w: 7520, h: 5013 }] },
   { type: 'row',    photos: [p(17), p(18), p(19)] },
   { type: 'row',    photos: [p(20), p(21), p(22)] },
   { type: 'single', photos: [p(23)] },
@@ -191,6 +192,8 @@ const spreads: Spread[] = [
               src={photo.src}
               alt={`Quando sono qui, non sono là · ${photo.n}`}
               loading="lazy"
+              width={photo.w}
+              height={photo.h}
             />
           </figure>
         ))}

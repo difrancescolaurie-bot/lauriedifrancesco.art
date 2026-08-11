@@ -95,15 +95,17 @@ const content = {
   },
 }[lang as 'fr' | 'it' | 'pt'];
 
-type Photo = { src: string; n: number };
+type Photo = { src: string; n: number; w: number; h: number };
 type Spread = { type: 'row' | 'single'; photos: Photo[]; caption?: string };
 
+const ph = (n: number): Photo => ({ src: s(n), n, w: 2000, h: 1333 });
+
 const spreads: Spread[] = [
-  { type: 'single', photos: [{ src: s(3), n: 3 }] },
-  { type: 'row',    photos: [{ src: s(4), n: 4 }, { src: s(5), n: 5 }, { src: s(6), n: 6 }] },
-  { type: 'row',    photos: [{ src: s(7), n: 7 }, { src: s(8), n: 8 }] },
-  { type: 'single', photos: [{ src: s(9), n: 9 }] },
-  { type: 'row',    photos: [{ src: s(10), n: 10 }, { src: s(11), n: 11 }] },
+  { type: 'single', photos: [ph(3)] },
+  { type: 'row',    photos: [ph(4), ph(5), ph(6)] },
+  { type: 'row',    photos: [ph(7), ph(8)] },
+  { type: 'single', photos: [ph(9)] },
+  { type: 'row',    photos: [ph(10), ph(11)] },
 ];
 ---
 
@@ -173,7 +175,7 @@ const spreads: Spread[] = [
         <div class={`spread spread--${spread.type} rv`}>
           {spread.photos.map((photo) => (
             <figure>
-              <img src={photo.src} data-full={photo.src} alt={`Toward the Blue · photo ${photo.n}`} loading="lazy" />
+              <img src={photo.src} data-full={photo.src} alt={`Toward the Blue · photo ${photo.n}`} loading="lazy" width={photo.w} height={photo.h} />
             </figure>
           ))}
         </div>

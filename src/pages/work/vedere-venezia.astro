@@ -6,13 +6,14 @@ import NextProject from '../../components/NextProject.astro';
 
 const s = (file: string) => `/images/work/vedere-venezia/${file}`;
 
-type Photo = { src: string; n: number };
+type Photo = { src: string; n: number; w: number; h: number };
 type Spread = {
   type: 'row' | 'single';
   photos: Photo[];
 };
 
-const p = (n: number): Photo => ({ src: s(`${n}.jpg`), n });
+const vvH: Record<number, number> = { 11: 1499 };
+const p = (n: number): Photo => ({ src: s(`${n}.jpg`), n, w: 2000, h: vvH[n] ?? 1333 });
 
 const aznavourEN = `How sad Venice is<br />On the evenings on the lagoon<br />When you reach for a hand<br />That no one holds out to you<br />And you make light of it all<br />Under the moonlight<br />To try to forget<br />What you never say to each other`;
 const dufourmantellEN = `To part, in this way, is to begin translating. It is to find at least one word to translate what in oneself signifies and makes sense, in a new language, so that it may be heard by another. It is to leave the mother tongue to risk one's own language — the poetic language par excellence.`;
@@ -98,6 +99,8 @@ const spreads: Spread[] = [
                 src={photo.src}
                 alt={`Vedere Venezia e Non Morire · ${photo.n}`}
                 loading="lazy"
+                width={photo.w}
+                height={photo.h}
               />
             </figure>
           ))}

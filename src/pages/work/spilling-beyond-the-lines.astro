@@ -6,7 +6,24 @@ import NextProject from '../../components/NextProject.astro';
 
 const s = (path: string) => `/images/work/spilling-beyond-the-lines/${path}`;
 
-type Photo = { src: string; full: string; n: number; figClass?: string };
+const dims: Record<string, [number, number]> = {
+  '3.jpg': [799,1200], '4.jpg': [1200,1800], '5.jpg': [1200,1800], '6.jpg': [799,1200],
+  '7.jpg': [1200,1800], '8.jpg': [1200,1800], '9.jpg': [1200,1800], '10.jpg': [1200,1800],
+  '11.jpg': [1200,1800], '12.jpg': [1200,1800], '13.jpg': [1200,1800],
+  '14.jpg': [799,1200], '15.jpg': [799,1200], '16.jpg': [1200,1800], '17.jpg': [1200,1800],
+  '18.jpg': [799,1200], '19.jpg': [1145,1719], '20.jpg': [1200,1800], '21.jpg': [1200,1600],
+  '22.jpg': [1200,800], '23.jpg': [1200,799],
+  '24.jpg': [1200,1800], '25.jpg': [1200,1800],
+  '26.jpg': [1200,1800], '27.jpg': [1200,1800], '28.jpg': [1200,1800], '29.jpg': [799,1200],
+  '30.jpg': [1200,810],
+  '31.jpg': [799,1200], '32.jpg': [1200,1800], '33.jpg': [1200,1800], '34.jpg': [1200,1800],
+  '35.jpg': [1200,1800], '36.jpg': [799,1200], '37.jpg': [1200,1800], '38.jpg': [1200,1800],
+  '40.jpg': [1200,1800], '41.jpg': [1200,1800],
+  '42.jpg': [1200,1800], '43.jpg': [1200,1800],
+  '44.jpg': [1200,800], '47.jpg': [1200,674],
+};
+
+type Photo = { src: string; full: string; n: number; figClass?: string; w: number; h: number };
 type Spread = {
   type: 'row' | 'single' | 'composed';
   photos: Photo[];
@@ -14,9 +31,10 @@ type Spread = {
   noLand?: boolean;
 };
 
-const local = (file: string, n: number, figClass?: string): Photo => ({
-  src: s(file), full: s(file), n, ...(figClass && { figClass })
-});
+const local = (file: string, n: number, figClass?: string): Photo => {
+  const [w, h] = dims[file] ?? [1200, 1800];
+  return { src: s(file), full: s(file), n, w, h, ...(figClass && { figClass }) };
+};
 
 const spreads: Spread[] = [
   // Photos 3–6
@@ -122,6 +140,8 @@ const spreads: Spread[] = [
                 data-full={photo.full}
                 alt={`Spilling Beyond the Lines · photo ${photo.n}`}
                 loading="lazy"
+                width={photo.w}
+                height={photo.h}
               />
             </figure>
           ))}

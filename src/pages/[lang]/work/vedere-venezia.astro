@@ -24,9 +24,10 @@ const descriptions: Record<Lang, string> = {
 };
 
 const s = (file: string) => `/images/work/vedere-venezia/${file}`;
-type Photo = { src: string; n: number };
+type Photo = { src: string; n: number; w: number; h: number };
 type Spread = { type: 'row' | 'single'; photos: Photo[] };
-const p = (n: number): Photo => ({ src: s(`${n}.jpg`), n });
+const vvH: Record<number, number> = { 11: 1499 };
+const p = (n: number): Photo => ({ src: s(`${n}.jpg`), n, w: 2000, h: vvH[n] ?? 1333 });
 
 const content = {
   fr: {
@@ -151,7 +152,7 @@ const spreads: Spread[] = [
         <div class={`spread spread--${spread.type} rv`}>
           {spread.photos.map((photo) => (
             <figure>
-              <img src={photo.src} alt={`Vedere Venezia e Non Morire · ${photo.n}`} loading="lazy" />
+              <img src={photo.src} alt={`Vedere Venezia e Non Morire · ${photo.n}`} loading="lazy" width={photo.w} height={photo.h} />
             </figure>
           ))}
         </div>

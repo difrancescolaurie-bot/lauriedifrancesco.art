@@ -6,14 +6,14 @@ import NextProject from '../../components/NextProject.astro';
 
 const s = (file: string) => `/images/work/en-corps-en-la-mer/${file}`;
 
-type Photo = { src: string; n: number };
+type Photo = { src: string; n: number; w: number; h: number };
 type Spread = {
   type: 'row' | 'single';
   photos: Photo[];
   caption?: string;
 };
 
-const p = (n: number): Photo => ({ src: s(`${n}.jpg`), n });
+const p = (n: number): Photo => ({ src: s(`${n}.jpg`), n, w: 2000, h: 1333 });
 
 const spreads: Spread[] = [
   // La chute — intérieur, maladie
@@ -114,6 +114,8 @@ const spreads: Spread[] = [
                 alt={`En Corps à la Mer · ${photo.n}`}
                 loading="lazy"
                 data-no-lightbox
+                width={photo.w}
+                height={photo.h}
               />
             </figure>
           ))}

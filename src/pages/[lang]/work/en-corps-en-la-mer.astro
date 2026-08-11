@@ -56,9 +56,9 @@ const content = {
 }[lang as 'fr' | 'it' | 'pt'];
 
 const s = (file: string) => `/images/work/en-corps-en-la-mer/${file}`;
-type Photo = { src: string; n: number };
+type Photo = { src: string; n: number; w: number; h: number };
 type Spread = { type: 'row' | 'single'; photos: Photo[]; caption?: string };
-const p = (n: number): Photo => ({ src: s(`${n}.jpg`), n });
+const p = (n: number): Photo => ({ src: s(`${n}.jpg`), n, w: 2000, h: 1333 });
 
 const spreads: Spread[] = [
   { type: 'row',    photos: [p(53), p(56)] },
@@ -137,7 +137,7 @@ const spreads: Spread[] = [
         <div class={`spread spread--${spread.type} rv`}>
           {spread.photos.map((photo) => (
             <figure>
-              <img src={photo.src} alt={`En Corps à la Mer · ${photo.n}`} loading="lazy" data-no-lightbox />
+              <img src={photo.src} alt={`En Corps à la Mer · ${photo.n}`} loading="lazy" data-no-lightbox width={photo.w} height={photo.h} />
             </figure>
           ))}
         </div>
