@@ -580,22 +580,21 @@ Titre : Vedere Venezia / e Non Morire
 
 **Rangée 1, citation**
 Auteur : Charles Aznavour · Que c'est triste Venise
-Note : free translation from the French
 
-How sad Venice is
-On the evenings on the lagoon
-When you reach for a hand
-That no one holds out to you
-And you make light of it all
-Under the moonlight
-To try to forget
-What you never say to each other
+Que c'est triste Venise,
+le soir sur la lagune
+Quand on cherche une main
+que l'on ne vous tend pas
+Et que l'on ironise,
+devant le clair de lune
+Pour tenter d'oublier
+ce que l'on ne se dit pas
 
 **Rangée 2, citation**
 Auteur : Anne Dufourmantelle
-Note : free translation from the French
+Note : freely translated from the French edition
 
-To part, in this way, is to begin translating. It is to find at least one word to translate what in oneself signifies and makes sense, in a new language, so that it may be heard by another. It is to leave the mother tongue to risk one's own language — the poetic language par excellence.
+To leave the world in order to be in the world. […] To separate, then, is to begin to translate. It is to find even a single word to translate what, within oneself, makes sign and sense into a new language, so that it may become audible to another. It is to leave the mother tongue in order to risk one's own language, the poetic language par excellence.
 
 **Rangée 3, texte de projet**
 Eyebrow : The Project
@@ -620,19 +619,19 @@ Titre : Vedere Venezia / e Non Morire
 **Rangée 1, citation**
 Auteur : Charles Aznavour · Que c'est triste Venise
 
-Que c'est triste Venise
-Le soir sur la lagune
+Que c'est triste Venise,
+le soir sur la lagune
 Quand on cherche une main
-Que l'on ne vous tend pas
-Et que l'on ironise
-Devant le clair de lune
+que l'on ne vous tend pas
+Et que l'on ironise,
+devant le clair de lune
 Pour tenter d'oublier
-Ce que l'on ne se dit pas
+ce que l'on ne se dit pas
 
 **Rangée 2, citation**
 Auteur : Anne Dufourmantelle
 
-Se séparer, ainsi, c'est commencer à traduire. C'est trouver ne serait-ce qu'un mot pour traduire ce qui en soi fait signe et sens dans une langue nouvelle afin qu'elle soit audible pour un autre. C'est quitter la langue maternelle pour risquer sa propre langue, la langue poétique par excellence.
+Sortir du monde pour être au monde. […] Se séparer, ainsi, c'est commencer à traduire. C'est trouver ne serait-ce qu'un mot pour traduire ce qui en soi fait signe et sens dans une langue nouvelle afin qu'elle soit audible pour un autre. C'est quitter la langue maternelle pour risquer sa propre langue, la langue poétique par excellence.
 
 **Rangée 3, texte de projet**
 Eyebrow : Le Projet
@@ -656,22 +655,21 @@ Titre : Vedere Venezia / e Non Morire
 
 **Rangée 1, citation**
 Auteur : Charles Aznavour · Que c'est triste Venise
-Note : traduzione libera dal francese
 
-Com'è triste Venezia
-La sera sulla laguna
-Quando si cerca una mano
-Che non ci viene tesa
-E si ironizza
-Davanti al chiaro di luna
-Per tentare di dimenticare
-Ciò che non ci si dice
+Que c'est triste Venise,
+le soir sur la lagune
+Quand on cherche une main
+que l'on ne vous tend pas
+Et que l'on ironise,
+devant le clair de lune
+Pour tenter d'oublier
+ce que l'on ne se dit pas
 
 **Rangée 2, citation**
 Auteur : Anne Dufourmantelle
-Note : traduzione libera dal francese
+Note : traduzione libera dall'edizione francese
 
-Separarsi, così, è cominciare a tradurre. È trovare almeno una parola per tradurre ciò che in sé fa segno e senso in una lingua nuova affinché sia audibile per un altro. È lasciare la lingua materna per rischiare la propria lingua, la lingua poetica per eccellenza.
+Uscire dal mondo per essere al mondo. […] Separarsi, così, è cominciare a tradurre. È trovare anche una sola parola per tradurre ciò che in sé fa segno e senso in una lingua nuova, perché sia udibile per un altro. È lasciare la lingua materna per rischiare la propria lingua, la lingua poetica per eccellenza.
 
 **Rangée 3, texte de projet**
 Eyebrow : Il Progetto
@@ -695,22 +693,21 @@ Titre : Vedere Venezia / e Non Morire
 
 **Rangée 1, citation**
 Auteur : Charles Aznavour · Que c'est triste Venise
-Note : tradução livre do francês
 
-Como é triste Veneza
-À tarde na laguna
-Quando se procura uma mão
-Que não nos é estendida
-E faz-se ironia
-Perante o luar
-Para tentar esquecer
-O que não nos dizemos
+Que c'est triste Venise,
+le soir sur la lagune
+Quand on cherche une main
+que l'on ne vous tend pas
+Et que l'on ironise,
+devant le clair de lune
+Pour tenter d'oublier
+ce que l'on ne se dit pas
 
 **Rangée 2, citation**
 Auteur : Anne Dufourmantelle
-Note : tradução livre do francês
+Note : tradução livre da edição francesa
 
-Separar-se, assim, é começar a traduzir. É encontrar ao menos uma palavra para traduzir o que em si faz signo e sentido numa língua nova para que seja audível para o outro. É abandonar a língua materna para arriscar a sua própria língua, a língua poética por excelência.
+Sair do mundo para estar no mundo. […] Separar-se, assim, é começar a traduzir. É encontrar nem que seja uma palavra para traduzir o que em si faz signo e sentido numa língua nova, para que seja audível para um outro. É deixar a língua materna para arriscar a própria língua, a língua poética por excelência.
 
 **Rangée 3, texte de projet**
 Eyebrow : O Projeto

@@ -29,10 +29,12 @@ type Spread = { type: 'row' | 'single'; photos: Photo[] };
 const vvH: Record<number, number> = { 11: 1499 };
 const p = (n: number): Photo => ({ src: s(`${n}.jpg`), n, w: 2000, h: vvH[n] ?? 1333 });
 
+const aznavourFR = `Que c'est triste Venise,<br />le soir sur la lagune<br />Quand on cherche une main<br />que l'on ne vous tend pas<br />Et que l'on ironise,<br />devant le clair de lune<br />Pour tenter d'oublier<br />ce que l'on ne se dit pas`;
+
 const content = {
   fr: {
-    aznavourPoem: `Que c'est triste Venise<br />Le soir sur la lagune<br />Quand on cherche une main<br />Que l'on ne vous tend pas<br />Et que l'on ironise<br />Devant le clair de lune<br />Pour tenter d'oublier<br />Ce que l'on ne se dit pas`,
-    dufourmantelle: `Se séparer, ainsi, c'est commencer à traduire. C'est trouver ne serait-ce qu'un mot pour traduire ce qui en soi fait signe et sens dans une langue nouvelle afin qu'elle soit audible pour un autre. C'est quitter la langue maternelle pour risquer sa propre langue, la langue poétique par excellence.`,
+    aznavourPoem: aznavourFR,
+    dufourmantelle: `Sortir du monde pour être au monde. […] Se séparer, ainsi, c'est commencer à traduire. C'est trouver ne serait-ce qu'un mot pour traduire ce qui en soi fait signe et sens dans une langue nouvelle afin qu'elle soit audible pour un autre. C'est quitter la langue maternelle pour risquer sa propre langue, la langue poétique par excellence.`,
     projectLabel: 'Le Projet',
     projectText: [
       `Le titre retourne un proverbe. Voir Venise et mourir : la beauté comme achèvement, le lieu où l'on peut s'arrêter. Ici, il s'agit de la traverser et de continuer.`,
@@ -43,9 +45,9 @@ const content = {
     ],
   },
   it: {
-    aznavourPoem: `Com'è triste Venezia<br />La sera sulla laguna<br />Quando si cerca una mano<br />Che non ci viene tesa<br />E si ironizza<br />Davanti al chiaro di luna<br />Per tentare di dimenticare<br />Ciò che non ci si dice`,
-    dufourmantelle: `Separarsi, così, è cominciare a tradurre. È trovare almeno una parola per tradurre ciò che in sé fa segno e senso in una lingua nuova affinché sia audibile per un altro. È lasciare la lingua materna per rischiare la propria lingua, la lingua poetica per eccellenza.`,
-    tradfr: 'traduzione libera dal francese',
+    aznavourPoem: aznavourFR,
+    dufourmantelle: `Uscire dal mondo per essere al mondo. […] Separarsi, così, è cominciare a tradurre. È trovare anche una sola parola per tradurre ciò che in sé fa segno e senso in una lingua nuova, perché sia udibile per un altro. È lasciare la lingua materna per rischiare la propria lingua, la lingua poetica per eccellenza.`,
+    dufourmanteleNote: "traduzione libera dall’edizione francese",
     projectLabel: 'Il Progetto',
     projectText: [
       `Il titolo rovescia un proverbio. Vedere Venezia e poi morire: la bellezza come compimento, il luogo dove ci si può fermare. Qui si tratta di attraversarla e di proseguire.`,
@@ -56,9 +58,9 @@ const content = {
     ],
   },
   pt: {
-    aznavourPoem: `Como é triste Veneza<br />À tarde na laguna<br />Quando se procura uma mão<br />Que não nos é estendida<br />E faz-se ironia<br />Perante o luar<br />Para tentar esquecer<br />O que não nos dizemos`,
-    dufourmantelle: `Separar-se, assim, é começar a traduzir. É encontrar ao menos uma palavra para traduzir o que em si faz signo e sentido numa língua nova para que seja audível para o outro. É abandonar a língua materna para arriscar a sua própria língua, a língua poética por excelência.`,
-    tradfr: 'tradução livre do francês',
+    aznavourPoem: aznavourFR,
+    dufourmantelle: `Sair do mundo para estar no mundo. […] Separar-se, assim, é começar a traduzir. É encontrar nem que seja uma palavra para traduzir o que em si faz signo e sentido numa língua nova, para que seja audível para um outro. É deixar a língua materna para arriscar a própria língua, a língua poética por excelência.`,
+    dufourmanteleNote: 'tradução livre da edição francesa',
     projectLabel: 'O Projeto',
     projectText: [
       `O título inverte um provérbio. Ver Veneza e morrer: a beleza como conclusão, o lugar onde se pode parar. Aqui, trata-se de atravessá-la e seguir adiante.`,
@@ -117,10 +119,7 @@ const spreads: Spread[] = [
         <img src={s('1.jpg')} alt="" loading="lazy" />
       </figure>
       <div class="gal-cell gal-cell--cit">
-        <Citation
-          author="Charles Aznavour · Que c'est triste Venise"
-          note={('tradfr' in content) ? (content as any).tradfr : undefined}
-        >
+        <Citation author="Charles Aznavour · Que c'est triste Venise">
           <Fragment set:html={content.aznavourPoem} />
         </Citation>
       </div>
@@ -130,7 +129,7 @@ const spreads: Spread[] = [
       <div class="gal-cell gal-cell--cit">
         <Citation
           author="Anne Dufourmantelle"
-          note={('tradfr' in content) ? (content as any).tradfr : undefined}
+          note={('dufourmanteleNote' in content) ? (content as any).dufourmanteleNote : undefined}
         >
           <Fragment set:html={content.dufourmantelle} />
         </Citation>

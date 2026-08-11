@@ -715,6 +715,32 @@ Inventaire reçu. Les textes seront fournis ultérieurement par Laurie. Aucune a
 
 ---
 
+**AT.1 — Restauration de deux citations altérées, page Vedere Venezia e Non Morire (2026-08-11).**
+
+Constat : les deux citations de la page avaient été modifiées lors d'un lot antérieur non identifié. Leur contenu en production ne correspondait plus aux sources.
+
+**Citation 1 — Charles Aznavour, "Que c'est triste Venise".**
+- Problème EN : une traduction anglaise ("How sad Venice is...") avait remplacé l'original français, avec une note "free translation from the French".
+- Problème IT/PT : des traductions italiana et portugaise avaient de même remplacé l'original.
+- Correction : toutes les versions (EN, FR, IT, PT) affichent désormais le texte original français. Aucune note d'attribution pour Aznavour dans aucune langue.
+
+**Citation 2 — Anne Dufourmantelle, extrait de "Sauvez-vous, la vie vous attend" (éd. Flammarion).**
+- Problème EN : première phrase manquante, tiret cadratin présent (interdit par CLAUDE.md).
+- Problème FR : première phrase manquante.
+- Problème IT : première phrase manquante, note incorrecte ("traduzione libera dal francese" au lieu de "dall'edizione francese").
+- Problème PT : première phrase manquante, note incorrecte ("tradução livre do francês" au lieu de "da edição francesa").
+- Correction : première phrase restituée dans les 4 langues. Notes corrigées :
+  - EN : "freely translated from the French edition"
+  - FR : aucune note (langue source)
+  - IT : "traduzione libera dall'edizione francese"
+  - PT : "tradução livre da edição francesa"
+
+Fichiers touchés : `src/pages/work/vedere-venezia.astro`, `src/pages/[lang]/work/vedere-venezia.astro`.
+Sources des textes restituées : fournis directement par Laurie Di Francesco.
+Vérification : captures à 375 px, 485 px et 1440 px, 4 langues. Aucun tiret cadratin. Aucune ligne coupée.
+
+---
+
 ## 9. Travailler avec Claude Code
 1. Créer le dépôt GitHub + projet Astro, connecter Cloudflare Pages.
 2. Donner **ce cahier** en contexte.

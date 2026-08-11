@@ -15,8 +15,8 @@ type Spread = {
 const vvH: Record<number, number> = { 11: 1499 };
 const p = (n: number): Photo => ({ src: s(`${n}.jpg`), n, w: 2000, h: vvH[n] ?? 1333 });
 
-const aznavourEN = `How sad Venice is<br />On the evenings on the lagoon<br />When you reach for a hand<br />That no one holds out to you<br />And you make light of it all<br />Under the moonlight<br />To try to forget<br />What you never say to each other`;
-const dufourmantellEN = `To part, in this way, is to begin translating. It is to find at least one word to translate what in oneself signifies and makes sense, in a new language, so that it may be heard by another. It is to leave the mother tongue to risk one's own language — the poetic language par excellence.`;
+const aznavourFR = `Que c'est triste Venise,<br />le soir sur la lagune<br />Quand on cherche une main<br />que l'on ne vous tend pas<br />Et que l'on ironise,<br />devant le clair de lune<br />Pour tenter d'oublier<br />ce que l'on ne se dit pas`;
+const dufourmantellEN = `To leave the world in order to be in the world. […] To separate, then, is to begin to translate. It is to find even a single word to translate what, within oneself, makes sign and sense into a new language, so that it may become audible to another. It is to leave the mother tongue in order to risk one's own language, the poetic language par excellence.`;
 
 const spreads: Spread[] = [
   { type: 'single', photos: [p(3)] },
@@ -64,15 +64,15 @@ const spreads: Spread[] = [
         <img src={s('1.jpg')} alt="" loading="lazy" />
       </figure>
       <div class="gal-cell gal-cell--cit">
-        <Citation author="Charles Aznavour · Que c'est triste Venise" note="free translation from the French">
-          <Fragment set:html={aznavourEN} />
+        <Citation author="Charles Aznavour · Que c'est triste Venise">
+          <Fragment set:html={aznavourFR} />
         </Citation>
       </div>
     </div>
 
     <div class="gal-row rv">
       <div class="gal-cell gal-cell--cit">
-        <Citation author="Anne Dufourmantelle" note="free translation from the French">
+        <Citation author="Anne Dufourmantelle" note="freely translated from the French edition">
           <Fragment set:html={dufourmantellEN} />
         </Citation>
       </div>
