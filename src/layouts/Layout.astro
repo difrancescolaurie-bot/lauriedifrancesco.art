@@ -20,6 +20,7 @@ const { title, image = "/og-default.jpg", lang = "en", bodyClass, lightHeader = 
 
 const validLang: Lang = (lang === 'fr' || lang === 'it' || lang === 'pt') ? lang as Lang : 'en';
 const t = ui[validLang];
+const htmlLang = lang === 'pt' ? 'pt-BR' : lang;
 
 const description = Astro.props.description ?? `${t.home.heroLine1} · ${t.home.heroLine2}`;
 
@@ -56,7 +57,7 @@ const hreflangURL = (l: string) =>
 ---
 
 <!doctype html>
-<html lang={lang}>
+<html lang={htmlLang}>
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -86,7 +87,7 @@ const hreflangURL = (l: string) =>
         <link rel="alternate" hreflang="en" href={hreflangURL('en')} />
         <link rel="alternate" hreflang="fr" href={hreflangURL('fr')} />
         <link rel="alternate" hreflang="it" href={hreflangURL('it')} />
-        <link rel="alternate" hreflang="pt" href={hreflangURL('pt')} />
+        <link rel="alternate" hreflang="pt-BR" href={hreflangURL('pt')} />
         <link rel="alternate" hreflang="x-default" href={hreflangURL('en')} />
       </>
     )}

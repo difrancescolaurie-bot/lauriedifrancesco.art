@@ -463,6 +463,8 @@ figure.match img {
 }
 @media (max-width: 700px) {
   .lmec-gallery { --gap: 8px; }
+  .lmec-gallery .row:nth-child(3) { flex-wrap: wrap; }
+  .lmec-gallery .row:nth-child(3) > figure { flex: 1 1 100% !important; }
 }
 
 /* ── Mobile ─────────────────────────────────────────── */
