@@ -25,6 +25,18 @@ const videos = [
 <Layout
   title="Exhibitions"
   description="Spilling Beyond the Lines · First solo exhibition, Livraria da Rua, Belo Horizonte, Brazil, July 2024."
+  jsonLd={{
+    "@context": "https://schema.org",
+    "@type": "ExhibitionEvent",
+    "name": "Spilling Beyond the Lines",
+    "startDate": "2024-07",
+    "location": {
+      "@type": "Place",
+      "name": "Livraria da Rua",
+      "address": { "@type": "PostalAddress", "addressLocality": "Belo Horizonte", "addressCountry": "BR" }
+    },
+    "performer": { "@type": "Person", "name": "Laurie Di Francesco" }
+  }}
 >
 
   <!-- ── Titre ──────────────────────────────────────────────── -->

@@ -19,6 +19,18 @@ const t = ui[lang as Lang].exhibitions;
   title={t.eyebrow}
   description={`${t.exhibitionTitle} · ${t.metaFirst}, Livraria da Rua, ${t.metaLocation}, ${t.metaDate}.`}
   lang={lang}
+  jsonLd={{
+    "@context": "https://schema.org",
+    "@type": "ExhibitionEvent",
+    "name": "Spilling Beyond the Lines",
+    "startDate": "2024-07",
+    "location": {
+      "@type": "Place",
+      "name": "Livraria da Rua",
+      "address": { "@type": "PostalAddress", "addressLocality": "Belo Horizonte", "addressCountry": "BR" }
+    },
+    "performer": { "@type": "Person", "name": "Laurie Di Francesco" }
+  }}
 >
 
   <!-- ── Titre ──────────────────────────────────────────────── -->

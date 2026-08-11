@@ -12,8 +12,7 @@ type Spread = {
   photos: Photo[];
 };
 
-const qW: Record<number, [number,number]> = { 23: [7728,5152] };
-const p = (n: number): Photo => { const [w,h] = qW[n] ?? [2000,1333]; return { src: s(`${n}.jpg`), n, w, h }; };
+const p = (n: number): Photo => ({ src: s(`${n}.jpg`), n, w: 2000, h: 1333 });
 
 const spreads: Spread[] = [
   { type: 'row',    photos: [p(2), p(3), p(4)] },
@@ -23,7 +22,7 @@ const spreads: Spread[] = [
   { type: 'single', photos: [p(11)] },
   { type: 'row',    photos: [p(12), p(13)] },
   { type: 'row',    photos: [p(14), p(15), p(16)] },
-  { type: 'single', photos: [{ src: s('15 2.jpg'), n: 15, w: 7520, h: 5013 }] },
+  { type: 'single', photos: [{ src: s('15 2.jpg'), n: 15, w: 2000, h: 1333 }] },
   { type: 'row',    photos: [p(17), p(18), p(19)] },
   { type: 'row',    photos: [p(20), p(21), p(22)] },
   { type: 'single', photos: [p(23)] },
@@ -37,6 +36,14 @@ const spreads: Spread[] = [
   image="/images/work/quando-cover.jpg"
   bodyClass="page-quando"
   lightHeader={false}
+  jsonLd={{
+    "@context": "https://schema.org",
+    "@type": "CreativeWork",
+    "name": "Quando sono qui, non sono là",
+    "creator": { "@type": "Person", "name": "Laurie Di Francesco" },
+    "url": "https://lauriedifrancesco.art/work/quando-sono-qui",
+    "inLanguage": "en"
+  }}
 >
 
   <!-- ── Hero ──────────────────────────────────────────────── -->

@@ -14,9 +14,10 @@ interface Props {
   lightHeader?: boolean;
   hasTranslations?: boolean;
   noindex?: boolean;
+  jsonLd?: object;
 }
 
-const { title, image = "/og-default.jpg", lang = "en", bodyClass, lightHeader = true, hasTranslations = true, noindex = false } = Astro.props;
+const { title, image = "/og-default.jpg", lang = "en", bodyClass, lightHeader = true, hasTranslations = true, noindex = false, jsonLd } = Astro.props;
 
 const validLang: Lang = (lang === 'fr' || lang === 'it' || lang === 'pt') ? lang as Lang : 'en';
 const t = ui[validLang];
@@ -39,6 +40,23 @@ const ogLocale: Record<Lang, string> = {
 };
 
 const SITE_URL = "https://lauriedifrancesco.art";
+
+const jobTitleMap: Record<Lang, string> = {
+  en: 'Photographer and author',
+  fr: 'Photographe et autrice',
+  it: 'Fotografa e autrice',
+  pt: 'Fotógrafa e autora',
+};
+
+const personSchema = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Laurie Di Francesco",
+  "jobTitle": jobTitleMap[validLang],
+  "url": SITE_URL,
+  "sameAs": ["https://www.instagram.com/laurie.difrancesco/"],
+  "knowsLanguage": ["fr", "en", "it", "pt"],
+};
 const siteTitle = title === "Home"
   ? `Laurie Di Francesco · ${photographerLabel[validLang]}`
   : title.includes("Laurie Di Francesco")
@@ -94,6 +112,8 @@ const hreflangURL = (l: string) =>
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="alternate icon" href="/favicon.ico" />
     <title>{siteTitle}</title>
+    <Fragment set:html={`<script type="application/ld+json">${JSON.stringify(personSchema)}</script>`} />
+    {jsonLd && <Fragment set:html={`<script type="application/ld+json">${JSON.stringify(jsonLd)}</script>`} />}
   </head>
   <body class={bodyClass}>
     <Header lightHeader={lightHeader} />

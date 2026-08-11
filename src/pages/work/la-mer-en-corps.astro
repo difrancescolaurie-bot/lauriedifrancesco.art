@@ -11,6 +11,14 @@ import NextProject from '../../components/NextProject.astro';
   image="/images/work/la-mer-cover.jpg"
   bodyClass="page-lmec"
   lightHeader={false}
+  jsonLd={{
+    "@context": "https://schema.org",
+    "@type": "CreativeWork",
+    "name": "La Mer en Corps",
+    "creator": { "@type": "Person", "name": "Laurie Di Francesco" },
+    "url": "https://lauriedifrancesco.art/work/la-mer-en-corps",
+    "inLanguage": "en"
+  }}
 >
 
   <!-- ── Hero ─────────────────────────────────────────────── -->
@@ -125,7 +133,7 @@ import NextProject from '../../components/NextProject.astro';
         <img src="/images/work/la-mer-en-corps/5.jpg" alt="" width="1667" height="2500" loading="lazy" />
       </figure>
       <figure style="flex:1.4997 1 0">
-        <img src="/images/work/la-mer-en-corps/6.jpg" alt="" width="2500" height="1667" loading="lazy" />
+        <img src="/images/work/la-mer-en-corps/6.jpg" alt="" width="1600" height="1067" loading="lazy" />
       </figure>
     </div>
 

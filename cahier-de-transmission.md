@@ -620,6 +620,101 @@ Les rangées 1, 2, 4 sont dans les seuils. La rangée 3 est à recomposer en mob
 
 ---
 
+---
+
+**Lot AR — Redimensionnement, JSON-LD, sécurité, sauvegarde (2026-08-11).**
+
+**AR.1 — Redimensionnement des images critiques et optionnelles.**
+
+Images redimensionnées avec `sips` (macOS) ; originaux archivés hors dépôt avant remplacement.
+
+Archive : `/Users/lauriedifrancesco/Desktop/images-originales-archive-20260811/` (110 Mo).
+
+| Fichier | Avant | Après |
+|---|---|---|
+| `quando-sono-qui/23.jpg` | 24 Mo, 7728×5152 | 622 Ko, 2000×1333 |
+| `quando-sono-qui/15 2.jpg` | 11 Mo, 7520×5013 | 264 Ko, 2000×1333 |
+| `hero/8_fixe-5-gisele.jpg` | 24 Mo, 7728×5152 | 622 Ko, 2000×1333 |
+| `la-mer-en-corps/6.jpg` | 2,8 Mo, 2500×1667 | 652 Ko, 1600×1067 |
+| `ecm-private/*.jpg` (6 fichiers) | 3-5 Mo chacun | 1600 px de large |
+
+Poids `public/images` avant : 248 Mo. Après : 145 Mo (economie 103 Mo).
+Pages Quando sono qui avant : 23.jpg 24 Mo + 15 2.jpg 11 Mo par visite galerie. Après : 622 Ko + 264 Ko.
+
+Fichiers source mis à jour : dimensions QSQ simplifiées à 2000×1333 (helper `p()`), LMEC 6.jpg mis à jour à `width="1600" height="1067"`.
+
+**AR.2 — JSON-LD : schémas structurés.**
+
+Schéma Person ajouté dans `Layout.astro` (toutes les pages). Schéma CreativeWork ajouté sur les 6 pages projet EN et les 6 pages [lang]. Schéma ExhibitionEvent ajouté sur `exhibitions.astro` et `[lang]/exhibitions.astro`.
+
+Valeurs retenues :
+- `sameAs` : Instagram uniquement (`https://www.instagram.com/laurie.difrancesco/`). L'URL du collectif Monolit sera ajoutée ultérieurement.
+- `jobTitle` (selon la langue) : EN "Photographer and author", FR "Photographe et autrice", IT "Fotografa e autrice", PT "Fotógrafa e autora".
+- `datePublished` : uniquement Spilling Beyond the Lines, "2024". Aucune autre date inventée.
+- ExhibitionEvent : `startDate: "2024-07"`, lieu Livraria da Rua, Belo Horizonte, Brésil.
+
+Fichiers touchés : `src/layouts/Layout.astro`, les 12 pages projet (6 EN + 6 lang), `src/pages/exhibitions.astro`, `src/pages/[lang]/exhibitions.astro`.
+
+**AR.3 — Page privée : documentation de l'état actuel (sans correction).**
+
+La page `/work/en-corps-en-la-mer/private` utilise une protection côté navigateur uniquement.
+
+État documenté :
+- Le mot de passe (`surfacing`) est lisible en clair dans le code source de la page HTML générée.
+- Les images du dossier `public/images/work/ecm-private/` sont accessibles directement par leur URL, sans authentification.
+- La page porte `noindex` et est exclue du sitemap : elle ne sera pas indexée par les moteurs de recherche. Elle n'est pas protégée.
+
+**(a) Visibilité du dépôt GitHub :** le dépôt `difrancescolaurie-bot/lauriedifrancesco.art` est **public**. Cela signifie que le code source — y compris le mot de passe en clair — est lisible par toute personne sur GitHub. Les images de `ecm-private/` ne sont pas dans le dépôt Git (les images dépassent la taille de fichiers indexés par GitHub par défaut), mais elles sont accessibles via l'URL de déploiement Cloudflare.
+
+**(b) Solutions de vraie protection sur Cloudflare Pages (sans changer d'hébergeur) :**
+
+1. **Cloudflare Access (Zero Trust)** — solution recommandée. Accessible depuis le tableau de bord Cloudflare, rubrique Zero Trust. Permet de protéger une URL (`/work/en-corps-en-la-mer/private*`) par authentification : code à usage unique envoyé par e-mail, Google/GitHub OAuth, ou liste d'adresses autorisées. Gratuit jusqu'à 50 utilisateurs. Ne nécessite aucun changement dans le code du site.
+
+2. **Cloudflare Pages Functions** — une fonction serverless (`functions/work/en-corps-en-la-mer/private.js`) peut vérifier un cookie ou un header avant de servir la page. Nécessite de réécrire la logique d'authentification côté serveur (Workers). Plus complexe à maintenir.
+
+3. **Dépôt privé + règle de branche protégée** — rendre le dépôt GitHub privé empêche la lecture du code source mais ne protège pas les images accessibles par URL de déploiement.
+
+La solution la plus simple et la plus robuste est Cloudflare Access.
+
+**AR.4 — En-têtes de sécurité.**
+
+Fichier `public/_headers` créé. Cloudflare Pages le lit automatiquement sans configuration manuelle. Appliqué à toutes les routes (`/*`).
+
+En-têtes déployés :
+- `X-Frame-Options: DENY` — prévient l'intégration dans des iframes.
+- `X-Content-Type-Options: nosniff` — interdit l'inférence de type MIME par le navigateur.
+- `Referrer-Policy: strict-origin-when-cross-origin` — limite les informations de provenance partagées.
+- `Permissions-Policy: camera=(), microphone=(), geolocation=(), payment=()` — désactive les APIs sensibles.
+- `Content-Security-Policy` (conservatrice) : autorise les polices Google, les scripts Cloudflare Analytics, les vidéos et scripts auto-hébergés, les scripts en ligne (`unsafe-inline`). Bloque tout le reste.
+
+CSP détaillée :
+```
+default-src 'self';
+script-src 'self' 'unsafe-inline' https://static.cloudflareinsights.com;
+style-src 'self' 'unsafe-inline' https://fonts.googleapis.com;
+font-src 'self' https://fonts.gstatic.com;
+img-src 'self' data:;
+media-src 'self';
+connect-src 'self' https://cloudflareinsights.com;
+frame-ancestors 'none';
+object-src 'none';
+base-uri 'self'
+```
+
+Note : les en-têtes ne s'appliquent qu'en production (Cloudflare Pages). Le serveur de développement local (`astro dev`) ne les applique pas.
+
+**AR.5 — Sauvegarde.**
+
+Le dépôt Git est l'unique source des images publiées sur le site. Aucune autre copie structurée n'existe actuellement.
+
+Les images représentent environ 175 fichiers pour un total d'environ 1,3 Go (dont 609 Mo dans l'historique Git `.git/`). Une copie externe du dossier `public/images/` doit être maintenue sur un disque ou service cloud indépendant du dépôt, et mise à jour à chaque ajout ou modification d'images.
+
+**AR.6 — Textes alternatifs.**
+
+Inventaire reçu. Les textes seront fournis ultérieurement par Laurie. Aucune action.
+
+---
+
 ## 9. Travailler avec Claude Code
 1. Créer le dépôt GitHub + projet Astro, connecter Cloudflare Pages.
 2. Donner **ce cahier** en contexte.
