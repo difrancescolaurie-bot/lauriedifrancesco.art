@@ -434,6 +434,93 @@ Fichiers touchés : `src/i18n/translations.ts`, `src/pages/exhibitions.astro`, `
 
 ---
 
+**Lot AB — ECM : restauration citation Claire Marin, texte original (2026-08-09, commit 33102fc).**
+
+Citation ECM (bloc central) : le texte EN/IT/PT avait été reformulé à distance du français source. La version FR est restituée au mot près depuis *Hors de moi* (Bayard, 2008) : "gainage", "se défait", "s'efface/s'évanouit", "gestes", "habile", "Évanouis", "sensibles", "râpe", "indolore", "métamorphosée" ; tiret cadratin supprimé (règle permanente). EN, IT, PT retraduits depuis ce français source. Notes de traduction : EN `"freely translated from the French"`, IT `"tradotto liberamente dal francese"` (corrigé), PT `"tradução livre do francês"` (corrigé).
+
+Fichiers touchés : `src/pages/work/en-corps-en-la-mer.astro`, `src/pages/[lang]/work/en-corps-en-la-mer.astro`.
+
+---
+
+**Lot AC — Spilling : texte de projet 6 paragraphes (2026-08-09, commit 00c350b).**
+
+Le texte de projet Spilling passe de 5 à 6 paragraphes dans les quatre langues. Les paragraphes sont intégrés directement en dur dans les deux fichiers de page (EN statique et [lang]), remplaçant l'ancien texte 5 paragraphes. Mise en page desktop : `columns: 2` (CSS inline sur le conteneur) ; mobile : `columnCount: auto`.
+
+Fichiers touchés : `src/pages/work/spilling-beyond-the-lines.astro`, `src/pages/[lang]/work/spilling-beyond-the-lines.astro`.
+
+---
+
+**QSQ — Ajout photos 23, 24, 15 2 ; correction galerie (2026-08-10, commits 006b678 · 7b52b67 · 709feb3).**
+
+Trois commits consécutifs pour intégrer les nouvelles photographies QSQ. Photo 23.jpg : nouvelle image (remplace l'ancienne 23.jpg devenue 24.jpg). Photo 24.jpg : ancienne 23.jpg renommée. Photo 15 2.jpg : nouvelle image intercalée après 15.jpg. La photo 24 a été temporairement retirée puis réintégrée. Résultat final : photos 23 et 24 en `type: 'single'` en fin de galerie, 15 2 comme single intercalé après la rangée [14, 15, 16].
+
+Fichiers touchés : `src/pages/work/quando-sono-qui.astro`, `src/pages/[lang]/work/quando-sono-qui.astro`.
+
+---
+
+**Lot AD — QSQ : ajout crédit Gisele Kimura (2026-08-10, commit bb99bc1).**
+
+La ligne de crédits QSQ est complétée dans les quatre langues. EN : "Image reproduced with the kind permission of Tatila Lyma and Gisele Kimura." FR : "Image reproduite avec l'aimable autorisation de Tatila Lyma et Gisele Kimura." IT : "Immagine riprodotta per gentile concessione di Tatila Lyma e Gisele Kimura." PT : "Imagem reproduzida com a gentil autorização de Tatila Lyma e Gisele Kimura."
+
+Fichiers touchés : `src/pages/work/quando-sono-qui.astro`, `src/pages/[lang]/work/quando-sono-qui.astro`.
+
+---
+
+**Lot AE — QSQ : cinq singles pleine largeur (2026-08-10, commit 4afd5e5).**
+
+Photos 5, 11, 15 2, 23 et 24 passent en `type: 'single'` (pleine largeur). Réorganisation complète du tableau `spreads` dans les deux fichiers. État final : [2,3,4] · [5] · [6,7] · [8,9,10] · [11] · [12,13] · [14,15,16] · [15 2] · [17,18,19] · [20,21,22] · [23] · [24]. La photo 15 2.jpg utilise un objet inline `{ src: s('15 2.jpg'), n: 15 }` car le helper `p(n)` ne gère que des entiers. Vérifié : pas de trou, bords rectilignes, desktop et mobile.
+
+Fichiers touchés : `src/pages/work/quando-sono-qui.astro`, `src/pages/[lang]/work/quando-sono-qui.astro`.
+
+---
+
+**QSQ — Photo 17 intégrée dans la rangée 17-18-19 (2026-08-11, commit e721ac3).**
+
+La photo 17 était seule sur une ligne. Elle est intégrée dans la rangée [17, 18, 19] (`type: 'row'`, trois images justifiées). Appliqué dans les deux fichiers (EN et [lang]), desktop et mobile.
+
+Fichiers touchés : `src/pages/work/quando-sono-qui.astro`, `src/pages/[lang]/work/quando-sono-qui.astro`.
+
+---
+
+**Lot AF — QSQ : vignette de présentation (2026-08-11, commit 55a6534).**
+
+L'image de couverture QSQ utilisée sur la page d'accueil et dans les métas (`quando-cover.jpg`) est remplacée par le contenu de `2.jpg` (2000 × 1333 px, ratio 1.5004). Le fichier `public/images/work/quando-cover.jpg` est écrasé ; toutes les références dans le code restent inchangées. Vérifié : les deux fichiers ont le même ratio, aucun recadrage automatique.
+
+Fichier touché : `public/images/work/quando-cover.jpg`.
+
+---
+
+**About — Orthographe Orianne Ciantar Olive (2026-08-11, commit ef08671).**
+
+Cinq occurrences de "Oriane Ciantar Olive" corrigées en "Orianne Ciantar Olive" : page `about.astro` (EN) et les quatre langues dans `src/i18n/translations.ts`.
+
+Fichiers touchés : `src/pages/about.astro`, `src/i18n/translations.ts`.
+
+---
+
+**Lot AG — Compte d'images en chiffres ; correction ECM (2026-08-11, commit 62eeb75).**
+
+**AG.1 — Suppression des tables NUMS et de numWord().** Les quatre dictionnaires `NUMS` (EN/FR/IT/PT, entrées 1-25) et la fonction `numWord()` sont supprimés de `Lightbox.astro`. `heroCountText()` et `seeLinkText()` utilisent désormais `${n}` directement. Avant : pages avec n ≤ 25 affichaient les lettres ("Eleven photographs", "Onze photographies", etc.) ; pages avec n > 25 tombaient déjà en chiffres (fallback `String(n)`). Après : toutes les pages affichent des chiffres.
+
+**AG.2 — Correction du compte ECM.** ECM était la seule page dont toutes les images portent `data-no-lightbox` (série à accès privé) ; l'ancienne `isEligible()` renvoyait faux pour chacune, donnant n = 0 et un bloc hero vide. Correction : ajout de `isCountable()` (ignore `data-no-lightbox`, exclut seulement les `SKIP_PARENTS`), distincte de `isEligible()` (conserve les deux exclusions). `buildLightbox()` calcule `n` via `countable.length` pour l'affichage et construit la visionneuse depuis `eligible` (inchangé). Résultat : ECM affiche "22 photographs" / "22 photographies" / "22 fotografie" / "22 fotografias" selon la langue.
+
+**AG.3 — Tableau de vérification.** 5 pages × EN (statique) · FR · IT · PT.
+
+| Page | Compte | Lien see-images |
+|---|---|---|
+| QSQ | 26 photographs / photographies / fotografie / fotografias | Voir les 26 images ↓ (FR) |
+| TTB | 11 photographs / … | See the 11 images ↓ (EN) |
+| VV | 12 photographs / … | See the 12 images ↓ (EN) |
+| Spilling | 43 photographs / … | See the 43 images ↓ (EN) |
+| ECM | 22 photographs / … | (aucun lien see-images) |
+| LMEC | 9 photographs / … | Voir les 9 images ↓ (FR) |
+
+Vérifié desktop 1440 px et mobile 485 px. Sur ECM mobile : `.phero-count { display: block }`, texte visible ✓.
+
+Fichier touché : `src/components/Lightbox.astro`.
+
+---
+
 ## 9. Travailler avec Claude Code
 1. Créer le dépôt GitHub + projet Astro, connecter Cloudflare Pages.
 2. Donner **ce cahier** en contexte.
