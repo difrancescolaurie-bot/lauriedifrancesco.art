@@ -117,7 +117,7 @@ The question it raises is simple: how does one hold on, after a childhood in whi
 To transfigure the real: that is where these images are made from. We have art in order not to die of the truth.
 
 Crédits (label) : Credits
-Crédits : Image reproduced with the kind permission of Tatila Lyma.
+Crédits : Image reproduced with the kind permission of Tatila Lyma and Gisele Kimura.
 
 ---
 
@@ -171,7 +171,7 @@ La question qu'elle pose est simple : comment on tient, après une enfance où l
 Transfigurer le réel : c'est de là que ces images sont faites. Nous avons l'art pour ne pas mourir de la vérité.
 
 Crédits (label) : Crédits
-Crédits : Image reproduite avec l'aimable autorisation de Tatila Lyma.
+Crédits : Image reproduite avec l'aimable autorisation de Tatila Lyma et Gisele Kimura.
 
 ---
 
@@ -226,7 +226,7 @@ La domanda che pone è semplice: come si resta in piedi, dopo un'infanzia in cui
 Trasfigurare il reale: è da lì che queste immagini sono fatte. Abbiamo l'arte per non morire della verità.
 
 Crédits (label) : Crediti
-Crédits : Immagine riprodotta per gentile concessione di Tatila Lyma.
+Crédits : Immagine riprodotta per gentile concessione di Tatila Lyma e Gisele Kimura.
 
 ---
 
@@ -281,7 +281,7 @@ A pergunta que ela faz é simples: como se fica de pé, depois de uma infância 
 Transfigurar o real: é daí que estas imagens são feitas. Temos a arte para não morrer da verdade.
 
 Crédits (label) : Créditos
-Crédits : Imagem reproduzida com a gentil autorização de Tatila Lyma.
+Crédits : Imagem reproduzida com a gentil autorização de Tatila Lyma e Gisele Kimura.
 
 ---
 ---
