@@ -38,16 +38,25 @@
   height: 100%;
   object-fit: cover;
   opacity: 0;
-  animation: heroFade 8s infinite;
+  animation: heroFade 20s infinite;
   will-change: opacity, transform;
 }
 
+.hero-bg img:nth-child(1) { animation-delay: 0s; }
+.hero-bg img:nth-child(2) { animation-delay: 2.5s; }
+.hero-bg img:nth-child(3) { animation-delay: 5s; }
+.hero-bg img:nth-child(4) { animation-delay: 7.5s; }
+.hero-bg img:nth-child(5) { animation-delay: 10s; }
+.hero-bg img:nth-child(6) { animation-delay: 12.5s; }
+.hero-bg img:nth-child(7) { animation-delay: 15s; }
+.hero-bg img:nth-child(8) { animation-delay: 17.5s; }
+
 @keyframes heroFade {
-  0%   { opacity: 0; transform: scale(1.0) }
-  3%   { opacity: 1 }
-  22%  { opacity: 1 }
-  25%  { opacity: 0; transform: scale(1.04) }
-  100% { opacity: 0; transform: scale(1.04) }
+  0%    { opacity: 0; transform: scale(1.0) }
+  1.5%  { opacity: 1 }
+  11%   { opacity: 1 }
+  12.5% { opacity: 0; transform: scale(1.04) }
+  100%  { opacity: 0; transform: scale(1.04) }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -361,8 +370,8 @@
 @media (max-width: 700px) {
   .work-frame { aspect-ratio: 3/2; }
 
-  /* Recadrage mobile — ordre héro : hero-2, hero-3, hero-4, hero-1 */
-  .hero-bg img:nth-child(1) { object-position: calc(62% + 45px) center; }
-  .hero-bg img:nth-child(3) { object-position: calc(68% - 135px) center; }
-  .hero-bg img:nth-child(4) { object-position: 25% center; }
+  /* Recadrage mobile — séquence 8 positions */
+  .hero-bg img:nth-child(2) { object-position: calc(62% + 45px) center; } /* garcon */
+  .hero-bg img:nth-child(4) { object-position: 22% center; }               /* gelsomina */
+  .hero-bg img:nth-child(6) { object-position: calc(68% - 135px) center; } /* toward */
 }

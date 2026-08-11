@@ -2,13 +2,6 @@
 import Layout from '../layouts/Layout.astro';
 import '../styles/pages/home.css';
 
-const heroImages = [
-  '/images/hero/hero-2.jpg',
-  '/images/hero/hero-3.jpg',
-  '/images/hero/hero-4.jpg',
-  '/images/hero/hero-1.jpg',
-];
-
 const wipProjects = [
   {
     href: '/work/quando-sono-qui',
@@ -54,15 +47,14 @@ const prevProjects = [
   <section class="hero" aria-label="Hero">
 
     <div class="hero-bg" aria-hidden="true">
-      {heroImages.map((src, i) => (
-        <img
-          src={src}
-          alt=""
-          loading={i === 0 ? 'eager' : 'lazy'}
-          fetchpriority={i === 0 ? 'high' : 'auto'}
-          style={`animation-delay: ${i * 2}s`}
-        />
-      ))}
+      <img src="/images/hero/1_fixe-1-halo.jpg"     alt="sunlight through a cave opening"              loading="eager" fetchpriority="high" />
+      <img src="/images/hero/2_fixe-2-garcon.jpg"    alt="a child swimming in still water"              loading="lazy" />
+      <img src="/images/hero/matiere-roche.jpg"       alt="cave rock wall in red light"                  loading="lazy" class="hero-random" />
+      <img src="/images/hero/4_fixe-3-gelsomina.jpg" alt="a silhouette reflected in a shop window"      loading="lazy" />
+      <img src="/images/hero/matiere-oiseau.jpg"      alt="a bird in flight, motion blur"                loading="lazy" class="hero-random" />
+      <img src="/images/hero/6_fixe-4-toward.jpg"    alt="a young woman's face through prismatic light" loading="lazy" />
+      <img src="/images/hero/matiere-bananier.jpg"    alt="banana flower, close-up"                      loading="lazy" class="hero-random" />
+      <img src="/images/hero/8_fixe-5-gisele.jpg"    alt="a woman floating in dark water"               loading="lazy" />
     </div>
 
     <div class="hero-inner container">
@@ -146,6 +138,39 @@ const prevProjects = [
 
 </Layout>
 
+<script is:inline>
+(function () {
+  var MATIERES = [
+    { src: '/images/hero/matiere-roche.jpg',    pos: 'center center' },
+    { src: '/images/hero/matiere-oiseau.jpg',   pos: 'center center' },
+    { src: '/images/hero/matiere-bananier.jpg', pos: 'center center' },
+    { src: '/images/hero/matiere-cheveux.jpg',  pos: 'center center' },
+    { src: '/images/hero/matiere-falaises.jpg', pos: 'center center' },
+    { src: '/images/hero/matiere-toboggan.jpg', pos: 'center center' },
+  ];
+  function shuffle(arr) {
+    for (var i = arr.length - 1; i > 0; i--) {
+      var j = Math.floor(Math.random() * (i + 1));
+      var t = arr[i]; arr[i] = arr[j]; arr[j] = t;
+    }
+    return arr;
+  }
+  function drawHero() {
+    var slots = document.querySelectorAll('.hero-random');
+    if (!slots.length) return;
+    var drawn = shuffle(MATIERES.slice()).slice(0, slots.length);
+    slots.forEach(function(slot, i) {
+      slot.src = drawn[i].src;
+      slot.style.objectPosition = drawn[i].pos;
+    });
+  }
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', drawHero);
+  } else {
+    drawHero();
+  }
+})();
+</script>
 
 <script>
   const observer = new IntersectionObserver(

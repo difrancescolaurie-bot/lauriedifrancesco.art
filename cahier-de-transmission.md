@@ -521,6 +521,45 @@ Fichier touché : `src/components/Lightbox.astro`.
 
 ---
 
+**Lot AH — Hero refonte : 8 positions, 5 fixes + 3 matières tirées au sort (2026-08-11).**
+
+**AH.1 — Séquence et images.** Le hero passe de 4 images statiques à 8 positions fixes dans le HTML :
+
+| Position | Fichier | Rôle |
+|---|---|---|
+| 1 | `1_fixe-1-halo.jpg` | fixe |
+| 2 | `2_fixe-2-garcon.jpg` | fixe |
+| 3 | slot random (défaut : `matiere-roche.jpg`) | matière |
+| 4 | `4_fixe-3-gelsomina.jpg` | fixe |
+| 5 | slot random (défaut : `matiere-oiseau.jpg`) | matière |
+| 6 | `6_fixe-4-toward.jpg` | fixe |
+| 7 | slot random (défaut : `matiere-bananier.jpg`) | matière |
+| 8 | `8_fixe-5-gisele.jpg` | fixe |
+
+Les 6 matières disponibles : roche, oiseau, bananier, cheveux, falaises, toboggan. 3 sont tirées au sort à chaque chargement (Fisher-Yates, sans remise).
+
+**AH.2 — Tirage au sort.** Script `is:inline` dans les deux pages index (`index.astro` et `[lang]/index.astro`). Remplace `src` et `style.objectPosition` des 3 slots `.hero-random` au DOMContentLoaded. Sans JavaScript, les 3 matières par défaut restent affichées (aucun vide). Alt texts en anglais uniquement (la div `.hero-bg` est `aria-hidden="true"`).
+
+**AH.3 — Animation.** Cycle porté de 8 s (4 images) à 20 s (8 positions), 2,5 s par image. Keyframes proportionnellement identiques : fondu entrant 1,5 % (0,3 s), plateau 9,5 % (1,9 s), fondu sortant 1,5 % (0,3 s). Délais via `nth-child` dans `home.css` (0 s, 2,5 s, 5 s, 7,5 s, 10 s, 12,5 s, 15 s, 17,5 s). `prefers-reduced-motion` : seule halo reste visible (`img:first-child { opacity: 1 }`).
+
+**AH.4 — Cadrages mobiles (390 px).** Réglés par `nth-child` dans `home.css` :
+- `nth-child(2)` garcon : `calc(62% + 45px) center` (conservé)
+- `nth-child(4)` gelsomina : `22% center` (nouveau)
+- `nth-child(6)` toward : `calc(68% - 135px) center` (conservé)
+- Autres fixes (halo, gisele) : `center center` implicite
+- Slots matières : `object-position` injectée par JS (`center center` pour toutes)
+
+**AH.5 — Images supprimées.** `hero-1.jpg`, `hero-2.jpg`, `hero-3.jpg`, `hero-4.jpg` supprimés. 11 nouvelles images dans `public/images/hero/`.
+
+**AH.6 — Tirages vérifiés (3 rechargements différents).**
+- Tirage 1 : falaises / toboggan / roche
+- Tirage 2 : oiseau / cheveux / toboggan
+- Tirage 3 : toboggan / falaises / oiseau
+
+Fichiers touchés : `src/pages/index.astro`, `src/pages/[lang]/index.astro`, `src/styles/pages/home.css`, `CLAUDE.md`.
+
+---
+
 ## 9. Travailler avec Claude Code
 1. Créer le dépôt GitHub + projet Astro, connecter Cloudflare Pages.
 2. Donner **ce cahier** en contexte.
