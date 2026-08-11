@@ -81,6 +81,11 @@ a {
   text-decoration: none;
 }
 
+::selection {
+  background: var(--cerule);
+  color: var(--blanc);
+}
+
 /* ─── Surfaces sombres ───────────────────────────────── */
 .on-dark {
   --encre:   var(--blanc);

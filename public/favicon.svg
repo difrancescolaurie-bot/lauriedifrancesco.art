@@ -1,3 +1,13 @@
 <svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
-  <circle cx="32" cy="32" r="32" fill="#235C97"/>
+  <style>
+    .bg     { fill: #F1F4F5; }
+    .letter { fill: #14202B; }
+    @media (prefers-color-scheme: dark) {
+      .bg     { fill: #14202B; }
+      .letter { fill: #FBFCFC; }
+    }
+  </style>
+  <rect class="bg" width="64" height="64"/>
+  <!-- L : tracé vectoriel — barre verticale + barre horizontale, graisse 300 -->
+  <path class="letter" d="M14,8 L22,8 L22,48 L50,48 L50,56 L14,56 Z"/>
 </svg>

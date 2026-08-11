@@ -102,6 +102,10 @@ export const ui = {
       quoteHtml: 'To photograph is the process of discovering the other and, through the other, oneself. Ultimately, that is why the photographer seeks and discovers new worlds, but always ends up revealing what lies within.',
       quoteCite: 'Claudia Andujar',
     },
+    footer: {
+      madeBy: 'A site made by hand by Laurie Di Francesco',
+      legalNotice: 'Legal notice',
+    },
   },
 
   fr: {
@@ -204,6 +208,10 @@ export const ui = {
       privateAccess: 'Série complète (accès privé) →',
       quoteHtml: 'Photographier est le processus de découverte de l\'autre et, à travers l\'autre, de soi-même. C\'est en fin de compte pour cela que le photographe cherche et découvre de nouveaux mondes, mais finit toujours par révéler ce qui est en lui.',
       quoteCite: 'Claudia Andujar',
+    },
+    footer: {
+      madeBy: 'Un site fait à la main par Laurie Di Francesco',
+      legalNotice: 'Mentions légales',
     },
   },
 
@@ -308,6 +316,10 @@ export const ui = {
       quoteHtml: 'Fotografare è il processo di scoperta dell\'altro e, attraverso l\'altro, di se stessi. È in fin dei conti per questo che il fotografo cerca e scopre nuovi mondi, ma finisce sempre per rivelare ciò che è dentro di sé.',
       quoteCite: 'Claudia Andujar',
     },
+    footer: {
+      madeBy: 'Un sito fatto a mano da Laurie Di Francesco',
+      legalNotice: 'Note legali',
+    },
   },
 
   pt: {
@@ -410,6 +422,10 @@ export const ui = {
       privateAccess: 'Série completa (acesso privado) →',
       quoteHtml: 'Fotografar é o processo de descoberta do outro e, através do outro, de si mesmo. É em última análise por isso que o fotógrafo busca e descobre novos mundos, mas sempre acaba por revelar o que está dentro de si.',
       quoteCite: 'Claudia Andujar',
+    },
+    footer: {
+      madeBy: 'Um site feito à mão por Laurie Di Francesco',
+      legalNotice: 'Aviso legal',
     },
   },
 } as const;
