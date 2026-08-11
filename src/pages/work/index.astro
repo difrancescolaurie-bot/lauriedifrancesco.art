@@ -2,6 +2,9 @@
 import Layout from '../../layouts/Layout.astro';
 import '../../styles/pages/work-index.css';
 import Citation from '../../components/Citation.astro';
+import { ui } from '../../i18n/translations';
+
+const t = ui.en;
 
 const projects = [
   {
@@ -50,7 +53,7 @@ const projects = [
 ---
 
 <Layout
-  title="Projects"
+  title={t.work.h1}
   description="Stories in Images · Laurie Di Francesco, photography and writing."
 >
 
