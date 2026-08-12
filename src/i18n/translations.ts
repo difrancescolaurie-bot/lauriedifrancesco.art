@@ -186,7 +186,7 @@ export const ui = {
       artworkTitle: "Enfants jouant dans les fontaines du parc",
       artworkStatus: "Acquise en collection privée.",
       introLabel: "L'exposition",
-      introText: "Le travail devenu Spilling Beyond the Lines a été montré ici pour la première fois : une exposition personnelle de vingt-cinq photographies issues de vingt années d'archives, des images rassemblées sur plusieurs continents bien avant d'avoir un nom. En les relisant, un fil est apparu, et avec lui une seule question : que sépare vraiment une frontière ? L'exposition était accrochée en constellations thématiques, territoires et peuples éloignés placés côte à côte, pour demander ce qui fait se rejoindre des images si différentes. La série a ensuite été achevée telle qu'elle est montrée sur ce site.",
+      introText: "Le travail devenu Déborder les Lignes a été montré ici pour la première fois : une exposition personnelle de vingt-cinq photographies issues de vingt années d'archives, des images rassemblées sur plusieurs continents bien avant d'avoir un nom. En les relisant, un fil est apparu, et avec lui une seule question : que sépare vraiment une frontière ? L'exposition était accrochée en constellations thématiques, territoires et peuples éloignés placés côte à côte, pour demander ce qui fait se rejoindre des images si différentes. La série a ensuite été achevée telle qu'elle est montrée sur ce site.",
       viewProject: "Voir le projet · Déborder les Lignes →",
       craftEyebrow: "Impression, encadrement & accrochage",
       craftSub: "L'artisanat derrière l'exposition",
