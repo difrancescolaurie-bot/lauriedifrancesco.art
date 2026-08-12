@@ -1,20 +1,27 @@
 ---
 import Layout from '../../../layouts/Layout.astro';
+import '../../../styles/pages/work-project.css';
 import Citation from '../../../components/Citation.astro';
+import NextProject from '../../../components/NextProject.astro';
 
-// ── Mot de passe — change la valeur entre guillemets ──────────
 const PASSWORD = 'surfacing';
 
-// Photos de la série publique
-const pub = (n: number) => ({ src: `/images/work/en-corps-en-la-mer/${n}.jpg`, n });
-// Photos privées — dépose les fichiers dans /public/images/work/ecm-private/
-// puis ajoute prv(n) dans les spreads ci-dessous
-const prv = (n: number) => ({ src: `/images/work/ecm-private/${n}.jpg`, n });
-
-type Photo = { src: string; n: number };
+type Photo = { src: string; n: number; w: number; h: number };
 type Spread = { type: 'row' | 'single'; photos: Photo[] };
 
-// Série complète — pub(n) = photo publique · prv(n) = photo privée uniquement
+const pub = (n: number): Photo => ({
+  src: `/images/work/en-corps-en-la-mer/${n}.jpg`,
+  n,
+  w: 2000,
+  h: n === 52 ? 1334 : 1333,
+});
+const prv = (n: number): Photo => ({
+  src: `/images/work/ecm-private/${n}.jpg`,
+  n,
+  w: 1600,
+  h: 1066,
+});
+
 const spreads: Spread[] = [
   // La chute — intérieur, maladie
   { type: 'row',    photos: [pub(53), prv(54), pub(56)] },
@@ -40,6 +47,7 @@ const spreads: Spread[] = [
   hasTranslations={false}
   noindex={true}
   lightHeader={false}
+  bodyClass="page-ecm"
 >
 
   <!-- ── Gate mot de passe ──────────────────────────────────── -->
@@ -63,7 +71,7 @@ const spreads: Spread[] = [
     </div>
   </div>
 
-  <!-- ── Page projet (réplique) ─────────────────────────────── -->
+  <!-- ── Page projet ────────────────────────────────────────── -->
   <div id="pgallery" aria-hidden="true" style="display:none">
 
     <!-- ── Hero ──────────────────────────────────────────────── -->
@@ -72,86 +80,93 @@ const spreads: Spread[] = [
         <img src="/images/work/en-corps-en-la-mer/72.jpg" alt="" loading="eager" />
       </div>
       <div class="phero-inner container">
-        <p class="phero-eyebrow">Surfacing · Complete series</p>
+        <p class="phero-eyebrow">Surfacing</p>
         <h1>En Corps<br /><strong>à la Mer</strong></h1>
+        <p class="phero-count" aria-live="polite"></p>
       </div>
     </section>
 
-    <!-- ── Ouverture : deux rangées photo + citation, puis texte ── -->
-    <section class="ecm-opening container">
+    <!-- ── Ouverture : deux rangées photo + citation ── -->
+    <section class="gal-opening">
 
-      <!-- Rangée 1 : Photo 51 (gauche) + Nietzsche (droite) -->
-      <div class="priv-photo-cit">
-        <figure class="priv-pc-photo" style="flex: 0 0 55%">
-          <img src="/images/work/en-corps-en-la-mer/51.jpg" alt="" loading="lazy" />
+      <div class="gal-row rv">
+        <figure class="gal-cell gal-cell--photo">
+          <img src="/images/work/en-corps-en-la-mer/51.jpg" alt="" loading="lazy" data-no-lightbox width="2000" height="1333" />
         </figure>
-        <div class="priv-pc-text">
+        <div class="gal-cell gal-cell--cit">
           <Citation author="Friedrich Nietzsche · Posthumous Fragments">
             That fundamental artistic phenomenon which is called life
           </Citation>
         </div>
       </div>
 
-      <!-- Rangée 2 : Claire Marin (gauche) + Photo 52 (droite) -->
-      <div class="priv-photo-cit">
-        <div class="priv-pc-text">
+      <div class="gal-row rv">
+        <div class="gal-cell gal-cell--cit">
           <Citation author="Claire Marin · Hors de moi" note="freely translated from the French">
-            Dreams and water are two worlds where I recover a little balance, a little lightness,
-            where I live again the pleasure of movement. Held within the water's sheath, my body
-            lets go of its pain. It fades, dissolves, vanishes. My movements turn fluid, easy;
-            my body supple, almost deft. Gone, the tender catching-points: the hips, the elbows ·
+            Dreams and water are two worlds where I find a little balance again, a little lightness,
+            where I live again the pleasure of movement. Sheathed and held by the water, my body
+            sheds its pain. It fades, it wears away, it vanishes. Gestures become fluid, easy,
+            the body supple, almost deft. Vanished, the tender catching points: the hips, the elbows,
             nothing rasps anymore, nothing chafes, nothing tears. I remember dreaming I was a mermaid.
-            My legs were imprisoned in a cocoon formed by the sheets, wound tight from turning and
-            turning on myself in search of a position without pain. In the dream, the mummification
-            had been transfigured into a power of movement.
+            My legs were imprisoned in a cocoon formed by the sheets, wound from turning and turning
+            on myself in search of a painless position. In the dream, the mummification had turned
+            into a power of movement.
           </Citation>
         </div>
-        <figure class="priv-pc-photo" style="flex: 0 0 42%">
-          <img src="/images/work/en-corps-en-la-mer/52.jpg" alt="" loading="lazy" />
+        <figure class="gal-cell gal-cell--photo">
+          <img src="/images/work/en-corps-en-la-mer/52.jpg" alt="" loading="lazy" data-no-lightbox width="2000" height="1334" />
         </figure>
-      </div>
-
-      <!-- Texte du projet -->
-      <div class="ecm-text">
-        <p class="opening-eyebrow">The project</p>
-        <p class="opening-text">
-          There was a season when the body gave way — when illness pulled the ground
-          from under everything and strength drained off like a tide going out. <em>En Corps à la Mer</em> follows that long descent and its turning:
-          force returning not through stillness, but through water. To swim was to
-          be carried and to carry oneself at once — to surface, and surface again,
-          until surfacing became a way of living. The series moves from dark
-          interiors toward an open, dazzling white: the sea as the place where a
-          life is handed back.
-        </p>
-        <hr class="horizon opening-horizon" />
       </div>
 
     </section>
 
+    <!-- ── Texte du projet ──────────────────────────────────── -->
+    <div class="ecm-text">
+      <p class="opening-eyebrow">The project</p>
+      <p class="opening-text">
+        There was a season when the body gave way, when illness pulled the ground
+        from under everything and strength drained off like a tide going out. <em>En Corps à la Mer</em> follows that long descent and its turning:
+        force returning not through stillness, but through water. To swim was to
+        be carried and to carry oneself at once. To surface, and surface again,
+        until surfacing became a way of living. The series moves from dark
+        interiors toward an open, dazzling white: the sea as the place where a
+        life is handed back.
+      </p>
+      <hr class="horizon opening-horizon" />
+    </div>
+
     <!-- ── Série photographique ──────────────────────────────── -->
-    <div class="series">
+    <div class="series" id="serie">
       {spreads.map((spread) => (
-        <div class={`spread spread--${spread.type} rv`}>
-          {spread.photos.map((photo) => (
-            <figure>
-              <img
-                src={photo.src}
-                data-full={photo.src}
-                alt={`En Corps à la Mer · ${photo.n}`}
-                loading="lazy"
-                data-no-lightbox
-              />
-            </figure>
-          ))}
-        </div>
+        <>
+          <div class={`spread spread--${spread.type} rv`}>
+            {spread.photos.map((photo) => (
+              <figure>
+                <img
+                  src={photo.src}
+                  alt={`En Corps à la Mer · ${photo.n}`}
+                  loading="lazy"
+                  data-no-lightbox
+                  width={photo.w}
+                  height={photo.h}
+                />
+              </figure>
+            ))}
+          </div>
+        </>
       ))}
     </div>
 
-    <!-- ── Retour ─────────────────────────────────────────────── -->
-    <div class="next-project container">
-      <span class="next-label">Back</span>
-      <a id="private-back" href="/work/en-corps-en-la-mer">En Corps à la Mer →</a>
+    <!-- ── Crédits ─────────────────────────────────────────── -->
+    <div class="project-credits">
+      <div class="group">
+        <div class="label">With thanks</div>
+        <p>With thanks to Jérôme Gaudin and Boriana Goranova for their friendship, to Lucie Lejeune for her support, and to Antoine d'Agata for his eye, his kindness and his generosity.</p>
+      </div>
     </div>
+
+    <!-- ── Projet suivant ─────────────────────────────────────── -->
+    <NextProject current="en-corps-en-la-mer" />
 
   </div>
 
@@ -254,243 +269,9 @@ const spreads: Spread[] = [
     text-align: center;
   }
 
-  /* ── Hero projet ────────────────────────────────────── */
-  .phero {
-    position: relative;
-    min-height: 90vh;
-    display: flex;
-    align-items: flex-end;
-    padding-bottom: clamp(3rem, 8vh, 6rem);
-    overflow: hidden;
-  }
-
-  .phero-bg {
-    position: absolute;
-    inset: 0;
-    z-index: -2;
-  }
-
-  .phero-bg img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
-
-  .phero-bg::after {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background:
-      linear-gradient(180deg,
-        rgba(20,32,43,.45) 0%,
-        rgba(20,32,43,0) 30%,
-        rgba(20,32,43,0) 55%,
-        rgba(20,32,43,.62) 100%
-      );
-  }
-
-  .phero-inner {
-    position: relative;
-    color: #fff;
-  }
-
-  .phero-eyebrow {
-    font-family: var(--font-body);
-    font-size: .74rem;
-    text-transform: uppercase;
-    letter-spacing: .2em;
-    color: rgba(255,255,255,.88);
-    margin-bottom: .7rem;
-  }
-
-  .phero-inner h1 {
-    font-family: var(--font-title);
-    font-weight: 300;
-    text-transform: uppercase;
-    font-size: clamp(2rem, 7vw, 4.6rem);
-    line-height: 1.02;
-    letter-spacing: clamp(.04em, .8vw, .12em);
-  }
-
-  .phero-inner h1 strong { font-weight: 500; }
-
-  /* ── Ouverture ──────────────────────────────────────── */
-  .ecm-opening {
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
-    padding-top: clamp(3rem, 8vh, 5.5rem);
-    padding-bottom: clamp(3rem, 7vh, 5rem);
-    max-width: var(--max-width-wide);
-  }
-  .ecm-text {
-    display: flex;
-    flex-direction: column;
-    margin-top: clamp(1.5rem, 3vh, 2.5rem);
-  }
-
-  /* Photo + citation inline (replaces PhotoCitation) */
-  .priv-photo-cit {
-    display: flex;
-    gap: 16px;
-    align-items: center;
-  }
-  .priv-pc-photo {
-    margin: 0;
-    min-width: 0;
-    flex-shrink: 0;
-  }
-  .priv-pc-photo img {
-    display: block;
-    width: 100%;
-    height: auto;
-  }
-  .priv-pc-text {
-    flex: 1;
-    min-width: 0;
-  }
-  .priv-pc-text .epi-wrap {
-    max-width: none;
-  }
   @media (max-width: 700px) {
-    .priv-photo-cit {
-      flex-direction: column;
-      gap: 1rem;
-    }
-    .priv-pc-photo {
-      flex: 0 0 auto !important;
-      width: 100%;
-    }
-  }
-
-  .opening-eyebrow {
-    font-family: var(--font-body);
-    font-size: .72rem;
-    text-transform: uppercase;
-    letter-spacing: .2em;
-    color: var(--cerule);
-    margin-bottom: 1rem;
-  }
-
-  .opening-text {
-    font-size: clamp(.92rem, 1.35vw, 1.06rem);
-    line-height: 1.78;
-    color: var(--encre);
-    text-align: left;
-    hyphens: none;
-    -webkit-hyphens: none;
-    flex-grow: 1;
-    margin-bottom: 1.8rem;
-  }
-
-  .opening-text em { font-style: italic; }
-  .opening-horizon { margin-top: 0; }
-
-  /* ── Série ──────────────────────────────────────────── */
-  .series {
-    max-width: var(--max-width-wide);
-    margin: 0 auto;
-    padding: 0 var(--gutter);
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
-  }
-
-  .spread {
-    display: flex;
-    gap: 16px;
-    align-items: flex-start;
-  }
-
-  .spread figure {
-    flex-grow: 1;
-    flex-basis: 0;
-    min-width: 0;
-    margin: 0;
-  }
-
-  .spread figure img {
-    display: block;
-    width: 100%;
-    height: auto;
-    cursor: zoom-in;
-  }
-
-  .spread--single figure { flex: 1 1 100%; }
-
-  /* Scroll fade-in */
-  .rv {
-    opacity: 0;
-    transform: translateY(20px);
-    transition: opacity .8s ease, transform .8s ease;
-  }
-  .rv.in { opacity: 1; transform: none; }
-
-  @media (prefers-reduced-motion: reduce) {
-    .rv { opacity: 1; transform: none; transition: none; }
-  }
-
-  /* ── Next / Back ────────────────────────────────────── */
-  .next-project {
-    display: flex;
-    align-items: baseline;
-    justify-content: space-between;
-    gap: 1rem;
-    border-top: 1px solid var(--brume);
-    padding-block: clamp(3rem, 8vh, 6rem);
-    margin-top: clamp(2rem, 5vh, 3rem);
-  }
-
-  .next-label {
-    font-family: var(--font-body);
-    font-size: .72rem;
-    letter-spacing: .16em;
-    text-transform: uppercase;
-    color: var(--ardoise);
-  }
-
-  .next-project a {
-    font-family: var(--font-title);
-    font-weight: 400;
-    font-size: clamp(1.3rem, 3vw, 2rem);
-    text-transform: uppercase;
-    letter-spacing: .06em;
-    color: var(--encre);
-    transition: color .3s;
-  }
-
-  .next-project a:hover { color: var(--cerule); }
-
-  /* ── Mobile ─────────────────────────────────────────── */
-  @media (max-width: 700px) {
-    .series { gap: 8px; }
-    .spread { flex-wrap: wrap; gap: 8px; }
-    .spread figure { flex: none !important; width: calc(50% - 4px) !important; }
-    .spread--single figure { width: 100% !important; }
     .gate-form { flex-direction: column; }
     .gate-btn { width: 100%; }
-  }
-
-  /* ── Lightbox ───────────────────────────────────────── */
-  .lb {
-    position: fixed;
-    inset: 0;
-    background: rgba(20,32,43,.94);
-    display: none;
-    align-items: center;
-    justify-content: center;
-    z-index: 200;
-    padding: 3vw;
-    cursor: zoom-out;
-  }
-  .lb.open { display: flex; }
-  .lb img {
-    max-width: 96vw;
-    max-height: 94vh;
-    width: auto;
-    height: auto;
-    object-fit: contain;
-    border-radius: 4px;
   }
 
 </style>
@@ -511,13 +292,13 @@ const spreads: Spread[] = [
   // Preserve lang from referrer page
   const urlLang = new URLSearchParams(location.search).get('lang');
   if (urlLang) {
-    const backLink = document.getElementById('private-back');
-    if (backLink) backLink.setAttribute('href', `/${urlLang}/work/en-corps-en-la-mer`);
+    const backLink = document.querySelector('#pgallery .next-project a');
+    if (backLink) backLink.setAttribute('href', '/' + urlLang + '/work/en-corps-en-la-mer');
   }
 
   if (sessionStorage.getItem('ecm-private-auth') === '1') unlock();
 
-  form.addEventListener('submit', e => {
+  form.addEventListener('submit', function(e) {
     e.preventDefault();
     const pw = document.getElementById('pw').value;
     if (pw === PASSWORD) {
@@ -529,50 +310,88 @@ const spreads: Spread[] = [
   });
 
   function initPage() {
-    // Justified row layout
+    // Photo count — series images only (24 total: 20 public + 4 private)
+    const countEl = document.querySelector('.phero-count');
+    if (countEl) countEl.textContent = '24 photographs';
+
+    // Justified row layout — full version matching public page
     function justify() {
-      document.querySelectorAll('.spread--row').forEach(row => {
+      const mob = window.innerWidth <= 700;
+      document.querySelectorAll('.spread--row').forEach(function(row) {
         const figs = Array.from(row.querySelectorAll('figure'));
-        const imgs = figs.map(f => f.querySelector('img'));
+        const imgs = figs.map(function(f) { return f.querySelector('img'); });
+        function getR(im) {
+          return (im.naturalWidth && im.naturalHeight) ? im.naturalWidth / im.naturalHeight : 1;
+        }
         function apply() {
-          imgs.forEach((im, i) => {
-            const r = (im.naturalWidth && im.naturalHeight) ? im.naturalWidth / im.naturalHeight : 1;
-            figs[i].style.flexGrow = r.toFixed(4);
+          if (mob && figs.length === 2) {
+            const avail = row.clientWidth - 4;
+            const r0 = getR(imgs[0]), r1 = getR(imgs[1]);
+            const w0 = Math.round(r0 / (r0 + r1) * avail);
+            figs[0].style.flex = '0 0 ' + w0 + 'px';
+            figs[1].style.flex = '0 0 ' + (avail - w0) + 'px';
+            return;
+          }
+          if (mob && figs.length === 3) {
+            const avail = row.clientWidth - 4;
+            const r0 = getR(imgs[0]), r1 = getR(imgs[1]);
+            const w0 = Math.round(r0 / (r0 + r1) * avail);
+            figs[0].style.flex = '0 0 ' + w0 + 'px';
+            figs[1].style.flex = '0 0 ' + (avail - w0) + 'px';
+            figs[2].style.flex = '0 0 100%';
+            return;
+          }
+          if (mob && figs.length === 4) {
+            const avail = row.clientWidth - 4;
+            [[0,1],[2,3]].forEach(function(pair) {
+              const a = pair[0], b = pair[1];
+              const ra = getR(imgs[a]), rb = getR(imgs[b]);
+              const wa = Math.round(ra / (ra + rb) * avail);
+              figs[a].style.flex = '0 0 ' + wa + 'px';
+              figs[b].style.flex = '0 0 ' + (avail - wa) + 'px';
+            });
+            return;
+          }
+          imgs.forEach(function(im, i) {
+            figs[i].style.flex = getR(im).toFixed(4) + ' 1 0';
           });
         }
-        if (imgs.every(im => im.complete && im.naturalWidth)) apply();
-        else imgs.forEach(im => im.addEventListener('load', apply));
+        if (imgs.every(function(im) { return im.complete && im.naturalWidth; })) apply();
+        else imgs.forEach(function(im) { im.addEventListener('load', apply); });
       });
     }
+
+    // Opening row layout (gal-cell--photo width calculation)
+    function layoutGalRows() {
+      const mob = window.innerWidth <= 700;
+      const H = parseFloat(getComputedStyle(document.body).getPropertyValue('--rowh')) || 380;
+      document.querySelectorAll('.gal-cell--photo').forEach(function(cell) {
+        const img = cell.querySelector('img');
+        if (!img) return;
+        function apply() {
+          if (mob) { cell.style.width = ''; return; }
+          const r = (img.naturalWidth && img.naturalHeight)
+            ? img.naturalWidth / img.naturalHeight : 1;
+          cell.style.width = Math.round(r * H) + 'px';
+        }
+        if (img.complete && img.naturalWidth) apply();
+        else img.addEventListener('load', apply);
+      });
+    }
+
     justify();
-    window.addEventListener('resize', () => {
+    layoutGalRows();
+    window.addEventListener('resize', function() {
       clearTimeout(window._jt);
-      window._jt = setTimeout(justify, 150);
+      window._jt = setTimeout(function() { justify(); layoutGalRows(); }, 150);
     });
 
     // Scroll reveal
-    const obs = new IntersectionObserver(entries => {
-      entries.forEach(e => {
+    const obs = new IntersectionObserver(function(entries) {
+      entries.forEach(function(e) {
         if (e.isIntersecting) { e.target.classList.add('in'); obs.unobserve(e.target); }
       });
     }, { threshold: .06 });
-    document.querySelectorAll('.rv').forEach(el => obs.observe(el));
-
-    // Lightbox
-    const lb = document.createElement('div');
-    lb.className = 'lb';
-    const lbImg = document.createElement('img');
-    lb.appendChild(lbImg);
-    document.body.appendChild(lb);
-    document.querySelectorAll('.series img').forEach(im => {
-      im.addEventListener('click', () => {
-        lbImg.src = im.dataset.full || im.src;
-        lb.classList.add('open');
-      });
-    });
-    lb.addEventListener('click', () => lb.classList.remove('open'));
-    document.addEventListener('keydown', e => {
-      if (e.key === 'Escape') lb.classList.remove('open');
-    });
+    document.querySelectorAll('.rv').forEach(function(el) { obs.observe(el); });
   }
 </script>
