@@ -5,6 +5,8 @@ import Layout from '../layouts/Layout.astro';
 <Layout
   title="Page not found · Laurie Di Francesco"
   description="This page does not exist."
+  hasTranslations={false}
+  noindex={true}
 >
   <section class="nf">
     <div class="nf-bg" aria-hidden="true">
@@ -12,12 +14,55 @@ import Layout from '../layouts/Layout.astro';
     </div>
     <div class="nf-content container">
       <span class="nf-code" aria-hidden="true">404</span>
-      <h1 class="nf-title">This page<br /><strong>got lost</strong></h1>
-      <p class="nf-sub">It doesn't exist or has been moved.</p>
-      <a href="/" class="nf-back">← Back to home</a>
+      <h1 class="nf-title" id="nf-title">This page<br /><strong>got lost</strong></h1>
+      <p class="nf-sub" id="nf-sub">It doesn't exist or has been moved.</p>
+      <a href="/" class="nf-back" id="nf-back">← Back to home</a>
     </div>
   </section>
 </Layout>
+
+<script>
+  (function () {
+    const path = window.location.pathname;
+    const lang =
+      path.startsWith('/fr/') || path === '/fr' ? 'fr' :
+      path.startsWith('/it/') || path === '/it' ? 'it' :
+      path.startsWith('/pt/') || path === '/pt' ? 'pt' : 'en';
+
+    if (lang === 'en') return;
+
+    const texts = {
+      fr: {
+        title: 'Page introuvable · Laurie Di Francesco',
+        h1: 'Cette page<br /><strong>s\'est perdue</strong>',
+        sub: 'Elle n\'existe pas ou a été déplacée.',
+        back: '← Retour à l\'accueil',
+        href: '/fr',
+      },
+      it: {
+        title: 'Pagina non trovata · Laurie Di Francesco',
+        h1: 'Questa pagina<br /><strong>si è persa</strong>',
+        sub: 'Non esiste o è stata spostata.',
+        back: '← Torna alla home',
+        href: '/it',
+      },
+      pt: {
+        title: 'Página não encontrada · Laurie Di Francesco',
+        h1: 'Esta página<br /><strong>se perdeu</strong>',
+        sub: 'Não existe ou foi movida.',
+        back: '← Voltar ao início',
+        href: '/pt',
+      },
+    }[lang];
+
+    document.title = texts.title;
+    document.getElementById('nf-title').innerHTML = texts.h1;
+    document.getElementById('nf-sub').textContent = texts.sub;
+    const back = document.getElementById('nf-back');
+    back.textContent = texts.back;
+    back.setAttribute('href', texts.href);
+  })();
+</script>
 
 <style is:global>
   .nf {
