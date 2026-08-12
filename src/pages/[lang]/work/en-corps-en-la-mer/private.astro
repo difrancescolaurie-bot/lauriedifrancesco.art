@@ -1,0 +1,421 @@
+---
+import Layout from '../../../../layouts/Layout.astro';
+import '../../../../styles/pages/work-project.css';
+import Citation from '../../../../components/Citation.astro';
+import NextProject from '../../../../components/NextProject.astro';
+
+export function getStaticPaths() {
+  return [
+    { params: { lang: 'fr' } },
+    { params: { lang: 'it' } },
+    { params: { lang: 'pt' } },
+  ];
+}
+
+const { lang } = Astro.params;
+
+const PASSWORD = 'surfacing';
+
+const gate = {
+  fr: { title: 'Série complète',   sub: 'Accès privé',     placeholder: 'Mot de passe', btn: 'Entrer',  error: 'Mot de passe incorrect.' },
+  it: { title: 'Serie completa',   sub: 'Accesso privato', placeholder: 'Password',      btn: 'Entra',   error: 'Password errata.'        },
+  pt: { title: 'Série completa',   sub: 'Acesso privado',  placeholder: 'Senha',         btn: 'Entrar',  error: 'Senha incorreta.'         },
+}[lang as 'fr' | 'it' | 'pt'];
+
+const countLabel = { fr: '24 photographies', it: '24 fotografie', pt: '24 fotografias' }[lang as 'fr' | 'it' | 'pt'];
+
+const cerule = { fr: 'Refaire surface', it: 'Riemergere', pt: 'Emergir' }[lang as 'fr' | 'it' | 'pt'];
+
+const content = {
+  fr: {
+    nietzsche: "Ce phénomène artistique fondamental qu'on appelle la vie",
+    nietzscheCite: 'Friedrich Nietzsche · Fragments posthumes',
+    marineText: "Les rêves et l'eau sont deux mondes où je retrouve un peu d'équilibre, un peu de légèreté, où je vis à nouveau le plaisir du mouvement. Protégée par le gainage de l'eau, mon corps se défait de sa douleur. Elle s'estompe, s'efface, s'évanouit. Les gestes deviennent fluides, faciles, le corps, souple, presque habile. Évanouis, les points d'accroche sensibles : les hanches, les coudes, plus rien ne râpe, ne frotte, ne déchire. Je me souviens d'avoir rêvé être une sirène. Mes jambes étaient emprisonnées dans un cocon formé par les draps enroulés à force de tourner sur moi-même en quête d'une position indolore. Dans le rêve, la momification s'était métamorphosée en puissance de mouvement.",
+    marineCite: 'Claire Marin · Hors de moi',
+    marineNote: undefined as string | undefined,
+    projectLabel: 'Le Projet',
+    projectText: "Il y a eu une saison où le corps a cédé, quand la maladie a retiré le sol de sous toute chose et que la force s'est retirée comme une marée. <em>En Corps à la Mer</em> suit cette longue descente et son retournement : la force qui revient non par l'immobilité, mais par l'eau. Nager, c'était être portée et se porter soi-même à la fois. Refaire surface, et refaire surface encore, jusqu'à ce que refaire surface devienne une façon de vivre. La série va des intérieurs sombres vers un blanc ouvert et éblouissant : la mer comme lieu où une vie est rendue.",
+    creditsLabel: 'Remerciements',
+    creditsText: "Avec mes remerciements à Jérôme Gaudin et Boriana Goranova pour leur amitié, à Lucie Lejeune pour son aide, et à Antoine d'Agata pour son œil, sa bienveillance et sa générosité.",
+  },
+  it: {
+    nietzsche: 'Quel fenomeno artistico fondamentale che si chiama vita',
+    nietzscheCite: 'Friedrich Nietzsche · Frammenti postumi',
+    marineText: "I sogni e l'acqua sono due mondi in cui ritrovo un po' di equilibrio, un po' di leggerezza, in cui vivo di nuovo il piacere del movimento. Protetta dalla guaina dell'acqua, il mio corpo si libera del suo dolore. Si attenua, si cancella, svanisce. I gesti diventano fluidi, facili, il corpo, morbido, quasi abile. Svaniti, i punti di aggancio sensibili: i fianchi, i gomiti, niente più raschia, niente più sfrega, niente più lacera. Ricordo di aver sognato di essere una sirena. Le mie gambe erano imprigionate in un bozzolo formato dalle lenzuola, avvolte a forza di girarmi su me stessa in cerca di una posizione indolore. Nel sogno, la mummificazione si era metamorfosata in potenza di movimento.",
+    marineCite: 'Claire Marin · Hors de moi',
+    marineNote: 'tradotto liberamente dal francese' as string | undefined,
+    projectLabel: 'Il Progetto',
+    projectText: "C'è stata una stagione in cui il corpo ha ceduto, quando la malattia strappò il terreno da sotto ogni cosa e la forza defluì come una marea calante. <em>En Corps à la Mer</em> segue quella lunga discesa e il suo rovesciamento: la forza che ritorna non attraverso l'immobilità, ma attraverso l'acqua. Nuotare era essere portata e portarsi allo stesso tempo: riemergere, e riemergere ancora, finché riemergere divenne un modo di vivere. La serie si muove dagli interni bui verso un bianco aperto e abbagliante: il mare come il luogo dove una vita viene restituita.",
+    creditsLabel: 'Ringraziamenti',
+    creditsText: "Con un ringraziamento a Jérôme Gaudin e Boriana Goranova per l'amicizia, a Lucie Lejeune per il suo aiuto, e ad Antoine d'Agata per il suo sguardo, la sua benevolenza e la sua generosità.",
+  },
+  pt: {
+    nietzsche: 'Esse fenômeno artístico fundamental que se chama vida',
+    nietzscheCite: 'Friedrich Nietzsche · Fragmentos póstumos',
+    marineText: "Os sonhos e a água são dois mundos onde reencontro um pouco de equilíbrio, um pouco de leveza, onde vivo de novo o prazer do movimento. Protegida pelo envoltório da água, meu corpo se desfaz da sua dor. Ela se atenua, se apaga, se desvanece. Os gestos tornam-se fluidos, fáceis, o corpo, flexível, quase hábil. Desvanecidos, os pontos de apoio sensíveis: os quadris, os cotovelos, nada mais raspa, nada mais esfrega, nada mais rasga. Lembro-me de ter sonhado que era uma sereia. Minhas pernas estavam aprisionadas num casulo formado pelos lençóis enrolados de tanto girar sobre mim mesma em busca de uma posição indolor. No sonho, a mumificação se metamorfoseara em potência de movimento.",
+    marineCite: 'Claire Marin · Hors de moi',
+    marineNote: 'tradução livre do francês' as string | undefined,
+    projectLabel: 'O Projeto',
+    projectText: "Houve uma estação em que o corpo cedeu, quando a doença arrancou o chão de tudo e a força escoou como uma maré vazante. <em>En Corps à la Mer</em> acompanha essa longa descida e sua virada: a força que retorna não pela imobilidade, mas pela água. Nadar era ser carregada e carregar a si mesma ao mesmo tempo: emergir, e emergir de novo, até que emergir se tornasse uma forma de viver. A série vai dos interiores escuros em direção a um branco aberto e ofuscante: o mar como o lugar onde uma vida é devolvida.",
+    creditsLabel: 'Agradecimentos',
+    creditsText: "Com um agradecimento a Jérôme Gaudin e Boriana Goranova pela amizade, a Lucie Lejeune pela ajuda, e a Antoine d'Agata pelo olhar, pela benevolência e pela generosidade.",
+  },
+}[lang as 'fr' | 'it' | 'pt'];
+
+type Photo = { src: string; n: number; w: number; h: number };
+type Spread = { type: 'row' | 'single'; photos: Photo[] };
+
+const pub = (n: number): Photo => ({
+  src: `/images/work/en-corps-en-la-mer/${n}.jpg`,
+  n,
+  w: 2000,
+  h: n === 52 ? 1334 : 1333,
+});
+const prv = (n: number): Photo => ({
+  src: `/images/work/ecm-private/${n}.jpg`,
+  n,
+  w: 1600,
+  h: 1066,
+});
+
+const spreads: Spread[] = [
+  { type: 'row',    photos: [pub(53), prv(54), pub(56)] },
+  { type: 'row',    photos: [pub(55), pub(59)] },
+  { type: 'row',    photos: [pub(57), pub(58), pub(60), pub(61)] },
+  { type: 'single', photos: [pub(62)] },
+  { type: 'row',    photos: [prv(63), pub(64), pub(65), pub(67)] },
+  { type: 'row',    photos: [pub(66), pub(70), pub(71), pub(72)] },
+  { type: 'row',    photos: [pub(73), pub(74)] },
+  { type: 'row',    photos: [prv(68), pub(69)] },
+  { type: 'row',    photos: [prv(75), pub(76)] },
+];
+---
+
+<Layout
+  title="En Corps à la Mer · Série complète"
+  lang={lang}
+  hasTranslations={false}
+  noindex={true}
+  lightHeader={false}
+  bodyClass="page-ecm"
+>
+
+  <!-- ── Gate mot de passe ──────────────────────────────────── -->
+  <div class="gate" id="gate">
+    <div class="gate-inner">
+      <p class="gate-eyebrow">En Corps à la Mer</p>
+      <p class="gate-title">{gate.title}</p>
+      <p class="gate-sub">{gate.sub}</p>
+      <form class="gate-form" id="gate-form" autocomplete="off">
+        <input
+          type="password"
+          id="pw"
+          class="gate-input"
+          placeholder={gate.placeholder}
+          aria-label={gate.placeholder}
+          autocomplete="current-password"
+        />
+        <button type="submit" class="gate-btn">{gate.btn}</button>
+      </form>
+      <p class="gate-error" id="gate-error" aria-live="polite"></p>
+    </div>
+  </div>
+
+  <!-- ── Page projet ────────────────────────────────────────── -->
+  <div id="pgallery" aria-hidden="true" style="display:none">
+
+    <!-- ── Hero ──────────────────────────────────────────────── -->
+    <section class="phero">
+      <div class="phero-bg" aria-hidden="true">
+        <img src="/images/work/en-corps-en-la-mer/72.jpg" alt="" loading="eager" />
+      </div>
+      <div class="phero-inner container">
+        <p class="phero-eyebrow">{cerule}</p>
+        <h1>En Corps<br /><strong>à la Mer</strong></h1>
+        <p class="phero-count" aria-live="polite"></p>
+      </div>
+    </section>
+
+    <!-- ── Ouverture : deux rangées photo + citation ── -->
+    <section class="gal-opening">
+
+      <div class="gal-row rv">
+        <figure class="gal-cell gal-cell--photo">
+          <img src="/images/work/en-corps-en-la-mer/51.jpg" alt="" loading="lazy" data-no-lightbox width="2000" height="1333" />
+        </figure>
+        <div class="gal-cell gal-cell--cit">
+          <Citation author={content.nietzscheCite}>
+            {content.nietzsche}
+          </Citation>
+        </div>
+      </div>
+
+      <div class="gal-row rv">
+        <div class="gal-cell gal-cell--cit">
+          <Citation author={content.marineCite} note={content.marineNote}>
+            {content.marineText}
+          </Citation>
+        </div>
+        <figure class="gal-cell gal-cell--photo">
+          <img src="/images/work/en-corps-en-la-mer/52.jpg" alt="" loading="lazy" data-no-lightbox width="2000" height="1334" />
+        </figure>
+      </div>
+
+    </section>
+
+    <!-- ── Texte du projet ──────────────────────────────────── -->
+    <div class="ecm-text">
+      <p class="opening-eyebrow">{content.projectLabel}</p>
+      <p class="opening-text" set:html={content.projectText} />
+      <hr class="horizon opening-horizon" />
+    </div>
+
+    <!-- ── Série photographique ──────────────────────────────── -->
+    <div class="series" id="serie">
+      {spreads.map((spread) => (
+        <>
+          <div class={`spread spread--${spread.type} rv`}>
+            {spread.photos.map((photo) => (
+              <figure>
+                <img
+                  src={photo.src}
+                  alt={`En Corps à la Mer · ${photo.n}`}
+                  loading="lazy"
+                  data-no-lightbox
+                  width={photo.w}
+                  height={photo.h}
+                />
+              </figure>
+            ))}
+          </div>
+        </>
+      ))}
+    </div>
+
+    <!-- ── Crédits ─────────────────────────────────────────── -->
+    <div class="project-credits">
+      <div class="group">
+        <div class="label">{content.creditsLabel}</div>
+        <p>{content.creditsText}</p>
+      </div>
+    </div>
+
+    <!-- ── Projet suivant ─────────────────────────────────────── -->
+    <NextProject current="en-corps-en-la-mer" lang={lang} />
+
+  </div>
+
+</Layout>
+
+<style is:global>
+
+  /* ── Gate ──────────────────────────────────────────────── */
+  .gate {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--encre);
+  }
+
+  .gate-inner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.2rem;
+    padding: 3rem;
+    max-width: 380px;
+    width: 100%;
+  }
+
+  .gate-eyebrow {
+    font-family: var(--font-body);
+    font-size: .68rem;
+    text-transform: uppercase;
+    letter-spacing: .22em;
+    color: rgba(255,255,255,.45);
+    text-align: center;
+  }
+
+  .gate-title {
+    font-family: var(--font-title);
+    font-weight: 300;
+    font-size: clamp(1.4rem, 4vw, 2rem);
+    text-transform: uppercase;
+    letter-spacing: .1em;
+    color: #fff;
+    text-align: center;
+    line-height: 1.15;
+  }
+
+  .gate-sub {
+    font-family: var(--font-body);
+    font-size: .7rem;
+    text-transform: uppercase;
+    letter-spacing: .18em;
+    color: var(--cerule);
+    text-align: center;
+  }
+
+  .gate-form {
+    display: flex;
+    gap: .6rem;
+    width: 100%;
+    margin-top: .5rem;
+  }
+
+  .gate-input {
+    flex: 1 1 0;
+    background: rgba(255,255,255,.08);
+    border: 1px solid rgba(255,255,255,.18);
+    border-radius: 2px;
+    padding: .65rem 1rem;
+    font-family: var(--font-body);
+    font-size: .85rem;
+    color: #fff;
+    outline: none;
+    transition: border-color .2s;
+  }
+
+  .gate-input::placeholder { color: rgba(255,255,255,.35); }
+  .gate-input:focus { border-color: var(--cerule); }
+
+  .gate-btn {
+    background: var(--cerule);
+    border: none;
+    border-radius: 2px;
+    padding: .65rem 1.4rem;
+    font-family: var(--font-body);
+    font-size: .78rem;
+    text-transform: uppercase;
+    letter-spacing: .12em;
+    color: #fff;
+    cursor: pointer;
+    transition: opacity .2s;
+  }
+
+  .gate-btn:hover { opacity: .85; }
+
+  .gate-error {
+    font-family: var(--font-body);
+    font-size: .72rem;
+    color: #e07070;
+    min-height: 1em;
+    text-align: center;
+  }
+
+  @media (max-width: 700px) {
+    .gate-form { flex-direction: column; }
+    .gate-btn { width: 100%; }
+  }
+
+</style>
+
+<script define:vars={{ PASSWORD, countLabel, gateError: gate.error }}>
+  const form    = document.getElementById('gate-form');
+  const gate    = document.getElementById('gate');
+  const gallery = document.getElementById('pgallery');
+  const errEl   = document.getElementById('gate-error');
+
+  function unlock() {
+    gate.style.display = 'none';
+    gallery.style.display = 'block';
+    gallery.removeAttribute('aria-hidden');
+    initPage();
+  }
+
+  if (sessionStorage.getItem('ecm-private-auth') === '1') unlock();
+
+  form.addEventListener('submit', function(e) {
+    e.preventDefault();
+    const pw = document.getElementById('pw').value;
+    if (pw === PASSWORD) {
+      sessionStorage.setItem('ecm-private-auth', '1');
+      unlock();
+    } else {
+      errEl.textContent = gateError;
+    }
+  });
+
+  function initPage() {
+    const countEl = document.querySelector('.phero-count');
+    if (countEl) countEl.textContent = countLabel;
+
+    function justify() {
+      const mob = window.innerWidth <= 700;
+      document.querySelectorAll('.spread--row').forEach(function(row) {
+        const figs = Array.from(row.querySelectorAll('figure'));
+        const imgs = figs.map(function(f) { return f.querySelector('img'); });
+        function getR(im) {
+          return (im.naturalWidth && im.naturalHeight) ? im.naturalWidth / im.naturalHeight : 1;
+        }
+        function apply() {
+          if (mob && figs.length === 2) {
+            const avail = row.clientWidth - 4;
+            const r0 = getR(imgs[0]), r1 = getR(imgs[1]);
+            const w0 = Math.round(r0 / (r0 + r1) * avail);
+            figs[0].style.flex = '0 0 ' + w0 + 'px';
+            figs[1].style.flex = '0 0 ' + (avail - w0) + 'px';
+            return;
+          }
+          if (mob && figs.length === 3) {
+            const avail = row.clientWidth - 4;
+            const r0 = getR(imgs[0]), r1 = getR(imgs[1]);
+            const w0 = Math.round(r0 / (r0 + r1) * avail);
+            figs[0].style.flex = '0 0 ' + w0 + 'px';
+            figs[1].style.flex = '0 0 ' + (avail - w0) + 'px';
+            figs[2].style.flex = '0 0 100%';
+            return;
+          }
+          if (mob && figs.length === 4) {
+            const avail = row.clientWidth - 4;
+            [[0,1],[2,3]].forEach(function(pair) {
+              const a = pair[0], b = pair[1];
+              const ra = getR(imgs[a]), rb = getR(imgs[b]);
+              const wa = Math.round(ra / (ra + rb) * avail);
+              figs[a].style.flex = '0 0 ' + wa + 'px';
+              figs[b].style.flex = '0 0 ' + (avail - wa) + 'px';
+            });
+            return;
+          }
+          imgs.forEach(function(im, i) {
+            figs[i].style.flex = getR(im).toFixed(4) + ' 1 0';
+          });
+        }
+        if (imgs.every(function(im) { return im.complete && im.naturalWidth; })) apply();
+        else imgs.forEach(function(im) { im.addEventListener('load', apply); });
+      });
+    }
+
+    function layoutGalRows() {
+      const mob = window.innerWidth <= 700;
+      const H = parseFloat(getComputedStyle(document.body).getPropertyValue('--rowh')) || 380;
+      document.querySelectorAll('.gal-cell--photo').forEach(function(cell) {
+        const img = cell.querySelector('img');
+        if (!img) return;
+        function apply() {
+          if (mob) { cell.style.width = ''; return; }
+          const r = (img.naturalWidth && img.naturalHeight)
+            ? img.naturalWidth / img.naturalHeight : 1;
+          cell.style.width = Math.round(r * H) + 'px';
+        }
+        if (img.complete && img.naturalWidth) apply();
+        else img.addEventListener('load', apply);
+      });
+    }
+
+    justify();
+    layoutGalRows();
+    window.addEventListener('resize', function() {
+      clearTimeout(window._jt);
+      window._jt = setTimeout(function() { justify(); layoutGalRows(); }, 150);
+    });
+
+    const obs = new IntersectionObserver(function(entries) {
+      entries.forEach(function(e) {
+        if (e.isIntersecting) { e.target.classList.add('in'); obs.unobserve(e.target); }
+      });
+    }, { threshold: .06 });
+    document.querySelectorAll('.rv').forEach(function(el) { obs.observe(el); });
+  }
+</script>
