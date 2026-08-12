@@ -17,7 +17,7 @@ interface Props {
   jsonLd?: object;
 }
 
-const { title, image = "/og-default.jpg", lang = "en", bodyClass, lightHeader = true, hasTranslations = true, noindex = false, jsonLd } = Astro.props;
+const { title, image = "/images/og-home.jpg", lang = "en", bodyClass, lightHeader = true, hasTranslations = true, noindex = false, jsonLd } = Astro.props;
 
 const validLang: Lang = (lang === 'fr' || lang === 'it' || lang === 'pt') ? lang as Lang : 'en';
 const t = ui[validLang];
