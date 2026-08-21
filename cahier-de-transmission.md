@@ -741,6 +741,134 @@ Vérification : captures à 375 px, 485 px et 1440 px, 4 langues. Aucun tiret ca
 
 ---
 
+**Lot AW — Favicon, sélection, pied de page, /work EN, textes expositions (2026-08-11).**
+
+**AW.1 — Favicon SVG vectoriel.** `public/favicon.svg` : L majuscule Manrope simplifiée en chemin SVG (`M14,8 L22,8 L22,48 L50,48 L50,56 L14,56`), couleur inversée selon `prefers-color-scheme`. `public/apple-touch-icon.png` ajouté. `<link rel="apple-touch-icon">` dans `Layout.astro`.
+
+**AW.2 — Couleur de sélection.** `::selection { background: var(--cerule); color: var(--blanc); }` dans `global.css`.
+
+**AW.3 — Pied de page mobile.** `.footer-madeby { text-align: left }` corrigé. Lien légal corrigé : `href="${prefix}/legal"` → `href="/legal"` (la page `/legal` est bilingue unique, pas dupliquée par langue).
+
+**AW.4 — /work EN.** Titre "Projects" → `t.work.h1` ("Stories in Images") via import `ui.en`.
+
+**AW.5 — Textes d'exposition.** Quatre textes `introText` verbatim remplacés dans `translations.ts` (FR, IT, PT) et en dur dans `exhibitions.astro` (EN). FR dit désormais "Déborder les Lignes" (cohérent avec le titre FR de la série).
+
+**AW.6 — JSON-LD exhibitions.** Champ `"name"` dans `[lang]/exhibitions.astro` : `"Spilling Beyond the Lines"` → `t.exhibitionTitle`. Même correction dans `[lang]/work/spilling-beyond-the-lines.astro` : → `t.work.spillingTitle`.
+
+---
+
+**Lot AX — 404 localisée, lien légal, titre FR "Déborder les Lignes" (2026-08-11).**
+
+**AX.1 — Titre Spilling en FR.** `introText` FR corrigé : "Spilling Beyond the Lines" → "Déborder les Lignes". Vérifié dans `translations.ts` (FR) et les composants JSON-LD.
+
+**AX.2 — Lien légal.** Footer : `href="${prefix}/legal"` → `href="/legal"`. Chemin unique, page bilingue.
+
+**AX.3 — 404 localisée.** `src/pages/404.astro` : `hasTranslations={false}`, `noindex={true}`, `id` sur h1/sous-titre/lien retour. Script inline détecte la langue depuis `window.location.pathname` et réécrit le titre, h1, sous-titre et lien. FR → `/fr`, IT → `/it`, PT → `/pt`.
+
+---
+
+**Lot AY — Page privée ECM alignée sur la page publique (2026-08-12). Commit `e9fef66`.**
+
+**AY.1 — Refonte complète de `private.astro`.** Dix écarts corrigés :
+- Styles `is:global` inline retirés, `work-project.css` importé.
+- `justify()` et `layoutGalRows()` complets (identiques à la page publique).
+- `phero-count` : "24 photographs" défini dans `initPage()` (la galerie étant masquée au chargement, Lightbox ne peut pas compter).
+- `id="serie"` ajouté sur le div série.
+- `width`/`height` sur toutes les images (pub 2000×1333, prv 1600×1066).
+- Bloc crédits ajouté.
+- Lien "Back" → composant `<NextProject current="en-corps-en-la-mer" />`.
+- Lightbox personnalisé supprimé ; `data-no-lightbox` conservé sur toutes les images.
+- Citations identiques à la page publique (Nietzsche + Claire Marin intégrale).
+- Texte de projet identique à la page publique.
+- Gate et JS réunis dans un seul bloc `define:vars`.
+
+Vérification : gate → mot de passe → galerie ✓, "24 PHOTOGRAPHS" ✓, "SURFACING" ✓, citations ✓, crédits ✓, NextProject → Vedere Venezia ✓.
+
+---
+
+**Lot AZ — Vérifications et préparation Lot BA (2026-08-12). Commit non documenté.**
+
+**AZ.1 — Vérifications page privée.**
+- Focus input : fonctionne dans un vrai navigateur (clic → focus → saisie). Le problème observé lors des tests était une limite de l'outil de test (iframe). Aucune correction nécessaire.
+- noindex : confirmé présent. Sitemap : filtre `!page.includes('/private')` couvre automatiquement les 4 chemins linguistiques. Aucune modification requise.
+
+**AZ.2 — OG image, vérification.** Les quatre pages d'accueil (EN, FR, IT, PT) déclarent toutes `og:image: https://lauriedifrancesco.art/og-default.jpg` avec `og:image:width: 1200` et `og:image:height: 630`. URL absolue https ✓. Dimensions déclarées ✓. Locales cohérentes ✓. Le site retourne 403 aux crawlers (protection Cloudflare), vérification effectuée en dev (SITE_URL codé en dur). Rafraîchissement à faire : Meta Sharing Debugger (developers.facebook.com/tools/debug) + LinkedIn Post Inspector, une URL à la fois pour chaque langue.
+
+**AZ.3 — Page privée multilingue (en attente des traductions).** Libellés EN de la porte (5 chaînes + nom invariant) :
+
+| Champ | EN |
+|---|---|
+| Eyebrow (invariant) | EN CORPS À LA MER |
+| Titre | Complete series |
+| Sous-titre | Private access |
+| Placeholder | Password |
+| Bouton | Enter |
+| Erreur | Incorrect password. |
+
+Traductions FR/IT/PT demandées à Laurie. En attente avant implémentation.
+
+Sélecteur de langue : visible sur la page EN, clique vers les accueils des langues (comportement attendu tant que les versions FR/IT/PT n'existent pas). Une fois les versions créées, ajouter `/work/en-corps-en-la-mer/private` à `translatedPages` dans `Header.astro`.
+
+**AZ.4 — Cloudflare Access, marche à suivre rédigée.** Chemins à couvrir : `/work/en-corps-en-la-mer/private`, `/fr/work/en-corps-en-la-mer/private`, `/it/work/en-corps-en-la-mer/private`, `/pt/work/en-corps-en-la-mer/private`. Politique recommandée : liste d'adresses e-mail autorisées + code à usage unique. Session duration 24h. Une fois Access en place, le mot de passe `const PASSWORD` dans le code peut être retiré (la porte devient inutile) ou conservé (double protection inoffensive).
+
+**Note de correction (sécurité images privées).** Les URL des images privées (`/images/work/ecm-private/54.jpg`, etc.) sont devinables : la numérotation est séquentielle et suit la série publique (51-76, numéros 54, 63, 68, 75 absents de la page publique). Quiconque a vu la page publique peut essayer les numéros manquants et accéder directement aux images sans passer par la porte. Cloudflare Access ne couvre que la page HTML, pas les chemins d'images. Pour protéger les images elles-mêmes, il faudrait soit une règle Access sur `/images/work/ecm-private/*`, soit les déplacer hors de `public/` (refonte architecturale).
+
+---
+
+**Lot BA — Images de partage et page privée multilingue (2026-08-12). Commits e734f53 + 91b1411.**
+
+**BA.1 — Planches OG individuelles (vignettes → 1200×630, focal center).** Toutes les vignettes sont en 3:2 et subissent un crop de ~10.6% haut+bas (11.1% pour Spilling). Les pages projet utilisent leur cover image existante comme og:image.
+
+**BA.2 — Composition montage accueil. Implémenté.**
+Version A retenue : 4 bandes égales 300 px, jointives, sans filet.
+Focaux validés par Laurie : Quando 0% (gauche) · Toward 85% · ECM 35% · Vedere 15%.
+Fichier : `public/images/og-home.jpg` (1200×630, 138 Ko).
+
+**BA.3 — OG sur toutes les pages. Implémenté.**
+- `public/images/og-home.jpg` : accueil (EN + 3 langues), about, contact, work index, 404, legal.
+- `public/images/og-exhibitions.jpg` : exhibitions (EN + 3 langues). Crop Spilling 1200×630, focal center.
+- Pages projet : conservent leur `*-cover.jpg` existant.
+- `og-default.jpg` supprimé. Fallback Layout.astro mis à jour → `og-home.jpg`.
+
+**BA.4 — Pages privées ECM multilingues (FR, IT, PT). Implémenté.**
+`src/pages/[lang]/work/en-corps-en-la-mer/private.astro` créé.
+- 3 routes statiques : /fr/work/en-corps-en-la-mer/private, /it/..., /pt/...
+- Mêmes 24 photos que la page EN (20 publiques + 4 privées)
+- Labels de porte traduits, contenu complet (citations, texte projet, crédits) traduit
+- phero-eyebrow localisé (Refaire surface / Riemergere / Emergir)
+- sessionStorage partagé avec la page EN : une authentification suffit pour toutes les langues (même origine)
+
+**BA.5 — Lang switcher. Implémenté.**
+`/work/en-corps-en-la-mer/private` ajouté à `translatedPages` dans `Header.astro`.
+Session vérifiée : authentification sur FR → galerie visible immédiatement sur EN sans nouveau mot de passe.
+
+**BA.6 — Cloudflare Access, chemin images.**
+Oui, simple : ajouter `/images/work/ecm-private/*` comme chemin supplémentaire dans la même application Access que les 4 pages privées. Une seule politique couvre tout.
+
+---
+
+**Lot BB — Favicon dégradé (2026-08-21). Commit à venir.**
+
+**BB.1 — Remplacement du favicon.** L'ancien favicon (lettre L Manrope, couleur inversée selon `prefers-color-scheme`) est remplacé par un dégradé diagonal plein : coin haut-droit `#FBFCFC` → 40 % `#8FB1CD` → coin bas-gauche `#1F5480`.
+
+Fichiers remplacés :
+
+| Fichier | Format | Taille | Détail |
+|---|---|---|---|
+| `public/favicon.svg` | SVG vectoriel | — | `linearGradient id="g"`, `x1="1" y1="0" x2="0" y2="1"`, 3 stops |
+| `public/favicon.ico` | ICO 32×32 | — | Rastérisé pixel par pixel (Python PIL, formule analytique SVG) |
+| `public/apple-touch-icon.png` | PNG 180×180 | — | Même rastérisation |
+
+Pixels vérifiés : coin haut-droit (31,0) = `#FBFCFC`, coin bas-gauche (0,31) = `#1F5480`, centre (16,16) = `#7CA2C0`. Le dégradé n'est pas aplati.
+
+`src/layouts/Layout.astro` : aucune modification (mêmes noms de fichiers).
+
+**BB.2 — Cache navigateur.** Le navigateur garde l'ancien favicon en cache plusieurs jours. Vider le cache (`Cmd+Shift+R` ou Outils de développement → Clear Storage) suffit pour voir le nouveau favicon immédiatement.
+
+**BB.3 — Cache Google.** Google recrawle les favicons indépendamment du contenu des pages, sans délai garanti (parfois plusieurs semaines). Pour accélérer : dans Google Search Console → Inspection d'URL → entrer l'URL de la page d'accueil (`https://lauriedifrancesco.art/`) → "Demander l'indexation". Cela déclenche un recrawl de la page, et Google reprend le favicon lors de ce passage. Aucune garantie de délai, mais c'est le seul levier disponible côté propriétaire du site.
+
+---
+
 ## 9. Travailler avec Claude Code
 1. Créer le dépôt GitHub + projet Astro, connecter Cloudflare Pages.
 2. Donner **ce cahier** en contexte.

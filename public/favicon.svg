@@ -1,13 +1,10 @@
-<svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
-  <style>
-    .bg     { fill: #F1F4F5; }
-    .letter { fill: #14202B; }
-    @media (prefers-color-scheme: dark) {
-      .bg     { fill: #14202B; }
-      .letter { fill: #FBFCFC; }
-    }
-  </style>
-  <rect class="bg" width="64" height="64"/>
-  <!-- L : tracé vectoriel — barre verticale + barre horizontale, graisse 300 -->
-  <path class="letter" d="M14,8 L22,8 L22,48 L50,48 L50,56 L14,56 Z"/>
+<svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="g" x1="1" y1="0" x2="0" y2="1">
+      <stop offset="0"   stop-color="#FBFCFC"/>
+      <stop offset="0.4" stop-color="#8FB1CD"/>
+      <stop offset="1"   stop-color="#1F5480"/>
+    </linearGradient>
+  </defs>
+  <rect width="32" height="32" fill="url(#g)"/>
 </svg>
