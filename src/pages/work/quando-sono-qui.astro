@@ -13,6 +13,7 @@ type Spread = {
 };
 
 const p = (n: number): Photo => ({ src: s(`${n}.jpg`), n, w: 2000, h: 1333 });
+const galPhotoW = Math.round((2000 / 1333) * 403); // pre-size opening cells to avoid CLS (--rowh: 403px)
 
 const spreads: Spread[] = [
   { type: 'row',    photos: [p(2), p(3), p(4)] },
@@ -62,8 +63,8 @@ const spreads: Spread[] = [
   <section class="gal-opening">
 
     <div class="gal-row rv">
-      <figure class="gal-cell gal-cell--photo">
-        <img src={s('0.jpg')} alt="" loading="lazy" />
+      <figure class="gal-cell gal-cell--photo" style={`width: ${galPhotoW}px`}>
+        <img src={s('0.jpg')} alt="" loading="lazy" width={2000} height={1333} />
       </figure>
       <div class="gal-cell gal-cell--cit">
         <Citation author="Plato · Republic, Book VII">
@@ -95,8 +96,8 @@ const spreads: Spread[] = [
           É moça e anciã
         </Citation>
       </div>
-      <figure class="gal-cell gal-cell--photo">
-        <img src={s('1.jpg')} alt="" loading="lazy" />
+      <figure class="gal-cell gal-cell--photo" style={`width: ${galPhotoW}px`}>
+        <img src={s('1.jpg')} alt="" loading="lazy" width={2000} height={1333} />
       </figure>
     </div>
 
@@ -157,8 +158,11 @@ const spreads: Spread[] = [
     document.querySelectorAll<HTMLElement>('.spread--row').forEach(row => {
       const figs = Array.from(row.querySelectorAll<HTMLElement>('figure'));
       const imgs = figs.map(f => f.querySelector<HTMLImageElement>('img')!);
-      const getR = (im: HTMLImageElement) =>
-        (im.naturalWidth && im.naturalHeight) ? im.naturalWidth / im.naturalHeight : 1;
+      const getR = (im: HTMLImageElement) => {
+        const w = im.naturalWidth || Number(im.getAttribute('width'));
+        const h = im.naturalHeight || Number(im.getAttribute('height'));
+        return (w && h) ? w / h : 1;
+      };
       function apply() {
         if (mob && figs.length === 2) {
           const avail = row.clientWidth - 4;
@@ -191,8 +195,10 @@ const spreads: Spread[] = [
           figs[i].style.flex = `${getR(im).toFixed(4)} 1 0`;
         });
       }
-      if (imgs.every(im => im.complete && im.naturalWidth)) apply();
-      else imgs.forEach(im => im.addEventListener('load', apply));
+      apply();
+      imgs.forEach(im => {
+        if (!im.complete || !im.naturalWidth) im.addEventListener('load', apply, { once: true });
+      });
     });
   }
   // Justified row layout — gal-rows
@@ -204,12 +210,13 @@ const spreads: Spread[] = [
       if (!img) return;
       function apply() {
         if (mob) { cell.style.width = ''; return; }
-        const r = img!.naturalWidth && img!.naturalHeight
-          ? img!.naturalWidth / img!.naturalHeight : 1;
+        const w = img!.naturalWidth || Number(img!.getAttribute('width'));
+        const h = img!.naturalHeight || Number(img!.getAttribute('height'));
+        const r = (w && h) ? w / h : 1;
         cell.style.width = Math.round(r * H) + 'px';
       }
-      if (img.complete && img.naturalWidth) apply();
-      else img.addEventListener('load', apply);
+      apply();
+      if (!img.complete || !img.naturalWidth) img.addEventListener('load', apply, { once: true });
     });
   }
   justify();
