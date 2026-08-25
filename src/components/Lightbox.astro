@@ -95,7 +95,8 @@
     const countable = allImgs.filter(isCountable);
     const eligible = allImgs.filter(isEligible);
 
-    const lang = document.documentElement.lang || 'en';
+    // `lang` porte parfois une sous-étiquette régionale (pt-BR) : ne garder que le code de base
+    const lang = (document.documentElement.lang || 'en').slice(0, 2).toLowerCase();
     const n = countable.length;
 
     const heroCountEl = document.querySelector<HTMLElement>('.phero-count');
