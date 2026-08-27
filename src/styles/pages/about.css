@@ -83,8 +83,13 @@ body { background: var(--sable); }
   padding-top: 1.5rem;
   border-top: 1px solid var(--brume);
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+  grid-template-columns: repeat(3, 1fr);
   gap: 1.75rem 2.5rem;
+}
+
+/* Bloc de references occupant toute la largeur, sur sa propre rangee */
+.bio-refs-block--large {
+  grid-column: 1 / -1;
 }
 
 .bio-refs-title {
