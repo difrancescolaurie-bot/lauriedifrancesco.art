@@ -17,35 +17,133 @@ const t = ui[lang as Lang].exhibitions;
 
 <Layout
   title={t.eyebrow}
-  description={`${t.exhibitionTitle} · ${t.metaFirst}, Livraria da Rua, ${t.metaLocation}, ${t.metaDate}.`}
+  description={t.description}
   image="/images/og-exhibitions.jpg"
   lang={lang}
   jsonLd={{
     "@context": "https://schema.org",
-    "@type": "ExhibitionEvent",
-    "name": t.exhibitionTitle,
-    "startDate": "2024-07",
-    "location": {
-      "@type": "Place",
-      "name": "Livraria da Rua",
-      "address": { "@type": "PostalAddress", "addressLocality": "Belo Horizonte", "addressCountry": "BR" }
-    },
-    "performer": { "@type": "Person", "name": "Laurie Di Francesco" }
+    "@graph": [
+      {
+        "@type": "ExhibitionEvent",
+        "name": t.osTitle,
+        "startDate": "2026-08-30",
+        "endDate": "2026-08-30",
+        "location": {
+          "@type": "Place",
+          "name": "Studio7.6",
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "76 rue de Tilsit",
+            "postalCode": "13006",
+            "addressLocality": "Marseille",
+            "addressCountry": "FR"
+          }
+        },
+        "organizer": { "@type": "Organization", "name": "Monolit" },
+        "performer": { "@type": "Person", "name": "Laurie Di Francesco" }
+      },
+      {
+        "@type": "ExhibitionEvent",
+        "name": t.exhibitionTitle,
+        "startDate": "2024-07",
+        "location": {
+          "@type": "Place",
+          "name": "Livraria da Rua",
+          "address": { "@type": "PostalAddress", "addressLocality": "Belo Horizonte", "addressCountry": "BR" }
+        },
+        "performer": { "@type": "Person", "name": "Laurie Di Francesco" }
+      }
+    ]
   }}
 >
 
-  <!-- ── Titre ──────────────────────────────────────────────── -->
+  <!-- ── Titre de page ──────────────────────────────────────── -->
   <section class="ex-head container">
-    <p class="ex-eyebrow">{t.eyebrow}</p>
-    <h1 class="ex-h1">{t.exhibitionTitle}</h1>
-    <p class="ex-meta">
-      <span class="ex-meta-accent">{t.metaFirst}</span>
-      &nbsp;·&nbsp; Livraria da Rua · {t.metaLocation}
-      &nbsp;·&nbsp; {t.metaDate}
-      &nbsp;·&nbsp; {t.metaCount}
-    </p>
-    <hr class="horizon ex-horizon" />
+    <h1 class="ex-eyebrow">{t.eyebrow}</h1>
   </section>
+
+  <!-- ── Sommaire ───────────────────────────────────────────── -->
+  <nav class="ex-list" aria-label={t.listAria}>
+    <a class="ex-list-row" href="#open-studio">
+      <span class="ex-list-year">2026</span>
+      <span class="ex-list-title">{t.osTitle}</span>
+      <span class="ex-list-kind">{t.kindGroup}</span>
+      <span class="ex-list-place">{t.osListPlace}</span>
+      <span class="ex-list-link">{t.seeDetail}</span>
+    </a>
+    <a class="ex-list-row" href="#spilling-beyond-the-lines">
+      <span class="ex-list-year">2024</span>
+      <span class="ex-list-title">{t.exhibitionTitle}</span>
+      <span class="ex-list-kind">{t.kindSolo}</span>
+      <span class="ex-list-place">{t.soloListPlace}</span>
+      <span class="ex-list-link">{t.seeDetail}</span>
+    </a>
+  </nav>
+
+  <!-- ── Bloc Open Studio ───────────────────────────────────── -->
+  <section class="ex-block rv" id="open-studio">
+    <div class="ex-block-head">
+      <h2 class="ex-h1">{t.osTitle}</h2>
+      <p class="ex-meta">
+        <span class="ex-meta-accent">{t.osMetaFirst}</span>
+        &nbsp;·&nbsp; {t.osMetaVenue} · {t.osMetaLocation}
+        &nbsp;·&nbsp; {t.osMetaDate}
+        &nbsp;·&nbsp; {t.osMetaCount}
+      </p>
+      <hr class="horizon ex-horizon" />
+    </div>
+
+    <div class="ex-os-row">
+      <div class="ex-os-figure">
+        <div class="ex-artwork-pair ex-artwork-pair--single">
+          <figure class="ex-artwork-fig ex-artwork-fig--poster">
+            <img
+              src="/images/exhibitions/open-studio-monolit.jpg"
+              alt={t.osImageAlt}
+              loading="lazy"
+              width="1080"
+              height="1350"
+              class="ex-artwork-img"
+            />
+          </figure>
+        </div>
+        <div class="ex-artwork-caption">
+          <div class="ex-artwork-title-block">
+            <span class="ex-artwork-border"></span>
+            <div>
+              <p class="ex-artwork-title-pt">{t.osCaptionTitle}</p>
+              <p class="ex-artwork-title-en">{t.osCaptionCredit}</p>
+              <p class="ex-artwork-tech">{t.osCaptionTech}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="ex-intro ex-intro--side">
+        <p class="ex-intro-label">{t.introLabel}</p>
+        <p class="ex-intro-text">{t.osIntroText}</p>
+        <a class="ex-link ex-link--spill" href={`/${lang}/work/spilling-beyond-the-lines`}>
+          {t.viewProject}
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Séparateur ─────────────────────────────────────────── -->
+  <div class="ex-sep"><hr class="horizon horizon--full" /></div>
+
+  <!-- ── Bloc Belo Horizonte ────────────────────────────────── -->
+  <section class="ex-block" id="spilling-beyond-the-lines">
+    <div class="ex-block-head">
+      <h2 class="ex-h1">{t.exhibitionTitle}</h2>
+      <p class="ex-meta">
+        <span class="ex-meta-accent">{t.metaFirst}</span>
+        &nbsp;·&nbsp; Livraria da Rua · {t.metaLocation}
+        &nbsp;·&nbsp; {t.metaDate}
+        &nbsp;·&nbsp; {t.metaCount}
+      </p>
+      <hr class="horizon ex-horizon" />
+    </div>
 
   <!-- ── Bloc œuvre + collectionneurs ──────────────────────── -->
   <div class="ex-artwork-wrap rv in">
@@ -85,7 +183,7 @@ const t = ui[lang as Lang].exhibitions;
   <div class="ex-intro rv">
     <p class="ex-intro-label">{t.introLabel}</p>
     <p class="ex-intro-text" set:html={t.introText} />
-    <a class="ex-link" href={`/${lang}/work/spilling-beyond-the-lines`}>
+    <a class="ex-link ex-link--spill" href={`/${lang}/work/spilling-beyond-the-lines`}>
       {t.viewProject}
     </a>
   </div>
@@ -170,6 +268,8 @@ const t = ui[lang as Lang].exhibitions;
     <p class="ex-thanks-label">{t.thanksLabel}</p>
     <p class="ex-thanks-text" set:html={t.thanksText} />
   </div>
+
+  </section>
 
 </Layout>
 

@@ -39,6 +39,105 @@ body { background: var(--sable); }
   margin-bottom: 0;
 }
 
+/* ── Sommaire des expositions ─────────────── */
+.ex-list {
+  max-width: var(--max-width);
+  margin: clamp(1.2rem, 3vh, 2rem) auto 0;
+  padding: 0 var(--gutter);
+}
+
+.ex-list-row {
+  display: grid;
+  grid-template-columns: 64px 1.5fr 1fr 1.3fr auto;
+  gap: 0 24px;
+  align-items: baseline;
+  padding: 1.1rem 0;
+  border-top: 1px solid var(--brume);
+}
+
+.ex-list-row:last-child { border-bottom: 1px solid var(--brume); }
+
+.ex-list-year {
+  font-family: var(--font-body);
+  font-size: var(--t-s);
+  color: var(--ardoise);
+  font-variant-numeric: tabular-nums;
+}
+
+.ex-list-title {
+  font-family: var(--font-title);
+  font-weight: 200;
+  text-transform: uppercase;
+  letter-spacing: .055em;
+  font-size: var(--T-projet-demi);
+  line-height: 1.2;
+  color: var(--encre);
+}
+
+.ex-list-kind,
+.ex-list-place {
+  font-family: var(--font-body);
+  font-size: var(--t-s);
+  color: var(--ardoise);
+  line-height: 1.75;
+}
+
+.ex-list-link {
+  font-family: var(--font-body);
+  font-size: var(--t-xs);
+  letter-spacing: .16em;
+  text-transform: uppercase;
+  color: var(--ardoise);
+  border-bottom: 1px solid var(--brume);
+  padding-bottom: 3px;
+  white-space: nowrap;
+  transition: color .25s;
+}
+
+.ex-list-row:hover .ex-list-link { color: var(--cerule); }
+
+/* ── Blocs d'exposition ───────────────────── */
+.ex-block { padding: clamp(3rem, 7vh, 5rem) 0 0; }
+
+.ex-block-head {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 var(--gutter);
+}
+
+.ex-sep {
+  max-width: var(--max-width-wide);
+  margin: clamp(3rem, 8vh, 6rem) auto 0;
+  padding: 0 var(--gutter);
+}
+
+/* ── Open Studio : visuel + texte ─────────── */
+.ex-os-row {
+  max-width: var(--max-width-wide);
+  margin: clamp(2.5rem, 6vh, 4rem) auto 0;
+  padding: 0 var(--gutter);
+  display: flex;
+  gap: clamp(2rem, 4vw, 4.5rem);
+  align-items: flex-start;
+}
+
+.ex-os-figure { flex: 0 0 auto; }
+
+.ex-intro--side {
+  flex: 1 1 0;
+  min-width: 0;
+  max-width: 72ch;
+  margin: 0;
+  padding: 0;
+}
+
+.ex-link--spill {
+  color: var(--acc-spill);
+  border-bottom-color: var(--acc-spill);
+}
+
+.ex-link--spill:hover { color: var(--acc-spill); opacity: .7; }
+
 .ex-artwork-wrap {
   max-width: var(--max-width-wide);
   margin: clamp(2.5rem, 6vh, 4rem) auto 0;
@@ -63,6 +162,23 @@ body { background: var(--sable); }
   object-fit: cover;
   object-position: center;
   display: block;
+}
+
+/* Visuel d'affiche : jamais recadre, ratio conserve.
+   Place apres .ex-artwork-fig pour l'emporter a specificite egale. */
+.ex-artwork-pair--single { justify-content: flex-start; }
+
+.ex-artwork-fig--poster {
+  flex: 0 0 auto;
+  height: 100%;
+  aspect-ratio: 4 / 5;
+  width: auto;
+}
+
+.ex-artwork-fig--poster img {
+  height: 100%;
+  width: auto;
+  object-fit: contain;
 }
 
 .ex-artwork-caption {
@@ -332,4 +448,17 @@ body { background: var(--sable); }
   .ex-grid-fig:nth-child(3):last-child { flex: 0 0 100%; }
   .ex-grid-img { height: 100%; object-fit: cover; }
   .ex-intro { text-align: left; }
+
+  .ex-list-row { grid-template-columns: 52px 1fr; gap: .2rem 14px; }
+  .ex-list-kind, .ex-list-place, .ex-list-link { grid-column: 2; }
+  .ex-list-link { justify-self: start; margin-top: .6rem; }
+
+  .ex-os-row { flex-direction: column; gap: 2rem; }
+  .ex-os-figure { width: 100%; }
+  .ex-intro--side { max-width: none; }
+
+  /* Visuel d'affiche : pleine largeur de colonne, hauteur deduite du ratio */
+  .ex-artwork-pair--single { height: auto; }
+  .ex-artwork-fig--poster { height: auto; width: 100%; }
+  .ex-artwork-fig--poster img { width: 100%; height: auto; }
 }

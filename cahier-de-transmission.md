@@ -869,6 +869,62 @@ Pixels vérifiés : coin haut-droit (31,0) = `#FBFCFC`, coin bas-gauche (0,31) =
 
 ---
 
+**Lot BC — Expositions · Open Studio (2026-09-06).**
+
+Ajout d'une deuxième exposition, l'Open Studio du collectif Monolit (Studio7.6, Marseille, 30 août 2026), à la page Expositions et au bloc exposition de la page d'accueil, dans les 4 langues. Règle du lot : on ajoute, on ne modifie pas, hors des six modifications listées en BC.6.
+
+**BC.1 — Page Expositions, structure à deux blocs.** L'en-tête `section.ex-head.container` ne porte plus que le libellé « Expositions », devenu le `h1` de la page en conservant la classe `.ex-eyebrow` (rendu inchangé). Les deux expositions sont désormais deux sections sœurs, chacune avec son `div.ex-block-head` (titre en `h2.ex-h1`, ligne `.ex-meta`, filet `.horizon.ex-horizon`) :
+
+| Ordre | Section | Ancre | Titre |
+|---|---|---|---|
+| 1 | `section#open-studio.ex-block` | `#open-studio` | Open Studio |
+| 2 | `section#spilling-beyond-the-lines.ex-block` | `#spilling-beyond-the-lines` | Déborder les Lignes |
+
+Entre les deux : `div.ex-sep` contenant `hr.horizon.horizon--full`. Le contenu du bloc Belo Horizonte (paire œuvre et collectionneurs, texte, grille des neuf vues, artisanat et ses trois vidéos, remerciements) est inchangé, scripts `justifyGrid` et `justifyArtwork` compris.
+
+**BC.2 — Sommaire.** `nav.ex-list` sous l'en-tête, deux lignes `a.ex-list-row` en grille de 5 colonnes (année · titre · nature · lieu et date · lien). Le lien « Voir le détail ↓ » reprend l'écriture du lien mobile `.see-images` des pages projet : corps `--t-xs`, interlettrage .16em, capitales, ardoise, filet brume. Réutilisation, pas nouvelle fonction typographique.
+
+**BC.3 — Bloc Open Studio.** `div.ex-os-row` en colonne large (`--max-width-wide`) : à gauche `div.ex-os-figure` avec le visuel en `figure.ex-artwork-fig--poster`, jamais recadré, à la hauteur de l'œuvre à la une, largeur déduite du ratio 4:5 ; dessous le bloc à filet vertical `.ex-artwork-caption` (sans ligne `.ex-artwork-status`). À droite `div.ex-intro.ex-intro--side` avec le texte et le lien projet.
+
+Deux points d'implémentation à connaître :
+- Les règles `.ex-artwork-fig--poster` sont placées **après** `.ex-artwork-fig` dans `exhibitions.css`. À spécificité égale, la règle de base `flex: 1 1 0` l'emportait et écrasait le visuel (mesuré à 350 × 215, ratio 1.63 au lieu de 0.80). Ne pas les remonter dans le fichier.
+- En mobile, le visuel passe en pleine largeur de colonne, hauteur déduite du ratio (`.ex-artwork-pair--single { height: auto }`), sans quoi la hauteur héritée de `.ex-artwork-pair` le réduisait à 172 px de large.
+
+**BC.4 — Données structurées.** Le `jsonLd` est un graphe `@graph` à deux `ExhibitionEvent`. `Layout.astro` sérialise l'objet reçu tel quel, aucune modification nécessaire. Vérifié dans les 4 langues sur le HTML produit. La `description` de la page juxtapose les deux expositions, via une nouvelle clé `description` par langue. Le `<title>` est inchangé.
+
+**BC.5 — Clés ajoutées dans `translations.ts`.** Sous `exhibitions` : `listAria`, `seeDetail`, `kindGroup`, `kindSolo`, `osTitle`, `osMetaFirst`, `osMetaVenue`, `osMetaLocation`, `osMetaDate`, `osMetaCount`, `osListPlace`, `soloListPlace`, `osCaptionTitle`, `osCaptionCredit`, `osCaptionTech`, `osImageAlt`, `osIntroText`, `description`. Sous `home` : `exhiGroupLabel`, `exhiOsTitle`, `exhiOsMeta`, `exhiOsBlurb`. Quatre langues. Les pages anglaises portent ces textes en dur, comme le reste de leur contenu.
+
+**BC.6 — Modifications autorisées de l'existant.** Les seules du lot :
+1. `home.css`, `.ex-home-label` : `var(--acc-spill)` → `var(--cerule)`.
+2. `home.css`, `.ex-home-title` : `var(--T-projet)` → `var(--T-projet-demi)`.
+3. `translations.ts`, `fr.home.exhiLabel` : « Exposition solo » → « Exposition individuelle ».
+4. Page Expositions, lien projet du bloc Belo Horizonte : ajout de `.ex-link--spill`. Texte inchangé dans les 4 langues.
+5. Page Expositions : titre passé de `h1` à `h2`, libellé « Expositions » devenu le `h1`. Rendu identique.
+6. Page d'accueil : liens « Voir l'exposition → » pointant sur les ancres.
+
+**BC.7 — Écart assumé par rapport au prompt du lot.** Le lot prévoyait `.ex-sep .horizon { width: 100% }`. La classe `.horizon--full` existe déjà dans `global.css` et fait exactement cela. CLAUDE.md interdisant les variantes locales, la règle locale a été abandonnée au profit de `<hr class="horizon horizon--full" />`. Rendu identique, mesuré.
+
+**BC.8 — Visuel.** Fourni par Laurie sous le nom `Invitation_exposition collective Monolit.png` (1080 × 1350, 2,0 Mo). Converti en `public/images/exhibitions/open-studio-monolit.jpg`, 1080 × 1350, qualité 88 sans sous-échantillonnage chroma pour préserver la typographie, 277 Ko. Le PNG source reste dans `public/images/exhibitions/` sans être suivi par Git : il n'est donc pas déployé, et peut être retiré.
+
+**BC.9 — Note sur `installationImages`.** Le tableau `installationImages` en tête de `src/pages/exhibitions.astro` n'est plus utilisé par le gabarit : les vues chargées sont `1.jpg` à `11.jpg`. Il référence dix fichiers PXL et WhatsApp dont aucun n'existe plus dans `public/images/exhibitions/`. Laissé en place, hors périmètre du lot. À supprimer lors d'un prochain passage.
+
+**BC.10 — Tirets cadratins préexistants, hors périmètre.** Signalés et laissés tels quels : le lien « View the project — Spilling Beyond the Lines → » de la page anglaise, et les remerciements (`thanksText` EN, FR, PT, plus la version en dur de la page anglaise). Aucune chaîne ajoutée par le lot ne contient de cadratin ni de demi-cadratin, vérifié par recherche des caractères U+2014 et U+2013 sur les sept fichiers modifiés.
+
+**BC.11 — Recette.** `npm run build` sans erreur, 50 pages. Mesures à 1440 px et 390 px, 4 langues :
+
+| Contrôle | Résultat |
+|---|---|
+| Colonnes 1200 (en-tête, sommaire, têtes de bloc) | x120, largeur 1200 |
+| Colonne large 1320 (`ex-os-row`, séparateur) | x60, largeur 1320 |
+| Visuel non recadré | 416 × 520, ratio 0.8000 en ordinateur ; 350 × 438, ratio 0.7991 en mobile |
+| Ancres, images non chargées puis chargées | écart 0 px sur `#open-studio` et `#spilling-beyond-the-lines`, aux deux largeurs, 4 langues |
+| Grille Belo Horizonte | rangées 3 / 2 / 4 justifiées, inchangées |
+| Accueil ordinateur | deux colonnes de 528 px, même ligne de base |
+| Accueil mobile | une colonne, filet brume entre les deux expositions |
+| JSON-LD | 2 `ExhibitionEvent` valides dans les 4 langues |
+
+---
+
 ## 9. Travailler avec Claude Code
 1. Créer le dépôt GitHub + projet Astro, connecter Cloudflare Pages.
 2. Donner **ce cahier** en contexte.

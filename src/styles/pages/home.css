@@ -321,13 +321,19 @@
   border-bottom: 1px solid var(--brume);
 }
 
+.ex-home-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--gutter);
+}
+
 .ex-home-label {
   font-family: var(--font-body);
   font-size: var(--t-xs);
   font-weight: 400;
   text-transform: uppercase;
   letter-spacing: .22em;
-  color: var(--acc-spill);
+  color: var(--cerule);
   margin-bottom: .9rem;
 }
 
@@ -335,7 +341,7 @@
   font-family: var(--font-title);
   font-weight: 200;
   text-transform: uppercase;
-  font-size: var(--T-projet);
+  font-size: var(--T-projet-demi);
   line-height: 1.12;
   letter-spacing: .055em;
   color: var(--encre);
@@ -369,6 +375,12 @@
 /* Mobile */
 @media (max-width: 700px) {
   .work-frame { aspect-ratio: 3/2; }
+
+  .ex-home-grid { grid-template-columns: 1fr; }
+  .ex-home-col + .ex-home-col {
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--brume);
+  }
 
   /* Recadrage mobile — séquence 8 positions */
   .hero-bg img:nth-child(2) { object-position: calc(62% + 45px) center; } /* garcon */

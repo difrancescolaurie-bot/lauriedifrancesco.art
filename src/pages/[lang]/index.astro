@@ -141,14 +141,27 @@ const prevProjects = [
   </section>
 
   <!-- ─── Bloc exposition ───────────────────────────────────── -->
-  <section class="ex-home container" aria-label="Exhibition">
-    <p class="ex-home-label">{th.exhiLabel}</p>
-    <h2 class="ex-home-title">{t.exhibitions.exhibitionTitle}</h2>
-    <p class="ex-home-meta">
-      {t.exhibitions.metaLocation} &middot; {t.exhibitions.metaDate} &middot; {t.exhibitions.metaCount}<br />
-      {th.exhiBlurb}
-    </p>
-    <a class="ex-home-link" href={`/${lang}/exhibitions`}>{th.exhiLink}</a>
+  <section class="ex-home container" aria-label="Exhibitions">
+    <div class="ex-home-grid">
+      <div class="ex-home-col">
+        <p class="ex-home-label">{th.exhiGroupLabel}</p>
+        <h2 class="ex-home-title">{th.exhiOsTitle}</h2>
+        <p class="ex-home-meta">
+          {th.exhiOsMeta}<br />
+          {th.exhiOsBlurb}
+        </p>
+        <a class="ex-home-link" href={`/${lang}/exhibitions#open-studio`}>{th.exhiLink}</a>
+      </div>
+      <div class="ex-home-col">
+        <p class="ex-home-label">{th.exhiLabel}</p>
+        <h2 class="ex-home-title">{t.exhibitions.exhibitionTitle}</h2>
+        <p class="ex-home-meta">
+          {t.exhibitions.metaLocation} &middot; {t.exhibitions.metaDate} &middot; {t.exhibitions.metaCount}<br />
+          {th.exhiBlurb}
+        </p>
+        <a class="ex-home-link" href={`/${lang}/exhibitions#spilling-beyond-the-lines`}>{th.exhiLink}</a>
+      </div>
+    </div>
   </section>
 
 </Layout>

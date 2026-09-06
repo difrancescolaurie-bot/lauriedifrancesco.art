@@ -24,34 +24,144 @@ const videos = [
 
 <Layout
   title="Exhibitions"
-  description="Spilling Beyond the Lines · First solo exhibition, Livraria da Rua, Belo Horizonte, Brazil, July 2024."
+  description="Open Studio, Monolit, Studio7.6, Marseille, 30 August 2026 · Spilling Beyond the Lines, Livraria da Rua, Belo Horizonte, July 2024."
   image="/images/og-exhibitions.jpg"
   jsonLd={{
     "@context": "https://schema.org",
-    "@type": "ExhibitionEvent",
-    "name": "Spilling Beyond the Lines",
-    "startDate": "2024-07",
-    "location": {
-      "@type": "Place",
-      "name": "Livraria da Rua",
-      "address": { "@type": "PostalAddress", "addressLocality": "Belo Horizonte", "addressCountry": "BR" }
-    },
-    "performer": { "@type": "Person", "name": "Laurie Di Francesco" }
+    "@graph": [
+      {
+        "@type": "ExhibitionEvent",
+        "name": "Open Studio",
+        "startDate": "2026-08-30",
+        "endDate": "2026-08-30",
+        "location": {
+          "@type": "Place",
+          "name": "Studio7.6",
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "76 rue de Tilsit",
+            "postalCode": "13006",
+            "addressLocality": "Marseille",
+            "addressCountry": "FR"
+          }
+        },
+        "organizer": { "@type": "Organization", "name": "Monolit" },
+        "performer": { "@type": "Person", "name": "Laurie Di Francesco" }
+      },
+      {
+        "@type": "ExhibitionEvent",
+        "name": "Spilling Beyond the Lines",
+        "startDate": "2024-07",
+        "location": {
+          "@type": "Place",
+          "name": "Livraria da Rua",
+          "address": { "@type": "PostalAddress", "addressLocality": "Belo Horizonte", "addressCountry": "BR" }
+        },
+        "performer": { "@type": "Person", "name": "Laurie Di Francesco" }
+      }
+    ]
   }}
 >
 
-  <!-- ── Titre ──────────────────────────────────────────────── -->
+  <!-- ── Titre de page ──────────────────────────────────────── -->
   <section class="ex-head container">
-    <p class="ex-eyebrow">Exhibitions</p>
-    <h1 class="ex-h1">Spilling Beyond the Lines</h1>
-    <p class="ex-meta">
-      <span class="ex-meta-accent">First solo exhibition</span>
-      &nbsp;·&nbsp; Livraria da Rua · Belo Horizonte, Brazil
-      &nbsp;·&nbsp; July 2024
-      &nbsp;·&nbsp; Twenty-five photographs
-    </p>
-    <hr class="horizon ex-horizon" />
+    <h1 class="ex-eyebrow">Exhibitions</h1>
   </section>
+
+  <!-- ── Sommaire ───────────────────────────────────────────── -->
+  <nav class="ex-list" aria-label="Contents">
+    <a class="ex-list-row" href="#open-studio">
+      <span class="ex-list-year">2026</span>
+      <span class="ex-list-title">Open Studio</span>
+      <span class="ex-list-kind">Group exhibition</span>
+      <span class="ex-list-place">Studio7.6, Marseille · 30 August 2026</span>
+      <span class="ex-list-link">See the detail ↓</span>
+    </a>
+    <a class="ex-list-row" href="#spilling-beyond-the-lines">
+      <span class="ex-list-year">2024</span>
+      <span class="ex-list-title">Spilling Beyond the Lines</span>
+      <span class="ex-list-kind">Solo exhibition</span>
+      <span class="ex-list-place">Livraria da Rua, Belo Horizonte · July 2024</span>
+      <span class="ex-list-link">See the detail ↓</span>
+    </a>
+  </nav>
+
+  <!-- ── Bloc Open Studio ───────────────────────────────────── -->
+  <section class="ex-block rv" id="open-studio">
+    <div class="ex-block-head">
+      <h2 class="ex-h1">Open Studio</h2>
+      <p class="ex-meta">
+        <span class="ex-meta-accent">First group exhibition</span>
+        &nbsp;·&nbsp; Studio7.6 · Marseille, France
+        &nbsp;·&nbsp; 30 August 2026
+        &nbsp;·&nbsp; 3 photographs
+      </p>
+      <hr class="horizon ex-horizon" />
+    </div>
+
+    <div class="ex-os-row">
+      <div class="ex-os-figure">
+        <div class="ex-artwork-pair ex-artwork-pair--single">
+          <figure class="ex-artwork-fig ex-artwork-fig--poster">
+            <img
+              src="/images/exhibitions/open-studio-monolit.jpg"
+              alt="Visual of the Monolit collective's Open Studio, 30 August 2026"
+              loading="lazy"
+              width="1080"
+              height="1350"
+              class="ex-artwork-img"
+            />
+          </figure>
+        </div>
+        <div class="ex-artwork-caption">
+          <div class="ex-artwork-title-block">
+            <span class="ex-artwork-border"></span>
+            <div>
+              <p class="ex-artwork-title-pt">Open Studio</p>
+              <p class="ex-artwork-title-en">Visual by the Monolit collective</p>
+              <p class="ex-artwork-tech">Sunday 30 August 2026 · 10 am to 4 pm</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="ex-intro ex-intro--side">
+        <p class="ex-intro-label">The exhibition</p>
+        <p class="ex-intro-text">
+          Three days of residency with the artists of the Monolit collective, then a
+          Sunday of open studio. Photography, mixed media, editions, risography: the
+          practices sat side by side at Studio7.6, and visitors moved from one artist to
+          the next to talk about what is still being sought and what is being made. Three
+          portraits from Spilling Beyond the Lines were hung there: a woman laughing
+          behind her hand, carnival-goers getting ready, a locksmith standing before his
+          wall of keys. Three encounters in which geographical, social and identity lines
+          are crossed by two people at once, the one photographing and those who let
+          themselves be looked at; three thresholds the visitor was invited to cross in
+          turn. With these three images, the series was shown in France for the first
+          time, two years after Belo Horizonte, Brazil.
+        </p>
+        <a class="ex-link ex-link--spill" href="/work/spilling-beyond-the-lines">
+          View the project · Spilling Beyond the Lines →
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Séparateur ─────────────────────────────────────────── -->
+  <div class="ex-sep"><hr class="horizon horizon--full" /></div>
+
+  <!-- ── Bloc Belo Horizonte ────────────────────────────────── -->
+  <section class="ex-block" id="spilling-beyond-the-lines">
+    <div class="ex-block-head">
+      <h2 class="ex-h1">Spilling Beyond the Lines</h2>
+      <p class="ex-meta">
+        <span class="ex-meta-accent">First solo exhibition</span>
+        &nbsp;·&nbsp; Livraria da Rua · Belo Horizonte, Brazil
+        &nbsp;·&nbsp; July 2024
+        &nbsp;·&nbsp; Twenty-five photographs
+      </p>
+      <hr class="horizon ex-horizon" />
+    </div>
 
   <!-- ── Bloc œuvre + collectionneurs ──────────────────────── -->
   <div class="ex-artwork-wrap rv in">
@@ -100,7 +210,7 @@ const videos = [
       to ask what makes such different images meet. The series was later
       completed as shown on this site.
     </p>
-    <a class="ex-link" href="/work/spilling-beyond-the-lines">
+    <a class="ex-link ex-link--spill" href="/work/spilling-beyond-the-lines">
       View the project — Spilling Beyond the Lines →
     </a>
   </div>
@@ -187,6 +297,8 @@ const videos = [
       Special thanks to Mathilde, Gautier, Zé, Soraia, Rafa, Marie-Françoise, Ulisses, Verônica, Paulo and Cris, for their precious support and encouragement throughout this project. Thank you to Rodrigo of Studio Artmosphere, Hugo of Atelier Baumecker and Jackson Cardoso for their remarkable work and professionalism. And thank you to every friend who came to the opening — your presence was deeply moving. I owe you all so much. May the adventure continue.
     </p>
   </div>
+
+  </section>
 
 </Layout>
 
