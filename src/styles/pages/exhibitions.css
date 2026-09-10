@@ -25,6 +25,8 @@ body { background: var(--sable); }
   margin-bottom: 1.2rem;
 }
 
+.ex-block-title { margin-bottom: 1.2rem; }
+
 .ex-meta {
   font-family: var(--font-body);
   font-size: var(--t-s);
@@ -106,14 +108,14 @@ body { background: var(--sable); }
 }
 
 .ex-sep {
-  max-width: var(--max-width-wide);
+  max-width: var(--max-width);
   margin: clamp(3rem, 8vh, 6rem) auto 0;
   padding: 0 var(--gutter);
 }
 
 /* ── Open Studio : visuel + texte ─────────── */
 .ex-os-row {
-  max-width: var(--max-width-wide);
+  max-width: var(--max-width);
   margin: clamp(2.5rem, 6vh, 4rem) auto 0;
   padding: 0 var(--gutter);
   display: flex;
@@ -121,7 +123,7 @@ body { background: var(--sable); }
   align-items: flex-start;
 }
 
-.ex-os-figure { flex: 0 0 auto; }
+.ex-os-figure { flex: 0 0 calc((100% - 3 * 16px) / 4); }
 
 .ex-intro--side {
   flex: 1 1 0;
@@ -139,7 +141,7 @@ body { background: var(--sable); }
 .ex-link--spill:hover { color: var(--acc-spill); opacity: .7; }
 
 .ex-artwork-wrap {
-  max-width: var(--max-width-wide);
+  max-width: var(--max-width);
   margin: clamp(2.5rem, 6vh, 4rem) auto 0;
   padding: 0 var(--gutter);
 }
@@ -170,16 +172,19 @@ body { background: var(--sable); }
 
 .ex-artwork-fig--poster {
   flex: 0 0 auto;
-  height: 100%;
+  width: 100%;
+  height: auto;
   aspect-ratio: 4 / 5;
-  width: auto;
 }
 
 .ex-artwork-fig--poster img {
-  height: 100%;
-  width: auto;
+  width: 100%;
+  height: auto;
   object-fit: contain;
 }
+
+/* Le visuel n'est plus couple a la hauteur de l'oeuvre a la une. */
+.ex-artwork-pair--single { height: auto; }
 
 .ex-artwork-caption {
   margin-top: 1.2rem;
@@ -277,7 +282,7 @@ body { background: var(--sable); }
 .ex-link:hover { color: var(--cerule); }
 
 .ex-grid-wrap {
-  max-width: var(--max-width-wide);
+  max-width: var(--max-width);
   margin: 0 auto clamp(3rem, 8vh, 6rem);
   padding: 0 var(--gutter);
   display: flex;
@@ -305,7 +310,7 @@ body { background: var(--sable); }
 }
 
 .ex-craft {
-  max-width: var(--max-width-wide);
+  max-width: var(--max-width);
   margin: 0 auto;
   padding: 0 var(--gutter) clamp(3rem, 8vh, 6rem);
 }
@@ -319,16 +324,7 @@ body { background: var(--sable); }
   margin-bottom: .5rem;
 }
 
-.ex-craft-sub {
-  font-family: var(--font-title);
-  font-weight: 200;
-  text-transform: uppercase;
-  letter-spacing: .055em;
-  font-size: var(--T-section);
-  line-height: 1.05;
-  color: var(--encre);
-  margin-bottom: clamp(1.5rem, 4vh, 3rem);
-}
+/* .ex-craft-sub remplacee par .section-title (global.css). */
 
 .ex-videos {
   display: flex;
@@ -400,7 +396,7 @@ body { background: var(--sable); }
 }
 
 .ex-thanks {
-  max-width: var(--max-width-wide);
+  max-width: var(--max-width);
   margin: 0 auto clamp(4rem, 10vh, 7rem);
   padding: 2rem var(--gutter) 0;
   border-top: 1px solid var(--brume);
@@ -454,11 +450,8 @@ body { background: var(--sable); }
   .ex-list-link { justify-self: start; margin-top: .6rem; }
 
   .ex-os-row { flex-direction: column; gap: 2rem; }
-  .ex-os-figure { width: 100%; }
   .ex-intro--side { max-width: none; }
 
-  /* Visuel d'affiche : pleine largeur de colonne, hauteur deduite du ratio */
-  .ex-artwork-pair--single { height: auto; }
-  .ex-artwork-fig--poster { height: auto; width: 100%; }
-  .ex-artwork-fig--poster img { width: 100%; height: auto; }
+  /* Visuel d'affiche : une vue de la recomposition 2 x 2, calee a gauche */
+  .ex-os-figure { flex-basis: auto; width: calc((100% - 8px) / 2); }
 }

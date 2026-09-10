@@ -925,6 +925,49 @@ Deux points d'implémentation à connaître :
 
 ---
 
+**Lot BD — Expositions · corrections (2026-09-10).**
+
+Sept anomalies relevées en ligne après le lot BC. Contrairement à BC, ce lot modifie de l'existant, dans les limites d'une liste fermée.
+
+**BD.1 — Deux fonctions typographiques montées dans `global.css`.** Constat à l'origine du lot : le site n'a pas de règle commune pour ses fonctions typographiques, seulement des jetons. Chaque page réécrit sa propre classe. Le libellé de page existe ainsi en quatre exemplaires identiques au caractère près (`.wi-eyebrow`, `.about-eyebrow`, `.ct-eyebrow`, `.ex-eyebrow`), et le titre de page de même.
+
+Deux fonctions sont donc devenues partagées, à valeurs strictement inchangées :
+
+| Fonction | Classe | Venait de | Utilisée par |
+|---|---|---|---|
+| Titre de projet (`--T-projet`) | `.wi-title` | `work-index.css` | Projects, titres de bloc d'Expositions |
+| Titre de section (`--T-section`) | `.section-title` | `.ex-craft-sub` de `exhibitions.css` | Accueil, sous-titre artisanat d'Expositions |
+
+`.ex-craft-sub` est supprimée. `.ex-eyebrow` et `.ex-h1` sont conservées : elles servent l'en-tête de page et sont déjà identiques à celles de Projects.
+
+**La quadruple duplication du libellé et du titre de page reste en place.** Elle mérite un lot dédié, avec deux fonctions nommées dans `global.css` et la bascule des quatre pages.
+
+**BD.2 — En-tête de page aligné sur Projects.** Le libellé « Expositions » redevient un `<p class="ex-eyebrow">` ; le gras venait uniquement de son passage en `<h1>` le 6 septembre, `.ex-eyebrow` ne fixant pas de `font-weight`. Un `<h1 class="ex-h1">` porte désormais un titre éditorial (clé `pageTitle`). Mesuré : libellé et titre identiques au pixel à ceux de Projects (11,52 px graisse 400 et 51,2 px graisse 200, même interlettrage, même bord gauche).
+
+**BD.3 — Hiérarchie des titres.** Titre de page en `--T-page`, titres de bloc en `--T-projet` via `.wi-title`, lignes de sommaire en `--T-projet-demi`. Les deux `h2` portent `wi-title ex-block-title` ; `.ex-block-title` ne contient qu'une marge basse de 1,2 rem, reprise de l'ancienne `.ex-h1`, pour ne pas modifier l'espacement.
+
+**BD.4 — Colonne unique.** Les six conteneurs qui étaient en `--max-width-wide` passent en `--max-width` : `.ex-sep`, `.ex-os-row`, `.ex-artwork-wrap`, `.ex-grid-wrap`, `.ex-craft`, `.ex-thanks`. Les huit conteneurs de la page sont désormais à x120, largeur 1200, à 1440 px. Les scripts `justifyGrid` et `justifyArtwork` mesurent leur conteneur et se recomposent seuls ; aucune largeur ni hauteur en dur n'a été trouvée.
+
+`.ex-thanks` ne figurait pas dans la liste fermée, qui ne cite que les conteneurs d'images. Traitée quand même : la section 4 du lot dit « toute la page passe sur `--max-width` », et la laisser en colonne large aurait fait dépasser les remerciements de 60 px de chaque côté.
+
+**BD.5 — Visuel Open Studio à la taille d'un document.** Règle : le visuel a la largeur d'une vue de la rangée de quatre de la grille des neuf vues, gouttières déduites. `.ex-os-figure { flex: 0 0 calc((100% - 3 * 16px) / 4) }` ; 16 px est la gouttière réelle de `.ex-grid-row`. Le couplage de hauteur avec l'œuvre à la une est supprimé (`.ex-artwork-pair--single { height: auto }`). Vérifié à 1440 px : visuel 264 × 330, et les quatre vues de la rangée mesurent 264 px chacune. Égalité exacte. En mobile, moitié de largeur calée à gauche, 171 × 215.
+
+**BD.6 — Clés.** Nouvelles : `exhibitions.pageTitle`, `home.exhiSectionTitle`. Modifiées : `home.exhiBlurb` (4 langues), `exhibitions.seeDetail` (4), `exhibitions.osListPlace` (4), `exhibitions.soloListPlace` (4). Chiffres : `home.metaCount` anglais et la ligne `.ex-meta` anglaise de Belo Horizonte passent de « Twenty-five » à « 25 ». Les lieux sortent du sommaire et restent dans les lignes `.ex-meta` et dans le JSON-LD. Espaces insécables autour du point médian dans les champs structurés, et avant le deux-points en français.
+
+Les pages anglaises portant leurs chaînes en dur, elles ont été corrigées séparément : sans cela le sommaire anglais serait resté sur « See the detail ↓ » et les anciens lieux.
+
+**BD.7 — Accueil.** `h2#ex-home-heading.section-title` au-dessus de la grille ; les deux titres de colonne passent de `h2` à `h3`, rendu inchangé ; `aria-label` remplacé par `aria-labelledby`. Les deux colonnes tiennent en 3 lignes de métadonnées chacune dans les 4 langues, donc alignées.
+
+**BD.8 — Hors périmètre, relevé sans intervention.**
+- Nombres en toutes lettres restants : `introText` EN et FR (« twenty-five photographs », « vingt-cinq photographies ») et les `osIntroText` (« three portraits », « trois portraits »). Ce sont des nombres en texte courant, où les lettres sont l'usage correct ; seuls les champs de métadonnées passent en chiffres.
+- Tirets cadratins préexistants : lien « View the project — Spilling Beyond the Lines → » de la page anglaise, et les `thanksText` EN, FR, PT plus la version en dur de la page anglaise.
+- `exhiOsMeta` (accueil) garde des espaces normales autour du point médian, n'étant pas dans la liste fermée, alors que `osListPlace` a désormais des insécables.
+- Le tableau mort `installationImages` (voir BC.9) est toujours là.
+
+**BD.9 — Recette.** `npm run build` sans erreur, 50 pages. Mesures 1440 px et 390 px, 4 langues : en-tête identique au pixel à Projects, titres de bloc identiques à `.wi-title`, huit conteneurs à x120 l1200, visuel au ratio 0.8000 égal à une vue de la rangée de quatre, ancres stables images non chargées (écart 0 px, sauf −1 px sur `#open-studio` à 1440 px, arrondi sous-pixel), lien de sommaire sans débord dans les 4 langues, aucune classe locale recopiant une fonction existante (seule règle CSS nouvelle : une marge).
+
+---
+
 ## 9. Travailler avec Claude Code
 1. Créer le dépôt GitHub + projet Astro, connecter Cloudflare Pages.
 2. Donner **ce cahier** en contexte.

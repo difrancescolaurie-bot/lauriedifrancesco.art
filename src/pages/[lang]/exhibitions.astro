@@ -59,7 +59,8 @@ const t = ui[lang as Lang].exhibitions;
 
   <!-- ── Titre de page ──────────────────────────────────────── -->
   <section class="ex-head container">
-    <h1 class="ex-eyebrow">{t.eyebrow}</h1>
+    <p class="ex-eyebrow">{t.eyebrow}</p>
+    <h1 class="ex-h1">{t.pageTitle}</h1>
   </section>
 
   <!-- ── Sommaire ───────────────────────────────────────────── -->
@@ -83,7 +84,7 @@ const t = ui[lang as Lang].exhibitions;
   <!-- ── Bloc Open Studio ───────────────────────────────────── -->
   <section class="ex-block rv" id="open-studio">
     <div class="ex-block-head">
-      <h2 class="ex-h1">{t.osTitle}</h2>
+      <h2 class="wi-title ex-block-title">{t.osTitle}</h2>
       <p class="ex-meta">
         <span class="ex-meta-accent">{t.osMetaFirst}</span>
         &nbsp;·&nbsp; {t.osMetaVenue} · {t.osMetaLocation}
@@ -135,7 +136,7 @@ const t = ui[lang as Lang].exhibitions;
   <!-- ── Bloc Belo Horizonte ────────────────────────────────── -->
   <section class="ex-block" id="spilling-beyond-the-lines">
     <div class="ex-block-head">
-      <h2 class="ex-h1">{t.exhibitionTitle}</h2>
+      <h2 class="wi-title ex-block-title">{t.exhibitionTitle}</h2>
       <p class="ex-meta">
         <span class="ex-meta-accent">{t.metaFirst}</span>
         &nbsp;·&nbsp; Livraria da Rua · {t.metaLocation}
@@ -235,7 +236,7 @@ const t = ui[lang as Lang].exhibitions;
   <!-- ── Impression / Encadrement / Montage ────────────────── -->
   <div class="ex-craft">
     <p class="ex-craft-eyebrow">{t.craftEyebrow}</p>
-    <p class="ex-craft-sub">{t.craftSub}</p>
+    <p class="section-title">{t.craftSub}</p>
 
     <div class="ex-videos">
 

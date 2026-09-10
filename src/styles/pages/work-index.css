@@ -37,16 +37,7 @@ body { background: var(--sable); }
   margin-bottom: .4rem;
 }
 
-.wi-title {
-  font-family: var(--font-title);
-  font-weight: 200;
-  text-transform: uppercase;
-  font-size: var(--T-projet);
-  letter-spacing: .055em;
-  line-height: 1.12;
-  color: var(--encre);
-  margin-bottom: .6rem;
-}
+/* .wi-title est desormais definie dans global.css (fonction partagee). */
 
 .p1 .proj-head .wi-title,
 .p2 .wi-title,

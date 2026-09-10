@@ -92,6 +92,36 @@ a {
   --ardoise: rgba(255, 255, 255, .75);
 }
 
+/* ─── Titre de projet ────────────────────────────────────
+   Fonction typographique partagee (echelle --T-projet).
+   Deplacee ici depuis work-index.css le 2026-09-10 pour etre
+   disponible sur toutes les pages. Valeurs inchangees. */
+.wi-title {
+  font-family: var(--font-title);
+  font-weight: 200;
+  text-transform: uppercase;
+  font-size: var(--T-projet);
+  letter-spacing: .055em;
+  line-height: 1.12;
+  color: var(--encre);
+  margin-bottom: .6rem;
+}
+
+/* ─── Titre de section ───────────────────────────────────
+   Fonction typographique partagee (echelle --T-section) :
+   titre d'une section a l'interieur d'une page qui a deja un titre.
+   Definie ici le 2026-09-10 depuis .ex-craft-sub, valeurs inchangees. */
+.section-title {
+  font-family: var(--font-title);
+  font-weight: 200;
+  text-transform: uppercase;
+  letter-spacing: .055em;
+  font-size: var(--T-section);
+  line-height: 1.05;
+  color: var(--encre);
+  margin-bottom: clamp(1.5rem, 4vh, 3rem);
+}
+
 /* ─── Ligne d'horizon ────────────────────────────────── */
 .horizon {
   display: block;
