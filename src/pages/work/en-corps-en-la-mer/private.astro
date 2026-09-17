@@ -293,7 +293,7 @@ const spreads: Spread[] = [
   const urlLang = new URLSearchParams(location.search).get('lang');
   if (urlLang) {
     const backLink = document.querySelector('#pgallery .next-project a');
-    if (backLink) backLink.setAttribute('href', '/' + urlLang + '/work/en-corps-en-la-mer');
+    if (backLink) backLink.setAttribute('href', '/' + urlLang + '/work/en-corps-en-la-mer/');
   }
 
   if (sessionStorage.getItem('ecm-private-auth') === '1') unlock();

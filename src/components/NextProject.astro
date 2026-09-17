@@ -10,7 +10,7 @@ interface Props {
 const { current, lang, label = 'Next project' } = Astro.props;
 const next = getNextProject(current);
 const href = next
-  ? (lang ? `/${lang}/work/${next.slug}` : `/work/${next.slug}`)
+  ? (lang ? `/${lang}/work/${next.slug}/` : `/work/${next.slug}/`)
   : null;
 ---
 

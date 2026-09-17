@@ -13,16 +13,16 @@ const t = ui[currentLang];
   <div class="container footer-inner">
 
     <div class="footer-top">
-      <a href={prefix || '/'} class="logotype footer-name">Laurie Di&nbsp;Francesco</a>
+      <a href={`${prefix}/`} class="logotype footer-name">Laurie Di&nbsp;Francesco</a>
       <span class="horizon"></span>
       <p class="footer-tagline">{t.home.heroLine1}<br /><em>{t.home.heroLine2}</em></p>
     </div>
 
     <nav class="footer-nav" aria-label="Footer navigation">
-      <a href={`${prefix}/work`}>{t.nav.work}</a>
-      <a href={`${prefix}/exhibitions`}>{t.nav.exhibitions}</a>
-      <a href={`${prefix}/about`}>{t.nav.about}</a>
-      <a href={`${prefix}/contact`}>{t.nav.contact}</a>
+      <a href={`${prefix}/work/`}>{t.nav.work}</a>
+      <a href={`${prefix}/exhibitions/`}>{t.nav.exhibitions}</a>
+      <a href={`${prefix}/about/`}>{t.nav.about}</a>
+      <a href={`${prefix}/contact/`}>{t.nav.contact}</a>
     </nav>
 
     <div class="footer-social">
@@ -40,7 +40,7 @@ const t = ui[currentLang];
       <p class="footer-copy">&copy; {year} Laurie Di Francesco · All rights reserved</p>
       <p class="footer-madeby"><em>{t.footer.madeBy}</em></p>
       <div class="footer-legal-links">
-        <a href="/legal">{t.footer.legalNotice}</a>
+        <a href="/legal/">{t.footer.legalNotice}</a>
       </div>
     </div>
 

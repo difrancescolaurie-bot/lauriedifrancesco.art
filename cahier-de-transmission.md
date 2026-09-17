@@ -968,6 +968,34 @@ Les pages anglaises portant leurs chaînes en dur, elles ont été corrigées s�
 
 ---
 
+**Lot BE — Liens internes avec barre oblique finale (2026-09-17).**
+
+**BE.1 — Constat.** Rapport de couverture Search Console du 16 septembre : 14 pages indexées sur 44, 65 adresses connues de Google pour un site de 44 pages. Vérification en ligne : sitemap, canoniques, hreflang et og:url écrivaient les adresses avec barre finale (`/about/`), mais les liens internes sans (`/about`). Cloudflare redirigeait chacun de ces liens en 307 (temporaire) vers la forme avec barre. Google découvrait donc deux adresses par page et dépensait son exploration en redirections.
+
+**BE.2 — Règle permanente.** Toute adresse interne finit par une barre oblique, ancre et paramètre placés après : `/work/la-mer-en-corps/`, `/exhibitions/#open-studio`, `/work/en-corps-en-la-mer/private/?lang=fr`. Ne s'applique pas aux fichiers (`/images/…`, `/favicon.svg`) ni aux ancres seules (`#serie`).
+
+**BE.3 — Garde-fou.** `trailingSlash: 'always'` dans `astro.config.mjs`. En local, une adresse sans barre finale renvoie une 404 : un lien oublié se voit immédiatement. Taper `localhost:4321/about` donne donc une 404, c'est voulu ; `localhost:4321/about/` fonctionne. Sans effet sur le site construit : mêmes 50 pages, même sitemap.
+
+**BE.4 — Endroits corrigés.**
+- Logique : `Header.astro` (`langUrl`, `navUrl`, `homeUrl`), `Footer.astro` (accueil, 4 liens de navigation, mentions légales), `NextProject.astro`, script de `404.astro`, script du lien retour de `work/en-corps-en-la-mer/private.astro`.
+- Pages : accueils EN et [lang], index Travaux EN et [lang], About EN et [lang], Expositions EN et [lang], `legal.astro`, En Corps à la Mer EN et [lang] (lien vers la page privée).
+- Données structurées : champ `url` du `CreativeWork` des 12 pages projet.
+
+Dans `Header.astro`, `translatedPages` et `basePath` restent écrits **sans** barre finale : ce sont des clés de comparaison, `basePath` retire la barre avant de comparer. Seules les adresses produites en sortie portent la barre.
+
+**BE.5 — Recette.**
+
+| Contrôle | Résultat |
+|---|---|
+| `npm run build` | sans erreur, 50 pages |
+| Liens internes dans les 50 pages construites | 1 249 liens, 60 adresses distinctes, 0 sans barre finale, 0 vers une page inexistante |
+| Sélecteur de langue (14 cas : pages traduites, non traduites, privées, 404) | cible correcte partout |
+| Canoniques, hreflang, og:url, comparés à la production | identiques |
+| Sitemap, comparé à la production | identique, 44 URL |
+| Serveur local | 200 avec barre finale, 404 sans |
+
+---
+
 ## 9. Travailler avec Claude Code
 1. Créer le dépôt GitHub + projet Astro, connecter Cloudflare Pages.
 2. Donner **ce cahier** en contexte.

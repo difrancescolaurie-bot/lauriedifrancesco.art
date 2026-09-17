@@ -26,14 +26,17 @@ const translatedPages = [
 const targetBase = translatedPages.includes(basePath) ? basePath : '/';
 
 // Build URL for a given language
+// Les URL produites finissent toujours par une barre oblique : c'est la forme
+// canonique servie par Cloudflare (sinon redirection 307). La comparaison avec
+// translatedPages se fait, elle, sur basePath sans barre finale.
 function langUrl(lang: Lang): string {
   const base = targetBase === '/' ? '' : targetBase;
-  return lang === 'en' ? (base || '/') : `/${lang}${base || ''}`;
+  return lang === 'en' ? `${base}/` : `/${lang}${base}/`;
 }
 
 // Build nav link for the current language
 function navUrl(page: string): string {
-  return currentLang === 'en' ? `/${page}` : `/${currentLang}/${page}`;
+  return currentLang === 'en' ? `/${page}/` : `/${currentLang}/${page}/`;
 }
 
 const t = ui[currentLang];
@@ -47,7 +50,7 @@ const navLinks = [
 
 const langs: Lang[] = ['en', 'fr', 'it', 'pt'];
 const langLabel: Record<Lang, string> = { en: 'EN', fr: 'FR', it: 'IT', pt: 'BR' };
-const homeUrl = currentLang === 'en' ? '/' : `/${currentLang}`;
+const homeUrl = currentLang === 'en' ? '/' : `/${currentLang}/`;
 ---
 
 <header class:list={['site-header', { 'site-header--light': lightHeader }]}>
