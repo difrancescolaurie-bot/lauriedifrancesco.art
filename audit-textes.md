@@ -611,7 +611,7 @@ PT : As informações que você envia são utilizadas apenas para responder à s
 ### EN
 
 **Publisher & editorial director**
-Laurie Di Francesco · Visual artist · Registered in France · SIRET: 91132036 00013 · APE: 74.20Z
+Laurie Di Francesco · Visual artist · Registered in France · SIRET: 991 132 036 00013 · APE: 74.20Z
 
 **Hosting**
 Cloudflare, Inc. · 101 Townsend St, San Francisco, CA 94107, United States.
@@ -620,12 +620,12 @@ Cloudflare, Inc. · 101 Townsend St, San Francisco, CA 94107, United States.
 This site has a contact form. The information submitted (name, email address, message) is forwarded directly to the publisher via Web3Forms and is not stored on a server beyond the time required for transmission. No cookies are used. Audience measurement relies on Cloudflare Web Analytics (no cookies, no visitor identification) and Google Search Console (aggregated search presence statistics).
 
 **Intellectual property**
-All photographs and texts published on this site are the exclusive property of Laurie Di Francesco. Any reproduction, even partial, is prohibited without prior authorisation.
+All photographs and texts published on this site are the work of Laurie Di Francesco. Any reproduction or public display, in whole or in part, is prohibited without prior authorisation (French Intellectual Property Code, art. L.122-4). Laurie Di Francesco is a member of SAIF (Société des auteurs des arts visuels et de l'image fixe), the French collective management society for visual artists: requests to use her photographs should be addressed to SAIF (saif.fr). For any other enquiry, please use the contact form.
 
 ### FR
 
 **Éditrice & directrice de publication**
-Laurie Di Francesco · Artiste-auteure photographe · SIRET : 91132036 00013 · APE : 74.20Z
+Laurie Di Francesco · Artiste-auteure photographe · SIRET : 991 132 036 00013 · APE : 74.20Z
 
 **Hébergement**
 Cloudflare, Inc. · 101 Townsend St, San Francisco, CA 94107, États-Unis.
@@ -634,7 +634,7 @@ Cloudflare, Inc. · 101 Townsend St, San Francisco, CA 94107, États-Unis.
 Ce site dispose d'un formulaire de contact. Les informations saisies (nom, adresse e-mail, message) sont transmises directement à l'éditrice via Web3Forms et ne sont pas conservées sur un serveur au-delà du temps nécessaire à la transmission. Aucun cookie n'est déposé. La mesure d'audience repose sur Cloudflare Web Analytics (sans cookie ni identification des visiteurs) et sur Google Search Console (statistiques agrégées de présence dans les résultats de recherche).
 
 **Propriété intellectuelle**
-L'ensemble des photographies et textes publiés sur ce site sont la propriété exclusive de Laurie Di Francesco. Toute reproduction, même partielle, est interdite sans autorisation préalable.
+Les photographies et les textes publiés sur ce site sont l'œuvre de Laurie Di Francesco. Toute reproduction ou représentation, totale ou partielle, est interdite sans autorisation préalable (art. L.122-4 du Code de la propriété intellectuelle). Laurie Di Francesco est membre de la SAIF (Société des auteurs des arts visuels et de l'image fixe) : les demandes d'autorisation concernant ses photographies sont à adresser à la SAIF (saif.fr). Pour toute autre demande, merci d'utiliser le formulaire de contact.
 
 ---
 

@@ -37,7 +37,7 @@ const t = ui[currentLang];
     </div>
 
     <div class="footer-bottom">
-      <p class="footer-copy">&copy; {year} Laurie Di Francesco · All rights reserved</p>
+      <p class="footer-copy">&copy; {year} Laurie Di Francesco / <a href="https://www.saif.fr" target="_blank" rel="noopener noreferrer">SAIF</a> · <span class="footer-rights">{t.footer.rights}</span></p>
       <p class="footer-madeby"><em>{t.footer.madeBy}</em></p>
       <div class="footer-legal-links">
         <a href="/legal/">{t.footer.legalNotice}</a>
@@ -138,6 +138,11 @@ const t = ui[currentLang];
     color: var(--ardoise);
   }
 
+  /* La mention des droits ne se coupe jamais : la ligne passe à la ligne après « SAIF · ». */
+  .footer-rights {
+    white-space: nowrap;
+  }
+
   .footer-madeby {
     grid-area: madeby;
     font-size: var(--t-xs);
@@ -160,11 +165,13 @@ const t = ui[currentLang];
     color: var(--ardoise);
   }
 
+  .footer-copy a,
   .footer-legal-links a {
     color: var(--ardoise);
     transition: color 0.2s;
   }
 
+  .footer-copy a:hover,
   .footer-legal-links a:hover {
     color: var(--encre);
   }

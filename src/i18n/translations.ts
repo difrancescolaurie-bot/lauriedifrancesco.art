@@ -129,6 +129,7 @@ export const ui = {
     footer: {
       madeBy: 'A site made by hand by Laurie Di Francesco',
       legalNotice: 'Legal notice',
+      rights: 'All rights reserved',
     },
   },
 
@@ -260,6 +261,7 @@ export const ui = {
     footer: {
       madeBy: 'Un site fait à la main par Laurie Di Francesco',
       legalNotice: 'Mentions légales',
+      rights: 'Tous droits réservés',
     },
   },
 
@@ -391,6 +393,7 @@ export const ui = {
     footer: {
       madeBy: 'Un sito fatto a mano da Laurie Di Francesco',
       legalNotice: 'Note legali',
+      rights: 'Tutti i diritti riservati',
     },
   },
 
@@ -522,6 +525,7 @@ export const ui = {
     footer: {
       madeBy: 'Um site feito à mão por Laurie Di Francesco',
       legalNotice: 'Aviso legal',
+      rights: 'Todos os direitos reservados',
     },
   },
 } as const;
