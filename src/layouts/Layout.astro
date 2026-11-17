@@ -25,13 +25,6 @@ const htmlLang = lang === 'pt' ? 'pt-BR' : lang;
 
 const description = Astro.props.description ?? `${t.home.heroLine1} · ${t.home.heroLine2}`;
 
-const photographerLabel: Record<Lang, string> = {
-  en: 'Photographer',
-  fr: 'Photographe',
-  it: 'Fotografa',
-  pt: 'Fotógrafa',
-};
-
 const ogLocale: Record<Lang, string> = {
   en: 'en_US',
   fr: 'fr_FR',
@@ -41,24 +34,19 @@ const ogLocale: Record<Lang, string> = {
 
 const SITE_URL = "https://lauriedifrancesco.art";
 
-const jobTitleMap: Record<Lang, string> = {
-  en: 'Photographer and author',
-  fr: 'Photographe et autrice',
-  it: 'Fotografa e autrice',
-  pt: 'Fotógrafa e autora',
-};
-
+// Le sous-titre du héro (translations.ts, home.heroLine1) sert aussi de titre
+// de la page d'accueil et de jobTitle : une seule source à modifier.
 const personSchema = {
   "@context": "https://schema.org",
   "@type": "Person",
   "name": "Laurie Di Francesco",
-  "jobTitle": jobTitleMap[validLang],
+  "jobTitle": t.home.heroLine1,
   "url": SITE_URL,
   "sameAs": ["https://www.instagram.com/laurie.difrancesco/"],
   "knowsLanguage": ["fr", "en", "it", "pt"],
 };
 const siteTitle = title === "Home"
-  ? `Laurie Di Francesco · ${photographerLabel[validLang]}`
+  ? `Laurie Di Francesco · ${t.home.heroLine1}`
   : title.includes("Laurie Di Francesco")
     ? title
     : `${title} · Laurie Di Francesco`;

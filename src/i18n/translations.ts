@@ -9,7 +9,7 @@ export const ui = {
       contact: "Contact",
     },
     home: {
-      heroLine1: "Documentary and poetic photography",
+      heroLine1: "Artist-researcher and photographer",
       heroLine2: "Where the blue of the sky opens into new shades",
       creedEyebrow: "Currently",
       enter: "Enter ↗",
@@ -141,7 +141,7 @@ export const ui = {
       contact: "Contact",
     },
     home: {
-      heroLine1: "Photographie documentaire et poétique",
+      heroLine1: "Artiste chercheuse et photographe",
       heroLine2: "Là où le bleu du ciel prend de nouvelles nuances",
       creedEyebrow: "Actuellement",
       enter: "Entrer ↗",
@@ -273,7 +273,7 @@ export const ui = {
       contact: "Contatto",
     },
     home: {
-      heroLine1: "Fotografia documentaria e poetica",
+      heroLine1: "Artista ricercatrice e fotografa",
       heroLine2: "Dove il blu del cielo si apre a nuove sfumature",
       creedEyebrow: "Attualmente",
       enter: "Entra ↗",
@@ -405,7 +405,7 @@ export const ui = {
       contact: "Contato",
     },
     home: {
-      heroLine1: "Fotografia documental e poética",
+      heroLine1: "Artista pesquisadora e fotógrafa",
       heroLine2: "Onde o azul do céu se abre em novos tons",
       creedEyebrow: "Atualmente",
       enter: "Entrar ↗",

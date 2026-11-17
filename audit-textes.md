@@ -21,7 +21,7 @@ Les citations de tiers sont signalées `[CITATION]` avec leur source.
 
 ### Hero (EN uniquement — page d'accueil EN est hardcodée)
 
-> Documentary and poetic photography
+> Artist-researcher and photographer
 > Where the blue of the sky opens into new shades
 
 ### Manifeste trilingue (hardcodé EN, affiché sur la page EN)
@@ -33,19 +33,19 @@ Les citations de tiers sont signalées `[CITATION]` avec leur source.
 ### Hero (versions localisées — EN/FR/IT/PT)
 
 **EN**
-> Documentary and poetic photography
+> Artist-researcher and photographer
 > Where the blue of the sky opens into new shades
 
 **FR**
-> Photographie documentaire et poétique
+> Artiste chercheuse et photographe
 > Là où le bleu du ciel prend de nouvelles nuances
 
 **IT**
-> Fotografia documentaria e poetica
+> Artista ricercatrice e fotografa
 > Dove il blu del cielo si apre a nuove sfumature
 
 **PT**
-> Fotografia documental e poética
+> Artista pesquisadora e fotógrafa
 > Onde o azul do céu se abre em novos tons
 
 ### Notes projets (page d'accueil — vignettes)
