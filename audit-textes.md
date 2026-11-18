@@ -37,15 +37,15 @@ Les citations de tiers sont signalées `[CITATION]` avec leur source.
 > Where the blue of the sky opens into new shades
 
 **FR**
-> Artiste chercheuse et photographe
+> Artiste-chercheuse et photographe
 > Là où le bleu du ciel prend de nouvelles nuances
 
 **IT**
-> Artista ricercatrice e fotografa
+> Artista-ricercatrice e fotografa
 > Dove il blu del cielo si apre a nuove sfumature
 
 **PT**
-> Artista pesquisadora e fotógrafa
+> Artista-pesquisadora e fotógrafa
 > Onde o azul do céu se abre em novos tons
 
 ### Notes projets (page d'accueil — vignettes)

@@ -23,7 +23,12 @@ const validLang: Lang = (lang === 'fr' || lang === 'it' || lang === 'pt') ? lang
 const t = ui[validLang];
 const htmlLang = lang === 'pt' ? 'pt-BR' : lang;
 
-const description = Astro.props.description ?? `${t.home.heroLine1} · ${t.home.heroLine2}`;
+// L'intitulé (translations.ts, home.heroLine1) s'affiche avec une majuscule sur
+// la page, et en minuscule dans les balises : title, og:title, description par
+// défaut et jobTitle. Une seule source à modifier.
+const roleLower = t.home.heroLine1.charAt(0).toLowerCase() + t.home.heroLine1.slice(1);
+
+const description = Astro.props.description ?? `${roleLower} · ${t.home.heroLine2}`;
 
 const ogLocale: Record<Lang, string> = {
   en: 'en_US',
@@ -34,19 +39,17 @@ const ogLocale: Record<Lang, string> = {
 
 const SITE_URL = "https://lauriedifrancesco.art";
 
-// Le sous-titre du héro (translations.ts, home.heroLine1) sert aussi de titre
-// de la page d'accueil et de jobTitle : une seule source à modifier.
 const personSchema = {
   "@context": "https://schema.org",
   "@type": "Person",
   "name": "Laurie Di Francesco",
-  "jobTitle": t.home.heroLine1,
+  "jobTitle": roleLower,
   "url": SITE_URL,
   "sameAs": ["https://www.instagram.com/laurie.difrancesco/"],
   "knowsLanguage": ["fr", "en", "it", "pt"],
 };
 const siteTitle = title === "Home"
-  ? `Laurie Di Francesco · ${t.home.heroLine1}`
+  ? `Laurie Di Francesco · ${roleLower}`
   : title.includes("Laurie Di Francesco")
     ? title
     : `${title} · Laurie Di Francesco`;

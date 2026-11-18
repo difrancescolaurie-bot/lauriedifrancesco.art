@@ -70,7 +70,7 @@ La page `private.astro` est également exclue du sitemap par le filtre `/private
 
 | Page | description |
 |---|---|
-| `/` (home) | Artist-researcher and photographer · Where the blue of the sky opens into new shades |
+| `/` (home) | Research combining photography, writing, archives and biometric data, exploring the body, water, memory and borders. |
 | `/work` | Stories in Images · Laurie Di Francesco, photography and writing. |
 | `/work/quando-sono-qui` | Quando sono qui, non sono là · An intimate geography of presence and absence. Brazil · ongoing. |
 | `/work/la-mer-en-corps` | La Mer en Corps · water and dreams, giving body to movement. A year of passages. |

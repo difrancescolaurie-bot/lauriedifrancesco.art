@@ -11,6 +11,7 @@ export const ui = {
     home: {
       heroLine1: "Artist-researcher and photographer",
       heroLine2: "Where the blue of the sky opens into new shades",
+      metaDescription: "Research combining photography, writing, archives and biometric data, exploring the body, water, memory and borders.",
       creedEyebrow: "Currently",
       enter: "Enter ↗",
       previousWorks: "Previous works",
@@ -141,8 +142,9 @@ export const ui = {
       contact: "Contact",
     },
     home: {
-      heroLine1: "Artiste chercheuse et photographe",
+      heroLine1: "Artiste-chercheuse et photographe",
       heroLine2: "Là où le bleu du ciel prend de nouvelles nuances",
+      metaDescription: "Recherche mêlant photographie, écriture, archives et données biométriques autour du corps, de l’eau, de la mémoire et des frontières.",
       creedEyebrow: "Actuellement",
       enter: "Entrer ↗",
       previousWorks: "Projets précédents",
@@ -273,8 +275,9 @@ export const ui = {
       contact: "Contatto",
     },
     home: {
-      heroLine1: "Artista ricercatrice e fotografa",
+      heroLine1: "Artista-ricercatrice e fotografa",
       heroLine2: "Dove il blu del cielo si apre a nuove sfumature",
+      metaDescription: "Ricerca che intreccia fotografia, scrittura, archivi e dati biometrici attorno al corpo, all’acqua, alla memoria e alle frontiere.",
       creedEyebrow: "Attualmente",
       enter: "Entra ↗",
       previousWorks: "Progetti precedenti",
@@ -405,8 +408,9 @@ export const ui = {
       contact: "Contato",
     },
     home: {
-      heroLine1: "Artista pesquisadora e fotógrafa",
+      heroLine1: "Artista-pesquisadora e fotógrafa",
       heroLine2: "Onde o azul do céu se abre em novos tons",
+      metaDescription: "Pesquisa que mescla fotografia, escrita, arquivos e dados biométricos em torno do corpo, da água, da memória e das fronteiras.",
       creedEyebrow: "Atualmente",
       enter: "Entrar ↗",
       previousWorks: "Projetos anteriores",
